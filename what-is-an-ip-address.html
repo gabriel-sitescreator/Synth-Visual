@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What Is an IP Address? A Beginner’s Guide | Synth Visual</title>
+  <meta name="description" content="Learn what an IP address means, how it routes data online, what it reveals, and how public and private IPs, IPv4, IPv6, and changing addresses work.">
+  <meta name="theme-color" content="#f7f7f4">
+  <link rel="canonical" href="https://synthvisuals.space/what-is-an-ip-address.html">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Synth Visual">
+  <meta property="og:title" content="What Is an IP Address? A Beginner’s Guide">
+  <meta property="og:description" content="Learn what an IP address means, how it routes data online, what it reveals, and how public and private IPs, IPv4, IPv6, and changing addresses work.">
+  <meta property="og:url" content="https://synthvisuals.space/what-is-an-ip-address.html">
+  <meta property="og:image" content="https://synthvisuals.space/ip-address-network.svg">
+  <meta property="og:image:alt" content="Illustration of connected devices communicating through a router and network using IP addresses.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="What Is an IP Address? A Beginner’s Guide">
+  <meta name="twitter:description" content="Learn what an IP address means, how it routes data online, what it reveals, and how public and private IPs, IPv4, IPv6, and changing addresses work.">
+  <meta name="twitter:image" content="https://synthvisuals.space/ip-address-network.svg">
+  <link rel="preload" as="image" href="/ip-address-network.svg" type="image/svg+xml">
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "What Is an IP Address? A Beginner’s Guide",
+  "description": "Learn what an IP address means, how it routes data online, what it reveals, and how public and private IPs, IPv4, IPv6, and changing addresses work.",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://synthvisuals.space/what-is-an-ip-address.html"
+  },
+  "image": "https://synthvisuals.space/ip-address-network.svg",
+  "author": {
+    "@type": "Organization",
+    "name": "Synth Visual",
+    "url": "https://synthvisuals.space/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Synth Visual",
+    "url": "https://synthvisuals.space/"
+  },
+  "inLanguage": "en-US",
+  "articleSection": "Networking Basics",
+  "keywords": [
+    "what is an IP address",
+    "public IP address",
+    "private IP address",
+    "IPv4 vs. IPv6",
+    "static vs. dynamic IP address",
+    "how to find your IP address"
+  ]
+}
+  </script>
+  <style>
+    :root {
+      --page: #f7f7f4; --surface: #ffffff; --text: #20231f; --muted: #686d66;
+      --line: #e2e5de; --accent: #245b49; --accent-hover: #194637; --soft: #eaf0eb;
+      --max-width: 1080px; --radius: 16px; --shadow: 0 8px 30px rgba(27,39,30,.045);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 105px; }
+    body { margin: 0; background: var(--page); color: var(--text); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    a { color: inherit; text-decoration: none; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #7cae98; outline-offset: 4px; border-radius: 4px; }
+    .container { width: min(var(--max-width), calc(100% - 48px)); margin-inline: auto; }
+    .site-header { position: sticky; top: 0; z-index: 50; border-bottom: 1px solid rgba(226,229,222,.92); background: rgba(247,247,244,.94); backdrop-filter: blur(16px); }
+    .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; flex-direction: column; line-height: 1.05; flex-shrink: 0; }
+    .brand-name { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 700; letter-spacing: -1.2px; }
+    .brand-tagline { margin-top: 6px; color: var(--muted); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; }
+    .main-nav { display: flex; align-items: center; gap: 27px; color: #424840; font-size: 13px; font-weight: 600; }
+    .main-nav a { transition: color 160ms ease, background 160ms ease; } .main-nav a:hover { color: var(--accent); }
+    .nav-cta { padding: 10px 15px; border: 1px solid #cbd6ce; border-radius: 999px; color: var(--accent) !important; }
+    .nav-cta:hover { background: var(--soft); }
+    .menu-toggle { display: none; background: transparent; border: 1px solid var(--line); border-radius: 10px; width: 42px; height: 42px; color: var(--text); cursor: pointer; font-size: 21px; }
+    .breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; padding-top: 28px; color: var(--muted); font-size: 12px; }
+    .breadcrumb a:hover { color: var(--accent); } .breadcrumb .crumb-sep { color: #a0a79f; }
+    .hero { padding: 40px 0 35px; }
+    .hero-panel { display: grid; grid-template-columns: minmax(0,1.08fr) minmax(320px,.92fr); align-items: center; gap: 34px; padding: clamp(26px,4vw,48px); background: var(--surface); border: 1px solid var(--line); border-radius: 22px; box-shadow: var(--shadow); overflow: hidden; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px; color: var(--accent); font-size: 11px; font-weight: 750; letter-spacing: 1.8px; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 23px; height: 1px; background: currentColor; }
+    h1, h2, h3 { line-height: 1.22; }
+    h1 { max-width: 680px; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(34px,4.2vw,51px); letter-spacing: -1.55px; font-weight: 700; }
+    .hero-summary { max-width: 620px; margin: 19px 0 0; color: #5e645d; font-size: 16px; line-height: 1.8; }
+    .article-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 24px; color: var(--muted); font-size: 12px; }
+    .meta-pill { display: inline-flex; align-items: center; gap: 7px; padding: 6px 10px; background: var(--soft); border-radius: 999px; color: var(--accent); font-weight: 700; }
+    .meta-dot { width: 3px; height: 3px; border-radius: 50%; background: #9da69e; }
+    .hero-art { min-width: 0; } .hero-art img { display: block; width: 100%; height: auto; border-radius: 17px; }
+    .article-layout { display: grid; grid-template-columns: 230px minmax(0,1fr); align-items: start; gap: clamp(28px,4vw,54px); padding: 12px 0 82px; }
+    .toc { position: sticky; top: 112px; max-height: calc(100vh - 135px); overflow: auto; padding: 21px 18px 19px; background: rgba(255,255,255,.72); border: 1px solid var(--line); border-radius: 16px; }
+    .toc-title { margin: 0 0 12px; color: var(--text); font-size: 12px; letter-spacing: .7px; text-transform: uppercase; }
+    .toc ol { margin: 0; padding: 0; list-style: none; display: grid; gap: 2px; }
+    .toc a { display: block; padding: 6px 8px; border-radius: 7px; color: #626860; font-size: 12px; line-height: 1.45; }
+    .toc a:hover, .toc a.active { color: var(--accent); background: var(--soft); }
+    .article-card { min-width: 0; padding: clamp(25px,4.4vw,50px); background: var(--surface); border: 1px solid var(--line); border-radius: 20px; box-shadow: var(--shadow); }
+    .article-content { max-width: 760px; margin: 0 auto; font-size: 16px; line-height: 1.85; overflow-wrap: anywhere; }
+    .article-content > p:first-of-type { margin-top: 0; font-size: 17px; color: #3c443d; }
+    .article-content p { margin: 0 0 1.22em; }
+    .article-content h2 { scroll-margin-top: 110px; margin: 2.1em 0 .65em; padding-top: .22em; font-family: Georgia, "Times New Roman", serif; font-size: clamp(25px,3vw,32px); letter-spacing: -.55px; }
+    .article-content h2:first-child { margin-top: .2em; }
+    .article-content h3 { scroll-margin-top: 110px; margin: 1.6em 0 .55em; font-size: 19px; letter-spacing: -.2px; }
+    .article-content a { color: var(--accent); text-decoration: underline; text-decoration-color: #adc5b5; text-underline-offset: 3px; }
+    .article-content a:hover { color: var(--accent-hover); text-decoration-color: currentColor; }
+    .article-content ul, .article-content ol { margin: 0 0 1.35em; padding-left: 1.4em; }
+    .article-content li { margin: .35em 0; padding-left: .15em; }
+    .article-content strong { color: #27372d; }
+    .article-content code { padding: .13em .4em; border: 1px solid #e3e8e2; border-radius: 5px; background: #f3f6f2; color: #244e3b; font-size: .88em; overflow-wrap: anywhere; }
+    .article-content table { width: 100%; margin: 1.4em 0 1.8em; border-collapse: separate; border-spacing: 0; font-size: 13px; line-height: 1.6; border: 1px solid var(--line); border-radius: 11px; overflow: hidden; }
+    .article-content th, .article-content td { padding: 12px 13px; border-bottom: 1px solid var(--line); border-right: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .article-content th { background: #edf3ee; color: #294d3a; font-size: 12px; font-weight: 750; }
+    .article-content tr:last-child td { border-bottom: 0; } .article-content th:last-child, .article-content td:last-child { border-right: 0; }
+    .article-content blockquote { margin: 1.4em 0; padding: 4px 0 4px 20px; border-left: 3px solid #8bad98; color: var(--muted); }
+    .article-content hr { height: 1px; margin: 2.2em 0; border: 0; background: var(--line); }
+    .article-content h2#sources-further-reading + ol { padding-left: 1.45em; }
+    .article-bottom { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 38px; padding-top: 22px; border-top: 1px solid var(--line); }
+    .article-bottom-note { color: var(--muted); font-size: 12px; }
+    .back-top { display: inline-flex; align-items: center; gap: 8px; color: var(--accent); font-size: 13px; font-weight: 700; }
+    .site-footer { border-top: 1px solid var(--line); background: #f1f2ed; }
+    .footer-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 22px; padding: 28px 0 30px; }
+    .footer-brand { font-family: Georgia, "Times New Roman", serif; font-size: 20px; font-weight: 700; }
+    .footer-copy { margin-top: 6px; color: var(--muted); font-size: 11px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 16px; color: #5b625a; font-size: 12px; } .footer-links a:hover { color: var(--accent); }
+    .reading-progress { position: fixed; z-index: 60; top: 0; left: 0; width: 0; height: 3px; background: var(--accent); }
+    @media (max-width: 850px) {
+      .container { width: min(var(--max-width), calc(100% - 32px)); }
+      .hero-panel { grid-template-columns: minmax(0,1fr); gap: 24px; } .hero-art { max-width: 620px; width: 100%; margin-inline: auto; }
+      .article-layout { grid-template-columns: minmax(0,1fr); gap: 18px; } .toc { position: static; max-height: none; } .toc ol { grid-template-columns: repeat(2,minmax(0,1fr)); }
+    }
+    @media (max-width: 640px) {
+      .header-inner { min-height: 72px; } .brand-name { font-size: 24px; } .brand-tagline { font-size: 9px; letter-spacing: 1.2px; }
+      .menu-toggle { display: inline-grid; place-items: center; } .main-nav { display: none; position: absolute; top: calc(100% + 1px); left: 0; right: 0; padding: 14px 22px 18px; flex-direction: column; align-items: stretch; gap: 0; background: var(--page); border-bottom: 1px solid var(--line); box-shadow: 0 12px 20px rgba(27,39,30,.06); } .main-nav.open { display: flex; } .main-nav a { padding: 12px 5px; } .nav-cta { text-align: center; margin-top: 7px; }
+      .breadcrumb { padding-top: 20px; font-size: 11px; } .hero { padding-top: 25px; } .hero-panel { padding: 24px 20px; border-radius: 17px; } h1 { font-size: clamp(33px,9vw,43px); } .hero-summary { font-size: 15px; }
+      .article-card { padding: 24px 20px; border-radius: 16px; } .article-content { font-size: 15px; } .article-content > p:first-of-type { font-size: 16px; } .article-content table { display: block; overflow-x: auto; white-space: normal; } .article-content th, .article-content td { min-width: 115px; padding: 10px; }
+      .toc ol { grid-template-columns: minmax(0,1fr); } .footer-inner { align-items: flex-start; flex-direction: column; } .footer-links { gap: 11px 16px; } .article-bottom { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition-duration: .01ms !important; animation-duration: .01ms !important; } }
+  </style>
+</head>
+<body id="top">
+  <div class="reading-progress" id="readingProgress" aria-hidden="true"></div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Synth Visual home">
+        <span class="brand-name">Synth Visual</span>
+        <span class="brand-tagline">Technology, made clearer</span>
+      </a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mainNav" aria-label="Open navigation menu">☰</button>
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a href="/#guides">Guides</a>
+        <a href="/#about">About</a>
+        <a class="nav-cta" href="/#guides">Explore Articles&nbsp; ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="crumb-sep" aria-hidden="true">/</span><a href="/#guides">Guides</a><span class="crumb-sep" aria-hidden="true">/</span><span aria-current="page">What Is an IP Address?</span>
+      </nav>
+      <section class="hero" aria-labelledby="article-title">
+        <div class="hero-panel">
+          <div class="hero-copy">
+            <p class="eyebrow">Networking Basics · Beginner</p>
+            <h1 id="article-title">What Is an IP Address? A Beginner’s Guide</h1>
+            <p class="hero-summary">A clear, practical introduction to IP addresses, how devices use them to communicate, and what your address can—and cannot—tell others about you.</p>
+            <div class="article-meta" aria-label="Article details">
+              <span class="meta-pill">Beginner’s Guide</span><span class="meta-dot" aria-hidden="true"></span><span>18 min read</span><span class="meta-dot" aria-hidden="true"></span><span>Networking &amp; Privacy</span>
+            </div>
+          </div>
+          <div class="hero-art"><img src="/ip-address-network.svg" width="960" height="560" alt="Illustration of connected devices communicating through a router and network using IP addresses." fetchpriority="high"></div>
+        </div>
+      </section>
+
+      <div class="article-layout">
+        <aside class="toc" aria-label="Article navigation">
+          <h2 class="toc-title">On this page</h2>
+          <ol><li><a href="#what-does-ip-address-mean">What Does IP Address Mean?</a></li>
+<li><a href="#how-does-an-ip-address-work">How Does an IP Address Work?</a></li>
+<li><a href="#what-is-a-public-ip-address">What Is a Public IP Address?</a></li>
+<li><a href="#what-is-a-private-ip-address">What Is a Private IP Address?</a></li>
+<li><a href="#public-ip-vs-private-ip-whats-the-difference">Public IP vs. Private IP: What's the Difference?</a></li>
+<li><a href="#what-is-ipv4">What Is IPv4?</a></li>
+<li><a href="#what-is-ipv6">What Is IPv6?</a></li>
+<li><a href="#what-is-the-difference-between-static-and-dynamic-ip-addresses">What Is the Difference Between Static and Dynamic IP Addresses?</a></li>
+<li><a href="#what-can-someone-learn-from-your-ip-address">What Can Someone Learn From Your IP Address?</a></li>
+<li><a href="#does-an-ip-address-reveal-your-identity">Does an IP Address Reveal Your Identity?</a></li>
+<li><a href="#how-to-find-your-ip-address">How to Find Your IP Address</a></li>
+<li><a href="#does-your-ip-address-change">Does Your IP Address Change?</a></li>
+<li><a href="#ip-address-vs-mac-address-whats-the-difference">IP Address vs. MAC Address: What's the Difference?</a></li>
+<li><a href="#frequently-asked-questions-about-ip-addresses">Frequently Asked Questions About IP Addresses</a></li>
+<li><a href="#conclusion">Conclusion</a></li>
+<li><a href="#sources-further-reading">Sources &amp; Further Reading</a></li></ol>
+        </aside>
+        <article class="article-card" aria-labelledby="article-title">
+          <div class="article-content">
+            <p>An IP address is a numerical label assigned to a network interface or endpoint so Internet Protocol (IP) data can identify its source and destination and travel across networks. Put simply, when people ask what is an IP address, they are asking about one of the basic addressing systems that allows devices to communicate over the internet.</p>
+<p>Everyday activities such as browsing a website, watching a video, or sending a message depend on network communication. IP addresses help data reach the appropriate destination, whether that destination is a server on the internet or another device on a local network.</p>
+<p>There are different types of IP addresses. <strong>Public and private IP addresses</strong> serve different roles, while <strong>IPv4 and IPv6</strong> are two versions of the Internet Protocol. Some addresses remain stable, while others can change over time.</p>
+<p>Understanding these differences makes it easier to learn how the internet works, what an IP address can reveal, and how to find your own.</p>
+<h2 id="what-does-ip-address-mean">What Does IP Address Mean?</h2>
+<p>IP stands for <strong>Internet Protocol</strong>, a set of rules that governs how data is addressed and delivered across interconnected networks. An IP address is one of the essential pieces of information used by this protocol.</p>
+<p>When a device sends data, IP addressing helps identify where the data originated and where it should go. Information travels in units called <em>packets</em>, which carry addressing information that allows network equipment to forward them toward their destinations.</p>
+<p>Think of an IP address as a mailing address for network communication. A postal address helps a delivery service direct a package to the right place. Similarly, IP addressing helps networks direct data packets toward an intended endpoint.</p>
+<p>The analogy is not perfect: IP addresses are not necessarily permanent, and network traffic may pass through several routers before reaching its destination.</p>
+<p>An IP address also does not automatically identify a specific person. It identifies an endpoint for network communication, and the relationship between that endpoint and a device, connection, or person depends on the network setup.</p>
+<p>For example, a home router may give your laptop a private IP address while using a public IP address for internet communication. Websites generally see the public source address used for that connection, not the laptop's private address.</p>
+<h2 id="how-does-an-ip-address-work">How Does an IP Address Work?</h2>
+<p>IP addressing helps data move between networks. Here is what happens when you open a website on your laptop or smartphone.</p>
+<ol>
+<li><strong>Your device connects to a network.</strong> Your laptop joins a home Wi-Fi network, for example, and receives the network configuration needed to communicate.</li>
+<li><strong>Your device uses an appropriate IP address.</strong> It may have a private IP address for communication within the home network and use a public IP address through the router when accessing the internet.</li>
+<li><strong>Your device requests information.</strong> When you open a website, your device sends network traffic toward the destination server. The packets contain source and destination IP addresses.</li>
+<li><strong>Routers forward the packets.</strong> Your home router sends traffic toward your internet service provider (ISP), and routers across the internet forward packets according to routing information.</li>
+<li><strong>The destination responds.</strong> The server processes the request and sends response data toward the source. The network routes those packets back through the relevant connections.</li>
+</ol>
+<p>In a typical home IPv4 setup, the router often uses a technique called <strong>Network Address Translation (NAT)</strong> to allow devices with private addresses to communicate with the internet through a shared public address.</p>
+<p>Another important part of this process is the Domain Name System (DNS). When you enter a website address such as <code>example.com</code>, DNS helps your device discover the IP address associated with that domain name. IP addressing and DNS work together, but they are not the same thing: DNS helps resolve names, while IP addressing supports the delivery of network packets.</p>
+<p>The specific route and addressing details depend on the destination and how the network is configured.</p>
+<h2 id="what-is-a-public-ip-address">What Is a Public IP Address?</h2>
+<p>A public IP address is an address used for communication across the public internet when the address is globally routable. It allows internet-facing services and networks to exchange data with other networks.</p>
+<p>An internet service provider may assign a public IP address to your home router or connection. The assignment can be static or dynamic, depending on the provider and service.</p>
+<p>In a common home network, your laptop, smartphone, and smart TV may all connect to the internet through the same public IPv4 address. The router uses NAT to manage traffic between the devices' private addresses and the shared public address.</p>
+<p>This means that a public IP address does not necessarily belong to one individual device or uniquely identify one person.</p>
+<p>Some providers also use Carrier-Grade NAT (CGNAT), which allows multiple customers to share a public IPv4 address. In this situation, the public address may represent traffic from several separate customer connections.</p>
+<p>Websites and online services can generally see the public source IP address used by a connection. However, the address they observe may belong to a VPN server, proxy, corporate gateway, or other intermediary rather than the user's original internet connection.</p>
+<h2 id="what-is-a-private-ip-address">What Is a Private IP Address?</h2>
+<p>A private IP address is used within a private network, such as a home, school, or office network. Private IPv4 addresses allow connected devices to communicate without requiring each device to have its own globally routable public IPv4 address.</p>
+<p>Common examples include:</p>
+<ul>
+<li><code>192.168.1.20</code></li>
+<li><code>10.0.0.25</code></li>
+<li><code>172.16.0.10</code></li>
+</ul>
+<p>These examples come from address ranges reserved for private use by <a href="https://www.rfc-editor.org/rfc/rfc1918.html" rel="noopener noreferrer" target="_blank">RFC 1918</a>.</p>
+<p>Consider a home network with a laptop, smartphone, and printer. The router might assign each device a different private IP address. The laptop can then send a document to the printer over the local network, while all three devices can also access the internet through the router.</p>
+<p>Private IPv4 addresses are not directly routed across the public internet in the same way as globally routable public addresses. The router typically handles the translation needed for internet access.</p>
+<p>Private addresses do not, by themselves, guarantee privacy or security. A device can still be vulnerable to malicious software, weak passwords, unsafe network settings, or other threats.</p>
+<h2 id="public-ip-vs-private-ip-whats-the-difference">Public IP vs. Private IP: What's the Difference?</h2>
+<p>The key difference is where the address is used and how it participates in network communication.</p>
+<table>
+<thead>
+<tr>
+  <th>Feature</th>
+  <th>Public IP address</th>
+  <th>Private IP address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Where it is used</td>
+  <td>For communication across the public internet when globally routable</td>
+  <td>Within a private network</td>
+</tr>
+<tr>
+  <td>Main role</td>
+  <td>Helps identify a network endpoint for internet communication</td>
+  <td>Identifies an endpoint within a local network</td>
+</tr>
+<tr>
+  <td>Normally visible to websites</td>
+  <td>Often visible as the connection's source address</td>
+  <td>Usually not visible to external websites as the device's source address</td>
+</tr>
+<tr>
+  <td>Role in a home network</td>
+  <td>May be assigned to the router's internet-facing interface</td>
+  <td>Usually assigned to individual devices by the router</td>
+</tr>
+<tr>
+  <td>Example</td>
+  <td>A globally routable IPv4 address assigned by an ISP</td>
+  <td><code>192.168.1.20</code></td>
+</tr>
+</tbody>
+</table>
+<p>These distinctions describe common IPv4 networking arrangements. IPv6 uses a different addressing structure, including globally routable addresses and addresses intended for local communication.</p>
+<p>Neither address category automatically makes a device secure or insecure. Security depends on factors such as firewall rules, software updates, network configuration, and exposed services.</p>
+<h2 id="what-is-ipv4">What Is IPv4?</h2>
+<p>IPv4, or Internet Protocol version 4, is one of the principal versions of IP used on the internet.</p>
+<p>IPv4 uses <strong>32-bit addresses</strong>, typically written as four decimal numbers separated by periods. Each number ranges from 0 to 255.</p>
+<p>For example:</p>
+<p><code>192.0.2.1</code></p>
+<p>This format is called dotted-decimal notation. The address is divided into four sections, each representing eight bits.</p>
+<p>IPv4 provides a theoretical address space of approximately 4.3 billion possible combinations. However, not all combinations are available for ordinary public use because various ranges are reserved for specific purposes.</p>
+<p>One important example is <code>192.0.2.0/24</code>. This block is reserved for documentation and examples, according to <a href="https://www.rfc-editor.org/rfc/rfc5737.html" rel="noopener noreferrer" target="_blank">RFC 5737</a>. Therefore, <code>192.0.2.1</code> is an illustrative address, not a typical public address assigned to an ordinary internet user.</p>
+<p>IPv4 remains widely used because it is supported by an enormous amount of existing network equipment, software, and internet infrastructure.</p>
+<p>Its limited address space is one reason IPv6 was developed.</p>
+<h2 id="what-is-ipv6">What Is IPv6?</h2>
+<p>IPv6, or Internet Protocol version 6, is a newer version of IP designed to expand available addressing capacity and support the continued growth of interconnected networks.</p>
+<p>IPv6 uses <strong>128-bit addresses</strong>, providing a vastly larger address space than IPv4.</p>
+<p>A valid illustrative IPv6 address is:</p>
+<p><code>2001:db8::1</code></p>
+<p>IPv6 addresses use hexadecimal notation and colon-separated groups. The double colon (<code>::</code>) can represent one or more consecutive groups of zeros, making long addresses easier to write.</p>
+<p>The prefix <code>2001:db8::/32</code> is reserved for documentation and examples under <a href="https://www.rfc-editor.org/rfc/rfc3849.html" rel="noopener noreferrer" target="_blank">RFC 3849</a>.</p>
+<p>IPv6 matters because its larger address space provides far more room for addressing network interfaces and organizing networks. It also includes other protocol changes described in the <a href="https://www.rfc-editor.org/rfc/rfc8200.html" rel="noopener noreferrer" target="_blank">IPv6 specification, RFC 8200</a>.</p>
+<p>IPv4 and IPv6 can coexist on modern networks. Some connections support both versions, while others rely on one version or use technologies that help traffic move between different environments.</p>
+<p>IPv6 does not automatically make an internet connection faster or more secure. Its performance and security depend on the network, implementation, and configuration.</p>
+<h2 id="what-is-the-difference-between-static-and-dynamic-ip-addresses">What Is the Difference Between Static and Dynamic IP Addresses?</h2>
+<p>Static and dynamic describe how an IP address is assigned and whether it is intended to remain stable.</p>
+<p>A <strong>static IP address</strong> is configured or assigned to remain consistent. Businesses may use static public addresses for certain servers, remote-access systems, or services that need a stable network endpoint.</p>
+<p>A <strong>dynamic IP address</strong> is assigned through a configuration process and may change over time. Dynamic Host Configuration Protocol (DHCP), for example, can automatically assign IP addresses to devices on a local network. Internet providers may also assign public addresses dynamically.</p>
+<p>Dynamic addressing is common in home networks because devices can receive their network configuration without users manually entering an address.</p>
+<table>
+<thead>
+<tr>
+  <th>Feature</th>
+  <th>Static IP</th>
+  <th>Dynamic IP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Assignment</td>
+  <td>Intended to remain stable</td>
+  <td>Assigned automatically or through a changing allocation</td>
+</tr>
+<tr>
+  <td>Common uses</td>
+  <td>Servers and services needing a stable address</td>
+  <td>Home devices and many ordinary network connections</td>
+</tr>
+<tr>
+  <td>Can it change?</td>
+  <td>Yes, if reconfigured or reassigned</td>
+  <td>Yes, although it may remain unchanged for long periods</td>
+</tr>
+</tbody>
+</table>
+<p>A dynamic address does not necessarily change every time you open a website, reconnect to Wi-Fi, or restart your computer. An address may remain the same across multiple connections, depending on the provider, DHCP lease, and network configuration.</p>
+<h2 id="what-can-someone-learn-from-your-ip-address">What Can Someone Learn From Your IP Address?</h2>
+<p>An IP address can provide useful information about a network connection, but it does not reveal everything about the person using it.</p>
+<p>Depending on the address and available lookup data, someone may be able to determine:</p>
+<ul>
+<li><strong>Approximate geographic location:</strong> An IP lookup may indicate a country, region, or city, but the result can be inaccurate. IP geolocation is not a reliable way to establish an exact home address or physical location.</li>
+<li><strong>Internet service provider or organization:</strong> Registration and network information may associate an address with an ISP, company, hosting provider, or VPN service.</li>
+<li><strong>Connection-related information:</strong> Websites and online services may use IP addresses for security monitoring, rate limiting, analytics, fraud prevention, and approximate location-based decisions.</li>
+</ul>
+<p>The accuracy of these details varies. Mobile networks, shared addresses, VPNs, proxies, and provider configurations can make a location estimate particularly imprecise. See <a href="https://support.maxmind.com/knowledge-base/articles/maxmind-geolocation-accuracy" rel="noopener noreferrer" target="_blank">MaxMind's explanation of IP geolocation accuracy</a>.</p>
+<p>An IP address alone does not ordinarily reveal someone's name, exact home address, complete browsing history, or precise physical location.</p>
+<p>The context matters. An online service may combine an IP address with account information, activity logs, timestamps, or other available data to understand how its service is being used.</p>
+<p>A VPN can also change the public IP address that websites typically observe. Traffic routed through a VPN server usually appears to originate from that server's public IP address rather than the user's original public IP address. For more details, see <a href="https://synthvisuals.space/what-is-a-vpn.html">our beginner's guide to VPNs</a>.</p>
+<h2 id="does-an-ip-address-reveal-your-identity">Does an IP Address Reveal Your Identity?</h2>
+<p>An IP address identifies a network endpoint used for communication; it does not automatically identify a particular individual.</p>
+<p>For example, an address may be shared by multiple people in a household, an office, a public Wi-Fi network, or customers behind Carrier-Grade NAT.</p>
+<p>In some circumstances, an IP address may be associated with a particular customer connection by examining additional records. Relevant information can include the address used at a specific time, account details, and records held by the internet service provider.</p>
+<p>This does not mean an IP address alone proves who performed a particular online action. The reliability of any identification depends on the available evidence, the network arrangement, and the circumstances.</p>
+<p>The practical takeaway is simple: an IP address can be a useful piece of information, but it is not a complete identity record.</p>
+<h2 id="how-to-find-your-ip-address">How to Find Your IP Address</h2>
+<p>There are two common things people mean when they ask how to find their IP address: their <strong>public IP address</strong>, which internet services may see, and their <strong>local IP address</strong>, which their device uses on its connected network.</p>
+<h3 id="how-to-find-your-public-ip-address">How to Find Your Public IP Address</h3>
+<p>The simplest method is to use a reputable IP-checking website.</p>
+<ol>
+<li>Open your web browser.</li>
+<li>Visit a trusted IP-checking service.</li>
+<li>Look for the public IPv4 or IPv6 address displayed on the page.</li>
+</ol>
+<p>Depending on your connection, the service may show one address or both. If you use a VPN or proxy, it may display the address associated with that service instead of your original public IP address.</p>
+<p>You do not need to install an application or provide personal information just to check your IP address.</p>
+<h3 id="how-to-find-your-local-ip-address">How to Find Your Local IP Address</h3>
+<p>The steps vary by operating system and software version.</p>
+<p><strong>Windows 10 and Windows 11</strong></p>
+<ol>
+<li>Open <strong>Start → Settings → Network &amp; internet</strong>.</li>
+<li>Select <strong>Wi-Fi</strong> and your connected network, or select <strong>Ethernet</strong> if you use a wired connection.</li>
+<li>Look for <strong>IPv4 address</strong> in the network properties.</li>
+</ol>
+<p>You can also see an IPv6 address if your network supports it. Microsoft's <a href="https://support.microsoft.com/en-us/windows/experience/connectivity-networking/essential-network-settings-and-tasks-in-windows" rel="noopener noreferrer" target="_blank">network settings guide</a> provides additional details.</p>
+<p><strong>macOS</strong></p>
+<ol>
+<li>Open the Apple menu and select <strong>System Settings</strong>.</li>
+<li>Select <strong>Network</strong>.</li>
+<li>Choose your connected Wi-Fi or Ethernet service.</li>
+<li>Open <strong>Details</strong> and look for the IP address in the network settings. For Wi-Fi, the address is available in the connection details.</li>
+</ol>
+<p>See Apple's guide to <a href="https://support.apple.com/en-ca/guide/mac-help/mh11935/27/mac/27" rel="noopener noreferrer" target="_blank">Wi-Fi settings on Mac</a>.</p>
+<p><strong>Android</strong></p>
+<ol>
+<li>Open <strong>Settings</strong>.</li>
+<li>Go to <strong>Network &amp; internet → Internet</strong>, or the equivalent network section on your phone.</li>
+<li>Select your connected Wi-Fi network.</li>
+<li>Look for the network details or IP address information.</li>
+</ol>
+<p>Menu names vary between Android versions and manufacturers. Some devices place the address under additional network details.</p>
+<p><strong>iPhone</strong></p>
+<ol>
+<li>Open <strong>Settings</strong>.</li>
+<li>Tap <strong>Wi-Fi</strong>.</li>
+<li>Tap the information button (ⓘ) beside your connected network.</li>
+<li>Look for <strong>IP Address</strong> under the IPv4 or IPv6 information, where available.</li>
+</ol>
+<p>Apple documents the connected-network options in its <a href="https://support.apple.com/guide/iphone/manage-wi-fi-settings-iphw5gjwl8k2/27/ios/27" rel="noopener noreferrer" target="_blank">iPhone Wi-Fi settings guide</a>.</p>
+<p>Remember that your device's local IP address and the public IP address seen by websites are usually different in a typical home IPv4 network.</p>
+<h2 id="does-your-ip-address-change">Does Your IP Address Change?</h2>
+<p>Yes, an IP address can change, although it does not necessarily happen every time your device reconnects.</p>
+<p>Your public IP address may change when your internet provider updates its address assignment, when you switch providers, or when your connection moves to a different network. Restarting a router may also result in a new public address, depending on the provider and configuration.</p>
+<p>A device's private IP address may change when it reconnects to the local network or receives a different assignment from the router. However, routers can keep assigning the same private address to a device for extended periods.</p>
+<p>Switching from home Wi-Fi to mobile data usually changes the network path and the public address seen by online services. Connecting through a VPN can also change the public address that a website observes.</p>
+<p>For this reason, an IP address should not be treated as a permanent identifier of a person or device.</p>
+<h2 id="ip-address-vs-mac-address-whats-the-difference">IP Address vs. MAC Address: What's the Difference?</h2>
+<p>IP addresses and Media Access Control (MAC) addresses serve different purposes in networking.</p>
+<p>An IP address supports Internet Protocol communication and routing between network endpoints. A MAC address, in networks that use MAC addressing, helps identify an interface for communication on a local network link.</p>
+<table>
+<thead>
+<tr>
+  <th>Feature</th>
+  <th>IP address</th>
+  <th>MAC address</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>Main purpose</td>
+  <td>IP communication and routing between networks</td>
+  <td>Link-layer communication on a local network</td>
+</tr>
+<tr>
+  <td>Typical format</td>
+  <td>IPv4: <code>192.168.1.20</code>; IPv6: <code>2001:db8::1</code></td>
+  <td>Commonly written as <code>00:1A:2B:3C:4D:5E</code></td>
+</tr>
+<tr>
+  <td>Can it change?</td>
+  <td>Yes, depending on the assignment and configuration</td>
+  <td>Yes; some devices use randomized or locally administered MAC addresses</td>
+</tr>
+<tr>
+  <td>Visibility</td>
+  <td>IP addresses are carried in IP packets as traffic crosses networks</td>
+  <td>MAC addresses are used on the relevant local link and are not normally carried unchanged end to end across routers</td>
+</tr>
+</tbody>
+</table>
+<p>For example, when a laptop sends data to a server on another network, the IP destination identifies the network endpoint the traffic is trying to reach. The link-layer addressing used to send the packet to the next hop is a separate part of the process.</p>
+<p>MAC addresses should not be assumed to be universally permanent or globally visible identifiers. Modern devices and operating systems may use address randomization to reduce tracking across Wi-Fi networks.</p>
+<h2 id="frequently-asked-questions-about-ip-addresses">Frequently Asked Questions About IP Addresses</h2>
+<h3 id="1-what-is-an-ip-address-in-simple-terms">1. What is an IP address in simple terms?</h3>
+<p>An IP address is a numerical network address that helps identify where data comes from and where it needs to go. It allows devices and network equipment to exchange information.</p>
+<h3 id="2-why-does-every-device-need-an-ip-address">2. Why does every device need an IP address?</h3>
+<p>A device needs an appropriate IP address on a network when it communicates using IP. A device may have more than one address or network interface, and not every address must be globally routable.</p>
+<h3 id="3-is-an-ip-address-the-same-as-a-physical-address">3. Is an IP address the same as a physical address?</h3>
+<p>No. A physical mailing address identifies a location for postal delivery. An IP address identifies a network endpoint for digital communication and does not necessarily identify a precise physical location.</p>
+<h3 id="4-what-is-the-difference-between-a-public-and-private-ip-address">4. What is the difference between a public and private IP address?</h3>
+<p>A public IP address can be used for globally routed internet communication. A private IPv4 address is used within private networks, such as a home or office network.</p>
+<h3 id="5-can-two-devices-have-the-same-ip-address">5. Can two devices have the same IP address?</h3>
+<p>Yes, devices can share a public IPv4 address when they access the internet through NAT. However, duplicate addresses on the same network segment where unique addresses are required can cause connectivity problems.</p>
+<h3 id="6-can-an-ip-address-identify-a-person">6. Can an IP address identify a person?</h3>
+<p>Not reliably by itself. An IP address may be associated with an internet connection, but additional information is generally needed to connect it to a particular individual.</p>
+<h3 id="7-does-an-ip-address-reveal-my-exact-location">7. Does an IP address reveal my exact location?</h3>
+<p>No. IP geolocation can estimate a general location, but the result can be inaccurate and should not be treated as an exact physical address.</p>
+<h3 id="8-does-my-ip-address-change-when-i-restart-my-router">8. Does my IP address change when I restart my router?</h3>
+<p>It might, but it is not guaranteed. Your provider's address-assignment policies and your router's configuration determine whether your public IP address changes. Your device's local address may also remain the same.</p>
+<h3 id="9-what-is-the-difference-between-ipv4-and-ipv6">9. What is the difference between IPv4 and IPv6?</h3>
+<p>IPv4 uses 32-bit addresses and commonly displays them as four decimal numbers separated by periods. IPv6 uses 128-bit addresses and displays them as hexadecimal groups separated by colons.</p>
+<h3 id="10-is-it-safe-to-share-your-public-ip-address">10. Is it safe to share your public IP address?</h3>
+<p>A public IP address is not normally a secret credential like a password. However, it can provide information about a network connection and may be useful to someone investigating exposed services or attempting unwanted network activity. Avoid publishing it unnecessarily and keep your router, firewall, and connected devices properly configured.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>An IP address is a fundamental part of how devices communicate over networks. It helps identify the source and destination of data, allowing routers and other network equipment to forward information toward the appropriate endpoint.</p>
+<p>Public and private IP addresses serve different roles, while IPv4 and IPv6 provide two different addressing systems. Addresses may be static or dynamic, and their assignments can change depending on the network and provider.</p>
+<p>Although an IP address can reveal useful information about an internet connection, it does not automatically identify a person or provide an exact physical location.</p>
+<p>For beginners, the most important point to remember is that <strong>an IP address helps data find its destination, but it does not tell the whole story about who is online or where they are.</strong></p>
+<hr />
+<h2 id="sources-further-reading">Sources &amp; Further Reading</h2>
+<ol>
+<li><strong>RFC 1918 — Address Allocation for Private Internets:</strong> https://www.rfc-editor.org/rfc/rfc1918.html</li>
+<li><strong>RFC 3022 — Traditional IP Network Address Translator (NAT):</strong> https://www.rfc-editor.org/rfc/rfc3022.html</li>
+<li><strong>RFC 5737 — IPv4 Address Blocks Reserved for Documentation:</strong> https://www.rfc-editor.org/rfc/rfc5737.html</li>
+<li><strong>RFC 8200 — Internet Protocol, Version 6 (IPv6) Specification:</strong> https://www.rfc-editor.org/rfc/rfc8200.html</li>
+<li><strong>RFC 3849 — IPv6 Address Prefix Reserved for Documentation:</strong> https://www.rfc-editor.org/rfc/rfc3849.html</li>
+<li><strong>RFC 2131 — Dynamic Host Configuration Protocol (DHCP):</strong> https://www.rfc-editor.org/rfc/rfc2131.html</li>
+<li><strong>RFC 1034 — Domain Names: Concepts and Facilities:</strong> https://www.rfc-editor.org/rfc/rfc1034.html</li>
+<li><strong>Microsoft Support — Essential Network Settings and Tasks in Windows:</strong> https://support.microsoft.com/en-us/windows/experience/connectivity-networking/essential-network-settings-and-tasks-in-windows</li>
+<li><strong>Apple Support — Wi-Fi Settings on Mac:</strong> https://support.apple.com/en-ca/guide/mac-help/mh11935/27/mac/27</li>
+<li><strong>Apple Support — Manage Wi-Fi Settings on iPhone:</strong> https://support.apple.com/guide/iphone/manage-wi-fi-settings-iphw5gjwl8k2/27/ios/27</li>
+<li><strong>Google Android Help — Connect to Wi-Fi Networks:</strong> https://support.google.com/android/answer/9075847</li>
+<li><strong>MaxMind — Geolocation Accuracy:</strong> https://support.maxmind.com/knowledge-base/articles/maxmind-geolocation-accuracy</li>
+<li><strong>Synth Visual — What Is a VPN?</strong> https://synthvisuals.space/what-is-a-vpn.html</li>
+</ol>
+
+          </div>
+          <div class="article-bottom">
+            <span class="article-bottom-note">Published by Synth Visual · Technology, made clearer.</span>
+            <a class="back-top" href="#top">Back to top <span aria-hidden="true">↑</span></a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="footer-brand" href="/">Synth Visual</a>
+        <div class="footer-copy">© 2026 Synth Visual. All rights reserved.</div>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/#about">About</a>
+        <a href="/contact.html">Contact</a>
+        <a href="/privacy-policy.html">Privacy Policy</a>
+        <a href="/affiliate-disclosure.html">Affiliate Disclosure</a>
+      </nav>
+    </div>
+  </footer>
+  <script>
+    (function () {
+      const toggle = document.getElementById('menuToggle');
+      const nav = document.getElementById('mainNav');
+      toggle.addEventListener('click', function () {
+        const opened = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', String(opened));
+        toggle.setAttribute('aria-label', opened ? 'Close navigation menu' : 'Open navigation menu');
+        toggle.textContent = opened ? '×' : '☰';
+      });
+      nav.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () { nav.classList.remove('open'); toggle.setAttribute('aria-expanded', 'false'); toggle.setAttribute('aria-label', 'Open navigation menu'); toggle.textContent = '☰'; });
+      });
+      const progress = document.getElementById('readingProgress');
+      function updateProgress() {
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const ratio = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+        progress.style.width = (ratio * 100) + '%';
+      }
+      window.addEventListener('scroll', updateProgress, { passive: true });
+      window.addEventListener('resize', updateProgress);
+      updateProgress();
+      const tocLinks = Array.from(document.querySelectorAll('.toc a'));
+      const sections = tocLinks.map(function (link) { return document.getElementById(decodeURIComponent(link.hash.slice(1))); }).filter(Boolean);
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              tocLinks.forEach(function (link) {
+                const active = link.hash.slice(1) === entry.target.id;
+                link.classList.toggle('active', active);
+                if (active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current');
+              });
+            }
+          });
+        }, { rootMargin: '-14% 0px -72% 0px', threshold: 0 });
+        sections.forEach(function (section) { observer.observe(section); });
+      }
+    }());
+  </script>
+</body>
+</html>
