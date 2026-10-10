@@ -1,18 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
   <url>
     <loc>https://synthvisuals.space/</loc>
   </url>
+  
   <url>
     <loc>https://synthvisuals.space/about.html</loc>
   </url>
+  
+  <url>
+    <loc>https://synthvisuals.space/privacy-policy.html</loc>
+  </url>
+  
+  <url>
+    <loc>https://synthvisuals.space/affiliate-disclosure.html</loc>
+  </url>
+  
   <url>
     <loc>https://synthvisuals.space/what-is-a-vpn.html</loc>
   </url>
+  
   <url>
     <loc>https://synthvisuals.space/what-is-an-ip-address.html</loc>
   </url>
+  
   <url>
     <loc>https://synthvisuals.space/what-is-dns.html</loc>
   </url>
+  
+  
 </urlset>
