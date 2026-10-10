@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn what DNS means, how domain names are resolved into IP addresses, and how DNS servers, caching, and privacy features work when you visit a website.">
+  <meta name="theme-color" content="#f7f7f4">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://synthvisuals.space/what-is-dns.html">
+  <title>What Is DNS? How the Domain Name System Works</title>
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="What Is DNS? How the Domain Name System Works">
+  <meta property="og:description" content="Learn what DNS means, how domain names are resolved into IP addresses, and how DNS servers, caching, and privacy features work when you visit a website.">
+  <meta property="og:url" content="https://synthvisuals.space/what-is-dns.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="What Is DNS? How the Domain Name System Works">
+  <meta name="twitter:description" content="A beginner-friendly guide to DNS lookups, DNS servers, records, caching, and DNS privacy.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "What Is DNS? How the Domain Name System Works",
+    "description": "Learn what DNS means, how domain names are resolved into IP addresses, and how DNS servers, caching, and privacy features work when you visit a website.",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://synthvisuals.space/what-is-dns.html"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Synth Visual"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Synth Visual",
+      "url": "https://synthvisuals.space/"
+    },
+    "inLanguage": "en-US",
+    "articleSection": "Networking Basics",
+    "keywords": [
+      "what is DNS", "what does DNS stand for", "how does DNS work", "what is a DNS server", "what is a DNS lookup", "DNS vs. IP address", "public DNS servers", "DNS cache", "recursive DNS resolver", "authoritative DNS server", "DNS over HTTPS"
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --page: #f7f7f4;
+      --surface: #ffffff;
+      --text: #20231f;
+      --muted: #686d66;
+      --line: #e2e5de;
+      --accent: #245b49;
+      --accent-hover: #194637;
+      --soft: #eaf0eb;
+      --soft-2: #f0f2ed;
+      --max-width: 1120px;
+      --reading-width: 760px;
+      --radius: 16px;
+      --shadow: 0 8px 30px rgba(27, 39, 30, 0.045);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #7cae98; outline-offset: 4px; border-radius: 4px; }
+    .container { width: min(var(--max-width), calc(100% - 48px)); margin-inline: auto; }
+    .site-header { border-bottom: 1px solid var(--line); background: rgba(247, 247, 244, .96); }
+    .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; flex-direction: column; line-height: 1.05; flex-shrink: 0; color: var(--text); text-decoration: none; }
+    .brand-name { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 700; letter-spacing: -1.2px; }
+    .brand-tagline { margin-top: 6px; color: var(--muted); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; }
+    .main-nav { display: flex; align-items: center; gap: 27px; color: #424840; font-size: 13px; font-weight: 600; }
+    .main-nav a { color: inherit; text-decoration: none; transition: color 160ms ease; }
+    .main-nav a:hover { color: var(--accent); }
+    .nav-cta { padding: 10px 15px; border: 1px solid #cbd6ce; border-radius: 999px; color: var(--accent) !important; }
+    .progress-track { height: 3px; background: transparent; }
+    .progress-bar { width: 0; height: 100%; background: var(--accent); transition: width 80ms linear; }
+    .breadcrumbs { padding: 25px 0 0; color: var(--muted); font-size: 12px; }
+    .breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+    .breadcrumbs li + li::before { content: "/"; margin-right: 8px; color: #a0a59d; }
+    .breadcrumbs a { color: var(--muted); text-decoration: none; }
+    .breadcrumbs a:hover { color: var(--accent); }
+    .article-hero { padding: 34px 0 35px; }
+    .article-hero-inner { max-width: 920px; margin: 0 auto; text-align: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 1.9px; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+    h1, h2, h3 { text-wrap: pretty; }
+    .article-hero h1 { max-width: 850px; margin: 0 auto; font-family: Georgia, "Times New Roman", serif; font-size: clamp(38px, 6vw, 66px); font-weight: 500; letter-spacing: -2.3px; line-height: 1.08; }
+    .article-hero h1 em { color: var(--accent); font-weight: 500; }
+    .dek { max-width: 710px; margin: 22px auto 0; color: var(--muted); font-size: 17px; line-height: 1.8; }
+    .article-meta { display: flex; justify-content: center; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 24px; color: var(--muted); font-size: 12px; }
+    .meta-dot { display: inline-flex; align-items: center; gap: 7px; }
+    .meta-dot::before { content: ""; width: 4px; height: 4px; background: #99a69b; border-radius: 50%; }
+    .topic-pill { padding: 6px 10px; background: var(--soft); border: 1px solid #dce6dc; border-radius: 999px; color: var(--accent); font-size: 10px; font-weight: 750; letter-spacing: .5px; text-transform: uppercase; }
+    .feature-visual { overflow: hidden; position: relative; max-width: 1000px; margin: 0 auto; padding: clamp(22px, 4vw, 42px); border: 1px solid #dfe6dd; border-radius: 22px; background: linear-gradient(135deg, #eff3ee 0%, #f9fbf8 48%, #e7eee8 100%); box-shadow: var(--shadow); }
+    .visual-caption { margin: 17px 0 0; color: var(--muted); font-size: 11px; text-align: center; }
+    .connection-flow { display: grid; grid-template-columns: 1fr minmax(72px, .65fr) 1fr minmax(72px, .65fr) 1fr; align-items: center; gap: 12px; max-width: 870px; margin: 0 auto; }
+    .device-card { min-height: 150px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 18px 10px; border: 1px solid rgba(36, 91, 73, .18); border-radius: 17px; background: rgba(255,255,255,.86); text-align: center; }
+    .device-card svg { width: 42px; height: 42px; color: var(--accent); }
+    .device-card strong { font-family: Georgia, "Times New Roman", serif; font-size: 16px; font-weight: 600; line-height: 1.25; }
+    .device-card small { color: var(--muted); font-size: 10px; line-height: 1.45; }
+    .tunnel { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--accent); text-align: center; }
+    .tunnel-line { position: relative; width: 100%; height: 3px; border-radius: 999px; background: #9ab9a5; }
+    .tunnel-line::after { content: ""; position: absolute; right: -1px; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid #5e9476; }
+    .tunnel-label { font-size: 9px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; }
+    .tunnel-icon { display: inline-flex; align-items: center; justify-content: center; width: 25px; height: 25px; border: 1px solid #c8d9cb; border-radius: 50%; background: #fafffa; }
+    .tunnel-icon svg { width: 13px; height: 13px; }
+    .article-layout { display: grid; grid-template-columns: 220px minmax(0, 760px); align-items: start; justify-content: center; gap: clamp(28px, 5vw, 64px); padding: 40px 0 86px; }
+    .toc-wrap { position: sticky; top: 24px; }
+    .toc-card { padding: 23px 19px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+    .toc-title { margin: 0 0 14px; color: var(--text); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+    .toc-list { display: flex; flex-direction: column; gap: 9px; margin: 0; padding: 0; list-style: none; }
+    .toc-list a { color: var(--muted); font-size: 12px; line-height: 1.45; text-decoration: none; }
+    .toc-list a:hover, .toc-list a:focus { color: var(--accent); }
+    .toc-note { margin: 20px 0 0; padding-top: 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .mobile-toc { display: none; margin-bottom: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+    .mobile-toc summary { padding: 14px 16px; cursor: pointer; color: var(--accent); font-size: 13px; font-weight: 750; }
+    .mobile-toc .toc-list { padding: 0 16px 17px; }
+    .article-content { min-width: 0; max-width: var(--reading-width); font-size: 16px; line-height: 1.85; }
+    .article-content p { margin: 0 0 21px; }
+    .article-content h2 { margin: 54px 0 17px; padding-top: 5px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(29px, 3.5vw, 36px); font-weight: 500; letter-spacing: -.8px; line-height: 1.18; scroll-margin-top: 24px; }
+    .article-content h3 { margin: 32px 0 12px; font-family: Georgia, "Times New Roman", serif; font-size: 23px; font-weight: 500; letter-spacing: -.35px; line-height: 1.3; scroll-margin-top: 24px; }
+    .article-content h4 { margin: 26px 0 10px; font-size: 16px; font-weight: 750; line-height: 1.4; }
+    .article-content strong { color: #242923; }
+    .article-content ul, .article-content ol { margin: 0 0 24px; padding-left: 25px; }
+    .article-content li { margin: 7px 0; padding-left: 3px; }
+    .article-content li::marker { color: var(--accent); }
+    .article-content blockquote { margin: 26px 0; padding: 18px 22px; border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; background: var(--soft-2); color: #434940; }
+    .article-content blockquote p:last-child { margin-bottom: 0; }
+    .article-content a { text-decoration-thickness: 1px; }
+    .article-content code { padding: 2px 5px; border-radius: 5px; background: #edf0ea; color: #344338; font-size: .91em; overflow-wrap: anywhere; }
+    .quick-answer { margin: 6px 0 36px; padding: 23px 25px 3px; border: 1px solid #d8e3d9; border-radius: 15px; background: #f0f5ef; }
+    .quick-answer-label { margin: 0 0 8px !important; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+    .quick-answer p { font-size: 15px; }
+    .scroll-table { margin: 26px 0 30px; overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+    .article-content table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.65; }
+    .article-content th, .article-content td { min-width: 150px; padding: 14px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .article-content th { background: #f0f2ed; color: #323930; font-size: 11px; letter-spacing: .2px; }
+    .article-content tr:last-child td { border-bottom: 0; }
+    .article-content td:first-child { min-width: 125px; font-weight: 700; }
+    .step-list { display: grid; gap: 12px; margin: 22px 0 28px; }
+    .step { display: grid; grid-template-columns: 38px 1fr; gap: 13px; padding: 17px; border: 1px solid var(--line); border-radius: 13px; background: #fff; }
+    .step-number { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--soft); color: var(--accent); font-size: 12px; font-weight: 800; }
+    .step h3 { margin: 2px 0 5px; font-family: inherit; font-size: 15px; font-weight: 750; letter-spacing: 0; }
+    .step p { margin: 0; color: #51584f; font-size: 14px; line-height: 1.75; }
+    .step p + p { margin-top: 10px; }
+    .takeaway { margin: 35px 0; padding: 24px; border: 1px solid #d8e3d9; border-radius: 15px; background: #eef4ee; }
+    .takeaway h3 { margin-top: 0; }
+    .takeaway p:last-child { margin-bottom: 0; }
+    .faq-item { padding: 19px 0 0; border-top: 1px solid var(--line); }
+    .faq-item h3 { margin-top: 0; font-family: inherit; font-size: 16px; font-weight: 750; letter-spacing: 0; }
+    .faq-item p { margin-bottom: 20px; }
+    .references { margin-top: 56px; padding-top: 30px; border-top: 1px solid var(--line); }
+    .references h2 { margin-top: 0; font-size: 29px; }
+    .references-intro { color: var(--muted); font-size: 13px; }
+    .reference-list { display: grid; gap: 0; list-style: none !important; margin: 21px 0 0 !important; padding: 0 !important; }
+    .reference-list li { margin: 0; padding: 14px 0; border-top: 1px solid var(--line); }
+    .reference-list a { display: inline-block; font-size: 14px; font-weight: 750; }
+    .reference-list p { margin: 4px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+    .back-to-top { display: inline-flex; align-items: center; gap: 7px; margin-top: 12px; color: var(--accent); font-size: 12px; font-weight: 750; text-decoration: none; }
+    .related-strip { padding: 32px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--soft-2); }
+    .related-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .related-inner h2 { margin: 0 0 5px; font-family: Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 500; }
+    .related-inner p { max-width: 660px; margin: 0; color: var(--muted); font-size: 13px; }
+    .related-link { flex-shrink: 0; display: inline-block; padding: 11px 16px; border-radius: 999px; background: var(--accent); color: white; font-size: 12px; font-weight: 750; text-decoration: none; }
+    .related-link:hover { background: var(--accent-hover); color: white; }
+    .site-footer { padding: 27px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-brand { font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; letter-spacing: -.5px; color: var(--text); text-decoration: none; }
+    .copyright { margin: 5px 0 0; color: var(--muted); font-size: 11px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 19px; color: var(--muted); font-size: 11px; }
+    .footer-links a { color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent); }
+    @media (max-width: 900px) {
+      .article-layout { grid-template-columns: minmax(0, 760px); }
+      .toc-wrap { display: none; }
+      .mobile-toc { display: block; }
+      .article-content { margin-inline: auto; width: 100%; }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 32px, var(--max-width)); }
+      .header-inner { min-height: 74px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 13px; padding: 15px 0; }
+      .brand-name { font-size: 24px; }
+      .brand-tagline { font-size: 9px; }
+      .main-nav { width: 100%; justify-content: space-between; gap: 10px; font-size: 11px; }
+      .nav-cta { padding: 7px 10px; }
+      .breadcrumbs { padding-top: 18px; }
+      .article-hero { padding: 28px 0 25px; }
+      .article-hero h1 { font-size: clamp(37px, 10vw, 52px); letter-spacing: -1.7px; }
+      .dek { font-size: 15px; }
+      .feature-visual { padding: 17px 14px; border-radius: 17px; }
+      .connection-flow { grid-template-columns: 1fr; gap: 9px; max-width: 330px; }
+      .device-card { min-height: auto; display: grid; grid-template-columns: 42px 1fr; justify-content: start; text-align: left; padding: 12px 14px; }
+      .device-card svg { width: 34px; height: 34px; grid-row: span 2; }
+      .device-card strong { align-self: end; font-size: 15px; }
+      .device-card small { align-self: start; }
+      .tunnel { display: grid; grid-template-columns: 24px 1fr; gap: 7px 10px; justify-items: start; text-align: left; padding-left: 24px; }
+      .tunnel-line { width: 3px; height: 19px; margin-left: 11px; grid-column: 1; grid-row: 1 / span 2; }
+      .tunnel-line::after { top: auto; bottom: -1px; right: -4px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 7px solid #5e9476; border-bottom: 0; }
+      .tunnel-icon { grid-column: 2; grid-row: 1; width: 23px; height: 23px; }
+      .tunnel-label { grid-column: 2; grid-row: 2; }
+      .article-layout { padding: 28px 0 58px; }
+      .article-content { font-size: 15px; line-height: 1.82; }
+      .article-content h2 { margin-top: 43px; font-size: 30px; }
+      .article-content h3 { font-size: 21px; }
+      .step { padding: 14px; }
+      .related-inner, .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+    @media print {
+      .site-header, .progress-track, .toc-wrap, .mobile-toc, .related-strip, .site-footer, .back-to-top { display: none !important; }
+      body { background: white; }
+      .container { width: 100%; }
+      .article-layout { display: block; padding: 0; }
+      .article-content { max-width: none; font-size: 11pt; }
+      .article-content h2 { break-after: avoid; }
+      a { color: inherit; }
+    }
+  </style>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Synth Visual home">
+        <span class="brand-name">Synth Visual</span>
+        <span class="brand-tagline">Technology, made clearer</span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="/#latest-guides">Guides</a>
+        <a href="/#about">About</a>
+        <a class="nav-cta" href="/#latest-guides">Explore Articles</a>
+      </nav>
+    </div>
+    <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="reading-progress"></div></div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#latest-guides">Guides</a></li>
+          <li aria-current="page">What Is DNS?</li>
+        </ol>
+      </nav>
+
+      <header class="article-hero">
+        <div class="article-hero-inner">
+          <p class="eyebrow">Networking Basics · Beginner's Guide</p>
+          <h1>What Is DNS? <em>How the Domain Name System Works</em></h1>
+          <p class="dek">Learn how DNS translates domain names into IP addresses, how DNS servers and caching work, and what DNS privacy features can—and cannot—protect.</p>
+          <div class="article-meta" aria-label="Article information">
+            <span class="topic-pill">Networking</span>
+            <span class="meta-dot">Beginner friendly</span>
+            <span class="meta-dot">About 14 min read</span>
+          </div>
+        </div>
+      </header>
+
+      <figure class="feature-visual" aria-labelledby="dns-diagram-caption">
+        <div class="connection-flow" role="img" aria-label="Diagram showing a browser asking a recursive DNS resolver for a domain's address, the resolver checking the DNS hierarchy, and an IP address being returned before the browser connects to a website.">
+          <div class="device-card">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="7" width="38" height="27" rx="3"/><path d="M2 40h44M18 34l-2 6m14-6 2 6"/><circle cx="11" cy="12" r="1" fill="currentColor"/><path d="M16 13h20M11 19h26M11 24h18"/></svg>
+            <strong>Browser</strong><small>Requests a domain name</small>
+          </div>
+          <div class="tunnel" aria-hidden="true"><span class="tunnel-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h11M9 4l4 4-4 4"/></svg></span><span class="tunnel-label">DNS query</span><span class="tunnel-line"></span></div>
+          <div class="device-card">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="6" y="7" width="36" height="10" rx="2"/><rect x="6" y="20" width="36" height="10" rx="2"/><rect x="6" y="33" width="36" height="8" rx="2"/><circle cx="12" cy="12" r="1" fill="currentColor"/><circle cx="12" cy="25" r="1" fill="currentColor"/><circle cx="12" cy="37" r="1" fill="currentColor"/><path d="M18 12h17M18 25h17M18 37h17"/></svg>
+            <strong>DNS resolver</strong><small>Checks cache and finds an answer</small>
+          </div>
+          <div class="tunnel" aria-hidden="true"><span class="tunnel-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="5.5"/><path d="M2.8 6h10.4M2.8 10h10.4M8 2.5c1.5 1.5 2 3.4 2 5.5s-.5 4-2 5.5C6.5 12 6 10.1 6 8s.5-4 2-5.5Z"/></svg></span><span class="tunnel-label">DNS hierarchy</span><span class="tunnel-line"></span></div>
+          <div class="device-card">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M6 24h36M24 6c5 5 7 11 7 18s-2 13-7 18c-5-5-7-11-7-18s2-13 7-18Z"/><path d="m17 25 5 5 10-12" stroke-width="2.4"/></svg>
+            <strong>DNS answer</strong><small>An address, such as an IP</small>
+          </div>
+        </div>
+        <figcaption class="visual-caption" id="dns-diagram-caption">A simplified DNS lookup: a resolver finds the relevant information and returns an answer so the browser can attempt to connect to the destination. Cached answers may skip some lookup steps.</figcaption>
+      </figure>
+    </div>
+
+    <div class="container article-layout">
+      <aside class="toc-wrap" aria-label="Article navigation">
+        <nav class="toc-card">
+          <p class="toc-title">On this page</p>
+          <ol class="toc-list">
+            <li><a href="#what-does-dns-stand-for">What Does DNS Stand For?</a></li>
+            <li><a href="#how-dns-works">How Does DNS Work?</a></li>
+            <li><a href="#dns-server">What Is a DNS Server?</a></li>
+            <li><a href="#dns-records">What Are DNS Records?</a></li>
+            <li><a href="#dns-caching">What Is DNS Caching?</a></li>
+            <li><a href="#dns-vs-ip">DNS vs. IP Address</a></li>
+            <li><a href="#public-dns">ISP DNS vs. Public DNS</a></li>
+            <li><a href="#dns-privacy">Is DNS Private and Secure?</a></li>
+            <li><a href="#dns-troubleshooting">When DNS Stops Working</a></li>
+            <li><a href="#dns-speed">Does DNS Affect Speed?</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#sources">Sources & Further Reading</a></li>
+          </ol>
+          <p class="toc-note">The key takeaway: DNS helps your device find the network information it needs to reach an online destination.</p>
+        </nav>
+      </aside>
+
+      <article class="article-content">
+        <div class="mobile-toc">
+          <details>
+            <summary>On this page · Article contents</summary>
+            <ol class="toc-list">
+              <li><a href="#what-does-dns-stand-for">What Does DNS Stand For?</a></li>
+              <li><a href="#how-dns-works">How Does DNS Work?</a></li>
+              <li><a href="#dns-server">What Is a DNS Server?</a></li>
+              <li><a href="#dns-records">What Are DNS Records?</a></li>
+              <li><a href="#dns-caching">What Is DNS Caching?</a></li>
+              <li><a href="#dns-vs-ip">DNS vs. IP Address</a></li>
+              <li><a href="#public-dns">ISP DNS vs. Public DNS</a></li>
+              <li><a href="#dns-privacy">Is DNS Private and Secure?</a></li>
+              <li><a href="#dns-troubleshooting">When DNS Stops Working</a></li>
+              <li><a href="#dns-speed">Does DNS Affect Speed?</a></li>
+              <li><a href="#faq">Frequently Asked Questions</a></li>
+              <li><a href="#conclusion">Conclusion</a></li>
+              <li><a href="#sources">Sources & Further Reading</a></li>
+            </ol>
+          </details>
+        </div>
+
+        <div class="quick-answer">
+          <p class="quick-answer-label">The quick answer</p>
+          <p><strong>DNS stands for Domain Name System.</strong> It helps translate human-readable domain names, such as <code>example.com</code>, into information computers use to locate internet resources, often including an IP address. This lookup usually happens behind the scenes when you visit a website.</p>
+        </div>
+
+        <p><strong>DNS (Domain Name System)</strong> is the system that translates human-readable domain names into information that computers and network services use to locate resources on the internet, including IP addresses.</p>
+        <p>When you type a website address such as <code>example.com</code> into your browser, you do not need to remember a numerical network address. DNS helps your device find the information needed to reach the requested destination.</p>
+        <p>Think of DNS as a phone directory. You look up a person's name to find their phone number instead of memorizing every number. DNS performs a similar function for domain names and network information.</p>
+        <p>This process happens behind the scenes whenever you visit websites, use applications, or access other online services. Understanding DNS helps explain how the internet connects familiar website names to the systems that serve their content.</p>
+
+        <h2 id="what-does-dns-stand-for">What Does DNS Stand For?</h2>
+        <p>DNS stands for <strong>Domain Name System</strong>. It is a distributed, hierarchical system that organizes domain names and associates them with different types of information.</p>
+        <p>Three terms are important to distinguish:</p>
+        <ul>
+          <li><strong>Domain name:</strong> A human-readable name, such as <code>example.com</code>, used to identify an internet resource.</li>
+          <li><strong>DNS:</strong> The system that stores and retrieves information associated with domain names.</li>
+          <li><strong>IP address:</strong> A numerical network address used by Internet Protocol to identify a destination for network communication.</li>
+        </ul>
+        <p>For example, a fictional website named <code>example.com</code> might have an IPv4 address of <code>192.0.2.10</code> in a documentation example. DNS records can associate the name with that address.</p>
+        <p>These components serve different purposes. The domain name is convenient for people, DNS helps resolve names into useful information, and the IP address participates in delivering network traffic to the destination.</p>
+        <p>DNS can also provide information for email delivery, domain verification, and other services. It is more than a simple directory of website addresses.</p>
+
+        <h2 id="how-dns-works">How Does DNS Work?</h2>
+        <p>A DNS lookup is the process of requesting information about a domain name. To understand how DNS works, consider what may happen when you enter a website address into your browser.</p>
+        <div class="step-list">
+          <section class="step"><span class="step-number">1</span><div><h3>You Enter a Domain Name</h3><p>You type <code>www.example.com</code> into the browser's address bar. The browser needs to determine how to reach the requested host.</p></div></section>
+          <section class="step"><span class="step-number">2</span><div><h3>The Browser or Device Checks Its Cache</h3><p>The browser or operating system may already have a valid DNS answer stored in a cache. If so, it may reuse that information instead of requesting another lookup.</p></div></section>
+          <section class="step"><span class="step-number">3</span><div><h3>Your Device Contacts a DNS Resolver</h3><p>If a suitable answer is not available locally, the device sends a query to its configured DNS resolver. This is commonly a resolver provided by an internet service provider (ISP), although users can configure other services.</p></div></section>
+          <section class="step"><span class="step-number">4</span><div><h3>The Resolver Finds the Relevant DNS Information</h3><p>If the resolver does not have the answer cached, it may query other DNS servers to locate the authoritative information. A typical lookup can involve three levels:</p><ul><li><strong>Root nameservers:</strong> Direct the resolver toward the nameservers responsible for the relevant top-level domain.</li><li><strong>Top-level domain (TLD) nameservers:</strong> Provide delegation information identifying the authoritative nameservers for a domain, such as <code>example.com</code>.</li><li><strong>Authoritative nameservers:</strong> Provide the DNS records for the domain they serve, including the requested address information when it is available.</li></ul><p>For instance, resolving <code>www.example.com</code> may involve the root, <code>.com</code>, and <code>example.com</code> levels. In practice, some of these answers may already be cached, so not every lookup requires every step.</p></div></section>
+          <section class="step"><span class="step-number">5</span><div><h3>The Resolver Returns an Answer</h3><p>The resolver sends the relevant DNS response back to your device. Depending on the question, the answer could include an IPv4 address, an IPv6 address, an alias, or other DNS information.</p></div></section>
+          <section class="step"><span class="step-number">6</span><div><h3>The Browser Connects to the Destination</h3><p>After obtaining the necessary address information, the browser can attempt to establish a connection with the destination server. It then requests the website's resources and displays the returned content.</p></div></section>
+        </div>
+        <p>Here is a simplified diagram of the process:</p>
+        <blockquote><p><strong>Browser</strong><br>↓<br><strong>DNS Resolver</strong><br>↓<br><strong>DNS Hierarchy / Authoritative DNS</strong><br>↓<br><strong>DNS Answer</strong> (such as an IP address)<br>↓<br><strong>Website Connection</strong></p></blockquote>
+        <p>This sequence describes a common resolution pattern, not a rule that every request must follow. Caching, browser features, DNS configuration, and resolver behavior can change the exact process.</p>
+        <p>One important distinction is that <strong>DNS does not deliver the complete website</strong>. It supplies information used to locate the destination. The subsequent network connection is what allows the browser to request the website's content.</p>
+        <p>For a more detailed technical explanation, see the <a href="https://www.rfc-editor.org/rfc/rfc1034.html" target="_blank" rel="noopener noreferrer">IETF's DNS specification, RFC 1034</a>, and the complementary <a href="https://www.rfc-editor.org/rfc/rfc1035.html" target="_blank" rel="noopener noreferrer">RFC 1035</a>.</p>
+
+        <h2 id="dns-server">What Is a DNS Server?</h2>
+        <p>A DNS server stores, retrieves, or provides DNS information. Two important roles are recursive resolvers and authoritative nameservers.</p>
+        <p><strong>A recursive DNS resolver</strong> receives queries from clients and works to find the requested answers. It may respond from its cache or query other DNS servers on the client's behalf.</p>
+        <p><strong>An authoritative DNS server</strong> holds and provides the official DNS records for the zones it serves. For example, it may provide the address records associated with a website or the mail server records for a domain.</p>
+        <p>These are different functions, although the same organization or infrastructure can operate multiple DNS services. A public DNS resolver, for example, generally helps users look up information rather than hosting the authoritative records for their domains.</p>
+
+        <h2 id="dns-records">What Are DNS Records?</h2>
+        <p>DNS records are entries containing information associated with a domain name. Different record types serve different purposes.</p>
+        <div class="scroll-table">
+          <table>
+            <thead><tr><th scope="col">Record type</th><th scope="col">What it does</th><th scope="col">Example</th></tr></thead>
+            <tbody>
+              <tr><td><code>A</code></td><td>Associates a name with an IPv4 address.</td><td><code>www.example.com → 192.0.2.10</code></td></tr>
+              <tr><td><code>AAAA</code></td><td>Associates a name with an IPv6 address.</td><td><code>www.example.com → 2001:db8::10</code></td></tr>
+              <tr><td><code>CNAME</code></td><td>Makes one name an alias of another domain name.</td><td><code>www.example.com → example.com</code></td></tr>
+              <tr><td><code>MX</code></td><td>Identifies mail servers responsible for receiving email for a domain.</td><td><code>example.com → mail.example.com</code></td></tr>
+              <tr><td><code>NS</code></td><td>Identifies authoritative nameservers for a DNS zone.</td><td><code>example.com → ns1.example.com</code></td></tr>
+              <tr><td><code>TXT</code></td><td>Stores text data used for purposes such as domain verification and email security.</td><td><code>example.com → "site-verification=..."</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>These are illustrative examples, not claims about the actual DNS configuration of <code>example.com</code>.</p>
+        <p>A and AAAA records are commonly used when a browser needs an IP address. A CNAME instead points to another name, which can then be resolved to obtain address information.</p>
+        <p>MX records help other mail systems determine where to deliver email. TXT records can be used for domain ownership checks and email authentication configurations, including SPF and DMARC-related information.</p>
+        <p>DNS records therefore support several kinds of internet services, not just website access. See <a href="https://developers.cloudflare.com/dns/manage-dns-records/reference/dns-record-types/" target="_blank" rel="noopener noreferrer">Cloudflare's DNS record reference</a> for additional technical details.</p>
+
+        <h2 id="dns-caching">What Is DNS Caching?</h2>
+        <p>DNS caching is the temporary storage of DNS answers so they can be reused without repeating the entire lookup process.</p>
+        <p>A DNS answer may be cached by a browser, an operating system, a router or local network service, and a recursive resolver. The exact locations depend on the software and network configuration.</p>
+        <p>Caching improves efficiency by reducing repeated queries, network traffic, and lookup delays.</p>
+        <p>A key concept is <strong>Time to Live (TTL)</strong>. A DNS record's TTL specifies how long a caching resolver can retain an answer before it should obtain fresh information. The value is generally expressed in seconds.</p>
+        <p>For example, a record with a TTL of 300 seconds indicates a five-minute caching period for that record. Other records may use different values.</p>
+        <p>Caching also helps explain why DNS changes do not always appear immediately to every visitor. A resolver may continue using an older answer until its cached information expires. Different visitors may use different resolvers or have answers cached at different times.</p>
+        <p>The time required for a change to become visible therefore depends on the relevant TTLs, cached data, DNS configuration, and other circumstances. There is no single fixed waiting period that applies to every DNS change.</p>
+        <p>For further reading, consult <a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/best-practices-dns.html" target="_blank" rel="noopener noreferrer">AWS's explanation of DNS record TTLs</a>.</p>
+
+        <h2 id="dns-vs-ip">DNS vs. IP Address: What's the Difference?</h2>
+        <p>DNS and IP addresses work together, but they are not interchangeable.</p>
+        <p>DNS helps translate domain names into network information. IP addresses are numerical addresses used by Internet Protocol to identify destinations and route packets across networks.</p>
+        <div class="scroll-table">
+          <table>
+            <thead><tr><th scope="col">Feature</th><th scope="col">DNS</th><th scope="col">IP address</th></tr></thead>
+            <tbody>
+              <tr><td>Main purpose</td><td>Resolves domain names into associated information.</td><td>Identifies a network destination for IP communication.</td></tr>
+              <tr><td>Example</td><td><code>example.com</code></td><td><code>192.0.2.10</code></td></tr>
+              <tr><td>Role when visiting a website</td><td>Helps the browser find the necessary address information.</td><td>Helps direct network traffic toward the destination.</td></tr>
+              <tr><td>Type</td><td>A naming and lookup system; a domain name is one of its inputs.</td><td>A numerical network address.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>A domain can be associated with multiple IP addresses, and its DNS information can change over time. This flexibility helps websites use different servers, support IPv4 and IPv6, and adapt their infrastructure.</p>
+        <p>For a deeper introduction to numerical addressing, read <a href="https://synthvisuals.space/what-is-an-ip-address.html">our beginner's guide to IP addresses</a>.</p>
+
+        <h2 id="public-dns">What Is the Difference Between ISP DNS and Public DNS?</h2>
+        <p>An internet service provider commonly supplies DNS resolvers as part of its internet service. Devices may use these automatically through their network settings.</p>
+        <p><strong>Public DNS servers</strong> are resolvers offered by organizations for general use. Two established examples are:</p>
+        <ul>
+          <li><a href="https://developers.google.com/speed/public-dns/" target="_blank" rel="noopener noreferrer"><strong>Google Public DNS</strong></a>: A public recursive resolver available at <code>8.8.8.8</code> and <code>8.8.4.4</code> for IPv4.</li>
+          <li><a href="https://developers.cloudflare.com/1.1.1.1/" target="_blank" rel="noopener noreferrer"><strong>Cloudflare 1.1.1.1</strong></a>: A public recursive DNS service with a focus on performance, security, and privacy.</li>
+        </ul>
+        <p>These are examples, not a universal ranking of DNS providers.</p>
+        <p>When comparing resolvers, consider reliability, privacy policies, data retention, security features, filtering options, and performance in your location. Some services also offer options for blocking selected categories of domains, while others prioritize returning unfiltered results.</p>
+        <p>Changing your DNS provider may be useful when troubleshooting a resolution problem or choosing a service with policies and features that better suit your needs. However, it does not guarantee faster browsing or complete privacy.</p>
+        <p>A practical starting point is to review each provider's official documentation and privacy policy before changing your settings.</p>
+
+        <h2 id="dns-privacy">Is DNS Private and Secure?</h2>
+        <p>Traditional DNS queries are often sent without encryption at the DNS transport layer. Depending on the network, this can allow observers between your device and resolver to see the requested domain names.</p>
+        <p>Two technologies can help protect DNS communications.</p>
+        <h3>DNS over HTTPS (DoH)</h3>
+        <p><strong>DNS over HTTPS (DoH)</strong> sends DNS queries and responses over HTTPS, using encrypted communications between a compatible client and resolver. The IETF defines this protocol in <a href="https://www.rfc-editor.org/rfc/rfc8484.html" target="_blank" rel="noopener noreferrer">RFC 8484</a>.</p>
+        <h3>DNS over TLS (DoT)</h3>
+        <p><strong>DNS over TLS (DoT)</strong> uses Transport Layer Security to protect DNS queries and responses between a compatible client and resolver. Its technical specification is described in <a href="https://www.rfc-editor.org/rfc/rfc7858.html" target="_blank" rel="noopener noreferrer">RFC 7858</a>.</p>
+        <p>Both approaches can reduce the exposure of DNS requests to observers on the network path. However, neither guarantees that every aspect of your browsing is private.</p>
+        <p>The resolver you choose may still process your queries under its own logging and retention policies. Websites, accounts, applications, and other network connections can reveal information through separate mechanisms.</p>
+        <h3>What Is DNSSEC?</h3>
+        <p>Another technology is <strong>DNS Security Extensions (DNSSEC)</strong>. DNSSEC uses digital signatures to help validate the origin and integrity of DNS data, protecting against certain forms of DNS manipulation. It does not encrypt DNS queries or conceal the domain names being requested.</p>
+        <p>Encryption and DNSSEC address different problems: DoH and DoT protect the communication channel, while DNSSEC helps verify DNS data. Neither should be treated as a complete substitute for other security and privacy measures.</p>
+
+        <h2 id="dns-troubleshooting">What Happens When DNS Stops Working?</h2>
+        <p>If DNS resolution fails, your device may be unable to translate a domain name into the information needed to reach the requested service. A website may fail to load even when your broader network connection is still functioning.</p>
+        <p>Possible causes include a resolver outage, incorrect DNS settings, outdated cached information, or problems with the domain's DNS configuration. A website server or the network connection itself may also be responsible for a similar symptom.</p>
+        <p>If you suspect a DNS problem, try these basic steps:</p>
+        <ol>
+          <li><strong>Check your internet connection.</strong> Confirm that your device is connected and that other online services work.</li>
+          <li><strong>Try another website or device.</strong> This can help determine whether the problem affects one domain, one device, or the broader network.</li>
+          <li><strong>Restart your browser or reconnect to the network.</strong> This may resolve temporary software or connectivity issues.</li>
+          <li><strong>Check your DNS settings.</strong> Make sure the configured resolver is available and that the settings are appropriate for your network.</li>
+          <li><strong>Consider clearing the DNS cache or trying another reputable resolver.</strong> Clearing cached information may help when an outdated answer is suspected. A different resolver may help diagnose a resolver-specific problem.</li>
+        </ol>
+        <p>The appropriate fix depends on the cause. Not every website-loading error is a DNS problem, so it is useful to rule out other causes before changing network settings.</p>
+
+        <h2 id="dns-speed">Does DNS Affect Internet Speed?</h2>
+        <p>DNS can affect the time it takes to begin loading a website because the browser may need to resolve a domain name before connecting to the destination.</p>
+        <p>A responsive resolver can reduce lookup delays, particularly when an answer is not already cached. Resolver location, network conditions, caching, and the website's DNS configuration can all influence the result.</p>
+        <p>However, <strong>DNS resolution is only one stage of loading a website</strong>. Once the destination connection is established, the speed of a download is generally influenced by factors such as your available bandwidth, network congestion, server performance, and the size of the content.</p>
+        <p>Switching DNS providers may improve lookup performance in some circumstances, but it may also make little noticeable difference. Results depend on your environment rather than simply on which service you select.</p>
+
+        <h2 id="faq">Frequently Asked Questions About DNS</h2>
+        <section class="faq-item"><h3>1. What does DNS stand for?</h3><p>DNS stands for Domain Name System. It organizes domain names and makes associated network information available through DNS queries.</p></section>
+        <section class="faq-item"><h3>2. What is DNS in simple terms?</h3><p>DNS works like a directory for domain names. It helps your device find information, such as an IP address, needed to reach an online destination.</p></section>
+        <section class="faq-item"><h3>3. Why do websites need DNS?</h3><p>DNS allows people to use readable domain names instead of memorizing numerical addresses. It also makes it possible to update the network information associated with a name without requiring people to learn a new address.</p></section>
+        <section class="faq-item"><h3>4. Is DNS the same as an IP address?</h3><p>No. DNS is a naming and lookup system, while an IP address is a numerical network address used to route traffic.</p></section>
+        <section class="faq-item"><h3>5. What is a DNS lookup?</h3><p>A DNS lookup is a query for information associated with a domain name. When you visit a website, the lookup may return an IP address that your browser can use to attempt a connection.</p></section>
+        <section class="faq-item"><h3>6. What is the difference between a DNS resolver and an authoritative DNS server?</h3><p>A recursive resolver finds answers on behalf of clients, potentially querying other servers. An authoritative DNS server provides the official records for the domain or zone it serves.</p></section>
+        <section class="faq-item"><h3>7. Is it safe to use public DNS?</h3><p>Using a reputable public resolver can be appropriate, but you should evaluate its privacy policy, security features, and reliability. DNS over HTTPS or DNS over TLS can encrypt queries in transit, but the provider may still process them.</p></section>
+        <section class="faq-item"><h3>8. Can DNS affect internet speed?</h3><p>Yes, DNS response time can influence how quickly a website begins loading. However, DNS generally does not determine the ongoing transfer speed of a download after the destination connection is established.</p></section>
+        <section class="faq-item"><h3>9. What is DNS over HTTPS?</h3><p>DNS over HTTPS (DoH) is a protocol that carries DNS queries and responses over encrypted HTTPS connections. It helps protect DNS communications between a compatible client and resolver from certain forms of network observation and tampering.</p></section>
+        <section class="faq-item"><h3>10. Does using a VPN automatically make DNS private?</h3><p>Not necessarily. A properly configured VPN typically routes DNS requests through the VPN connection or a designated resolver. Incorrect settings, split tunneling, or other configuration issues can allow DNS queries to take another path.</p><p>If you use a VPN for privacy, check its DNS handling and leak-protection documentation. Our guide, <a href="https://synthvisuals.space/what-is-a-vpn.html">What Is a VPN?</a>, explains how VPN connections work and what they can and cannot protect.</p></section>
+
+        <h2 id="conclusion">Conclusion</h2>
+        <p>DNS is a fundamental part of how people access websites and other online services. It translates domain names into useful network information, often including IP addresses, so devices can locate their intended destinations.</p>
+        <p>Although the process usually happens behind the scenes, it involves several components, including caches, recursive resolvers, authoritative nameservers, and DNS records.</p>
+        <p>The essential distinction is simple: <strong>DNS helps your device find where to connect, while IP addressing helps network traffic reach its destination.</strong> Understanding how these systems work together makes it easier to troubleshoot connection problems, evaluate DNS providers, and make informed decisions about online privacy and security.</p>
+        <div class="takeaway"><h3>The main takeaway</h3><p>DNS is the internet's distributed naming system. It helps your device find the network information it needs to reach websites and other services, while caching, authoritative records, and privacy technologies influence how lookups are performed and protected.</p></div>
+
+        <section class="references" id="sources" aria-labelledby="sources-heading">
+          <h2 id="sources-heading">Sources &amp; Further Reading</h2>
+          <p class="references-intro">These references provide additional technical context for readers who want to explore DNS, records, caching, privacy, and security in more detail. Relevant links are also included alongside the explanations above.</p>
+          <ol class="reference-list">
+            <li><a href="https://www.rfc-editor.org/rfc/rfc1034.html" target="_blank" rel="noopener noreferrer">RFC 1034 — Domain Names: Concepts and Facilities</a><p>Internet Engineering Task Force (IETF). Foundational concepts and the structure of the Domain Name System.</p></li>
+            <li><a href="https://www.rfc-editor.org/rfc/rfc1035.html" target="_blank" rel="noopener noreferrer">RFC 1035 — Domain Names: Implementation and Specification</a><p>IETF. Technical details about DNS implementation, messages, and resource records.</p></li>
+            <li><a href="https://www.icann.org/resources/pages/what-2012-02-25-en" target="_blank" rel="noopener noreferrer">ICANN — What Does ICANN Do?</a><p>Background on ICANN and the Domain Name System.</p></li>
+            <li><a href="https://developers.cloudflare.com/dns/manage-dns-records/reference/dns-record-types/" target="_blank" rel="noopener noreferrer">Cloudflare — DNS Record Types</a><p>Reference for common DNS records and the information they hold.</p></li>
+            <li><a href="https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/best-practices-dns.html" target="_blank" rel="noopener noreferrer">Amazon Web Services — Best Practices for Amazon Route 53 DNS</a><p>DNS operational guidance, including considerations related to TTLs and caching.</p></li>
+            <li><a href="https://www.rfc-editor.org/rfc/rfc8484.html" target="_blank" rel="noopener noreferrer">RFC 8484 — DNS Queries over HTTPS</a><p>IETF specification for carrying DNS queries over HTTPS.</p></li>
+            <li><a href="https://www.rfc-editor.org/rfc/rfc7858.html" target="_blank" rel="noopener noreferrer">RFC 7858 — Specification for DNS over Transport Layer Security (TLS)</a><p>IETF specification for DNS communications protected by TLS.</p></li>
+            <li><a href="https://www.rfc-editor.org/info/rfc4033/" target="_blank" rel="noopener noreferrer">RFC 4033 — DNS Security Introduction and Requirements</a><p>IETF introduction to DNS Security Extensions (DNSSEC).</p></li>
+            <li><a href="https://developers.google.com/speed/public-dns/" target="_blank" rel="noopener noreferrer">Google Public DNS</a><p>Official documentation for Google's public recursive DNS resolver.</p></li>
+            <li><a href="https://developers.cloudflare.com/1.1.1.1/privacy/public-dns-resolver/" target="_blank" rel="noopener noreferrer">Cloudflare — 1.1.1.1 Public DNS Resolver Privacy Information</a><p>Information about the privacy practices of Cloudflare's public DNS resolver.</p></li>
+          </ol>
+          <a class="back-to-top" href="#top">↑ Back to the top</a>
+        </section>
+      </article>
+    </div>
+
+    <section class="related-strip">
+      <div class="container related-inner">
+        <div><h2>Keep exploring networking basics.</h2><p>Browse more straightforward guides to IP addresses, VPNs, DNS, and the technologies behind the internet from Synth Visual.</p></div>
+        <a class="related-link" href="/#latest-guides">Explore all guides →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="footer-brand" href="/">Synth Visual</a>
+        <p class="copyright">© <span id="current-year">2026</span> Synth Visual. All rights reserved.</p>
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/about/">About</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/affiliate-disclosure/">Affiliate Disclosure</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+    (function () {
+      const bar = document.getElementById("reading-progress");
+      let ticking = false;
+      function updateProgress() {
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - window.innerHeight;
+        const amount = max > 0 ? (window.scrollY / max) * 100 : 0;
+        bar.style.width = Math.max(0, Math.min(100, amount)) + "%";
+        ticking = false;
+      }
+      window.addEventListener("scroll", function () {
+        if (!ticking) { window.requestAnimationFrame(updateProgress); ticking = true; }
+      }, { passive: true });
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>
