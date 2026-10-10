@@ -225,7 +225,10 @@
       border-radius: var(--radius);
       background: var(--surface);
       box-shadow: var(--shadow);
-      transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
     }
 
     .article-card:hover {
@@ -452,7 +455,9 @@
         scroll-behavior: auto;
       }
 
-      *, *::before, *::after {
+      *,
+      *::before,
+      *::after {
         transition-duration: 0.01ms !important;
       }
     }
@@ -479,11 +484,17 @@
     <section class="hero">
       <div class="container">
         <p class="eyebrow">VPNs · Privacy · Digital Security</p>
-        <h1>Understand your digital world, <em>one guide at a time.</em></h1>
+
+        <h1>
+          Understand your digital world,
+          <em>one guide at a time.</em>
+        </h1>
+
         <p class="hero-copy">
           Clear explanations, practical guides, and thoughtful comparisons to help you understand VPNs,
           protect your online privacy, and make more informed decisions about digital tools.
         </p>
+
         <span class="hero-note">Independent learning starts here</span>
       </div>
     </section>
@@ -495,45 +506,66 @@
             <p class="section-kicker">Start exploring</p>
             <h2>Featured Guides</h2>
           </div>
-          <p class="section-aside">Straightforward answers. Practical information. No unnecessary jargon.</p>
+
+          <p class="section-aside">
+            Straightforward answers. Practical information. No unnecessary jargon.
+          </p>
         </div>
 
         <div class="article-grid">
-          <article class="article-card">
+
+          <!-- First card: the entire card links to the VPN article -->
+          <a
+            class="article-card"
+            href="https://synthvisuals.space/what-is-a-vpn.html"
+            aria-label="Read the guide: What Is a VPN?"
+          >
             <div class="card-meta">VPN Basics · Beginner</div>
+
             <h3>What Is a VPN?</h3>
+
             <p>
               Learn what a virtual private network is, how it works, and how it can help protect
               your connection and online privacy.
             </p>
-            <a class="read-link" href="https://synthvisuals.space/what-is-a-vpn.html">
-              Read the guide <span aria-hidden="true">→</span>
-            </a>
-          </article>
 
+            <span class="read-link">
+              Read the guide <span aria-hidden="true">→</span>
+            </span>
+          </a>
+
+          <!-- Second article card -->
           <article class="article-card">
             <div class="card-meta">Privacy · How It Works</div>
+
             <h3>What Does a VPN Do?</h3>
+
             <p>
               Discover what a VPN can and cannot protect, when it may be useful, and what to know
               before relying on one.
             </p>
+
             <a class="read-link" href="/what-does-a-vpn-do/">
               Read the guide <span aria-hidden="true">→</span>
             </a>
           </article>
 
+          <!-- Third article card -->
           <article class="article-card">
             <div class="card-meta">VPN Reviews · 2026</div>
+
             <h3>Best VPN Services in 2026</h3>
+
             <p>
               Explore the key factors to compare VPN providers, including privacy policies, speed,
               features, pricing, and ease of use.
             </p>
+
             <a class="read-link" href="/best-vpn-services-2026/">
               Explore the comparison <span aria-hidden="true">→</span>
             </a>
           </article>
+
         </div>
       </div>
     </section>
@@ -542,11 +574,13 @@
       <div class="container about-inner">
         <div>
           <h2>Technology should be easier to understand.</h2>
+
           <p>
             Synth Visual publishes accessible guides and software research to help readers navigate
             digital tools, online privacy, and emerging technology with greater confidence.
           </p>
         </div>
+
         <span class="about-label">Curious minds welcome</span>
       </div>
     </section>
@@ -556,7 +590,10 @@
     <div class="container footer-inner">
       <div>
         <a class="footer-brand" href="/">Synth Visual</a>
-        <p class="copyright">© <span id="current-year">2026</span> Synth Visual. All rights reserved.</p>
+
+        <p class="copyright">
+          © <span id="current-year">2026</span> Synth Visual. All rights reserved.
+        </p>
       </div>
 
       <nav class="footer-links" aria-label="Footer navigation">
