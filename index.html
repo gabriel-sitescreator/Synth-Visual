@@ -3,8 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Explore clear, practical guides to VPNs, online privacy, and digital security. Learn how VPNs work and compare services before choosing one.">
+
+  <meta
+    name="description"
+    content="Explore clear, practical guides to VPNs, online privacy, and digital security. Learn how VPNs work and compare services before choosing one."
+  >
+
   <meta name="theme-color" content="#f7f7f4">
+
   <title>Synth Visual — VPN Guides, Reviews & Digital Privacy</title>
 
   <style>
@@ -54,6 +60,8 @@
       width: min(var(--max-width), calc(100% - 48px));
       margin-inline: auto;
     }
+
+    /* Header */
 
     .site-header {
       border-bottom: 1px solid var(--line);
@@ -114,6 +122,8 @@
       color: var(--accent);
     }
 
+    /* Hero */
+
     .hero {
       padding: 88px 0 65px;
       text-align: center;
@@ -172,6 +182,8 @@
       letter-spacing: 0.7px;
     }
 
+    /* Articles */
+
     .articles-section {
       padding: 25px 0 94px;
     }
@@ -217,6 +229,7 @@
 
     .article-card {
       display: flex;
+      min-width: 0;
       min-height: 270px;
       flex-direction: column;
       align-items: flex-start;
@@ -235,6 +248,23 @@
       transform: translateY(-4px);
       border-color: #bdcec2;
       box-shadow: 0 13px 34px rgba(27, 39, 30, 0.075);
+    }
+
+    /*
+      The first card is an anchor.
+      These styles make the entire card clickable without
+      requiring a separate link inside it.
+    */
+
+    a.article-card {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    a.article-card:focus-visible {
+      outline: 3px solid #7cae98;
+      outline-offset: 4px;
     }
 
     .card-meta {
@@ -280,6 +310,8 @@
       transform: translateX(4px);
     }
 
+    /* About */
+
     .about-strip {
       padding: 34px 0;
       border-top: 1px solid var(--line);
@@ -321,6 +353,8 @@
       white-space: nowrap;
     }
 
+    /* Footer */
+
     .site-footer {
       padding: 27px 0;
     }
@@ -357,6 +391,8 @@
       color: var(--accent);
     }
 
+    /* Tablet */
+
     @media (max-width: 800px) {
       .main-nav {
         gap: 15px;
@@ -377,9 +413,11 @@
       }
     }
 
+    /* Mobile */
+
     @media (max-width: 560px) {
       .container {
-        width: min(100% - 32px, var(--max-width));
+        width: min(calc(100% - 32px), var(--max-width));
       }
 
       .header-inner {
@@ -450,6 +488,8 @@
       }
     }
 
+    /* Accessibility */
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -465,8 +505,10 @@
 </head>
 
 <body>
+
   <header class="site-header">
     <div class="container header-inner">
+
       <a class="brand" href="/" aria-label="Synth Visual home">
         <span class="brand-name">Synth Visual</span>
         <span class="brand-tagline">Technology, made clearer</span>
@@ -477,12 +519,15 @@
         <a href="#about">About</a>
         <a class="nav-cta" href="#latest-guides">Explore Articles</a>
       </nav>
+
     </div>
   </header>
 
   <main>
+
     <section class="hero">
       <div class="container">
+
         <p class="eyebrow">VPNs · Privacy · Digital Security</p>
 
         <h1>
@@ -491,16 +536,21 @@
         </h1>
 
         <p class="hero-copy">
-          Clear explanations, practical guides, and thoughtful comparisons to help you understand VPNs,
-          protect your online privacy, and make more informed decisions about digital tools.
+          Clear explanations, practical guides, and thoughtful comparisons
+          to help you understand VPNs, protect your online privacy, and make
+          more informed decisions about digital tools.
         </p>
 
-        <span class="hero-note">Independent learning starts here</span>
+        <span class="hero-note">
+          Independent learning starts here
+        </span>
+
       </div>
     </section>
 
     <section class="articles-section" id="latest-guides">
       <div class="container">
+
         <div class="section-heading">
           <div>
             <p class="section-kicker">Start exploring</p>
@@ -514,13 +564,15 @@
 
         <div class="article-grid">
 
-          <!-- First card: the entire card links to the VPN article -->
+          <!-- FIRST CARD: THE ENTIRE CARD LINKS TO THE VPN ARTICLE -->
           <a
             class="article-card"
             href="https://synthvisuals.space/what-is-a-vpn.html"
             aria-label="Read the guide: What Is a VPN?"
           >
-            <div class="card-meta">VPN Basics · Beginner</div>
+            <div class="card-meta">
+              VPN Basics · Beginner
+            </div>
 
             <h3>What Is a VPN?</h3>
 
@@ -530,13 +582,16 @@
             </p>
 
             <span class="read-link">
-              Read the guide <span aria-hidden="true">→</span>
+              Read the guide
+              <span aria-hidden="true">→</span>
             </span>
           </a>
 
-          <!-- Second article card -->
+          <!-- SECOND CARD -->
           <article class="article-card">
-            <div class="card-meta">Privacy · How It Works</div>
+            <div class="card-meta">
+              Privacy · How It Works
+            </div>
 
             <h3>What Does a VPN Do?</h3>
 
@@ -546,13 +601,16 @@
             </p>
 
             <a class="read-link" href="/what-does-a-vpn-do/">
-              Read the guide <span aria-hidden="true">→</span>
+              Read the guide
+              <span aria-hidden="true">→</span>
             </a>
           </article>
 
-          <!-- Third article card -->
+          <!-- THIRD CARD -->
           <article class="article-card">
-            <div class="card-meta">VPN Reviews · 2026</div>
+            <div class="card-meta">
+              VPN Reviews · 2026
+            </div>
 
             <h3>Best VPN Services in 2026</h3>
 
@@ -562,7 +620,8 @@
             </p>
 
             <a class="read-link" href="/best-vpn-services-2026/">
-              Explore the comparison <span aria-hidden="true">→</span>
+              Explore the comparison
+              <span aria-hidden="true">→</span>
             </a>
           </article>
 
@@ -572,6 +631,7 @@
 
     <section class="about-strip" id="about">
       <div class="container about-inner">
+
         <div>
           <h2>Technology should be easier to understand.</h2>
 
@@ -581,15 +641,22 @@
           </p>
         </div>
 
-        <span class="about-label">Curious minds welcome</span>
+        <span class="about-label">
+          Curious minds welcome
+        </span>
+
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
+
       <div>
-        <a class="footer-brand" href="/">Synth Visual</a>
+        <a class="footer-brand" href="/">
+          Synth Visual
+        </a>
 
         <p class="copyright">
           © <span id="current-year">2026</span> Synth Visual. All rights reserved.
@@ -602,11 +669,14 @@
         <a href="/privacy-policy/">Privacy Policy</a>
         <a href="/affiliate-disclosure/">Affiliate Disclosure</a>
       </nav>
+
     </div>
   </footer>
 
   <script>
-    document.getElementById("current-year").textContent = new Date().getFullYear();
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
   </script>
+
 </body>
 </html>
