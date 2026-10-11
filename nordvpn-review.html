@@ -180,6 +180,17 @@
     .takeaway { margin: 35px 0; padding: 24px; border: 1px solid #d8e3d9; border-radius: 15px; background: #eef4ee; }
     .takeaway h3 { margin-top: 0; }
     .takeaway p:last-child { margin-bottom: 0; }
+
+    /* Affiliate CTA cards */
+    .affiliate-cta { display: flex; align-items: center; justify-content: space-between; gap: 22px; margin: 30px 0; padding: 22px 23px; border: 1px solid #d6e1d7; border-radius: 15px; background: linear-gradient(135deg, #f4f7f2 0%, #ffffff 100%); }
+    .affiliate-cta-copy { min-width: 0; }
+    .affiliate-cta-kicker { display: block; margin-bottom: 6px; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 1.35px; text-transform: uppercase; }
+    .article-content .affiliate-cta h3 { margin: 0 0 6px; font-family: Georgia, "Times New Roman", serif; font-size: 22px; font-weight: 500; letter-spacing: -.35px; line-height: 1.25; }
+    .article-content .affiliate-cta p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.65; }
+    .affiliate-cta-button { display: inline-flex; align-items: center; justify-content: center; gap: 9px; flex-shrink: 0; min-height: 46px; padding: 12px 18px; border: 1px solid var(--accent); border-radius: 999px; background: var(--accent); color: #fff !important; font-size: 12px; font-weight: 750; line-height: 1.25; text-align: center; text-decoration: none !important; transition: background 160ms ease, border-color 160ms ease, transform 160ms ease; }
+    .affiliate-cta-button:hover { border-color: var(--accent-hover); background: var(--accent-hover); color: #fff !important; transform: translateY(-1px); }
+    .affiliate-cta-button:focus-visible { outline: 3px solid #7cae98; outline-offset: 4px; }
+
     .faq-item { padding: 19px 0 0; border-top: 1px solid var(--line); }
     .faq-item h3 { margin-top: 0; font-family: inherit; font-size: 16px; font-weight: 750; letter-spacing: 0; }
     .faq-item p { margin-bottom: 20px; }
@@ -234,13 +245,16 @@
       .article-content h3 { font-size: 21px; }
       .step { padding: 14px; }
       .related-inner, .footer-inner { align-items: flex-start; flex-direction: column; }
+      .affiliate-cta { align-items: stretch; flex-direction: column; gap: 16px; padding: 19px; }
+      .affiliate-cta-button { width: 100%; }
+      .article-content .affiliate-cta h3 { font-size: 21px; }
     }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after { transition-duration: .01ms !important; }
     }
     @media print {
-      .site-header, .progress-track, .toc-wrap, .mobile-toc, .related-strip, .site-footer, .back-to-top { display: none !important; }
+      .site-header, .progress-track, .toc-wrap, .mobile-toc, .related-strip, .site-footer, .back-to-top, .affiliate-cta { display: none !important; }
       body { background: white; }
       .container { width: 100%; }
       .article-layout { display: block; padding: 0; }
@@ -371,6 +385,16 @@
         <p><strong>Affiliate disclosure:</strong> Synth Visual participates in NordVPN's affiliate program and may earn a commission from qualifying purchases made through its affiliate links, at no additional cost to the buyer.</p>
         <div class="notice"><strong>Pricing note:</strong> Prices below were checked on October 11, 2026, against the U.S.-dollar offer displayed by NordVPN's official pricing pages. Promotions, plan names, included features, and renewal terms can vary by market and campaign. Confirm the final checkout price before purchasing.</div>
 
+        <!-- Affiliate CTA 1: introductory pricing CTA -->
+        <section class="affiliate-cta" aria-label="Compare NordVPN plans and pricing">
+          <div class="affiliate-cta-copy">
+            <span class="affiliate-cta-kicker">Compare plans</span>
+            <h3>Compare the current plans and pricing.</h3>
+            <p>Review available subscriptions, included features, and checkout terms before choosing a plan.</p>
+          </div>
+          <a class="affiliate-cta-button" href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160" target="_blank" rel="sponsored nofollow noopener noreferrer">View NordVPN Plans <span aria-hidden="true">↗</span></a>
+        </section>
+
         <h2 id="pricing-at-a-glance">NordVPN Pricing at a Glance</h2>
         <p>The U.S.-dollar offer reviewed lists three subscription levels: Basic, Complete, and Prime. Each is available as a monthly subscription, a one-year subscription, or a two-year subscription.</p>
         <p>The lowest advertised equivalent monthly price is $3.49 for Basic, while Complete and Prime cost more because they include additional features or services. These promotional prices are not necessarily the amounts charged every month.</p>
@@ -478,6 +502,16 @@
         <p>Those services have specific eligibility and geographic conditions. More features do not automatically mean better value: consider whether you will actually use the additional services before paying the difference.</p>
         <p>NordVPN's <a href="https://nordvpn.com/pricing/" target="_blank" rel="noopener noreferrer">official pricing page</a> is the appropriate place to compare the current package and checkout terms. If its summary cards and detailed comparison table appear inconsistent, rely on neither in isolation; confirm the exact included benefits before purchasing.</p>
 
+        <!-- Affiliate CTA 2: feature comparison CTA -->
+        <section class="affiliate-cta" aria-label="Compare NordVPN plan features">
+          <div class="affiliate-cta-copy">
+            <span class="affiliate-cta-kicker">Choose the right plan</span>
+            <h3>Check which features are included in each plan.</h3>
+            <p>Compare the available options and confirm which tools are included with the subscription you choose.</p>
+          </div>
+          <a class="affiliate-cta-button" href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160" target="_blank" rel="sponsored nofollow noopener noreferrer">Compare Plan Options <span aria-hidden="true">↗</span></a>
+        </section>
+
         <h2 id="features">NordVPN Features Worth Understanding</h2>
         <h3>VPN encryption and IP address masking</h3>
         <p>A VPN creates an encrypted connection between your device and a VPN server. Websites that see your connection generally see the VPN server's public IP address rather than your original public IP address.</p>
@@ -582,6 +616,16 @@
         <p>Basic is the most straightforward choice for users primarily seeking VPN protection. Complete may provide better value for people who need its bundled security tools, while Prime makes the most sense when its additional identity-related features are relevant and eligible.</p>
         <p>Before subscribing, compare the actual features included in your region, verify the checkout total, and decide whether the renewal price is acceptable. To compare the available offers, <a href="https://nordvpn.com/pricing/" target="_blank" rel="noopener noreferrer">visit NordVPN's official pricing page</a> and review the exact terms shown before completing your purchase.</p>
         <div class="takeaway"><h3>The main takeaway</h3><p>Don't judge NordVPN by its lowest advertised monthly equivalent alone. Compare the upfront cost, how long the promotional price lasts, what the plan actually includes, and the price at renewal.</p></div>
+
+        <!-- Affiliate CTA 3: closing CTA before the source list -->
+        <section class="affiliate-cta" aria-label="Check the current NordVPN offer">
+          <div class="affiliate-cta-copy">
+            <span class="affiliate-cta-kicker">Before you subscribe</span>
+            <h3>See the offer that is currently available to you.</h3>
+            <p>Confirm the latest price, introductory term, renewal amount, and plan details on NordVPN's official checkout flow.</p>
+          </div>
+          <a class="affiliate-cta-button" href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160" target="_blank" rel="sponsored nofollow noopener noreferrer">Check Current Offer <span aria-hidden="true">↗</span></a>
+        </section>
 
         <section class="references" id="sources" aria-labelledby="sources-heading">
           <h2 id="sources-heading">Official Sources &amp; Further Reading</h2>
