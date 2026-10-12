@@ -2,22 +2,20 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B2R2YLSL7R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-B2R2YLSL7R');
-</script>
-  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2R2YLSL7R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B2R2YLSL7R');
+  </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Learn how public and private IP addresses work, how NAT connects devices to the internet, and how to find your IP on Windows, Mac, Android, and iPhone.">
   <meta name="theme-color" content="#f7f7f4">
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://synthvisuals.space/public-vs-private-ip-address.html">
-  <title>Public vs. Private IP Address: Key Differences/title>
+  <title>Public vs. Private IP Address: Key Differences</title>
   <meta property="og:type" content="article">
   <meta property="og:title" content="Public vs. Private IP Address: Key Differences Explained | Synth Visual">
   <meta property="og:description" content="Public and private IP addresses serve different purposes, but they work together every time you connect to the internet. Learn how they differ, how routers use NAT, and how to find your own IP addresses.">
@@ -27,65 +25,34 @@
   <meta name="twitter:description" content="Public and private IP addresses serve different purposes, but they work together every time you connect to the internet. Learn how they differ, how routers use NAT, and how to find your own IP addresses.">
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Public vs. Private IP Address: What's the Difference?",
-  "description": "Learn how public and private IP addresses work, how NAT connects devices to the internet, and how to find your IP on Windows, Mac, Android, and iPhone.",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://synthvisuals.space/public-vs-private-ip-address.html"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "Synth Visual"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Synth Visual",
-    "url": "https://synthvisuals.space/"
-  },
-  "articleSection": "Networking / Internet Technology",
-  "keywords": [
-    "public vs private IP address",
-    "public IP address",
-    "private IP address",
-    "NAT",
-    "CGNAT",
-    "IPv6"
-  ]
-}
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Public vs. Private IP Address: What's the Difference?",
+    "description": "Learn how public and private IP addresses work, how NAT connects devices to the internet, and how to find your IP on Windows, Mac, Android, and iPhone.",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://synthvisuals.space/public-vs-private-ip-address.html"
+    },
+    "author": {"@type": "Organization", "name": "Synth Visual"},
+    "publisher": {"@type": "Organization", "name": "Synth Visual", "url": "https://synthvisuals.space/"},
+    "inLanguage": "en",
+    "articleSection": "Networking / Internet Technology",
+    "keywords": ["public vs private IP address", "public IP address", "private IP address", "NAT", "CGNAT", "IPv6"]
+  }
   </script>
   <style>
     :root {
-      --page: #f7f7f4;
-      --surface: #ffffff;
-      --text: #20231f;
-      --muted: #686d66;
-      --line: #e2e5de;
-      --accent: #245b49;
-      --accent-hover: #194637;
-      --soft: #eaf0eb;
-      --soft-2: #f0f2ed;
-      --max-width: 1120px;
-      --reading-width: 760px;
-      --radius: 16px;
-      --shadow: 0 8px 30px rgba(27, 39, 30, 0.045);
+      --page: #f7f7f4; --surface: #ffffff; --text: #20231f; --muted: #686d66;
+      --line: #e2e5de; --accent: #245b49; --accent-hover: #194637; --soft: #eaf0eb;
+      --soft-2: #f0f2ed; --max-width: 1120px; --reading-width: 760px;
+      --radius: 16px; --shadow: 0 8px 30px rgba(27, 39, 30, 0.045);
     }
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; scroll-padding-top: 24px; }
-    body {
-      margin: 0;
-      background: var(--page);
-      color: var(--text);
-      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
+    body { margin: 0; background: var(--page); color: var(--text); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; -webkit-font-smoothing: antialiased; }
     a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
     a:hover { color: var(--accent-hover); }
-    a:focus-visible, button:focus-visible, summary:focus-visible {
-      outline: 3px solid #7cae98; outline-offset: 4px; border-radius: 4px;
-    }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #7cae98; outline-offset: 4px; border-radius: 4px; }
     .container { width: min(var(--max-width), calc(100% - 48px)); margin-inline: auto; }
     .site-header { border-bottom: 1px solid var(--line); background: rgba(247, 247, 244, .96); }
     .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
@@ -192,55 +159,31 @@
     .footer-links { display: flex; flex-wrap: wrap; gap: 19px; color: var(--muted); font-size: 11px; }
     .footer-links a { color: var(--muted); text-decoration: none; }
     .footer-links a:hover { color: var(--accent); }
-    @media (max-width: 900px) {
-      .article-layout { grid-template-columns: minmax(0, 760px); }
-      .toc-wrap { display: none; }
-      .mobile-toc { display: block; }
-      .article-content { margin-inline: auto; width: 100%; }
-    }
+    @media (max-width: 900px) { .article-layout { grid-template-columns: minmax(0, 760px); } .toc-wrap { display: none; } .mobile-toc { display: block; } .article-content { margin-inline: auto; width: 100%; } }
     @media (max-width: 700px) {
       .container { width: min(100% - 32px, var(--max-width)); }
       .header-inner { min-height: 74px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 13px; padding: 15px 0; }
-      .brand-name { font-size: 24px; }
-      .brand-tagline { font-size: 9px; }
+      .brand-name { font-size: 24px; } .brand-tagline { font-size: 9px; }
       .main-nav { width: 100%; justify-content: space-between; gap: 10px; font-size: 11px; }
-      .nav-cta { padding: 7px 10px; }
-      .breadcrumbs { padding-top: 18px; }
+      .nav-cta { padding: 7px 10px; } .breadcrumbs { padding-top: 18px; }
       .article-hero { padding: 28px 0 25px; }
       .article-hero h1 { font-size: clamp(37px, 10vw, 52px); letter-spacing: -1.7px; }
-      .dek { font-size: 15px; }
-      .feature-visual { padding: 17px 14px; border-radius: 17px; }
+      .dek { font-size: 15px; } .feature-visual { padding: 17px 14px; border-radius: 17px; }
       .connection-flow { grid-template-columns: 1fr; gap: 9px; max-width: 330px; }
       .device-card { min-height: auto; display: grid; grid-template-columns: 42px 1fr; justify-content: start; text-align: left; padding: 12px 14px; }
       .device-card svg { width: 34px; height: 34px; grid-row: span 2; }
-      .device-card strong { align-self: end; font-size: 15px; }
-      .device-card small { align-self: start; }
+      .device-card strong { align-self: end; font-size: 15px; } .device-card small { align-self: start; }
       .tunnel { display: grid; grid-template-columns: 24px 1fr; gap: 7px 10px; justify-items: start; text-align: left; padding-left: 24px; }
       .tunnel-line { width: 3px; height: 19px; margin-left: 11px; grid-column: 1; grid-row: 1 / span 2; }
       .tunnel-line::after { top: auto; bottom: -1px; right: -4px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 7px solid #5e9476; border-bottom: 0; }
       .tunnel-icon { grid-column: 2; grid-row: 1; width: 23px; height: 23px; }
       .tunnel-label { grid-column: 2; grid-row: 2; }
-      .article-layout { padding: 28px 0 58px; }
-      .article-content { font-size: 15px; line-height: 1.82; }
-      .article-content h2 { margin-top: 43px; font-size: 30px; }
-      .article-content h3 { font-size: 21px; }
-      .step { padding: 14px; }
-      .related-inner, .footer-inner { align-items: flex-start; flex-direction: column; }
+      .article-layout { padding: 28px 0 58px; } .article-content { font-size: 15px; line-height: 1.82; }
+      .article-content h2 { margin-top: 43px; font-size: 30px; } .article-content h3 { font-size: 21px; }
+      .step { padding: 14px; } .related-inner, .footer-inner { align-items: flex-start; flex-direction: column; }
     }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; }
-    }
-    @media print {
-      .site-header, .progress-track, .toc-wrap, .mobile-toc, .related-strip, .site-footer, .back-to-top { display: none !important; }
-      body { background: white; }
-      .container { width: 100%; }
-      .article-layout { display: block; padding: 0; }
-      .article-content { max-width: none; font-size: 11pt; }
-      .article-content h2 { break-after: avoid; }
-      a { color: inherit; }
-    }
-
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+    @media print { .site-header, .progress-track, .toc-wrap, .mobile-toc, .related-strip, .site-footer, .back-to-top { display: none !important; } body { background: white; } .container { width: 100%; } .article-layout { display: block; padding: 0; } .article-content { max-width: none; font-size: 11pt; } .article-content h2 { break-after: avoid; } a { color: inherit; } }
     .ip-comparison { display: grid; grid-template-columns: 1fr auto 1fr; align-items: stretch; gap: 18px; max-width: 820px; margin: 0 auto; }
     .ip-type-card { min-width: 0; padding: 25px 22px; border: 1px solid rgba(36,91,73,.18); border-radius: 17px; background: rgba(255,255,255,.86); text-align: left; }
     .ip-type-card.private { background: rgba(234,240,235,.78); }
@@ -249,8 +192,8 @@
     .ip-card-heading strong { font-family: Georgia, "Times New Roman", serif; font-size: 23px; font-weight: 600; line-height: 1.2; }
     .ip-type-card p { margin: 17px 0 14px; color: #4b554b; font-size: 13px; line-height: 1.7; }
     .ip-type-card .ip-example-label { display: block; margin-bottom: 8px; color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; }
-    .ip-type-card code { display: inline-block; padding: 6px 9px; border: 1px solid #dce6dc; border-radius: 7px; background: white; color: #285b48; font-size: 11px; }
     .ip-address-examples { display: flex; flex-wrap: wrap; gap: 7px; }
+    .ip-type-card code { display: inline-block; padding: 6px 9px; border: 1px solid #dce6dc; border-radius: 7px; background: white; color: #285b48; font-size: 11px; }
     .comparison-divider { align-self: center; color: #6a786b; font-size: 10px; font-weight: 850; letter-spacing: 1.2px; text-transform: uppercase; }
     .inline-network-diagram { margin: 25px 0 30px; padding: 24px 18px 17px; border: 1px solid #dfe6dd; border-radius: 17px; background: linear-gradient(135deg, #eff3ee 0%, #f9fbf8 48%, #e7eee8 100%); }
     .inline-network-diagram .connection-flow { grid-template-columns: 1fr minmax(74px, .75fr) 1fr minmax(74px, .75fr) 1fr; gap: 9px; }
@@ -277,410 +220,193 @@
       .inline-network-diagram .tunnel-icon { grid-column: 2; grid-row: 1; width: 23px; height: 23px; }
       .inline-network-diagram .tunnel-label { grid-column: 2; grid-row: 2; font-size: 9px; }
     }
-
   </style>
 </head>
 <body id="top">
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/" aria-label="Synth Visual home">
-        <span class="brand-name">Synth Visual</span>
-        <span class="brand-tagline">Technology, made clearer</span>
-      </a>
-      <nav class="main-nav" aria-label="Main navigation">
-        <a href="/#latest-guides">Guides</a>
-        <a href="/#about">About</a>
-        <a class="nav-cta" href="/#latest-guides">Explore Articles</a>
-      </nav>
+      <a class="brand" href="/" aria-label="Synth Visual home"><span class="brand-name">Synth Visual</span><span class="brand-tagline">Technology, made clearer</span></a>
+      <nav class="main-nav" aria-label="Main navigation"><a href="/#latest-guides">Guides</a><a href="/#about">About</a><a class="nav-cta" href="/#latest-guides">Explore Articles</a></nav>
     </div>
     <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="reading-progress"></div></div>
   </header>
-
   <main>
     <div class="container">
-      <nav class="breadcrumbs" aria-label="Breadcrumb">
-        <ol>
-          <li><a href="/">Home</a></li>
-          <li><a href="/#latest-guides">Guides</a></li>
-          <li aria-current="page">Public vs. Private IP Address</li>
-        </ol>
-      </nav>
-
-      <header class="article-hero">
-        <div class="article-hero-inner">
-          <p class="eyebrow">Networking Basics · Beginner's Guide</p>
-          <h1>Public vs. Private IP Address: <em>What's the Difference?</em></h1>
-          <p class="dek">Public and private IP addresses serve different purposes, but they work together every time you connect to the internet. Learn how they differ, how routers use NAT, and how to find your own IP addresses.</p>
-          <div class="article-meta" aria-label="Article information">
-            <span class="topic-pill">Networking</span>
-            <span class="meta-dot">Beginner friendly</span>
-            <span class="meta-dot">About 16 min read</span>
-          </div>
-        </div>
-      </header>
-
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/#latest-guides">Guides</a></li><li aria-current="page">Public vs. Private IP Address</li></ol></nav>
+      <header class="article-hero"><div class="article-hero-inner"><p class="eyebrow">Networking Basics · Beginner's Guide</p><h1>Public vs. Private IP Address: <em>What's the Difference?</em></h1><p class="dek">Public and private IP addresses serve different purposes, but they work together every time you connect to the internet. Learn how they differ, how routers use NAT, and how to find your own IP addresses.</p><div class="article-meta" aria-label="Article information"><span class="topic-pill">Networking</span><span class="meta-dot">Beginner friendly</span><span class="meta-dot">About 16 min read</span></div></div></header>
       <figure class="feature-visual" aria-labelledby="ip-comparison-caption">
         <div class="ip-comparison" aria-label="Public and private IP addresses serve different network scopes">
-          <div class="ip-type-card public">
-            <div class="ip-card-heading">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M6 24h36M24 6c5 5 7 11 7 18s-2 13-7 18c-5-5-7-11-7-18s2-13 7-18Z"/><path d="M10 14h28M10 34h28" opacity=".55"/></svg>
-              <strong>Public IP address</strong>
-            </div>
-            <p>Used for communication across public networks and the internet. Websites usually see the public-facing source address for your connection.</p>
-            <span class="ip-example-label">Typical scope</span>
-            <code>Internet-facing connection</code>
-          </div>
+          <div class="ip-type-card public"><div class="ip-card-heading"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M6 24h36M24 6c5 5 7 11 7 18s-2 13-7 18c-5-5-7-11-7-18s2-13 7-18Z"/><path d="M10 14h28M10 34h28" opacity=".55"/></svg><strong>Public IP address</strong></div><p>Used for communication across public networks and the internet. Websites usually see the public-facing source address for your connection.</p><span class="ip-example-label">Typical scope</span><code>Internet-facing connection</code></div>
           <div class="comparison-divider" aria-hidden="true">vs.</div>
-          <div class="ip-type-card private">
-            <div class="ip-card-heading">
-              <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="7" width="38" height="26" rx="3"/><path d="M2 39h44M18 33l-2 6m14-6 2 6"/><path d="M19 18h10M19 23h10"/></svg>
-              <strong>Private IP address</strong>
-            </div>
-            <p>Used to identify devices inside a local network, such as your home Wi-Fi or office network. Several devices can share one public IPv4 address through NAT.</p>
-            <span class="ip-example-label">Illustrative private IPv4 examples</span>
-            <div class="ip-address-examples"><code>192.168.1.10</code><code>192.168.1.11</code><code>192.168.1.12</code></div>
-          </div>
-        </div>
-        <figcaption class="visual-caption" id="ip-comparison-caption">The main difference is scope: private IPv4 addresses are used within local networks; public IP addresses are used for internet-facing communication. Address type alone does not determine security.</figcaption>
+          <div class="ip-type-card private"><div class="ip-card-heading"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="7" width="38" height="26" rx="3"/><path d="M2 39h44M18 33l-2 6m14-6 2 6"/><path d="M19 18h10M19 23h10"/></svg><strong>Private IP address</strong></div><p>Used to identify devices inside a local network, such as your home Wi-Fi or office network. Several devices can share one public IPv4 address through NAT.</p><span class="ip-example-label">Illustrative private IPv4 examples</span><div class="ip-address-examples"><code>192.168.1.10</code><code>192.168.1.11</code><code>192.168.1.12</code></div></div>
+        </div><figcaption class="visual-caption" id="ip-comparison-caption">The main difference is scope: private IPv4 addresses are used within local networks; public IP addresses are used for internet-facing communication. Address type alone does not determine security.</figcaption>
       </figure>
     </div>
-
     <div class="container article-layout">
-      <aside class="toc-wrap" aria-label="Article navigation">
-        <nav class="toc-card">
-          <p class="toc-title">On this page</p>
-          <ol class="toc-list">
-            <li><a href="#what-is-a-public-ip-address">What Is a Public IP Address?</a></li>
-<li><a href="#what-is-a-private-ip-address">What Is a Private IP Address?</a></li>
-<li><a href="#private-ipv4-address-ranges-explained">Private IPv4 Address Ranges Explained</a></li>
-<li><a href="#public-vs-private-ip-address-key-differences">Public vs. Private IP Address: Key Differences</a></li>
-<li><a href="#how-public-and-private-ip-addresses-work-together">How Public and Private IP Addresses Work Together</a></li>
-<li><a href="#can-multiple-devices-share-the-same-public-ip-address">Can Multiple Devices Share the Same Public IP Address?</a></li>
-<li><a href="#does-a-public-ip-address-make-your-device-vulnerable">Does a Public IP Address Make Your Device Vulnerable?</a></li>
-<li><a href="#how-to-find-your-public-and-private-ip-addresses">How to Find Your Public and Private IP Addresses</a></li>
-<li><a href="#static-vs-dynamic-ip-addresses-is-that-the-same-as-public-vs-private">Static vs. Dynamic IP Addresses: Is That the Same as Public vs. Private?</a></li>
-<li><a href="#how-do-public-and-private-ip-addresses-work-with-ipv6">How Do Public and Private IP Addresses Work With IPv6?</a></li>
-<li><a href="#do-vpns-change-your-public-or-private-ip-address">Do VPNs Change Your Public or Private IP Address?</a></li>
-<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
-<li><a href="#final-thoughts">Final Thoughts</a></li>
-<li><a href="#sources">Sources &amp; Further Reading</a></li>
-          </ol>
-          <p class="toc-note">The key takeaway: public and private IP addresses serve different network scopes. NAT commonly lets multiple devices share an internet-facing IPv4 address.</p>
-        </nav>
-      </aside>
-
+      <aside class="toc-wrap" aria-label="Article navigation"><nav class="toc-card"><p class="toc-title">On this page</p><ol class="toc-list">
+        <li><a href="#what-is-a-public-ip-address">What Is a Public IP Address?</a></li><li><a href="#what-is-a-private-ip-address">What Is a Private IP Address?</a></li><li><a href="#private-ipv4-address-ranges-explained">Private IPv4 Address Ranges Explained</a></li><li><a href="#public-vs-private-ip-address-key-differences">Public vs. Private IP Address: Key Differences</a></li><li><a href="#how-public-and-private-ip-addresses-work-together">How Public and Private IP Addresses Work Together</a></li><li><a href="#can-multiple-devices-share-the-same-public-ip-address">Can Multiple Devices Share the Same Public IP Address?</a></li><li><a href="#does-a-public-ip-address-make-your-device-vulnerable">Does a Public IP Address Make Your Device Vulnerable?</a></li><li><a href="#how-to-find-your-public-and-private-ip-addresses">How to Find Your Public and Private IP Addresses</a></li><li><a href="#static-vs-dynamic-ip-addresses-is-that-the-same-as-public-vs-private">Static vs. Dynamic IP Addresses: Is That the Same as Public vs. Private?</a></li><li><a href="#how-do-public-and-private-ip-addresses-work-with-ipv6">How Do Public and Private IP Addresses Work With IPv6?</a></li><li><a href="#do-vpns-change-your-public-or-private-ip-address">Do VPNs Change Your Public or Private IP Address?</a></li><li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li><li><a href="#final-thoughts">Final Thoughts</a></li><li><a href="#sources">Sources &amp; Further Reading</a></li>
+      </ol><p class="toc-note">The key takeaway: public and private IP addresses serve different network scopes. NAT commonly lets multiple devices share an internet-facing IPv4 address.</p></nav></aside>
       <article class="article-content">
-        <div class="mobile-toc">
-          <details>
-            <summary>On this page · Article contents</summary>
-            <ol class="toc-list">
-              <li><a href="#what-is-a-public-ip-address">What Is a Public IP Address?</a></li>
-<li><a href="#what-is-a-private-ip-address">What Is a Private IP Address?</a></li>
-<li><a href="#private-ipv4-address-ranges-explained">Private IPv4 Address Ranges Explained</a></li>
-<li><a href="#public-vs-private-ip-address-key-differences">Public vs. Private IP Address: Key Differences</a></li>
-<li><a href="#how-public-and-private-ip-addresses-work-together">How Public and Private IP Addresses Work Together</a></li>
-<li><a href="#can-multiple-devices-share-the-same-public-ip-address">Can Multiple Devices Share the Same Public IP Address?</a></li>
-<li><a href="#does-a-public-ip-address-make-your-device-vulnerable">Does a Public IP Address Make Your Device Vulnerable?</a></li>
-<li><a href="#how-to-find-your-public-and-private-ip-addresses">How to Find Your Public and Private IP Addresses</a></li>
-<li><a href="#static-vs-dynamic-ip-addresses-is-that-the-same-as-public-vs-private">Static vs. Dynamic IP Addresses: Is That the Same as Public vs. Private?</a></li>
-<li><a href="#how-do-public-and-private-ip-addresses-work-with-ipv6">How Do Public and Private IP Addresses Work With IPv6?</a></li>
-<li><a href="#do-vpns-change-your-public-or-private-ip-address">Do VPNs Change Your Public or Private IP Address?</a></li>
-<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
-<li><a href="#final-thoughts">Final Thoughts</a></li>
-<li><a href="#sources">Sources &amp; Further Reading</a></li>
-            </ol>
-          </details>
-        </div>
-        <div class="quick-answer">
-          <p class="quick-answer-label">The quick answer</p>
-          <p>A <strong>public IP address</strong> is used for communication across the public internet, while a <strong>private IP address</strong> is used within a local network. In many home IPv4 networks, devices have separate private addresses and a router uses Network Address Translation (NAT) to let them share an internet-facing public IPv4 address.</p>
-        </div>
+        <div class="mobile-toc"><details><summary>On this page · Article contents</summary><ol class="toc-list">
+          <li><a href="#what-is-a-public-ip-address">What Is a Public IP Address?</a></li><li><a href="#what-is-a-private-ip-address">What Is a Private IP Address?</a></li><li><a href="#private-ipv4-address-ranges-explained">Private IPv4 Address Ranges Explained</a></li><li><a href="#public-vs-private-ip-address-key-differences">Public vs. Private IP Address: Key Differences</a></li><li><a href="#how-public-and-private-ip-addresses-work-together">How Public and Private IP Addresses Work Together</a></li><li><a href="#can-multiple-devices-share-the-same-public-ip-address">Can Multiple Devices Share the Same Public IP Address?</a></li><li><a href="#does-a-public-ip-address-make-your-device-vulnerable">Does a Public IP Address Make Your Device Vulnerable?</a></li><li><a href="#how-to-find-your-public-and-private-ip-addresses">How to Find Your Public and Private IP Addresses</a></li><li><a href="#static-vs-dynamic-ip-addresses-is-that-the-same-as-public-vs-private">Static vs. Dynamic IP Addresses: Is That the Same as Public vs. Private?</a></li><li><a href="#how-do-public-and-private-ip-addresses-work-with-ipv6">How Do Public and Private IP Addresses Work With IPv6?</a></li><li><a href="#do-vpns-change-your-public-or-private-ip-address">Do VPNs Change Your Public or Private IP Address?</a></li><li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li><li><a href="#final-thoughts">Final Thoughts</a></li><li><a href="#sources">Sources &amp; Further Reading</a></li>
+        </ol></details></div>
+        <div class="quick-answer"><p class="quick-answer-label">The quick answer</p><p>A <strong>public IP address</strong> is used for communication across the public internet, while a <strong>private IP address</strong> is used within a local network. In many home IPv4 networks, devices have separate private addresses and a router uses Network Address Translation (NAT) to let them share an internet-facing public IPv4 address.</p></div>
         <p>Every time you connect a laptop, smartphone, or smart TV to your home Wi-Fi, that device uses an IP address to communicate over a network. But not every IP address serves the same purpose.</p>
-<p>Understanding the difference between public and private IP addresses helps explain how your devices communicate with each other, how your router connects your home to the internet, and what websites can learn about your connection.</p>
-<p>The main difference is that a <strong>public IP address is used for communication across the public internet, while a private IP address is used within a local network</strong>, such as your home or office. Many home networks use both: individual devices receive private IPv4 addresses, and a router commonly uses Network Address Translation (NAT) to let those devices share an internet-facing public IPv4 address.</p>
-<p>For example, your laptop might use <code>192.168.1.10</code>, while your smartphone uses <code>192.168.1.11</code>. Both can access the same website through your router without needing separate public IPv4 addresses.</p>
-<p>Let's explore how these addresses work, why they matter, and how you can find them on your own devices.</p>
-<h2 id="what-is-a-public-ip-address">What Is a Public IP Address?</h2>
-<p>A public IP address is an address used for communication across the public internet. Publicly routable IP addresses allow networks and internet-facing systems to exchange traffic with other networks around the world.</p>
-<p>For an IPv4 connection, your internet service provider (ISP) commonly assigns a public IP address to your internet connection or the equipment serving it. Organizations can also obtain address space through the appropriate internet number registries and providers.</p>
-<p>When you visit a website, the service usually sees the public-facing source IP address associated with your connection. This address helps the website or its network infrastructure send responses back along the appropriate network path.</p>
-<p>For example, when you open a news website on your laptop, your request travels through your local network and internet connection. The website does not normally see your laptop's private IPv4 address as the source address of the internet-facing connection. Instead, it sees the address that emerges from the network path, which may be your ISP's public address or an address belonging to a VPN or proxy.</p>
-<p>A public IP address is not necessarily permanent. Some ISPs assign dynamic addresses that may change over time, while others offer static addresses intended to remain fixed.</p>
-<p><strong>Does a public IP address make a device directly accessible from the internet?</strong></p>
-<p>No. Public routing and actual accessibility are different things. A public IP address identifies a destination that may be reachable through internet routing, but a firewall, router configuration, closed ports, or other network policies can prevent incoming connections from reaching a particular device.</p>
-<p>In addition, some internet connections use Carrier-Grade NAT, meaning the public IPv4 address is shared by multiple customers rather than assigned directly to an individual household router.</p>
-<h2 id="what-is-a-private-ip-address">What Is a Private IP Address?</h2>
-<p>A private IP address is used within a local network, such as a home Wi-Fi network, office, school, or internal business network.</p>
-<p>These addresses let devices communicate without requiring every laptop, printer, smartphone, or smart TV to have its own public IPv4 address.</p>
-<p>Your home router commonly assigns private IPv4 addresses to connected devices through the Dynamic Host Configuration Protocol (DHCP). Depending on the network, addresses can also be configured manually.</p>
-<p>For example, a home network might use:</p>
-<ul>
-<li>Laptop: <code>192.168.1.10</code></li>
-<li>Smartphone: <code>192.168.1.11</code></li>
-<li>Smart TV: <code>192.168.1.12</code></li>
-<li>Router's local interface: <code>192.168.1.1</code></li>
-</ul>
-<p>These are illustrative addresses, not universal defaults. Your network may use different addresses.</p>
-<p>The defining characteristic of a private IPv4 address is that it is not globally routable across the public internet. A device using <code>192.168.1.10</code> can communicate with compatible devices on its local network, but that private address is not used as a globally reachable internet destination.</p>
-<p>This is possible because many unrelated networks can reuse the same private addresses. Your home router and an office router, for instance, might both use <code>192.168.1.1</code> without creating a global addressing conflict.</p>
-<p>A private IP address does not mean that a device is offline. Your laptop can use a private address on your local network while accessing websites, streaming videos, or downloading files through a router or other network gateway.</p>
-<p>It also does not mean the traffic is automatically encrypted or completely private. Private addressing describes how an address is used, not whether communications are secure.</p>
-<h2 id="private-ipv4-address-ranges-explained">Private IPv4 Address Ranges Explained</h2>
-<p>The <a href="https://www.rfc-editor.org/rfc/rfc1918.html" rel="noopener noreferrer" target="_blank">IETF's RFC 1918</a> defines three blocks of IPv4 addresses reserved for private use.</p>
-<div class="scroll-table"><table>
-<thead>
-<tr>
-<th scope="col">Private IPv4 block</th>
-<th scope="col">Address range</th>
-<th scope="col">Common context</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>10.0.0.0/8</code></td>
-<td><code>10.0.0.0</code>–<code>10.255.255.255</code></td>
-<td>Larger networks and flexible network configurations</td>
-</tr>
-<tr>
-<td><code>172.16.0.0/12</code></td>
-<td><code>172.16.0.0</code>–<code>172.31.255.255</code></td>
-<td>Organizational networks and selected local configurations</td>
-</tr>
-<tr>
-<td><code>192.168.0.0/16</code></td>
-<td><code>192.168.0.0</code>–<code>192.168.255.255</code></td>
-<td>Common home and small office networks</td>
-</tr>
-</tbody>
-</table></div>
-<p>The numbers after the slash use Classless Inter-Domain Routing (CIDR) notation. In simple terms, <code>/8</code>, <code>/12</code>, and <code>/16</code> indicate how many leading bits define the network block.</p>
-<p>One detail is particularly important: <strong>the private range beginning with 172 covers only addresses from <code>172.16.0.0</code> through <code>172.31.255.255</code>.</strong> Not every address beginning with <code>172</code> is private.</p>
-<p>Similarly, <code>192.168.1.1</code> and <code>10.0.0.1</code> are examples of possible private addresses, not addresses that every router must use.</p>
-<p>There are also IPv4 addresses reserved for other special purposes, such as loopback, testing, and shared addressing by service providers. Therefore, an address outside the three RFC 1918 ranges is not automatically a usable public IP address. The <a href="https://www.iana.org/assignments/iana-ipv4-special-registry" rel="noopener noreferrer" target="_blank">IANA IPv4 Special-Purpose Address Registry</a> documents many of these special-purpose ranges.</p>
-<h2 id="public-vs-private-ip-address-key-differences">Public vs. Private IP Address: Key Differences</h2>
-<p>The following table summarizes the differences between a public and a private IP address.</p>
-<div class="scroll-table"><table>
-<thead>
-<tr>
-<th scope="col">Feature</th>
-<th scope="col">Public IP address</th>
-<th scope="col">Private IP address</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Primary purpose</td>
-<td>Communication across public networks</td>
-<td>Communication within a local network</td>
-</tr>
-<tr>
-<td>Typical location</td>
-<td>Internet-facing connection or server</td>
-<td>Home, office, or other local network</td>
-</tr>
-<tr>
-<td>Internet routing</td>
-<td>Publicly routable when the address and route are valid</td>
-<td>RFC 1918 IPv4 addresses are not globally routable</td>
-</tr>
-<tr>
-<td>Assignment</td>
-<td>Commonly provided by an ISP or allocated to a network</td>
-<td>Commonly assigned by a local router or DHCP server</td>
-</tr>
-<tr>
-<td>Reuse</td>
-<td>Publicly routed addresses must be appropriately allocated; special-purpose exceptions exist</td>
-<td>The same private IPv4 addresses can be reused in unrelated networks</td>
-</tr>
-<tr>
-<td>External visibility</td>
-<td>Often visible to the internet services receiving a connection</td>
-<td>Normally not visible as the source address outside the local network when NAT is used</td>
-</tr>
-<tr>
-<td>Example</td>
-<td>An ISP-assigned public IPv4 address</td>
-<td><code>192.168.1.10</code></td>
-</tr>
-<tr>
-<td>Router relationship</td>
-<td>May identify the network's internet-facing connection</td>
-<td>Commonly identifies a local device or the router's local interface</td>
-</tr>
-</tbody>
-</table></div>
-<p>The key distinction is scope. A private address identifies an interface within a local addressing environment, while a public address supports communication through the public internet.</p>
-<p>Neither address type automatically determines whether a connection is secure. Security depends on factors such as encryption, firewall rules, authentication, software updates, and the network's configuration.</p>
-<h2 id="how-public-and-private-ip-addresses-work-together">How Public and Private IP Addresses Work Together</h2>
-<p>Most traditional home IPv4 networks combine private addressing with NAT. Understanding this relationship makes the difference between public and private IP addresses much easier to visualize.</p>
-<p>Imagine a home with a router, a laptop, a smartphone, and a smart TV.</p>
-<p>The local network might look like this:</p>
-<figure aria-labelledby="home-network-caption" class="inline-network-diagram">
-<div aria-label="Illustrative home network. A laptop, smartphone, and smart TV use private IPv4 addresses. Their traffic passes through a router performing NAT, then reaches a website using the public-facing source address." class="connection-flow" role="img">
-<div class="device-card local-devices">
-<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 48 48"><rect height="26" rx="3" width="38" x="5" y="7"></rect><path d="M2 39h44M18 33l-2 6m14-6 2 6"></path><rect height="11" rx="1.5" width="16" x="16" y="14"></rect><path d="M21 19h6m-3-3v6"></path></svg>
-<strong>Local devices</strong>
-<small>Laptop · 192.168.1.10<br/>Phone · 192.168.1.11<br/>Smart TV · 192.168.1.12</small>
-</div>
-<div aria-hidden="true" class="tunnel"><span class="tunnel-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></span><span class="tunnel-label">Local traffic</span><span class="tunnel-line"></span></div>
-<div class="device-card router-card">
-<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 48 48"><rect height="14" rx="3" width="38" x="5" y="24"></rect><path d="M13 24V13m22 11V13M9 18l4-5 4 5m14 0 4-5 4 5"></path><circle cx="12" cy="31" fill="currentColor" r="1"></circle><circle cx="18" cy="31" fill="currentColor" r="1"></circle><path d="M27 31h10"></path></svg>
-<strong>Router + NAT</strong>
-<small>Local interface<br/>192.168.1.1</small>
-</div>
-<div aria-hidden="true" class="tunnel"><span class="tunnel-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewbox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></span><span class="tunnel-label">Internet-facing IP</span><span class="tunnel-line"></span></div>
-<div class="device-card website-card">
-<svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 48 48"><circle cx="24" cy="24" r="18"></circle><path d="M6 24h36M24 6c5 5 7 11 7 18s-2 13-7 18c-5-5-7-11-7-18s2-13 7-18Z"></path><path d="M10 14h28M10 34h28" opacity=".55"></path></svg>
-<strong>Website</strong>
-<small>Sees the connection's public-facing source IP</small>
-</div>
-</div>
-<figcaption class="visual-caption" id="home-network-caption">Illustrative IPv4 setup. NAT is commonly performed by the home router; some internet providers add another translation layer, and not every connection has a public IPv4 address assigned directly to the router.</figcaption>
-</figure>
-<p>All private IPv4 addresses in this diagram are illustrative. Actual network configurations vary, and the router's internet-facing interface may not have its own public IPv4 address if the ISP uses another layer of address translation.</p>
-<p>Here's what happens when the laptop opens a website.</p>
-<div class="step-list"><section class="step"><span class="step-number">1</span><div><h3>The laptop receives a private IP address</h3><p>When it connects to Wi-Fi, the router commonly assigns it an address such as <code>192.168.1.10</code> using DHCP.</p></div></section><section class="step"><span class="step-number">2</span><div><h3>The router connects the local network to the internet</h3><p>The router has a local interface address and an internet-facing connection. These interfaces serve different purposes and may use different address types.</p></div></section><section class="step"><span class="step-number">3</span><div><h3>The laptop requests a website</h3><p>The laptop sends network traffic toward the website. Its private address identifies the laptop within the local network.</p></div></section><section class="step"><span class="step-number">4</span><div><h3>The router translates the outgoing connection</h3><p>In a typical home IPv4 setup, the router uses Network Address Translation (NAT). Often, it also translates port information, a technique commonly called Network Address and Port Translation (NAPT). The router records the connection information needed to direct returning traffic to the correct device.</p></div></section><section class="step"><span class="step-number">5</span><div><h3>The website receives the request</h3><p>The external service typically sees the public-facing source IP address of the connection, rather than the laptop's local private IPv4 address. If the ISP uses Carrier-Grade NAT, another translation can occur upstream.</p></div></section><section class="step"><span class="step-number">6</span><div><h3>The response returns to the laptop</h3><p>The router uses its connection and translation information to forward the returning traffic to the appropriate device on the local network.</p></div></section></div>
-
-
-
-
-
-
-
-
-
-
-
-<p>The underlying mechanism is described in <a href="https://www.rfc-editor.org/rfc/rfc3022.html" rel="noopener noreferrer" target="_blank">RFC 3022, Traditional IP Network Address Translator</a>.</p>
-<p>One important point: NAT is primarily a network address translation mechanism, not an encryption method or a complete security solution.</p>
-<h2 id="can-multiple-devices-share-the-same-public-ip-address">Can Multiple Devices Share the Same Public IP Address?</h2>
-<p>Yes. Multiple devices can access the internet through the same public IPv4 address.</p>
-<p>Within a home, a router commonly lets a laptop, smartphone, smart TV, and other devices share one public-facing IPv4 address through NAT. The devices have separate private addresses, and the router tracks their individual connections.</p>
-<p>However, sharing can also occur beyond the home.</p>
-<p>Some ISPs use <strong>Carrier-Grade NAT (CGNAT)</strong> to let multiple subscribers share a public IPv4 address. In that arrangement, an ISP performs additional translation within its own network. The shared address space used for this purpose is documented in <a href="https://www.rfc-editor.org/rfc/rfc6598.html" rel="noopener noreferrer" target="_blank">RFC 6598</a>.</p>
-<p>This distinction matters when troubleshooting connections. A subscriber behind CGNAT may not be able to accept unsolicited incoming connections in the same way as a subscriber with a directly assigned public IPv4 address and a suitable router configuration.</p>
-<p>Hosting a game server, remotely accessing a home device, or configuring port forwarding may require additional steps or may be restricted by the ISP. The exact limitations depend on the network setup and service provider.</p>
-<h2 id="does-a-public-ip-address-make-your-device-vulnerable">Does a Public IP Address Make Your Device Vulnerable?</h2>
-<p>A public IP address is not, by itself, proof that a device is vulnerable.</p>
-<p>An IP address can provide information about the network through which a connection originates. IP geolocation databases can often estimate a country or broader region, but their results may reflect an ISP's network infrastructure rather than a person's actual location. An IP address alone normally does not reveal a person's name or exact residential address to an ordinary member of the public.</p>
-<p>The more important question is whether a device or service can be reached and whether it has security weaknesses.</p>
-<p>For example, exposure can depend on:</p>
-<ul>
-<li>Whether the device runs services that accept incoming connections.</li>
-<li>Whether ports are open or forwarded through a router.</li>
-<li>Whether firewall rules permit the traffic.</li>
-<li>Whether software contains unpatched vulnerabilities.</li>
-<li>Whether remote administration is configured securely.</li>
-</ul>
-<p>A properly configured firewall can restrict unsolicited incoming traffic even when a network has a public IP address. Conversely, private addressing does not make a device invulnerable to threats originating inside the local network or through compromised software.</p>
-<p>For everyday protection, keep operating systems and applications updated, use strong administrative passwords, secure your router settings, and maintain appropriate firewall protections. Focus on actual security controls rather than assuming that one address type is inherently safe.</p>
-<h2 id="how-to-find-your-public-and-private-ip-addresses">How to Find Your Public and Private IP Addresses</h2>
-<p>Your public and private IP addresses serve different purposes, so you usually find them in different places.</p>
-<h3 id="how-to-find-your-public-ip-address">How to Find Your Public IP Address</h3>
-<p>A public IP lookup service or a search for "What is my IP address?" can show the source address observed by the service.</p>
-<p>Keep in mind that the result may not be the address assigned directly to your router. If you are using a VPN, the website will commonly display the VPN server's public-facing address. A proxy or another network intermediary may produce a similar result.</p>
-<p>If your ISP uses CGNAT, the observed public IPv4 address may also be shared with other subscribers.</p>
-<h3 id="how-to-find-your-private-ip-address-on-windows">How to Find Your Private IP Address on Windows</h3>
-<ol>
-<li>Open the Start menu and search for <strong>Command Prompt</strong>.</li>
-<li>Open Command Prompt.</li>
-<li>Type <code>ipconfig</code> and press Enter.</li>
-<li>Find the network adapter you're using, such as Wi-Fi or Ethernet.</li>
-<li>Look for <strong>IPv4 Address</strong>.</li>
-</ol>
-<p>The listed IPv4 address is the address assigned to your computer's network interface. The <strong>Default Gateway</strong> entry usually identifies the local router or gateway, not your computer's own address.</p>
-<p>You can also open <strong>Settings → Network &amp; internet</strong>, select your active Wi-Fi or Ethernet connection, and review the network properties. Menu names may differ slightly between Windows versions.</p>
-<h3 id="how-to-find-your-private-ip-address-on-macos">How to Find Your Private IP Address on macOS</h3>
-<ol>
-<li>Open the Apple menu and choose <strong>System Settings</strong>.</li>
-<li>Select <strong>Network</strong>.</li>
-<li>Choose your active Wi-Fi or Ethernet connection.</li>
-<li>Open <strong>Details</strong>, then select <strong>TCP/IP</strong>.</li>
-<li>Look for the IPv4 address.</li>
-</ol>
-<p>Apple documents the relevant network settings in its <a href="https://support.apple.com/en-gb/guide/mac-help/mchlp2718/27/mac/27" rel="noopener noreferrer" target="_blank">Mac network configuration guide</a>.</p>
-<h3 id="how-to-find-your-private-ip-address-on-android">How to Find Your Private IP Address on Android</h3>
-<p>The exact menu names depend on the manufacturer and Android version, but a common method is:</p>
-<ol>
-<li>Open <strong>Settings</strong>.</li>
-<li>Go to <strong>Network &amp; Internet</strong> or <strong>Connections</strong>.</li>
-<li>Open Wi-Fi or the currently connected network.</li>
-<li>Select the active network and look for its network details or IP address.</li>
-</ol>
-<p>Some devices display the IP address immediately; others place it under an advanced or details menu. If these steps do not match your phone, search for "IP address" in Settings or consult the manufacturer's support documentation. Google's <a href="https://support.google.com/android/answer/9654714?hl=en-GP" rel="noopener noreferrer" target="_blank">Android network settings guide</a> explains how network menu layouts can vary.</p>
-<h3 id="how-to-find-your-private-ip-address-on-an-iphone-or-ipad">How to Find Your Private IP Address on an iPhone or iPad</h3>
-<ol>
-<li>Open <strong>Settings</strong>.</li>
-<li>Tap <strong>Wi-Fi</strong>.</li>
-<li>Tap the information icon (ⓘ) next to the connected network.</li>
-<li>Look under <strong>IPv4 Address</strong> for <strong>IP Address</strong>.</li>
-</ol>
-<p>This is the device's address on that Wi-Fi network. If you switch to another Wi-Fi network or use a cellular connection, the applicable network addressing can be different.</p>
-<h2 id="static-vs-dynamic-ip-addresses-is-that-the-same-as-public-vs-private">Static vs. Dynamic IP Addresses: Is That the Same as Public vs. Private?</h2>
-<p>No. Public versus private and static versus dynamic describe two different properties of IP addressing.</p>
-<p><strong>Public versus private</strong> describes where and how an address is used.</p>
-<p><strong>Static versus dynamic</strong> describes whether an address is intended to remain fixed or may change through an assignment process.</p>
-<p>A public IP address can be static or dynamic. An ISP might assign a dynamic public address that changes periodically, or offer a static address for a particular service.</p>
-<p>Private IP addresses can also be static or dynamic. A home router might automatically assign your laptop a private IP address through DHCP. A printer might use a manually configured address or a DHCP reservation so that it consistently receives the same address on your local network.</p>
-<p>Therefore, a private address is not necessarily dynamic, and a public address is not necessarily static. These labels answer different questions.</p>
-<h2 id="how-do-public-and-private-ip-addresses-work-with-ipv6">How Do Public and Private IP Addresses Work With IPv6?</h2>
-<p>IPv6 is the newer version of the Internet Protocol. It uses 128-bit addresses rather than IPv4's 32-bit addresses, providing a much larger address space. The protocol's basic specifications are documented in <a href="https://www.rfc-editor.org/rfc/rfc8200.html" rel="noopener noreferrer" target="_blank">RFC 8200</a>.</p>
-<p>IPv6 has addressing categories that differ from the familiar private IPv4 ranges.</p>
-<p>For example, <strong>Unique Local Addresses (ULAs)</strong> are designed for local communications and are not expected to be routed across the global internet. Their addressing format is defined in <a href="https://www.rfc-editor.org/rfc/rfc4193.html" rel="noopener noreferrer" target="_blank">RFC 4193</a>. The ULA block is <code>fc00::/7</code>, with locally assigned prefixes commonly using <code>fd</code> at the beginning.</p>
-<p>IPv6 also has <strong>link-local addresses</strong>, typically in the <code>fe80::/10</code> range, which are used on a directly connected network link. These are different from ULAs.</p>
-<p>In addition, devices can use globally scoped IPv6 addresses for internet communication. Depending on the network, an individual device may have a globally routable IPv6 address rather than relying on the same shared-public-IPv4-and-NAT arrangement common in home IPv4 networks.</p>
-<p>However, a globally scoped IPv6 address does not automatically mean a device is accessible from anywhere on the internet. Firewalls, router policies, and other security controls still determine what incoming traffic is allowed.</p>
-<p>The key takeaway is that IPv6 has its own address types and network behavior. The three private IPv4 ranges defined in RFC 1918 should not be applied to IPv6.</p>
-<h2 id="do-vpns-change-your-public-or-private-ip-address">Do VPNs Change Your Public or Private IP Address?</h2>
-<p>A virtual private network (VPN) typically routes selected or all internet traffic through a VPN server, depending on its configuration.</p>
-<p>When you visit a website through a VPN, the website commonly sees the VPN server's public-facing IP address instead of the public IP address associated with your ordinary internet connection. This can change the IP address visible to the website.</p>
-<p>However, connecting to a VPN does not necessarily change the private IP address assigned to your device by your home router. Your laptop may still have <code>192.168.1.10</code> on its local Wi-Fi network while its internet traffic travels through a VPN tunnel.</p>
-<p>VPN software can create additional virtual network interfaces and assign its own addresses to the tunnel. These are distinct from the address assigned to the device's local Wi-Fi interface.</p>
-<p>The exact behavior depends on the VPN implementation, device, and routing configuration.</p>
-<p>A VPN can improve privacy in certain situations, but it does not make a user completely anonymous or eliminate every security risk. To understand the technology in more detail, read <a href="https://synthvisuals.space/what-is-a-vpn.html">What Is a VPN?</a>.</p>
-<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
-<section class="faq-item"><h3 id="is-192-168-1-1-a-public-or-private-ip-address">Is 192.168.1.1 a public or private IP address?</h3><p><code>192.168.1.1</code> is a private IPv4 address because it falls within the <code>192.168.0.0/16</code> range defined by RFC 1918. It is frequently used as a local router address, although the exact address depends on the network configuration.</p></section>
-
-<section class="faq-item"><h3 id="can-two-devices-have-the-same-private-ip-address">Can two devices have the same private IP address?</h3><p>Two devices on the same network generally cannot use the same address at the same time without causing an addressing conflict. However, devices on separate, unrelated private networks can reuse the same private IPv4 address.</p></section>
-
-<section class="faq-item"><h3 id="can-someone-access-my-device-using-my-public-ip-address">Can someone access my device using my public IP address?</h3><p>Not automatically. Whether an incoming connection can reach a device depends on factors such as router configuration, firewall rules, open ports, and services listening for connections. A public IP address alone does not establish that a device is vulnerable or accessible.</p></section>
-
-<section class="faq-item"><h3 id="can-a-private-ip-address-connect-to-the-internet">Can a private IP address connect to the internet?</h3><p>Yes. A device with a private IPv4 address can access the internet through a router or gateway that forwards its traffic. In a typical home IPv4 setup, NAT translates the outgoing traffic so that external services can respond to the connection.</p></section>
-
-<section class="faq-item"><h3 id="does-my-public-ip-address-change-when-i-restart-my-router">Does my public IP address change when I restart my router?</h3><p>It might, but not necessarily. Whether the address changes depends on your ISP's assignment policy, the connection type, and other network arrangements. Restarting a router does not guarantee that you will receive a different public IP address.</p></section>
-
-<section class="faq-item"><h3 id="does-a-vpn-change-my-private-ip-address">Does a VPN change my private IP address?</h3><p>Not necessarily. Your device can keep its local Wi-Fi address while the VPN routes internet traffic through a remote server. The VPN may also create a separate virtual interface with its own address, depending on the implementation.</p></section>
-
-<h2 id="final-thoughts">Final Thoughts</h2>
-<p>Public and private IP addresses serve complementary purposes. Public IP addresses support communication across public networks, while private IPv4 addresses let devices communicate within local networks without requiring each device to have its own public IPv4 address.</p>
-<p>Routers and NAT commonly connect these two addressing environments, making it possible for multiple devices to use the same internet-facing IPv4 address. Other arrangements, including CGNAT and IPv6, introduce additional details, but the basic distinction remains useful.</p>
-<p>Understanding these concepts makes it easier to troubleshoot connectivity, interpret router settings, recognize what websites can see about your connection, and make informed decisions about online privacy.</p>
-<p>For a deeper foundation, continue with Synth Visual's guides to <a href="https://synthvisuals.space/what-is-an-ip-address.html">what an IP address is</a>, <a href="https://synthvisuals.space/what-is-dns.html">how DNS works</a>, and <a href="https://synthvisuals.space/what-is-a-vpn.html">what a VPN does</a>.</p><div class="takeaway"><h3>The main takeaway</h3><p>Public and private IP addresses describe different network scopes, not levels of security. Private IPv4 addresses identify devices on local networks, while public-facing addresses allow communication across the internet; routers and NAT commonly connect the two.</p></div>
-<section aria-labelledby="sources-heading" class="references" id="sources"><h2 id="sources-heading">Sources &amp; Further Reading</h2><p class="references-intro">These technical standards and support documents provide further detail on private IPv4 address ranges, NAT, shared address space, IPv6, and finding network addresses on common devices.</p><ol class="reference-list"><li><a href="https://www.rfc-editor.org/rfc/rfc1918.html" rel="noopener noreferrer" target="_blank">RFC 1918 — Address Allocation for Private Internets</a><p>Defines the three IPv4 address blocks reserved for private use.</p></li><li><a href="https://www.rfc-editor.org/rfc/rfc3022.html" rel="noopener noreferrer" target="_blank">RFC 3022 — Traditional IP Network Address Translator (Traditional NAT)</a><p>Describes traditional NAT and port translation between private and external addressing environments.</p></li><li><a href="https://www.rfc-editor.org/rfc/rfc6598.html" rel="noopener noreferrer" target="_blank">RFC 6598 — IANA-Reserved IPv4 Prefix for Shared Address Space</a><p>Defines shared address space for use in provider networks supporting Carrier-Grade NAT.</p></li><li><a href="https://www.iana.org/assignments/iana-ipv4-special-registry" rel="noopener noreferrer" target="_blank">IANA — IPv4 Special-Purpose Address Registry</a><p>Provides a registry of IPv4 address blocks reserved or designated for special purposes.</p></li><li><a href="https://www.rfc-editor.org/info/rfc4193/" rel="noopener noreferrer" target="_blank">RFC 4193 — Unique Local IPv6 Unicast Addresses</a><p>Defines unique local IPv6 addresses and their intended use.</p></li><li><a href="https://www.rfc-editor.org/rfc/rfc8200.html" rel="noopener noreferrer" target="_blank">RFC 8200 — Internet Protocol, Version 6 (IPv6) Specification</a><p>Documents the IPv6 protocol.</p></li><li><a href="https://support.apple.com/en-gb/guide/mac-help/mchlp2718/27/mac/27" rel="noopener noreferrer" target="_blank">Apple Support — Use DHCP or a Manual IP Address on Mac</a><p>Provides guidance on viewing and configuring Mac network addresses.</p></li><li><a href="https://support.google.com/android/answer/9654714?hl=en-GP" rel="noopener noreferrer" target="_blank">Google Android Help — Manage Advanced Network Settings on Your Android Phone</a><p>Documents Android network settings and notes that some options vary by device and version.</p></li><li><a href="https://support.microsoft.com/en-us/windows/experience/connectivity-networking/fix-wi-fi-connection-issues-in-windows" rel="noopener noreferrer" target="_blank">Microsoft Support — Fix Wi-Fi Connection Issues in Windows</a><p>Includes instructions for using ipconfig and identifying network gateway information in Windows.</p></li></ol><a class="back-to-top" href="#top">↑ Back to the top</a></section>
+        <p>Understanding the difference between public and private IP addresses helps explain how your devices communicate with each other, how your router connects your home to the internet, and what websites can learn about your connection.</p>
+        <p>The main difference is that a <strong>public IP address is used for communication across the public internet, while a private IP address is used within a local network</strong>, such as your home or office. Many home networks use both: individual devices receive private IPv4 addresses, and a router commonly uses Network Address Translation (NAT) to let those devices share an internet-facing public IPv4 address.</p>
+        <p>For example, your laptop might use <code>192.168.1.10</code>, while your smartphone uses <code>192.168.1.11</code>. Both can access the same website through your router without needing separate public IPv4 addresses.</p>
+        <p>Let's explore how these addresses work, why they matter, and how you can find them on your own devices.</p>
+        <h2 id="what-is-a-public-ip-address">What Is a Public IP Address?</h2>
+        <p>A public IP address is an address used for communication across the public internet. Publicly routable IP addresses allow networks and internet-facing systems to exchange traffic with other networks around the world.</p>
+        <p>For an IPv4 connection, your internet service provider (ISP) commonly assigns a public IP address to your internet connection or the equipment serving it. Organizations can also obtain address space through the appropriate internet number registries and providers.</p>
+        <p>When you visit a website, the service usually sees the public-facing source IP address associated with your connection. This address helps the website or its network infrastructure send responses back along the appropriate network path.</p>
+        <p>For example, when you open a news website on your laptop, your request travels through your local network and internet connection. The website does not normally see your laptop's private IPv4 address as the source address of the internet-facing connection. Instead, it sees the address that emerges from the network path, which may be your ISP's public address or an address belonging to a VPN or proxy.</p>
+        <p>A public IP address is not necessarily permanent. Some ISPs assign dynamic addresses that may change over time, while others offer static addresses intended to remain fixed.</p>
+        <p><strong>Does a public IP address make a device directly accessible from the internet?</strong></p>
+        <p>No. Public routing and actual accessibility are different things. A public IP address identifies a destination that may be reachable through internet routing, but a firewall, router configuration, closed ports, or other network policies can prevent incoming connections from reaching a particular device.</p>
+        <p>In addition, some internet connections use Carrier-Grade NAT, meaning the public IPv4 address is shared by multiple customers rather than assigned directly to an individual household router.</p>
+        <h2 id="what-is-a-private-ip-address">What Is a Private IP Address?</h2>
+        <p>A private IP address is used within a local network, such as a home Wi-Fi network, office, school, or internal business network.</p>
+        <p>These addresses let devices communicate without requiring every laptop, printer, smartphone, or smart TV to have its own public IPv4 address.</p>
+        <p>Your home router commonly assigns private IPv4 addresses to connected devices through the Dynamic Host Configuration Protocol (DHCP). Depending on the network, addresses can also be configured manually.</p>
+        <p>For example, a home network might use:</p>
+        <ul><li>Laptop: <code>192.168.1.10</code></li><li>Smartphone: <code>192.168.1.11</code></li><li>Smart TV: <code>192.168.1.12</code></li><li>Router's local interface: <code>192.168.1.1</code></li></ul>
+        <p>These are illustrative addresses, not universal defaults. Your network may use different addresses.</p>
+        <p>The defining characteristic of a private IPv4 address is that it is not globally routable across the public internet. A device using <code>192.168.1.10</code> can communicate with compatible devices on its local network, but that private address is not used as a globally reachable internet destination.</p>
+        <p>This is possible because many unrelated networks can reuse the same private addresses. Your home router and an office router, for instance, might both use <code>192.168.1.1</code> without creating a global addressing conflict.</p>
+        <p>A private IP address does not mean that a device is offline. Your laptop can use a private address on your local network while accessing websites, streaming videos, or downloading files through a router or other network gateway.</p>
+        <p>It also does not mean the traffic is automatically encrypted or completely private. Private addressing describes how an address is used, not whether communications are secure.</p>
+        <h2 id="private-ipv4-address-ranges-explained">Private IPv4 Address Ranges Explained</h2>
+        <p>The <a href="https://www.rfc-editor.org/rfc/rfc1918.html" rel="noopener noreferrer" target="_blank">IETF's RFC 1918</a> defines three blocks of IPv4 addresses reserved for private use.</p>
+        <div class="scroll-table"><table><thead><tr><th scope="col">Private IPv4 block</th><th scope="col">Address range</th><th scope="col">Common context</th></tr></thead><tbody>
+          <tr><td><code>10.0.0.0/8</code></td><td><code>10.0.0.0</code>–<code>10.255.255.255</code></td><td>Larger networks and flexible network configurations</td></tr>
+          <tr><td><code>172.16.0.0/12</code></td><td><code>172.16.0.0</code>–<code>172.31.255.255</code></td><td>Organizational networks and selected local configurations</td></tr>
+          <tr><td><code>192.168.0.0/16</code></td><td><code>192.168.0.0</code>–<code>192.168.255.255</code></td><td>Common home and small office networks</td></tr>
+        </tbody></table></div>
+        <p>The numbers after the slash use Classless Inter-Domain Routing (CIDR) notation. In simple terms, <code>/8</code>, <code>/12</code>, and <code>/16</code> indicate how many leading bits define the network block.</p>
+        <p>One detail is particularly important: <strong>the private range beginning with 172 covers only addresses from <code>172.16.0.0</code> through <code>172.31.255.255</code>.</strong> Not every address beginning with <code>172</code> is private.</p>
+        <p>Similarly, <code>192.168.1.1</code> and <code>10.0.0.1</code> are examples of possible private addresses, not addresses that every router must use.</p>
+        <p>There are also IPv4 addresses reserved for other special purposes, such as loopback, testing, and shared addressing by service providers. Therefore, an address outside the three RFC 1918 ranges is not automatically a usable public IP address. The <a href="https://www.iana.org/assignments/iana-ipv4-special-registry" rel="noopener noreferrer" target="_blank">IANA IPv4 Special-Purpose Address Registry</a> documents many of these special-purpose ranges.</p>
+        <h2 id="public-vs-private-ip-address-key-differences">Public vs. Private IP Address: Key Differences</h2>
+        <p>The following table summarizes the differences between a public and a private IP address.</p>
+        <div class="scroll-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">Public IP address</th><th scope="col">Private IP address</th></tr></thead><tbody>
+          <tr><td>Primary purpose</td><td>Communication across public networks</td><td>Communication within a local network</td></tr>
+          <tr><td>Typical location</td><td>Internet-facing connection or server</td><td>Home, office, or other local network</td></tr>
+          <tr><td>Internet routing</td><td>Publicly routable when the address and route are valid</td><td>RFC 1918 IPv4 addresses are not globally routable</td></tr>
+          <tr><td>Assignment</td><td>Commonly provided by an ISP or allocated to a network</td><td>Commonly assigned by a local router or DHCP server</td></tr>
+          <tr><td>Reuse</td><td>Publicly routed addresses must be appropriately allocated; special-purpose exceptions exist</td><td>The same private IPv4 addresses can be reused in unrelated networks</td></tr>
+          <tr><td>External visibility</td><td>Often visible to the internet services receiving a connection</td><td>Normally not visible as the source address outside the local network when NAT is used</td></tr>
+          <tr><td>Example</td><td>An ISP-assigned public IPv4 address</td><td><code>192.168.1.10</code></td></tr>
+          <tr><td>Router relationship</td><td>May identify the network's internet-facing connection</td><td>Commonly identifies a local device or the router's local interface</td></tr>
+        </tbody></table></div>
+        <p>The key distinction is scope. A private address identifies an interface within a local addressing environment, while a public address supports communication through the public internet.</p>
+        <p>Neither address type automatically determines whether a connection is secure. Security depends on factors such as encryption, firewall rules, authentication, software updates, and the network's configuration.</p>
+        <h2 id="how-public-and-private-ip-addresses-work-together">How Public and Private IP Addresses Work Together</h2>
+        <p>Most traditional home IPv4 networks combine private addressing with NAT. Understanding this relationship makes the difference between public and private IP addresses much easier to visualize.</p>
+        <p>Imagine a home with a router, a laptop, a smartphone, and a smart TV.</p><p>The local network might look like this:</p>
+        <figure aria-labelledby="home-network-caption" class="inline-network-diagram"><div aria-label="Illustrative home network. A laptop, smartphone, and smart TV use private IPv4 addresses. Their traffic passes through a router performing NAT, then reaches a website using the public-facing source address." class="connection-flow" role="img">
+          <div class="device-card local-devices"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 48 48"><rect height="26" rx="3" width="38" x="5" y="7"></rect><path d="M2 39h44M18 33l-2 6m14-6 2 6"></path><rect height="11" rx="1.5" width="16" x="16" y="14"></rect><path d="M21 19h6m-3-3v6"></path></svg><strong>Local devices</strong><small>Laptop · 192.168.1.10<br>Phone · 192.168.1.11<br>Smart TV · 192.168.1.12</small></div>
+          <div aria-hidden="true" class="tunnel"><span class="tunnel-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></span><span class="tunnel-label">Local traffic</span><span class="tunnel-line"></span></div>
+          <div class="device-card router-card"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 48 48"><rect height="14" rx="3" width="38" x="5" y="24"></rect><path d="M13 24V13m22 11V13M9 18l4-5 4 5m14 0 4-5 4 5"></path><circle cx="12" cy="31" fill="currentColor" r="1"></circle><circle cx="18" cy="31" fill="currentColor" r="1"></circle><path d="M27 31h10"></path></svg><strong>Router + NAT</strong><small>Local interface<br>192.168.1.1</small></div>
+          <div aria-hidden="true" class="tunnel"><span class="tunnel-icon"><svg fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"></path></svg></span><span class="tunnel-label">Internet-facing IP</span><span class="tunnel-line"></span></div>
+          <div class="device-card website-card"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 48 48"><circle cx="24" cy="24" r="18"></circle><path d="M6 24h36M24 6c5 5 7 11 7 18s-2 13-7 18c-5-5-7-11-7-18s2-13 7-18Z"></path><path d="M10 14h28M10 34h28" opacity=".55"></path></svg><strong>Website</strong><small>Sees the connection's public-facing source IP</small></div>
+        </div><figcaption class="visual-caption" id="home-network-caption">Illustrative IPv4 setup. NAT is commonly performed by the home router; some internet providers add another translation layer, and not every connection has a public IPv4 address assigned directly to the router.</figcaption></figure>
+        <p>All private IPv4 addresses in this diagram are illustrative. Actual network configurations vary, and the router's internet-facing interface may not have its own public IPv4 address if the ISP uses another layer of address translation.</p>
+        <p>Here's what happens when the laptop opens a website.</p>
+        <div class="step-list">
+          <section class="step"><span class="step-number">1</span><div><h3>The laptop receives a private IP address</h3><p>When it connects to Wi-Fi, the router commonly assigns it an address such as <code>192.168.1.10</code> using DHCP.</p></div></section>
+          <section class="step"><span class="step-number">2</span><div><h3>The router connects the local network to the internet</h3><p>The router has a local interface address and an internet-facing connection. These interfaces serve different purposes and may use different address types.</p></div></section>
+          <section class="step"><span class="step-number">3</span><div><h3>The laptop requests a website</h3><p>The laptop sends network traffic toward the website. Its private address identifies the laptop within the local network.</p></div></section>
+          <section class="step"><span class="step-number">4</span><div><h3>The router translates the outgoing connection</h3><p>In a typical home IPv4 setup, the router uses Network Address Translation (NAT). Often, it also translates port information, a technique commonly called Network Address and Port Translation (NAPT). The router records the connection information needed to direct returning traffic to the correct device.</p></div></section>
+          <section class="step"><span class="step-number">5</span><div><h3>The website receives the request</h3><p>The external service typically sees the public-facing source IP address of the connection, rather than the laptop's local private IPv4 address. If the ISP uses Carrier-Grade NAT, another translation can occur upstream.</p></div></section>
+          <section class="step"><span class="step-number">6</span><div><h3>The response returns to the laptop</h3><p>The router uses its connection and translation information to forward the returning traffic to the appropriate device on the local network.</p></div></section>
+        </div>
+        <p>The underlying mechanism is described in <a href="https://www.rfc-editor.org/rfc/rfc3022.html" rel="noopener noreferrer" target="_blank">RFC 3022, Traditional IP Network Address Translator</a>.</p>
+        <p>One important point: NAT is primarily a network address translation mechanism, not an encryption method or a complete security solution.</p>
+        <h2 id="can-multiple-devices-share-the-same-public-ip-address">Can Multiple Devices Share the Same Public IP Address?</h2>
+        <p>Yes. Multiple devices can access the internet through the same public IPv4 address.</p>
+        <p>Within a home, a router commonly lets a laptop, smartphone, smart TV, and other devices share one public-facing IPv4 address through NAT. The devices have separate private addresses, and the router tracks their individual connections.</p>
+        <p>However, sharing can also occur beyond the home.</p>
+        <p>Some ISPs use <strong>Carrier-Grade NAT (CGNAT)</strong> to let multiple subscribers share a public IPv4 address. In that arrangement, an ISP performs additional translation within its own network. The shared address space used for this purpose is documented in <a href="https://www.rfc-editor.org/rfc/rfc6598.html" rel="noopener noreferrer" target="_blank">RFC 6598</a>.</p>
+        <p>This distinction matters when troubleshooting connections. A subscriber behind CGNAT may not be able to accept unsolicited incoming connections in the same way as a subscriber with a directly assigned public IPv4 address and a suitable router configuration.</p>
+        <p>Hosting a game server, remotely accessing a home device, or configuring port forwarding may require additional steps or may be restricted by the ISP. The exact limitations depend on the network setup and service provider.</p>
+        <h2 id="does-a-public-ip-address-make-your-device-vulnerable">Does a Public IP Address Make Your Device Vulnerable?</h2>
+        <p>A public IP address is not, by itself, proof that a device is vulnerable.</p>
+        <p>An IP address can provide information about the network through which a connection originates. IP geolocation databases can often estimate a country or broader region, but their results may reflect an ISP's network infrastructure rather than a person's actual location. An IP address alone normally does not reveal a person's name or exact residential address to an ordinary member of the public.</p>
+        <p>The more important question is whether a device or service can be reached and whether it has security weaknesses.</p><p>For example, exposure can depend on:</p>
+        <ul><li>Whether the device runs services that accept incoming connections.</li><li>Whether ports are open or forwarded through a router.</li><li>Whether firewall rules permit the traffic.</li><li>Whether software contains unpatched vulnerabilities.</li><li>Whether remote administration is configured securely.</li></ul>
+        <p>A properly configured firewall can restrict unsolicited incoming traffic even when a network has a public IP address. Conversely, private addressing does not make a device invulnerable to threats originating inside the local network or through compromised software.</p>
+        <p>For everyday protection, keep operating systems and applications updated, use strong administrative passwords, secure your router settings, and maintain appropriate firewall protections. Focus on actual security controls rather than assuming that one address type is inherently safe.</p>
+        <h2 id="how-to-find-your-public-and-private-ip-addresses">How to Find Your Public and Private IP Addresses</h2>
+        <p>Your public and private IP addresses serve different purposes, so you usually find them in different places.</p>
+        <h3 id="how-to-find-your-public-ip-address">How to Find Your Public IP Address</h3>
+        <p>A public IP lookup service or a search for "What is my IP address?" can show the source address observed by the service.</p>
+        <p>Keep in mind that the result may not be the address assigned directly to your router. If you are using a VPN, the website will commonly display the VPN server's public-facing address. A proxy or another network intermediary may produce a similar result.</p>
+        <p>If your ISP uses CGNAT, the observed public IPv4 address may also be shared with other subscribers.</p>
+        <h3 id="how-to-find-your-private-ip-address-on-windows">How to Find Your Private IP Address on Windows</h3>
+        <ol><li>Open the Start menu and search for <strong>Command Prompt</strong>.</li><li>Open Command Prompt.</li><li>Type <code>ipconfig</code> and press Enter.</li><li>Find the network adapter you're using, such as Wi-Fi or Ethernet.</li><li>Look for <strong>IPv4 Address</strong>.</li></ol>
+        <p>The listed IPv4 address is the address assigned to your computer's network interface. The <strong>Default Gateway</strong> entry usually identifies the local router or gateway, not your computer's own address.</p>
+        <p>You can also open <strong>Settings → Network &amp; internet</strong>, select your active Wi-Fi or Ethernet connection, and review the network properties. Menu names may differ slightly between Windows versions.</p>
+        <h3 id="how-to-find-your-private-ip-address-on-macos">How to Find Your Private IP Address on macOS</h3>
+        <ol><li>Open the Apple menu and choose <strong>System Settings</strong>.</li><li>Select <strong>Network</strong>.</li><li>Choose your active Wi-Fi or Ethernet connection.</li><li>Open <strong>Details</strong>, then select <strong>TCP/IP</strong>.</li><li>Look for the IPv4 address.</li></ol>
+        <p>Apple documents the relevant network settings in its <a href="https://support.apple.com/en-gb/guide/mac-help/mchlp2718/27/mac/27" rel="noopener noreferrer" target="_blank">Mac network configuration guide</a>.</p>
+        <h3 id="how-to-find-your-private-ip-address-on-android">How to Find Your Private IP Address on Android</h3>
+        <p>The exact menu names depend on the manufacturer and Android version, but a common method is:</p>
+        <ol><li>Open <strong>Settings</strong>.</li><li>Go to <strong>Network &amp; Internet</strong> or <strong>Connections</strong>.</li><li>Open Wi-Fi or the currently connected network.</li><li>Select the active network and look for its network details or IP address.</li></ol>
+        <p>Some devices display the IP address immediately; others place it under an advanced or details menu. If these steps do not match your phone, search for "IP address" in Settings or consult the manufacturer's support documentation. Google's <a href="https://support.google.com/android/answer/9654714?hl=en-GP" rel="noopener noreferrer" target="_blank">Android network settings guide</a> explains how network menu layouts can vary.</p>
+        <h3 id="how-to-find-your-private-ip-address-on-an-iphone-or-ipad">How to Find Your Private IP Address on an iPhone or iPad</h3>
+        <ol><li>Open <strong>Settings</strong>.</li><li>Tap <strong>Wi-Fi</strong>.</li><li>Tap the information icon (ⓘ) next to the connected network.</li><li>Look under <strong>IPv4 Address</strong> for <strong>IP Address</strong>.</li></ol>
+        <p>This is the device's address on that Wi-Fi network. If you switch to another Wi-Fi network or use a cellular connection, the applicable network addressing can be different.</p>
+        <h2 id="static-vs-dynamic-ip-addresses-is-that-the-same-as-public-vs-private">Static vs. Dynamic IP Addresses: Is That the Same as Public vs. Private?</h2>
+        <p>No. Public versus private and static versus dynamic describe two different properties of IP addressing.</p>
+        <p><strong>Public versus private</strong> describes where and how an address is used.</p><p><strong>Static versus dynamic</strong> describes whether an address is intended to remain fixed or may change through an assignment process.</p>
+        <p>A public IP address can be static or dynamic. An ISP might assign a dynamic public address that changes periodically, or offer a static address for a particular service.</p>
+        <p>Private IP addresses can also be static or dynamic. A home router might automatically assign your laptop a private IP address through DHCP. A printer might use a manually configured address or a DHCP reservation so that it consistently receives the same address on your local network.</p>
+        <p>Therefore, a private address is not necessarily dynamic, and a public address is not necessarily static. These labels answer different questions.</p>
+        <h2 id="how-do-public-and-private-ip-addresses-work-with-ipv6">How Do Public and Private IP Addresses Work With IPv6?</h2>
+        <p>IPv6 is the newer version of the Internet Protocol. It uses 128-bit addresses rather than IPv4's 32-bit addresses, providing a much larger address space. The protocol's basic specifications are documented in <a href="https://www.rfc-editor.org/rfc/rfc8200.html" rel="noopener noreferrer" target="_blank">RFC 8200</a>.</p>
+        <p>IPv6 has addressing categories that differ from the familiar private IPv4 ranges.</p>
+        <p>For example, <strong>Unique Local Addresses (ULAs)</strong> are designed for local communications and are not expected to be routed across the global internet. Their addressing format is defined in <a href="https://www.rfc-editor.org/rfc/rfc4193.html" rel="noopener noreferrer" target="_blank">RFC 4193</a>. The ULA block is <code>fc00::/7</code>, with locally assigned prefixes commonly using <code>fd</code> at the beginning.</p>
+        <p>IPv6 also has <strong>link-local addresses</strong>, typically in the <code>fe80::/10</code> range, which are used on a directly connected network link. These are different from ULAs.</p>
+        <p>In addition, devices can use globally scoped IPv6 addresses for internet communication. Depending on the network, an individual device may have a globally routable IPv6 address rather than relying on the same shared-public-IPv4-and-NAT arrangement common in home IPv4 networks.</p>
+        <p>However, a globally scoped IPv6 address does not automatically mean a device is accessible from anywhere on the internet. Firewalls, router policies, and other security controls still determine what incoming traffic is allowed.</p>
+        <p>The key takeaway is that IPv6 has its own address types and network behavior. The three private IPv4 ranges defined in RFC 1918 should not be applied to IPv6.</p>
+        <h2 id="do-vpns-change-your-public-or-private-ip-address">Do VPNs Change Your Public or Private IP Address?</h2>
+        <p>A virtual private network (VPN) typically routes selected or all internet traffic through a VPN server, depending on its configuration.</p>
+        <p>When you visit a website through a VPN, the website commonly sees the VPN server's public-facing IP address instead of the public IP address associated with your ordinary internet connection. This can change the IP address visible to the website.</p>
+        <p>However, connecting to a VPN does not necessarily change the private IP address assigned to your device by your home router. Your laptop may still have <code>192.168.1.10</code> on its local Wi-Fi network while its internet traffic travels through a VPN tunnel.</p>
+        <p>VPN software can create additional virtual network interfaces and assign its own addresses to the tunnel. These are distinct from the address assigned to the device's local Wi-Fi interface.</p>
+        <p>The exact behavior depends on the VPN implementation, device, and routing configuration.</p>
+        <p>A VPN can improve privacy in certain situations, but it does not make a user completely anonymous or eliminate every security risk. To understand the technology in more detail, read <a href="https://synthvisuals.space/what-is-a-vpn.html">What Is a VPN?</a>.</p>
+        <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+        <section class="faq-item"><h3 id="is-192-168-1-1-a-public-or-private-ip-address">Is 192.168.1.1 a public or private IP address?</h3><p><code>192.168.1.1</code> is a private IPv4 address because it falls within the <code>192.168.0.0/16</code> range defined by RFC 1918. It is frequently used as a local router address, although the exact address depends on the network configuration.</p></section>
+        <section class="faq-item"><h3 id="can-two-devices-have-the-same-private-ip-address">Can two devices have the same private IP address?</h3><p>Two devices on the same network generally cannot use the same address at the same time without causing an addressing conflict. However, devices on separate, unrelated private networks can reuse the same private IPv4 address.</p></section>
+        <section class="faq-item"><h3 id="can-someone-access-my-device-using-my-public-ip-address">Can someone access my device using my public IP address?</h3><p>Not automatically. Whether an incoming connection can reach a device depends on factors such as router configuration, firewall rules, open ports, and services listening for connections. A public IP address alone does not establish that a device is vulnerable or accessible.</p></section>
+        <section class="faq-item"><h3 id="can-a-private-ip-address-connect-to-the-internet">Can a private IP address connect to the internet?</h3><p>Yes. A device with a private IPv4 address can access the internet through a router or gateway that forwards its traffic. In a typical home IPv4 setup, NAT translates the outgoing traffic so that external services can respond to the connection.</p></section>
+        <section class="faq-item"><h3 id="does-my-public-ip-address-change-when-i-restart-my-router">Does my public IP address change when I restart my router?</h3><p>It might, but not necessarily. Whether the address changes depends on your ISP's assignment policy, the connection type, and other network arrangements. Restarting a router does not guarantee that you will receive a different public IP address.</p></section>
+        <section class="faq-item"><h3 id="does-a-vpn-change-my-private-ip-address">Does a VPN change my private IP address?</h3><p>Not necessarily. Your device can keep its local Wi-Fi address while the VPN routes internet traffic through a remote server. The VPN may also create a separate virtual interface with its own address, depending on the implementation.</p></section>
+        <h2 id="final-thoughts">Final Thoughts</h2>
+        <p>Public and private IP addresses serve complementary purposes. Public IP addresses support communication across public networks, while private IPv4 addresses let devices communicate within local networks without requiring each device to have its own public IPv4 address.</p>
+        <p>Routers and NAT commonly connect these two addressing environments, making it possible for multiple devices to use the same internet-facing IPv4 address. Other arrangements, including CGNAT and IPv6, introduce additional details, but the basic distinction remains useful.</p>
+        <p>Understanding these concepts makes it easier to troubleshoot connectivity, interpret router settings, recognize what websites can see about your connection, and make informed decisions about online privacy.</p>
+        <p>For a deeper foundation, continue with Synth Visual's guides to <a href="https://synthvisuals.space/what-is-an-ip-address.html">what an IP address is</a>, <a href="https://synthvisuals.space/what-is-dns.html">how DNS works</a>, and <a href="https://synthvisuals.space/what-is-a-vpn.html">what a VPN does</a>.</p>
+        <div class="takeaway"><h3>The main takeaway</h3><p>Public and private IP addresses describe different network scopes, not levels of security. Private IPv4 addresses identify devices on local networks, while public-facing addresses allow communication across the internet; routers and NAT commonly connect the two.</p></div>
+        <section aria-labelledby="sources-heading" class="references" id="sources"><h2 id="sources-heading">Sources &amp; Further Reading</h2><p class="references-intro">These technical standards and support documents provide further detail on private IPv4 address ranges, NAT, shared address space, IPv6, and finding network addresses on common devices.</p><ol class="reference-list">
+          <li><a href="https://www.rfc-editor.org/rfc/rfc1918.html" rel="noopener noreferrer" target="_blank">RFC 1918 — Address Allocation for Private Internets</a><p>Defines the three IPv4 address blocks reserved for private use.</p></li>
+          <li><a href="https://www.rfc-editor.org/rfc/rfc3022.html" rel="noopener noreferrer" target="_blank">RFC 3022 — Traditional IP Network Address Translator (Traditional NAT)</a><p>Describes traditional NAT and port translation between private and external addressing environments.</p></li>
+          <li><a href="https://www.rfc-editor.org/rfc/rfc6598.html" rel="noopener noreferrer" target="_blank">RFC 6598 — IANA-Reserved IPv4 Prefix for Shared Address Space</a><p>Defines shared address space for use in provider networks supporting Carrier-Grade NAT.</p></li>
+          <li><a href="https://www.iana.org/assignments/iana-ipv4-special-registry" rel="noopener noreferrer" target="_blank">IANA — IPv4 Special-Purpose Address Registry</a><p>Provides a registry of IPv4 address blocks reserved or designated for special purposes.</p></li>
+          <li><a href="https://www.rfc-editor.org/info/rfc4193/" rel="noopener noreferrer" target="_blank">RFC 4193 — Unique Local IPv6 Unicast Addresses</a><p>Defines unique local IPv6 addresses and their intended use.</p></li>
+          <li><a href="https://www.rfc-editor.org/rfc/rfc8200.html" rel="noopener noreferrer" target="_blank">RFC 8200 — Internet Protocol, Version 6 (IPv6) Specification</a><p>Documents the IPv6 protocol.</p></li>
+          <li><a href="https://support.apple.com/en-gb/guide/mac-help/mchlp2718/27/mac/27" rel="noopener noreferrer" target="_blank">Apple Support — Use DHCP or a Manual IP Address on Mac</a><p>Provides guidance on viewing and configuring Mac network addresses.</p></li>
+          <li><a href="https://support.google.com/android/answer/9654714?hl=en-GP" rel="noopener noreferrer" target="_blank">Google Android Help — Manage Advanced Network Settings on Your Android Phone</a><p>Documents Android network settings and notes that some options vary by device and version.</p></li>
+          <li><a href="https://support.microsoft.com/en-us/windows/experience/connectivity-networking/fix-wi-fi-connection-issues-in-windows" rel="noopener noreferrer" target="_blank">Microsoft Support — Fix Wi-Fi Connection Issues in Windows</a><p>Includes instructions for using ipconfig and identifying network gateway information in Windows.</p></li>
+        </ol><a class="back-to-top" href="#top">↑ Back to the top</a></section>
       </article>
     </div>
-
-    <section class="related-strip">
-      <div class="container related-inner">
-        <div><h2>Keep exploring networking basics.</h2><p>Browse more straightforward guides to IP addresses, DNS, VPNs, and the technologies that connect your devices to the internet.</p></div>
-        <a class="related-link" href="/#latest-guides">Explore all guides →</a>
-      </div>
-    </section>
+    <section class="related-strip"><div class="container related-inner"><div><h2>Keep exploring networking basics.</h2><p>Browse more straightforward guides to IP addresses, DNS, VPNs, and the technologies that connect your devices to the internet.</p></div><a class="related-link" href="/#latest-guides">Explore all guides →</a></div></section>
   </main>
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>
-        <a class="footer-brand" href="/">Synth Visual</a>
-        <p class="copyright">© <span id="current-year">2026</span> Synth Visual. All rights reserved.</p>
-      </div>
-      <nav class="footer-links" aria-label="Footer navigation">
-        <a href="https://synthvisuals.space/about.html">About</a>
-        <a href="https://synthvisuals.space/privacy-policy.html">Privacy Policy</a>
-        <a href="https://synthvisuals.space/affiliate-disclosure.html">Affiliate Disclosure</a>
-      </nav>
-    </div>
-  </footer>
+  <footer class="site-footer"><div class="container footer-inner"><div><a class="footer-brand" href="/">Synth Visual</a><p class="copyright">© <span id="current-year">2026</span> Synth Visual. All rights reserved.</p></div><nav class="footer-links" aria-label="Footer navigation"><a href="https://synthvisuals.space/about.html">About</a><a href="https://synthvisuals.space/privacy-policy.html">Privacy Policy</a><a href="https://synthvisuals.space/affiliate-disclosure.html">Affiliate Disclosure</a></nav></div></footer>
   <script>
     document.getElementById("current-year").textContent = new Date().getFullYear();
     (function () {
