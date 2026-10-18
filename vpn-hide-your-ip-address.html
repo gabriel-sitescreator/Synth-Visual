@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2R2YLSL7R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B2R2YLSL7R');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Learn how a VPN hides your public IP address, what your ISP and websites can still see, how leaks happen, and how to check your VPN privacy.">
+  <meta name="theme-color" content="#f7f7f4">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://synthvisuals.space/does-a-vpn-hide-your-ip-address.html">
+  <title>Does a VPN Hide Your IP Address? What You Need to Know | Synth Visual</title>
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Does a VPN Hide Your IP Address? What You Need to Know | Synth Visual">
+  <meta property="og:description" content="Learn how a VPN hides your public IP address, what your ISP and websites can still see, how leaks happen, and how to check your VPN privacy.">
+  <meta property="og:url" content="https://synthvisuals.space/does-a-vpn-hide-your-ip-address.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Does a VPN Hide Your IP Address? What You Need to Know | Synth Visual">
+  <meta name="twitter:description" content="Learn how a VPN hides your public IP address, what your ISP and websites can still see, how leaks happen, and how to check your VPN privacy.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Does a VPN Hide Your IP Address?",
+    "description": "Learn how a VPN hides your public IP address, what your ISP and websites can still see, how leaks happen, and how to check your VPN privacy.",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://synthvisuals.space/does-a-vpn-hide-your-ip-address.html"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Synth Visual"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Synth Visual",
+      "url": "https://synthvisuals.space/"
+    },
+    "inLanguage": "en",
+    "articleSection": "Cybersecurity / Digital Privacy",
+    "keywords": [
+      "does a VPN hide your IP address",
+      "VPN IP address",
+      "how a VPN hides your IP",
+      "VPN privacy",
+      "VPN leaks",
+      "VPN location masking",
+      "what a VPN hides",
+      "VPN anonymity",
+      "DNS leaks",
+      "WebRTC leaks"
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --page: #f7f7f4; --surface: #ffffff; --text: #20231f; --muted: #686d66;
+      --line: #e2e5de; --accent: #245b49; --accent-hover: #194637; --soft: #eaf0eb;
+      --soft-2: #f0f2ed; --max-width: 1120px; --reading-width: 760px;
+      --radius: 16px; --shadow: 0 8px 30px rgba(27, 39, 30, 0.045);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+    body { margin: 0; background: var(--page); color: var(--text); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    a:hover { color: var(--accent-hover); }
+    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #7cae98; outline-offset: 4px; border-radius: 4px; }
+    .container { width: min(var(--max-width), calc(100% - 48px)); margin-inline: auto; }
+    .site-header { border-bottom: 1px solid var(--line); background: rgba(247, 247, 244, .96); }
+    .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; flex-direction: column; line-height: 1.05; flex-shrink: 0; color: var(--text); text-decoration: none; }
+    .brand-name { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 700; letter-spacing: -1.2px; }
+    .brand-tagline { margin-top: 6px; color: var(--muted); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; }
+    .main-nav { display: flex; align-items: center; gap: 27px; color: #424840; font-size: 13px; font-weight: 600; }
+    .main-nav a { color: inherit; text-decoration: none; transition: color 160ms ease; }
+    .main-nav a:hover { color: var(--accent); }
+    .nav-cta { padding: 10px 15px; border: 1px solid #cbd6ce; border-radius: 999px; color: var(--accent) !important; }
+    .progress-track { height: 3px; background: transparent; }
+    .progress-bar { width: 0; height: 100%; background: var(--accent); transition: width 80ms linear; }
+    .breadcrumbs { padding: 25px 0 0; color: var(--muted); font-size: 12px; }
+    .breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
+    .breadcrumbs li + li::before { content: "/"; margin-right: 8px; color: #a0a59d; }
+    .breadcrumbs a { color: var(--muted); text-decoration: none; }
+    .breadcrumbs a:hover { color: var(--accent); }
+    .article-hero { padding: 34px 0 35px; }
+    .article-hero-inner { max-width: 920px; margin: 0 auto; text-align: center; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 1.9px; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+    h1, h2, h3 { text-wrap: pretty; }
+    .article-hero h1 { max-width: 850px; margin: 0 auto; font-family: Georgia, "Times New Roman", serif; font-size: clamp(38px, 6vw, 66px); font-weight: 500; letter-spacing: -2.3px; line-height: 1.08; }
+    .article-hero h1 em { color: var(--accent); font-weight: 500; }
+    .dek { max-width: 710px; margin: 22px auto 0; color: var(--muted); font-size: 17px; line-height: 1.8; }
+    .article-meta { display: flex; justify-content: center; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 24px; color: var(--muted); font-size: 12px; }
+    .meta-dot { display: inline-flex; align-items: center; gap: 7px; }
+    .meta-dot::before { content: ""; width: 4px; height: 4px; background: #99a69b; border-radius: 50%; }
+    .topic-pill { padding: 6px 10px; background: var(--soft); border: 1px solid #dce6dc; border-radius: 999px; color: var(--accent); font-size: 10px; font-weight: 750; letter-spacing: .5px; text-transform: uppercase; }
+    .feature-visual { overflow: hidden; position: relative; max-width: 1000px; margin: 0 auto; padding: clamp(22px, 4vw, 42px); border: 1px solid #dfe6dd; border-radius: 22px; background: linear-gradient(135deg, #eff3ee 0%, #f9fbf8 48%, #e7eee8 100%); box-shadow: var(--shadow); }
+    .visual-caption { margin: 17px 0 0; color: var(--muted); font-size: 11px; text-align: center; }
+    .connection-flow { display: grid; grid-template-columns: 1fr minmax(100px, 1.2fr) 1fr minmax(100px, 1.2fr) 1fr; align-items: center; gap: 12px; max-width: 830px; margin: 0 auto; }
+    .device-card { min-height: 142px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 18px 10px; border: 1px solid rgba(36, 91, 73, .18); border-radius: 17px; background: rgba(255,255,255,.82); text-align: center; }
+    .device-card svg { width: 43px; height: 43px; color: var(--accent); }
+    .device-card strong { font-family: Georgia, "Times New Roman", serif; font-size: 17px; font-weight: 600; line-height: 1.25; }
+    .device-card small { color: var(--muted); font-size: 10px; line-height: 1.4; }
+    .tunnel { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--accent); text-align: center; }
+    .tunnel-line { position: relative; width: 100%; height: 3px; border-radius: 999px; background: #9ab9a5; }
+    .tunnel-line::after { content: ""; position: absolute; right: -1px; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid #5e9476; }
+    .tunnel-label { font-size: 10px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; }
+    .tunnel-icon { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: 1px solid #c8d9cb; border-radius: 50%; background: #fafffa; }
+    .tunnel-icon svg { width: 13px; height: 13px; }
+    .article-layout { display: grid; grid-template-columns: 220px minmax(0, 760px); align-items: start; justify-content: center; gap: clamp(28px, 5vw, 64px); padding: 40px 0 86px; }
+    .toc-wrap { position: sticky; top: 24px; }
+    .toc-card { padding: 23px 19px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
+    .toc-title { margin: 0 0 14px; color: var(--text); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+    .toc-list { display: flex; flex-direction: column; gap: 9px; margin: 0; padding: 0; list-style: none; }
+    .toc-list a { color: var(--muted); font-size: 12px; line-height: 1.45; text-decoration: none; }
+    .toc-list a:hover, .toc-list a:focus { color: var(--accent); }
+    .toc-note { margin: 20px 0 0; padding-top: 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .mobile-toc { display: none; margin-bottom: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+    .mobile-toc summary { padding: 14px 16px; cursor: pointer; color: var(--accent); font-size: 13px; font-weight: 750; }
+    .mobile-toc .toc-list { padding: 0 16px 17px; }
+    .article-content { min-width: 0; max-width: var(--reading-width); font-size: 16px; line-height: 1.85; }
+    .article-content p { margin: 0 0 21px; }
+    .article-content h2 { margin: 54px 0 17px; padding-top: 5px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(29px, 3.5vw, 36px); font-weight: 500; letter-spacing: -.8px; line-height: 1.18; scroll-margin-top: 24px; }
+    .article-content h3 { margin: 32px 0 12px; font-family: Georgia, "Times New Roman", serif; font-size: 23px; font-weight: 500; letter-spacing: -.35px; line-height: 1.3; scroll-margin-top: 24px; }
+    .article-content h4 { margin: 26px 0 10px; font-size: 16px; font-weight: 750; line-height: 1.4; }
+    .article-content strong { color: #242923; }
+    .article-content ul, .article-content ol { margin: 0 0 24px; padding-left: 25px; }
+    .article-content li { margin: 7px 0; padding-left: 3px; }
+    .article-content li::marker { color: var(--accent); }
+    .article-content blockquote { margin: 26px 0; padding: 18px 22px; border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; background: var(--soft-2); color: #434940; }
+    .article-content blockquote p:last-child { margin-bottom: 0; }
+    .article-content a { text-decoration-thickness: 1px; }
+    .quick-answer { margin: 6px 0 36px; padding: 23px 25px 3px; border: 1px solid #d8e3d9; border-radius: 15px; background: #f0f5ef; }
+    .quick-answer-label { margin: 0 0 8px !important; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+    .quick-answer p { font-size: 15px; }
+    .scroll-table { margin: 26px 0 30px; overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+    .article-content table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.65; }
+    .article-content th, .article-content td { min-width: 150px; padding: 14px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .article-content th { background: #f0f2ed; color: #323930; font-size: 11px; letter-spacing: .2px; }
+    .article-content tr:last-child td { border-bottom: 0; }
+    .article-content td:first-child { min-width: 165px; font-weight: 700; }
+    .article-content pre { overflow-x: auto; margin: 24px 0; padding: 18px 20px; border: 1px solid var(--line); border-radius: 11px; background: #fff; font-size: 13px; line-height: 1.6; }
+    .article-content code { overflow-wrap: anywhere; }
+    .step-list { display: grid; gap: 12px; margin: 22px 0 28px; }
+    .step { display: grid; grid-template-columns: 38px 1fr; gap: 13px; padding: 17px; border: 1px solid var(--line); border-radius: 13px; background: #fff; }
+    .step-number { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--soft); color: var(--accent); font-size: 12px; font-weight: 800; }
+    .step h3 { margin: 2px 0 5px; font-family: inherit; font-size: 15px; font-weight: 750; letter-spacing: 0; }
+    .step p { margin: 0; color: #51584f; font-size: 14px; line-height: 1.75; }
+    .takeaway { margin: 35px 0; padding: 24px; border: 1px solid #d8e3d9; border-radius: 15px; background: #eef4ee; }
+    .takeaway h3 { margin-top: 0; }
+    .takeaway p:last-child { margin-bottom: 0; }
+    .faq-item { padding: 19px 0 0; border-top: 1px solid var(--line); }
+    .faq-item h3 { margin-top: 0; font-family: inherit; font-size: 16px; font-weight: 750; letter-spacing: 0; }
+    .faq-item p { margin-bottom: 20px; }
+    .references { margin-top: 56px; padding-top: 30px; border-top: 1px solid var(--line); }
+    .references h2 { margin-top: 0; font-size: 29px; }
+    .references-intro { color: var(--muted); font-size: 13px; }
+    .reference-list { display: grid; gap: 0; list-style: none !important; margin: 21px 0 0 !important; padding: 0 !important; }
+    .reference-list li { margin: 0; padding: 14px 0; border-top: 1px solid var(--line); }
+    .reference-list a { display: inline-block; font-size: 14px; font-weight: 750; }
+    .reference-list p { margin: 4px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+    .back-to-top { display: inline-flex; align-items: center; gap: 7px; margin-top: 12px; color: var(--accent); font-size: 12px; font-weight: 750; text-decoration: none; }
+    .related-strip { padding: 32px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--soft-2); }
+    .related-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .related-inner h2 { margin: 0 0 5px; font-family: Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 500; }
+    .related-inner p { max-width: 660px; margin: 0; color: var(--muted); font-size: 13px; }
+    .related-link { flex-shrink: 0; display: inline-block; padding: 11px 16px; border-radius: 999px; background: var(--accent); color: white; font-size: 12px; font-weight: 750; text-decoration: none; }
+    .related-link:hover { background: var(--accent-hover); color: white; }
+    .site-footer { padding: 27px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+    .footer-brand { font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; letter-spacing: -.5px; color: var(--text); text-decoration: none; }
+    .copyright { margin: 5px 0 0; color: var(--muted); font-size: 11px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 19px; color: var(--muted); font-size: 11px; }
+    .footer-links a { color: var(--muted); text-decoration: none; }
+    .footer-links a:hover { color: var(--accent); }
+    @media (max-width: 900px) { .article-layout { grid-template-columns: minmax(0, 760px); } .toc-wrap { display: none; } .mobile-toc { display: block; } .article-content { margin-inline: auto; width: 100%; } }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 32px, var(--max-width)); }
+      .header-inner { min-height: 74px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 13px; padding: 15px 0; }
+      .brand-name { font-size: 24px; } .brand-tagline { font-size: 9px; }
+      .main-nav { width: 100%; justify-content: space-between; gap: 10px; font-size: 11px; }
+      .nav-cta { padding: 7px 10px; } .breadcrumbs { padding-top: 18px; }
+      .article-hero { padding: 28px 0 25px; }
+      .article-hero h1 { font-size: clamp(37px, 10vw, 52px); letter-spacing: -1.7px; }
+      .dek { font-size: 15px; } .feature-visual { padding: 17px 14px; border-radius: 17px; }
+      .connection-flow { grid-template-columns: 1fr; gap: 9px; max-width: 330px; }
+      .device-card { min-height: auto; display: grid; grid-template-columns: 42px 1fr; justify-content: start; text-align: left; padding: 12px 14px; }
+      .device-card svg { width: 34px; height: 34px; grid-row: span 2; }
+      .device-card strong { align-self: end; font-size: 15px; } .device-card small { align-self: start; }
+      .tunnel { display: grid; grid-template-columns: 24px 1fr; gap: 7px 10px; justify-items: start; text-align: left; padding-left: 24px; }
+      .tunnel-line { width: 3px; height: 19px; margin-left: 11px; grid-column: 1; grid-row: 1 / span 2; }
+      .tunnel-line::after { top: auto; bottom: -1px; right: -4px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 7px solid #5e9476; border-bottom: 0; }
+      .tunnel-icon { grid-column: 2; grid-row: 1; width: 23px; height: 23px; }
+      .tunnel-label { grid-column: 2; grid-row: 2; }
+      .article-layout { padding: 28px 0 58px; } .article-content { font-size: 15px; line-height: 1.82; }
+      .article-content h2 { margin-top: 43px; font-size: 30px; } .article-content h3 { font-size: 21px; }
+      .step { padding: 14px; } .related-inner, .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
+    @media print { .site-header, .progress-track, .toc-wrap, .mobile-toc, .related-strip, .site-footer, .back-to-top { display: none !important; } body { background: white; } .container { width: 100%; } .article-layout { display: block; padding: 0; } .article-content { max-width: none; font-size: 11pt; } .article-content h2 { break-after: avoid; } a { color: inherit; } }
+  </style>
+</head>
+<body id="top">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="Synth Visual home"><span class="brand-name">Synth Visual</span><span class="brand-tagline">Technology, made clearer</span></a>
+      <nav class="main-nav" aria-label="Main navigation"><a href="/#latest-guides">Guides</a><a href="https://synthvisuals.space/about.html">About</a><a class="nav-cta" href="/#latest-guides">Explore Articles</a></nav>
+    </div>
+    <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="reading-progress"></div></div>
+  </header>
+  <main>
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/#latest-guides">Guides</a></li><li aria-current="page">Does a VPN Hide Your IP Address?</li></ol></nav>
+      <header class="article-hero">
+        <div class="article-hero-inner">
+          <p class="eyebrow">Digital Privacy · VPN Guide</p>
+          <h1>Does a VPN Hide Your <em>IP Address?</em></h1>
+          <p class="dek">Learn how a VPN masks your public IP address, what your ISP and websites can still see, how leaks happen, and how to check your VPN privacy.</p>
+          <div class="article-meta" aria-label="Article information"><span class="topic-pill">Cybersecurity</span><span class="meta-dot">Beginner friendly</span><span class="meta-dot">About 16 min read</span></div>
+        </div>
+      </header>
+      <figure class="feature-visual" aria-labelledby="vpn-flow-caption">
+        <div class="connection-flow" role="img" aria-label="Diagram showing a device sending traffic through an encrypted VPN connection to a VPN server, which then connects to a destination website">
+          <div class="device-card">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="7" y="6" width="34" height="27" rx="3"/><path d="M18 41h12M24 33v8M3 36h42"/></svg>
+            <strong>Your Device</strong><small>Original public IP</small>
+          </div>
+          <div class="tunnel"><span class="tunnel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span class="tunnel-line"></span><span class="tunnel-label">Encrypted VPN tunnel</span></div>
+          <div class="device-card">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="7" y="5" width="34" height="12" rx="3"/><rect x="7" y="20" width="34" height="12" rx="3"/><path d="M12 11h2m-2 9h2m-2 7h2M7 37h34M17 32v5m14-5v5"/></svg>
+            <strong>VPN Server</strong><small>Outgoing VPN IP</small>
+          </div>
+          <div class="tunnel"><span class="tunnel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span><span class="tunnel-line"></span><span class="tunnel-label">Forwarded request</span></div>
+          <div class="device-card">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="24" cy="24" r="19"/><path d="M5 24h38M24 5c6 6 8 12 8 19s-2 13-8 19c-6-6-8-12-8-19s2-13 8-19Z"/></svg>
+            <strong>Website</strong><small>Normally sees VPN IP</small>
+          </div>
+        </div>
+        <figcaption class="visual-caption" id="vpn-flow-caption">A VPN routes covered traffic through a remote server, so destination websites usually see the VPN server's public IP address instead of the address assigned to your connection.</figcaption>
+      </figure>
+    </div>
+
+    <div class="container article-layout">
+      <aside class="toc-wrap" aria-label="Article navigation">
+        <nav class="toc-card">
+          <p class="toc-title">On this page</p>
+          <ol class="toc-list">
+            <li><a href="#what-is-an-ip-address">What Is an IP Address?</a></li>
+            <li><a href="#how-vpn-hides-ip">How Does a VPN Hide Your IP Address?</a></li>
+            <li><a href="#what-vpn-hides-websites">What Does a VPN Hide From Websites?</a></li>
+            <li><a href="#what-isp-can-see">What Can Your ISP See?</a></li>
+            <li><a href="#vpn-provider-sees-ip">Can a VPN Provider See Your Real IP?</a></li>
+            <li><a href="#what-vpn-cannot-hide">What Can a VPN Not Hide?</a></li>
+            <li><a href="#vpn-detection">Can Websites Detect a VPN?</a></li>
+            <li><a href="#vpn-location">Does a VPN Hide Your Location?</a></li>
+            <li><a href="#check-vpn-ip">How to Check Your VPN</a></li>
+            <li><a href="#vpn-proxy-tor">VPN vs. Proxy vs. Tor</a></li>
+            <li><a href="#vpn-privacy-enough">Is a VPN Enough for Privacy?</a></li>
+            <li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+            <li><a href="#final-thoughts">Final Thoughts</a></li>
+            <li><a href="#sources">References &amp; Further Reading</a></li>
+          </ol>
+          <p class="toc-note">The key takeaway: a VPN generally changes the public IP address websites see, but it does not automatically make you anonymous or protect traffic that bypasses its tunnel.</p>
+        </nav>
+      </aside>
+
+      <article class="article-content">
+        <details class="mobile-toc">
+          <summary>On this page — Article contents</summary>
+          <ol class="toc-list">
+            <li><a href="#what-is-an-ip-address">What Is an IP Address?</a></li>
+            <li><a href="#how-vpn-hides-ip">How Does a VPN Hide Your IP Address?</a></li>
+            <li><a href="#what-vpn-hides-websites">What Does a VPN Hide From Websites?</a></li>
+            <li><a href="#what-isp-can-see">What Can Your ISP See?</a></li>
+            <li><a href="#vpn-provider-sees-ip">Can a VPN Provider See Your Real IP?</a></li>
+            <li><a href="#what-vpn-cannot-hide">What Can a VPN Not Hide?</a></li>
+            <li><a href="#vpn-detection">Can Websites Detect a VPN?</a></li>
+            <li><a href="#vpn-location">Does a VPN Hide Your Location?</a></li>
+            <li><a href="#check-vpn-ip">How to Check Your VPN</a></li>
+            <li><a href="#vpn-proxy-tor">VPN vs. Proxy vs. Tor</a></li>
+            <li><a href="#vpn-privacy-enough">Is a VPN Enough for Privacy?</a></li>
+            <li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+            <li><a href="#final-thoughts">Final Thoughts</a></li>
+            <li><a href="#sources">References &amp; Further Reading</a></li>
+          </ol>
+        </details>
+
+        <div class="quick-answer">
+          <p class="quick-answer-label">The quick answer</p>
+          <p><strong>Yes. A VPN generally hides your original public IP address from websites by routing covered traffic through a VPN server.</strong> The destination normally sees the server's public IP address instead. However, a VPN does not guarantee anonymity: providers may see your connecting IP address, websites can recognize accounts and tracking identifiers, and misconfigured traffic can leak outside the tunnel.</p>
+        </div>
+
+        <p>Yes, a VPN generally hides your original public IP address from websites and online services by routing your internet traffic through a VPN server. When the connection is working correctly, the destination website typically sees the VPN server's public IP address instead of the address assigned to your internet connection.</p>
+        <p>However, hiding your IP address is not the same as becoming anonymous online. Your VPN provider may be able to see the IP address you connect from, websites can recognize you through account logins and tracking technologies, and certain network or browser configurations can expose information you expected to keep private.</p>
+        <p>Understanding these limitations helps you decide when a VPN is useful and what additional privacy measures you may need. This guide explains how VPN-based IP masking works, what your internet service provider (ISP) can observe, how to identify potential leaks, and how VPNs compare with proxies and Tor.</p>
+
+        <h2 id="what-is-an-ip-address">What Is an IP Address?</h2>
+        <p>An Internet Protocol (IP) address is a numerical address used to identify a network interface and help route data across networks. Devices and servers use IP addressing to send information to the correct destination.</p>
+        <p>There are two important categories to understand.</p>
+        <p><strong>Public IP addresses</strong> are used for communication across the public internet. Your internet connection typically uses a public IPv4 address, a public IPv6 address, or both. Websites can generally see the public source IP address of incoming connections.</p>
+        <p><strong>Private IP addresses</strong> are used within local networks, such as the network connecting your laptop, smartphone, and router at home. A device might have a private address such as <code>192.168.1.25</code>, while the router uses a public address for many connections to the internet.</p>
+        <p>Network Address Translation (NAT) commonly allows multiple devices on a local network to share a public IPv4 address. Learn more in Synth Visual's guide to <a href="https://synthvisuals.space/what-is-nat.html">What Is NAT and How Does It Work?</a></p>
+        <p>An IP address can provide clues about the network an internet connection uses. IP geolocation services may estimate a country, region, or city, and IP registration information can identify an associated internet provider.</p>
+        <p>However, IP-based geolocation is not a precise tracking system. The results vary by network and location, and an IP address alone does not necessarily identify a specific individual or reveal their street address. <a href="https://support.maxmind.com/knowledge-base/articles/maxmind-geolocation-accuracy" target="_blank" rel="noopener noreferrer">MaxMind's IP geolocation guidance</a> explains these limitations.</p>
+        <p>IP addresses may also change over time, be shared by many users, or belong to mobile and business networks that serve people across a broad area. This distinction matters because a VPN changes the public IP address visible to the destination service, not necessarily every other identifier associated with your device.</p>
+
+        <h2 id="how-vpn-hides-ip">How Does a VPN Hide Your IP Address?</h2>
+        <p>A virtual private network (VPN) creates a protected connection between your device and a VPN server. It routes selected internet traffic through that connection before forwarding it to its destination.</p>
+        <p>The process generally works as follows.</p>
+        <div class="step-list" aria-label="How VPN IP masking works">
+          <div class="step"><span class="step-number">1</span><div><h3>Your device connects to a VPN server</h3><p>The VPN application establishes a connection using a supported VPN protocol.</p></div></div>
+          <div class="step"><span class="step-number">2</span><div><h3>A protected tunnel is established</h3><p>Traffic covered by the VPN's routing rules is encapsulated and typically encrypted while traveling between your device and the VPN server.</p></div></div>
+          <div class="step"><span class="step-number">3</span><div><h3>The VPN server forwards your traffic</h3><p>The server sends requests to websites and other online services on your behalf.</p></div></div>
+          <div class="step"><span class="step-number">4</span><div><h3>The destination sees the VPN server's IP address</h3><p>The website normally sees the public IP address from which the VPN server's outgoing connection originates.</p></div></div>
+          <div class="step"><span class="step-number">5</span><div><h3>The response returns through the VPN</h3><p>The VPN server sends the response back through the protected connection, where your device processes it.</p></div></div>
+        </div>
+        <p>The Internet Engineering Task Force's <a href="https://datatracker.ietf.org/doc/html/rfc4301" target="_blank" rel="noopener noreferrer">IPsec architecture, RFC 4301</a>, documents how IPsec can protect traffic through tunnel-mode operation. Consumer VPN implementations vary, but the general principle of routing traffic through a remote server explains the IP-masking effect.</p>
+        <p>The basic traffic flow is:</p>
+        <div class="scroll-table"><table aria-label="Simplified VPN traffic flow"><thead><tr><th scope="col">Stage</th><th scope="col">What happens</th><th scope="col">Address generally visible</th></tr></thead><tbody><tr><td>Your device to VPN server</td><td>Covered traffic travels through the protected VPN tunnel.</td><td>The VPN server can generally observe the public source address connecting to it.</td></tr><tr><td>VPN server to destination website</td><td>The VPN server forwards the request to the destination.</td><td>The website normally sees the VPN server's outgoing public IP address.</td></tr></tbody></table></div>
+        <p>Encryption and IP masking serve related but different purposes. Encryption helps prevent intermediaries on the path to the VPN server from reading protected traffic. Routing through the VPN server changes the apparent public source address seen by the destination.</p>
+        <p>A VPN does not necessarily route every application or connection through its tunnel. Split tunneling, application-specific settings, unsupported traffic, connection failures, and operating-system routing behavior can affect which traffic is protected. If some traffic bypasses the VPN, its public source IP address may remain visible to the destination.</p>
+
+        <h2 id="what-vpn-hides-websites">What Does a VPN Hide From Websites?</h2>
+        <p>When a VPN is functioning correctly and the relevant traffic travels through its tunnel, websites generally cannot directly obtain your original public IP address from that connection.</p>
+        <p>This can conceal or change several pieces of information:</p>
+        <ul>
+          <li><strong>Your original public IP address:</strong> A website ordinarily receives the VPN server's public IP address instead.</li>
+          <li><strong>Some IP-based geographic clues:</strong> A location lookup may associate the connection with the VPN server's region rather than your actual region.</li>
+          <li><strong>Some information about your original network:</strong> The website usually sees information associated with the VPN exit connection rather than a direct connection from your home or mobile network.</li>
+        </ul>
+        <p>However, these benefits apply primarily to network-level information. A VPN does not automatically conceal everything your browser or applications reveal.</p>
+        <p>For example, a website can recognize an account when you sign in, use existing cookies to associate a visit with an earlier session, or collect browser characteristics to help recognize the same device across visits.</p>
+        <p>If you visit a website while connected to a VPN and log into your personal account, the website may still know which account is using the service. It simply sees the connection arriving from a VPN address. A VPN therefore reduces one source of identifying information without eliminating all the others.</p>
+
+        <h2 id="what-isp-can-see">What Can Your Internet Service Provider See When You Use a VPN?</h2>
+        <p>Your ISP provides the connection between your device and the internet. When you use a VPN, your ISP ordinarily still handles the network connection, but its direct view of your traffic changes.</p>
+        <p>The ISP can generally observe:</p>
+        <ul>
+          <li>The public IP address of your internet connection.</li>
+          <li>The IP address of the VPN server to which you connect.</li>
+          <li>When the VPN connection begins and ends, and how long it remains active.</li>
+          <li>The amount of traffic transferred and other connection metadata.</li>
+        </ul>
+        <p>A properly configured VPN encrypts the traffic it carries between your device and the VPN server. This generally prevents your ISP from directly reading the contents of that protected traffic.</p>
+        <p>However, the ISP may still infer information from connection patterns and traffic volume. It may also observe DNS requests or other activity that bypasses the VPN, depending on your device and network configuration.</p>
+        <p>The distinction between the ISP's ability to observe a connection and its ability to read its contents is important. Seeing that you connected to a VPN server does not automatically mean the ISP can read the websites' content or every request sent through the tunnel.</p>
+        <p>HTTPS also remains important. It encrypts communication between your browser and the website, adding protection beyond the VPN tunnel. <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTPS" target="_blank" rel="noopener noreferrer">MDN's HTTPS documentation</a> explains how HTTPS uses TLS to protect communications.</p>
+
+        <h2 id="vpn-provider-sees-ip">Can a VPN Provider See Your Real IP Address?</h2>
+        <p>Yes. A VPN provider will generally be able to observe the public source IP address from which your device connects to its VPN server, along with certain connection metadata.</p>
+        <p>This happens because the VPN server must receive your connection before it can forward your traffic. When your device connects directly from your home network, the source address visible to the VPN infrastructure is typically the public address of that network.</p>
+        <p>What the provider records, retains, or can associate with a particular account depends on its logging practices, system architecture, and operational policies.</p>
+        <p>A VPN provider's visibility also depends on the type of traffic involved. The provider operates the point where VPN traffic exits its tunnel, so it may be able to observe destination IP addresses and other connection metadata. If traffic is not protected by HTTPS or another end-to-end encryption layer, its contents may also be exposed at that point. HTTPS helps protect content between the browser and the destination website even when a VPN is used.</p>
+        <p>When evaluating a VPN service, look for a clear privacy policy, understandable logging practices, information about its technical architecture, and credible independent assessments where available.</p>
+        <p>Do not assume that every VPN provider keeps the same information—or that a claim of being a "no-logs VPN" automatically proves that no relevant data can be collected.</p>
+        <p>The <a href="https://www.ftc.gov/business-guidance/blog/2018/02/market-vpn-app" target="_blank" rel="noopener noreferrer">Federal Trade Commission's guidance on VPN apps</a> emphasizes that a VPN does not automatically make users anonymous and that choosing a VPN shifts some trust from the ISP to the VPN provider.</p>
+
+        <h2 id="what-vpn-cannot-hide">What Can a VPN Not Hide?</h2>
+        <p>A VPN is useful for changing the public IP address visible to destination services, but it does not eliminate every form of identification or security risk.</p>
+
+        <h3 id="vpn-account-logins">Your Identity When You Log In</h3>
+        <p>Signing into an email, social media, shopping, or banking account can identify you regardless of the IP address being used.</p>
+        <p>A website may associate your current activity with your existing account, purchase history, saved preferences, and previous sessions. A VPN does not erase that relationship.</p>
+
+        <h3 id="vpn-cookies-fingerprinting">Cookies and Browser Fingerprinting</h3>
+        <p>Cookies can store identifiers and session information in your browser. Depending on their scope and configuration, they may help websites recognize returning visitors.</p>
+        <p>Browser fingerprinting works differently. It combines characteristics such as browser and operating-system details, screen dimensions, fonts, and other features to help distinguish one browser from others.</p>
+        <p>Changing your IP address does not automatically remove cookies or make your browser fingerprint different. <a href="https://www.mozilla.org/firefox/features/block-fingerprinting/" target="_blank" rel="noopener noreferrer">Mozilla's explanation of fingerprinting</a> describes how these characteristics can contribute to online tracking.</p>
+
+        <h3 id="vpn-gps-location">GPS and Device Location</h3>
+        <p>VPN location masking primarily changes the IP address visible to websites and services.</p>
+        <p>It does not automatically change your device's GPS coordinates. Depending on the device, application, permissions, and platform behavior, an app may obtain location information independently of the network's public IP address.</p>
+        <p>For browser-based location access, the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation" target="_blank" rel="noopener noreferrer">MDN Geolocation API documentation</a> explains how websites can request access to a device's location, subject to browser and permission controls.</p>
+        <p>Review location permissions and disable access for applications that do not need it.</p>
+
+        <h3 id="vpn-dns-ip-leaks">DNS and IP Leaks</h3>
+        <p>The Domain Name System (DNS) translates domain names, such as <code>example.com</code>, into IP addresses that computers can use.</p>
+        <p>A DNS leak occurs when DNS requests are sent outside the path or resolver arrangement you expected the VPN to protect. For example, a misconfiguration could cause DNS requests to reach an ISP-operated resolver instead of the resolver intended for the VPN connection.</p>
+        <p>IPv6 routing and connection failures can also expose traffic if they are not handled correctly. Modern VPNs may support IPv4 and IPv6 differently, so configuration matters. See Synth Visual's guide to <a href="https://synthvisuals.space/ipv4-vs-ipv6.html">IPv4 vs. IPv6: Key Differences Explained</a>.</p>
+        <p>WebRTC, a collection of browser technologies used for real-time communication, can expose IP-related network information under some browser and network configurations. The <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/address" target="_blank" rel="noopener noreferrer">MDN documentation on WebRTC IP candidates</a> explains why such information can matter for privacy.</p>
+        <p>These issues do not affect every VPN or browser. They are reasons to test the actual configuration instead of assuming all traffic is protected.</p>
+
+        <h3 id="vpn-malware-phishing">Malware, Phishing, and Unsafe Downloads</h3>
+        <p>A VPN is not a substitute for keeping software updated, avoiding suspicious links, recognizing phishing attempts, or using appropriate endpoint security protections.</p>
+        <p>A VPN may protect traffic on the way to its server, but it does not automatically make a malicious download safe or prevent you from entering a password on a fraudulent website.</p>
+
+        <h3 id="vpn-activity-provider">Your Activity to the VPN Provider</h3>
+        <p>A VPN changes which intermediary handles the traffic routed through it. It does not make that intermediary disappear.</p>
+        <p>The provider may be able to observe your connecting IP address, connection timing, traffic volume, and destination-related metadata. Its ability to inspect traffic contents depends partly on whether those contents are protected by HTTPS or other end-to-end encryption.</p>
+        <p>Using a VPN means making a decision about which network operator you trust with part of your connection.</p>
+
+        <h2 id="vpn-detection">Can Websites Detect That You Are Using a VPN?</h2>
+        <p>Yes. Websites and online services may recognize or flag connections associated with VPN servers.</p>
+        <p>They may check an incoming IP address against databases of known VPN servers, hosting providers, or addresses associated with unusual connection patterns. Some services also use additional signals and automated risk assessments.</p>
+        <p>This can lead to a CAPTCHA, a request for extra verification, restricted access, or a connection being blocked.</p>
+        <p>However, VPN detection is not always accurate. An IP address may be shared by legitimate users and automated systems, and not every connection from a hosting or data-center network necessarily represents a VPN.</p>
+        <p>Most importantly, detecting that a connection comes from a VPN server does not automatically reveal the user's original IP address. A service can recognize the apparent source as a VPN without knowing which person or original network is behind it.</p>
+
+        <h2 id="vpn-location">Does a VPN Hide Your Location?</h2>
+        <p>A VPN can change the location associated with your public IP address, but it does not necessarily conceal your actual physical location from every service.</p>
+        <p>There are three different concepts to separate:</p>
+        <ul>
+          <li><strong>IP-based location:</strong> An approximate location inferred from a public IP address.</li>
+          <li><strong>VPN server location:</strong> The region associated with the server through which your traffic exits to the internet.</li>
+          <li><strong>Physical device location:</strong> Your actual position, potentially determined through GPS, nearby networks, device signals, or permission-based location services.</li>
+        </ul>
+        <p>For example, someone physically located in Brazil might connect to a VPN server in the United States. A website relying on the connection's public IP address may associate the visit with the United States, even though the person has not moved.</p>
+        <p>The result is not guaranteed. IP geolocation databases can be inaccurate, and websites may have other information about the user.</p>
+        <p>A VPN should therefore be understood as a way to change IP-based location clues, not as a tool that automatically changes or conceals every location signal.</p>
+
+        <h2 id="check-vpn-ip">How Can You Check Whether Your VPN Is Hiding Your IP Address?</h2>
+        <p>You can perform several simple checks to see whether your VPN is presenting the expected public IP address.</p>
+        <div class="step-list" aria-label="Steps to check VPN privacy">
+          <div class="step"><span class="step-number">1</span><div><h3>Check your public IP address before connecting</h3><p>Use a reputable IP-checking service and note the displayed address. Avoid publishing or sharing it unnecessarily.</p></div></div>
+          <div class="step"><span class="step-number">2</span><div><h3>Connect to your VPN</h3><p>Choose a server and wait for the application to confirm that the connection is active.</p></div></div>
+          <div class="step"><span class="step-number">3</span><div><h3>Check your public IP address again</h3><p>The displayed address should normally differ from the one you recorded before connecting.</p></div></div>
+          <div class="step"><span class="step-number">4</span><div><h3>Review the approximate location</h3><p>Check whether the displayed region is consistent with your chosen VPN server. Remember that geolocation databases are not always accurate.</p></div></div>
+          <div class="step"><span class="step-number">5</span><div><h3>Review your VPN settings</h3><p>Look for options related to leak protection, split tunneling, IPv6 handling, and routing behavior.</p></div></div>
+          <div class="step"><span class="step-number">6</span><div><h3>Check DNS behavior</h3><p>Use a reputable DNS leak-testing service to see which DNS resolvers are detected. Review what the results mean alongside your provider's technical documentation.</p></div></div>
+          <div class="step"><span class="step-number">7</span><div><h3>Review IPv6 and WebRTC behavior</h3><p>Follow reliable testing instructions appropriate to your operating system and browser. A single test may not reveal every possible exposure.</p></div></div>
+          <div class="step"><span class="step-number">8</span><div><h3>Check connection-drop protection</h3><p>Review whether your VPN offers a kill switch and whether it is enabled. Where appropriate, consult the provider's instructions for understanding how the feature behaves if the VPN disconnects.</p></div></div>
+        </div>
+        <p>A kill switch is intended to block selected internet traffic when the VPN connection drops unexpectedly. Its exact behavior depends on the implementation and configuration.</p>
+        <p>Seeing a different public IP address is useful evidence that IP masking is working for the connection being tested. It does not prove that every application, DNS request, or network path is protected.</p>
+        <p>Do not enter sensitive information into unfamiliar testing sites or install unknown software simply to test your connection.</p>
+
+        <h2 id="vpn-proxy-tor">VPN vs. Proxy vs. Tor: What's the Difference?</h2>
+        <p>VPNs, proxy servers, and Tor can all change the network path through which a destination sees a connection, but they use different approaches and provide different protections.</p>
+        <div class="scroll-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">VPN</th><th scope="col">Proxy Server</th><th scope="col">Tor Network</th></tr></thead><tbody>
+          <tr><th scope="row">General routing</th><td>Routes selected device traffic through a VPN server.</td><td>Forwards traffic for a specific application or protocol, depending on configuration.</td><td>Routes supported traffic through multiple relays.</td></tr>
+          <tr><th scope="row">IP address seen by the destination</th><td>Usually the VPN exit server's public IP.</td><td>Usually the proxy's outgoing IP.</td><td>Usually the Tor exit relay's IP for public internet destinations.</td></tr>
+          <tr><th scope="row">Encryption</th><td>Typically protects traffic between device and VPN server.</td><td>Depends on the proxy; HTTPS may independently encrypt traffic.</td><td>Uses layered encryption within the Tor network.</td></tr>
+          <tr><th scope="row">Typical uses</th><td>Network privacy, remote access, and IP masking.</td><td>Application-specific routing and intermediary services.</td><td>Privacy-focused browsing and reducing direct linkability between user and destination.</td></tr>
+          <tr><th scope="row">Important limitation</th><td>Provider becomes a point of trust; anonymity is not guaranteed.</td><td>May not protect all applications or encrypt the connection.</td><td>Some services block Tor traffic; exit traffic still needs HTTPS protection for end-to-end confidentiality.</td></tr>
+        </tbody></table></div>
+        <p>A proxy does not necessarily encrypt traffic. For example, a plain proxy connection and an HTTPS connection are different things: HTTPS may protect data between your browser and the destination even when a proxy is involved.</p>
+        <p>Tor takes another approach. According to the <a href="https://support.torproject.org/tor-browser/getting-started/about-tor-browser/" target="_blank" rel="noopener noreferrer">Tor Project's overview of Tor Browser</a>, traffic is routed through multiple relays rather than a conventional single VPN exit server. The destination generally sees an exit relay address, while the different stages of the route serve distinct roles.</p>
+        <p>None of these tools automatically prevents identification through account logins, unsafe browsing, or all forms of tracking.</p>
+
+        <h2 id="vpn-privacy-enough">Is a VPN Enough to Protect Your Online Privacy?</h2>
+        <p>A VPN can be one useful part of an online privacy strategy, especially when you want to prevent destination websites from directly seeing your original public IP address or reduce the ISP's ability to inspect traffic protected inside the VPN tunnel.</p>
+        <p>However, a more complete approach combines several safeguards:</p>
+        <ul>
+          <li><strong>Use HTTPS:</strong> It protects the contents of communication between your browser and the website, including when traffic travels through a VPN.</li>
+          <li><strong>Keep your software updated:</strong> Security updates address vulnerabilities in browsers, operating systems, and applications.</li>
+          <li><strong>Manage cookies and tracking permissions:</strong> Review browser privacy controls and limit unnecessary tracking where practical.</li>
+          <li><strong>Secure your accounts:</strong> Use strong, unique passwords and multifactor authentication where available.</li>
+          <li><strong>Review location permissions:</strong> Restrict applications that do not need access to your device's location.</li>
+          <li><strong>Choose a VPN provider carefully:</strong> Evaluate its privacy policy, logging claims, technical protections, and independent assessments.</li>
+          <li><strong>Understand the goal:</strong> Hiding your public IP address, securing a network connection, and achieving anonymity are different objectives.</li>
+        </ul>
+        <p>The right combination depends on what you are trying to protect and from whom. Everyday privacy needs are different from the requirements of a journalist protecting a sensitive source or an organization managing confidential systems.</p>
+        <p>The most useful approach is to understand the limitations of each tool instead of expecting one application to solve every privacy and security problem.</p>
+
+        <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+        <section class="faq-item"><h3 id="faq-completely-hide-ip">1. Does a VPN completely hide your IP address?</h3><p>A properly functioning VPN generally hides your original public IP address from destination websites for traffic routed through its tunnel. It does not guarantee that every application or connection is protected, and leaks or configuration problems can expose information.</p></section>
+        <section class="faq-item"><h3 id="faq-google-ip">2. Can Google see my real IP address when I use a VPN?</h3><p>When Google receives a request through a properly functioning VPN connection, it generally sees the VPN server's public IP address rather than your original public IP address. However, Google may still recognize you through your account, cookies, or other identifying signals. Traffic that bypasses the VPN may also reveal your original address.</p></section>
+        <section class="faq-item"><h3 id="faq-isp-websites">3. Can my internet provider see what websites I visit when I use a VPN?</h3><p>Your ISP can ordinarily see that you are connecting to a VPN server, along with connection timing and traffic volume. A correctly configured VPN generally protects the traffic it carries from direct inspection by your ISP. DNS leaks, split tunneling, or other traffic outside the tunnel can reveal additional information.</p></section>
+        <section class="faq-item"><h3 id="faq-government-ip">4. Can a VPN hide my IP address from the government?</h3><p>A VPN can hide your original public IP address from destination services and change what your ISP can directly observe about traffic routed through the tunnel. It does not guarantee anonymity from government agencies. Relevant information may be available through other sources, and the legal processes and technical capabilities involved vary by jurisdiction and circumstance.</p></section>
+        <section class="faq-item"><h3 id="faq-websites-track">5. Can websites track me while I use a VPN?</h3><p>Yes. Websites may recognize you through account logins, cookies, browser fingerprinting, and other tracking signals. A VPN changes your apparent public IP address, but it does not automatically erase other identifiers.</p></section>
+        <section class="faq-item"><h3 id="faq-location-completely">6. Does a VPN hide my location completely?</h3><p>No. A VPN can change the approximate location associated with your public IP address. It does not automatically change GPS coordinates, prevent all permission-based location access, or remove every other clue about your location.</p></section>
+        <section class="faq-item"><h3 id="faq-vpn-leak">7. Can a VPN leak my real IP address?</h3><p>Yes, under certain conditions. DNS leaks, routing errors, IPv6 handling, browser behavior, or unexpected VPN disconnections may expose information outside the protected tunnel. The likelihood and type of exposure depend on the VPN implementation, operating system, browser, and configuration.</p></section>
+        <section class="faq-item"><h3 id="faq-anonymity">8. Is a VPN enough to make me anonymous online?</h3><p>No. A VPN can reduce direct exposure of your original public IP address, but anonymity also depends on account activity, tracking technologies, browser configuration, provider visibility, and other identifying information. A VPN is a privacy tool, not a guarantee of anonymity.</p></section>
+
+        <h2 id="final-thoughts">Final Thoughts</h2>
+        <p>A VPN can help hide your original public IP address from destination websites by routing your traffic through a VPN server. When the connection is working as intended, websites generally see the VPN server's public IP address rather than the address associated with your original internet connection.</p>
+        <p>However, IP masking does not make every aspect of your online activity invisible. Your ISP can still observe the connection to the VPN server, the VPN provider may be able to observe your connecting IP address and relevant metadata, and websites can recognize users through account logins, cookies, browser fingerprinting, and other signals.</p>
+        <p>The practical takeaway is to understand what a VPN protects, verify that it is routing your traffic as expected, and combine it with appropriate privacy and security practices. A VPN can improve privacy, but realistic expectations and careful configuration are just as important as the tool itself.</p>
+        <div class="takeaway"><h3>The main takeaway</h3><p>A VPN generally replaces the public IP address websites see with the VPN server's outgoing address for traffic routed through its tunnel. It can improve privacy, but it does not hide every identifier, prevent all leaks, or guarantee anonymity. Verify your setup and combine a VPN with HTTPS, sensible account security, updated software, and careful privacy settings.</p></div>
+
+        <section aria-labelledby="sources-heading" class="references" id="sources">
+          <h2 id="sources-heading">References &amp; Further Reading</h2>
+          <p class="references-intro">These standards, official technical documents, and educational resources support the article's explanations of VPN tunneling, IP geolocation, tracking, location permissions, and online privacy.</p>
+          <ol class="reference-list">
+            <li><a href="https://datatracker.ietf.org/doc/html/rfc4301" target="_blank" rel="noopener noreferrer">Internet Engineering Task Force (IETF) — RFC 4301: Security Architecture for the Internet Protocol</a><p>Technical standard describing IPsec security architecture, protected traffic, and tunnel-mode operation.</p></li>
+            <li><a href="https://www.ftc.gov/business-guidance/blog/2018/02/market-vpn-app" target="_blank" rel="noopener noreferrer">Federal Trade Commission (FTC) — In the Market for a VPN App?</a><p>Guidance concerning VPN apps, privacy claims, and the trust users place in VPN providers.</p></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/address" target="_blank" rel="noopener noreferrer">MDN — RTCIceCandidate: address property</a><p>Technical documentation explaining how WebRTC IP-related address information can be exposed.</p></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation" target="_blank" rel="noopener noreferrer">MDN — Geolocation API</a><p>Browser documentation explaining access to device location and associated permission controls.</p></li>
+            <li><a href="https://www.mozilla.org/firefox/features/block-fingerprinting/" target="_blank" rel="noopener noreferrer">Mozilla — Firefox: Blocking Fingerprinting</a><p>Educational explanation of browser fingerprinting and how device and browser characteristics can contribute to tracking.</p></li>
+            <li><a href="https://support.maxmind.com/knowledge-base/articles/maxmind-geolocation-accuracy" target="_blank" rel="noopener noreferrer">MaxMind — Understanding IP Geolocation Accuracy</a><p>Guidance on the limitations of associating IP addresses with geographic locations.</p></li>
+            <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTPS" target="_blank" rel="noopener noreferrer">MDN — HTTPS</a><p>Technical explanation of HTTPS and the encryption provided by TLS.</p></li>
+            <li><a href="https://support.torproject.org/tor-browser/getting-started/about-tor-browser/" target="_blank" rel="noopener noreferrer">Tor Project — About Tor Browser</a><p>Official explanation of Tor's multi-relay routing model and its privacy properties.</p></li>
+          </ol>
+          <a class="back-to-top" href="#top">↑ Back to the top</a>
+        </section>
+      </article>
+    </div>
+
+    <section class="related-strip"><div class="container related-inner"><div><h2>Keep exploring digital privacy.</h2><p>Explore more straightforward guides to IP addresses, DNS, VPNs, and the technologies that shape your online privacy and security.</p></div><a class="related-link" href="/#latest-guides">Explore all guides →</a></div></section>
+  </main>
+  <footer class="site-footer"><div class="container footer-inner"><div><a class="footer-brand" href="/">Synth Visual</a><p class="copyright">© <span id="current-year">2026</span> Synth Visual. All rights reserved.</p></div><nav class="footer-links" aria-label="Footer navigation"><a href="https://synthvisuals.space/about.html">About</a><a href="https://synthvisuals.space/privacy-policy.html">Privacy Policy</a><a href="https://synthvisuals.space/affiliate-disclosure.html">Affiliate Disclosure</a></nav></div></footer>
+  <script>
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+    (function () {
+      const bar = document.getElementById("reading-progress");
+      let ticking = false;
+      function updateProgress() {
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - window.innerHeight;
+        const amount = max > 0 ? (window.scrollY / max) * 100 : 0;
+        bar.style.width = Math.max(0, Math.min(100, amount)) + "%";
+        ticking = false;
+      }
+      window.addEventListener("scroll", function () {
+        if (!ticking) { window.requestAnimationFrame(updateProgress); ticking = true; }
+      }, { passive: true });
+      updateProgress();
+    })();
+  </script>
+</body>
+</html>
