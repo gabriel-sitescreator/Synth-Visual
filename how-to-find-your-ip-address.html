@@ -8,6 +8,7 @@
   <meta name="robots" content="index, follow, max-image-preview:large">
   <link rel="canonical" href="https://synthvisuals.space/how-to-find-your-ip-address.html">
   <title>How to Find Your IP Address on Any Device | Synth Visual</title>
+
   <meta property="og:type" content="article">
   <meta property="og:title" content="How to Find Your IP Address on Any Device">
   <meta property="og:description" content="Learn how to find your public or private IP address on Windows 11, Mac, Android, iPhone, iPad, or your router with simple, step-by-step instructions.">
@@ -15,43 +16,45 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="How to Find Your IP Address on Any Device">
   <meta name="twitter:description" content="Learn how to find your public or private IP address on Windows 11, Mac, Android, iPhone, iPad, or your router with simple, step-by-step instructions.">
+
   <script type="application/ld+json">
   {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "How to Find Your IP Address on Any Device",
-  "description": "Learn how to find your public or private IP address on Windows 11, Mac, Android, iPhone, iPad, or your router with simple, step-by-step instructions.",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://synthvisuals.space/how-to-find-your-ip-address.html"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "Synth Visual",
-    "url": "https://synthvisuals.space/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Synth Visual",
-    "url": "https://synthvisuals.space/"
-  },
-  "inLanguage": "en-US",
-  "articleSection": "Networking & Internet Guides",
-  "keywords": [
-    "how to find your IP address",
-    "how to find my IP address",
-    "how to check your IP address",
-    "public IP address",
-    "private IP address",
-    "IP address on Windows 11",
-    "IP address on Mac",
-    "IP address on Android",
-    "IP address on iPhone",
-    "router IP address",
-    "check IP address with a VPN"
-  ]
-}
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to Find Your IP Address on Any Device",
+    "description": "Learn how to find your public or private IP address on Windows 11, Mac, Android, iPhone, iPad, or your router with simple, step-by-step instructions.",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://synthvisuals.space/how-to-find-your-ip-address.html"
+    },
+    "author": {
+      "@type": "Organization",
+      "name": "Synth Visual",
+      "url": "https://synthvisuals.space/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Synth Visual",
+      "url": "https://synthvisuals.space/"
+    },
+    "inLanguage": "en-US",
+    "articleSection": "Networking & Internet Guides",
+    "keywords": [
+      "how to find your IP address",
+      "how to find my IP address",
+      "how to check your IP address",
+      "public IP address",
+      "private IP address",
+      "IP address on Windows 11",
+      "IP address on Mac",
+      "IP address on Android",
+      "IP address on iPhone",
+      "router IP address",
+      "check IP address with a VPN"
+    ]
+  }
   </script>
+
   <style>
     :root {
       --page: #f7f7f4;
@@ -68,8 +71,16 @@
       --radius: 16px;
       --shadow: 0 8px 30px rgba(27, 39, 30, 0.045);
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
     body {
       margin: 0;
       background: var(--page);
@@ -78,185 +89,1274 @@
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-    a:hover { color: var(--accent-hover); }
-    a:focus-visible, button:focus-visible, summary:focus-visible {
-      outline: 3px solid #7cae98; outline-offset: 4px; border-radius: 4px;
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
     }
-    .container { width: min(var(--max-width), calc(100% - 48px)); margin-inline: auto; }
-    .site-header { border-bottom: 1px solid var(--line); background: rgba(247, 247, 244, .96); }
-    .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-    .brand { display: inline-flex; flex-direction: column; line-height: 1.05; flex-shrink: 0; color: var(--text); text-decoration: none; }
-    .brand-name { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 700; letter-spacing: -1.2px; }
-    .brand-tagline { margin-top: 6px; color: var(--muted); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; }
-    .main-nav { display: flex; align-items: center; gap: 27px; color: #424840; font-size: 13px; font-weight: 600; }
-    .main-nav a { color: inherit; text-decoration: none; transition: color 160ms ease; }
-    .main-nav a:hover { color: var(--accent); }
-    .nav-cta { padding: 10px 15px; border: 1px solid #cbd6ce; border-radius: 999px; color: var(--accent) !important; }
-    .progress-track { height: 3px; background: transparent; }
-    .progress-bar { width: 0; height: 100%; background: var(--accent); transition: width 80ms linear; }
-    .breadcrumbs { padding: 25px 0 0; color: var(--muted); font-size: 12px; }
-    .breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
-    .breadcrumbs li + li::before { content: "/"; margin-right: 8px; color: #a0a59d; }
-    .breadcrumbs a { color: var(--muted); text-decoration: none; }
-    .breadcrumbs a:hover { color: var(--accent); }
-    .article-hero { padding: 34px 0 35px; }
-    .article-hero-inner { max-width: 920px; margin: 0 auto; text-align: center; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 1.9px; text-transform: uppercase; }
-    .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; }
-    h1, h2, h3 { text-wrap: pretty; }
-    .article-hero h1 { max-width: 850px; margin: 0 auto; font-family: Georgia, "Times New Roman", serif; font-size: clamp(38px, 6vw, 66px); font-weight: 500; letter-spacing: -2.3px; line-height: 1.08; }
-    .article-hero h1 em { color: var(--accent); font-weight: 500; }
-    .dek { max-width: 710px; margin: 22px auto 0; color: var(--muted); font-size: 17px; line-height: 1.8; }
-    .article-meta { display: flex; justify-content: center; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 24px; color: var(--muted); font-size: 12px; }
-    .meta-dot { display: inline-flex; align-items: center; gap: 7px; }
-    .meta-dot::before { content: ""; width: 4px; height: 4px; background: #99a69b; border-radius: 50%; }
-    .topic-pill { padding: 6px 10px; background: var(--soft); border: 1px solid #dce6dc; border-radius: 999px; color: var(--accent); font-size: 10px; font-weight: 750; letter-spacing: .5px; text-transform: uppercase; }
-    .feature-visual { overflow: hidden; position: relative; max-width: 1000px; margin: 0 auto; padding: clamp(22px, 4vw, 42px); border: 1px solid #dfe6dd; border-radius: 22px; background: linear-gradient(135deg, #eff3ee 0%, #f9fbf8 48%, #e7eee8 100%); box-shadow: var(--shadow); }
-    .visual-caption { margin: 17px 0 0; color: var(--muted); font-size: 11px; text-align: center; }
-    .connection-flow { display: grid; grid-template-columns: 1fr minmax(70px, .7fr) 1fr minmax(70px, .7fr) 1fr; align-items: center; gap: 12px; max-width: 900px; margin: 0 auto; }
-    .device-card { min-height: 142px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 18px 10px; border: 1px solid rgba(36, 91, 73, .18); border-radius: 17px; background: rgba(255,255,255,.86); text-align: center; }
-    .device-card svg { width: 43px; height: 43px; color: var(--accent); }
-    .device-card strong { font-family: Georgia, "Times New Roman", serif; font-size: 16px; font-weight: 600; line-height: 1.25; }
-    .device-card small { color: var(--muted); font-size: 10px; line-height: 1.4; overflow-wrap: anywhere; }
-    .tunnel { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--accent); text-align: center; }
-    .tunnel-line { position: relative; width: 100%; height: 3px; border-radius: 999px; background: #9ab9a5; }
-    .tunnel-line::after { content: ""; position: absolute; right: -1px; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid #5e9476; }
-    .tunnel-label { font-size: 9px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; }
-    .tunnel-icon { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: 1px solid #c8d9cb; border-radius: 50%; background: #fafffa; }
-    .tunnel-icon svg { width: 13px; height: 13px; }
-    .article-layout { display: grid; grid-template-columns: 220px minmax(0, 760px); align-items: start; justify-content: center; gap: clamp(28px, 5vw, 64px); padding: 40px 0 86px; }
-    .toc-wrap { position: sticky; top: 24px; }
-    .toc-card { padding: 23px 19px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
-    .toc-title { margin: 0 0 14px; color: var(--text); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
-    .toc-list { display: flex; flex-direction: column; gap: 9px; margin: 0; padding: 0; list-style: none; }
-    .toc-list a { color: var(--muted); font-size: 12px; line-height: 1.45; text-decoration: none; }
-    .toc-list a:hover, .toc-list a:focus { color: var(--accent); }
-    .toc-note { margin: 20px 0 0; padding-top: 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.7; }
-    .mobile-toc { display: none; margin-bottom: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-    .mobile-toc summary { padding: 14px 16px; cursor: pointer; color: var(--accent); font-size: 13px; font-weight: 750; }
-    .mobile-toc .toc-list { padding: 0 16px 17px; }
-    .article-content { min-width: 0; max-width: var(--reading-width); font-size: 16px; line-height: 1.85; }
-    .article-content p { margin: 0 0 21px; }
-    .article-content h2 { margin: 54px 0 17px; padding-top: 5px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(29px, 3.5vw, 36px); font-weight: 500; letter-spacing: -.8px; line-height: 1.18; scroll-margin-top: 24px; }
-    .article-content h3 { margin: 32px 0 12px; font-family: Georgia, "Times New Roman", serif; font-size: 23px; font-weight: 500; letter-spacing: -.35px; line-height: 1.3; scroll-margin-top: 24px; }
-    .article-content h4 { margin: 26px 0 10px; font-size: 16px; font-weight: 750; line-height: 1.4; }
-    .article-content strong { color: #242923; }
-    .article-content ul, .article-content ol { margin: 0 0 24px; padding-left: 25px; }
-    .article-content li { margin: 7px 0; padding-left: 3px; }
-    .article-content li::marker { color: var(--accent); }
-    .article-content blockquote { margin: 26px 0; padding: 18px 22px; border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; background: var(--soft-2); color: #434940; }
-    .article-content blockquote p:last-child { margin-bottom: 0; }
-    .article-content a { text-decoration-thickness: 1px; }
-    .quick-answer { margin: 6px 0 36px; padding: 23px 25px 3px; border: 1px solid #d8e3d9; border-radius: 15px; background: #f0f5ef; }
-    .quick-answer-label { margin: 0 0 8px !important; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
-    .quick-answer p { font-size: 15px; }
-    .scroll-table { margin: 26px 0 30px; overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-    .article-content table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.65; }
-    .article-content th, .article-content td { min-width: 150px; padding: 14px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-    .article-content th { background: #f0f2ed; color: #323930; font-size: 11px; letter-spacing: .2px; }
-    .article-content tr:last-child td { border-bottom: 0; }
-    .article-content td:first-child { min-width: 165px; font-weight: 700; }
-    .step-list { display: grid; gap: 12px; margin: 22px 0 28px; }
-    .step { display: grid; grid-template-columns: 38px 1fr; gap: 13px; padding: 17px; border: 1px solid var(--line); border-radius: 13px; background: #fff; }
-    .step-number { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--soft); color: var(--accent); font-size: 12px; font-weight: 800; }
-    .step h3 { margin: 2px 0 5px; font-family: inherit; font-size: 15px; font-weight: 750; letter-spacing: 0; }
-    .step p { margin: 0; color: #51584f; font-size: 14px; line-height: 1.75; }
-    .takeaway { margin: 35px 0; padding: 24px; border: 1px solid #d8e3d9; border-radius: 15px; background: #eef4ee; }
-    .takeaway h3 { margin-top: 0; }
-    .takeaway p:last-child { margin-bottom: 0; }
-    .faq-item { padding: 19px 0 0; border-top: 1px solid var(--line); }
-    .faq-item h3 { margin-top: 0; font-family: inherit; font-size: 16px; font-weight: 750; letter-spacing: 0; }
-    .faq-item p { margin-bottom: 20px; }
-    .references { margin-top: 56px; padding-top: 30px; border-top: 1px solid var(--line); }
-    .references h2 { margin-top: 0; font-size: 29px; }
-    .references-intro { color: var(--muted); font-size: 13px; }
-    .reference-list { display: grid; gap: 0; list-style: none !important; margin: 21px 0 0 !important; padding: 0 !important; }
-    .reference-list li { margin: 0; padding: 14px 0; border-top: 1px solid var(--line); }
-    .reference-list a { display: inline-block; font-size: 14px; font-weight: 750; }
-    .reference-list p { margin: 4px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
-    .back-to-top { display: inline-flex; align-items: center; gap: 7px; margin-top: 12px; color: var(--accent); font-size: 12px; font-weight: 750; text-decoration: none; }
-    .related-strip { padding: 32px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--soft-2); }
-    .related-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .related-inner h2 { margin: 0 0 5px; font-family: Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 500; }
-    .related-inner p { max-width: 660px; margin: 0; color: var(--muted); font-size: 13px; }
-    .related-link { flex-shrink: 0; display: inline-block; padding: 11px 16px; border-radius: 999px; background: var(--accent); color: white; font-size: 12px; font-weight: 750; text-decoration: none; }
-    .related-link:hover { background: var(--accent-hover); color: white; }
-    .site-footer { padding: 27px 0; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .footer-brand { font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; letter-spacing: -.5px; color: var(--text); text-decoration: none; }
-    .copyright { margin: 5px 0 0; color: var(--muted); font-size: 11px; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 19px; color: var(--muted); font-size: 11px; }
-    .footer-links a { color: var(--muted); text-decoration: none; }
-    .footer-links a:hover { color: var(--accent); }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #7cae98;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    /* ==============================
+       SITE HEADER
+    ============================== */
+
+    .site-header {
+      position: relative;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 247, 244, 0.94);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1.05;
+      flex-shrink: 0;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -1.2px;
+    }
+
+    .brand-tagline {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      color: #424840;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .main-nav a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"],
+    .tools-trigger:hover,
+    .tools-trigger[aria-expanded="true"] {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      padding: 10px 15px;
+      border: 1px solid #cbd6ce;
+      border-radius: 999px;
+      color: var(--accent) !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--soft);
+    }
+
+    /* ==============================
+       TOOLS DROPDOWN
+       Shared with Affiliate Disclosure
+    ============================== */
+
+    .tools-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .tools-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 0;
+      border: 0;
+      background: transparent;
+      color: #424840;
+      font: inherit;
+      cursor: pointer;
+      transition: color 160ms ease;
+    }
+
+    .tools-chevron {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 160ms ease;
+    }
+
+    .tools-trigger[aria-expanded="true"] .tools-chevron {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .tools-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: -18px;
+      z-index: 50;
+      width: 322px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 16px 42px rgba(27, 39, 30, 0.13);
+    }
+
+    .tools-menu[hidden] {
+      display: none;
+    }
+
+    .tools-menu-section {
+      padding: 8px 7px 9px;
+    }
+
+    .tools-menu-heading {
+      margin: 0 0 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 1.25px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .tools-menu a {
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .tools-menu a:hover,
+    .tools-menu a:focus-visible {
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    .tools-menu-divider {
+      height: 1px;
+      margin: 3px 7px;
+      background: var(--line);
+    }
+
+    .tools-menu .tools-commercial-link {
+      color: var(--accent);
+    }
+
+    /* ==============================
+       READING PROGRESS
+    ============================== */
+
+    .progress-track {
+      height: 3px;
+      background: transparent;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: var(--accent);
+      transition: width 80ms linear;
+    }
+
+    /* ==============================
+       BREADCRUMBS
+    ============================== */
+
+    .breadcrumbs {
+      padding: 25px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .breadcrumbs ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .breadcrumbs li + li::before {
+      content: "/";
+      margin-right: 8px;
+      color: #a0a59d;
+    }
+
+    .breadcrumbs a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--accent);
+    }
+
+    /* ==============================
+       ARTICLE HERO
+    ============================== */
+
+    .article-hero {
+      padding: 34px 0 35px;
+    }
+
+    .article-hero-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.9px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1,
+    h2,
+    h3 {
+      text-wrap: pretty;
+    }
+
+    .article-hero h1 {
+      max-width: 850px;
+      margin: 0 auto;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 6vw, 66px);
+      font-weight: 500;
+      letter-spacing: -2.3px;
+      line-height: 1.08;
+    }
+
+    .article-hero h1 em {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .dek {
+      max-width: 710px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 18px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .meta-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .meta-dot::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background: #99a69b;
+      border-radius: 50%;
+    }
+
+    .topic-pill {
+      padding: 6px 10px;
+      background: var(--soft);
+      border: 1px solid #dce6dc;
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    /* ==============================
+       FEATURE VISUAL
+    ============================== */
+
+    .feature-visual {
+      overflow: hidden;
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: clamp(22px, 4vw, 42px);
+      border: 1px solid #dfe6dd;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #eff3ee 0%, #f9fbf8 48%, #e7eee8 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .visual-caption {
+      margin: 17px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .connection-flow {
+      display: grid;
+      grid-template-columns: 1fr minmax(70px, .7fr) 1fr minmax(70px, .7fr) 1fr;
+      align-items: center;
+      gap: 12px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .device-card {
+      min-height: 142px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px 10px;
+      border: 1px solid rgba(36, 91, 73, .18);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, .86);
+      text-align: center;
+    }
+
+    .device-card svg {
+      width: 43px;
+      height: 43px;
+      color: var(--accent);
+    }
+
+    .device-card strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .device-card small {
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+
+    .tunnel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .tunnel-line {
+      position: relative;
+      width: 100%;
+      height: 3px;
+      border-radius: 999px;
+      background: #9ab9a5;
+    }
+
+    .tunnel-line::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -4px;
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 7px solid #5e9476;
+    }
+
+    .tunnel-label {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    .tunnel-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border: 1px solid #c8d9cb;
+      border-radius: 50%;
+      background: #fafffa;
+    }
+
+    .tunnel-icon svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    /* ==============================
+       ARTICLE LAYOUT
+    ============================== */
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 760px);
+      align-items: start;
+      justify-content: center;
+      gap: clamp(28px, 5vw, 64px);
+      padding: 40px 0 86px;
+    }
+
+    .toc-wrap {
+      position: sticky;
+      top: 24px;
+    }
+
+    .toc-card {
+      padding: 23px 19px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .toc-title {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .toc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc-list a {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      text-decoration: none;
+    }
+
+    .toc-list a:hover,
+    .toc-list a:focus {
+      color: var(--accent);
+    }
+
+    .toc-note {
+      margin: 20px 0 0;
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .mobile-toc {
+      display: none;
+      margin-bottom: 28px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .mobile-toc summary {
+      padding: 14px 16px;
+      cursor: pointer;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .mobile-toc .toc-list {
+      padding: 0 16px 17px;
+    }
+
+    .article-content {
+      min-width: 0;
+      max-width: var(--reading-width);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .article-content p {
+      margin: 0 0 21px;
+    }
+
+    .article-content h2 {
+      margin: 54px 0 17px;
+      padding-top: 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 3.5vw, 36px);
+      font-weight: 500;
+      letter-spacing: -.8px;
+      line-height: 1.18;
+      scroll-margin-top: 24px;
+    }
+
+    .article-content h3 {
+      margin: 32px 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 23px;
+      font-weight: 500;
+      letter-spacing: -.35px;
+      line-height: 1.3;
+      scroll-margin-top: 24px;
+    }
+
+    .article-content h4 {
+      margin: 26px 0 10px;
+      font-size: 16px;
+      font-weight: 750;
+      line-height: 1.4;
+    }
+
+    .article-content strong {
+      color: #242923;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      margin: 0 0 24px;
+      padding-left: 25px;
+    }
+
+    .article-content li {
+      margin: 7px 0;
+      padding-left: 3px;
+    }
+
+    .article-content li::marker {
+      color: var(--accent);
+    }
+
+    .article-content blockquote {
+      margin: 26px 0;
+      padding: 18px 22px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      background: var(--soft-2);
+      color: #434940;
+    }
+
+    .article-content blockquote p:last-child {
+      margin-bottom: 0;
+    }
+
+    .article-content a {
+      text-decoration-thickness: 1px;
+    }
+
+    /* ==============================
+       QUICK ANSWER
+    ============================== */
+
+    .quick-answer {
+      margin: 6px 0 36px;
+      padding: 23px 25px 3px;
+      border: 1px solid #d8e3d9;
+      border-radius: 15px;
+      background: #f0f5ef;
+    }
+
+    .quick-answer-label {
+      margin: 0 0 8px !important;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .quick-answer p {
+      font-size: 15px;
+    }
+
+    /* ==============================
+       TABLES
+    ============================== */
+
+    .scroll-table {
+      margin: 26px 0 30px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .article-content th,
+    .article-content td {
+      min-width: 150px;
+      padding: 14px 15px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: #f0f2ed;
+      color: #323930;
+      font-size: 11px;
+      letter-spacing: .2px;
+    }
+
+    .article-content tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .article-content td:first-child {
+      min-width: 165px;
+      font-weight: 700;
+    }
+
+    /* ==============================
+       STEP CARDS
+    ============================== */
+
+    .step-list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0 28px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 13px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin: 2px 0 5px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .step p {
+      margin: 0;
+      color: #51584f;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    /* ==============================
+       TAKEAWAY AND FAQ
+    ============================== */
+
+    .takeaway {
+      margin: 35px 0;
+      padding: 24px;
+      border: 1px solid #d8e3d9;
+      border-radius: 15px;
+      background: #eef4ee;
+    }
+
+    .takeaway h3 {
+      margin-top: 0;
+    }
+
+    .takeaway p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-item {
+      padding: 19px 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-item h3 {
+      margin-top: 0;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .faq-item p {
+      margin-bottom: 20px;
+    }
+
+    /* ==============================
+       REFERENCES
+    ============================== */
+
+    .references {
+      margin-top: 56px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .references h2 {
+      margin-top: 0;
+      font-size: 29px;
+    }
+
+    .references-intro {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .reference-list {
+      display: grid;
+      gap: 0;
+      list-style: none !important;
+      margin: 21px 0 0 !important;
+      padding: 0 !important;
+    }
+
+    .reference-list li {
+      margin: 0;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .reference-list a {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .reference-list p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .back-to-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    /* ==============================
+       RELATED ARTICLES
+    ============================== */
+
+    .related-strip {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--soft-2);
+    }
+
+    .related-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .related-inner h2 {
+      margin: 0 0 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    .related-inner p {
+      max-width: 660px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .related-link {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .related-link:hover {
+      background: var(--accent-hover);
+      color: white;
+    }
+
+    /* ==============================
+       FOOTER
+    ============================== */
+
+    .site-footer {
+      padding: 27px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .copyright {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 19px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* ==============================
+       RESPONSIVE LAYOUT
+    ============================== */
+
     @media (max-width: 900px) {
-      .article-layout { grid-template-columns: minmax(0, 760px); }
-      .toc-wrap { display: none; }
-      .mobile-toc { display: block; }
-      .article-content { margin-inline: auto; width: 100%; }
+      .article-layout {
+        grid-template-columns: minmax(0, 760px);
+      }
+
+      .toc-wrap {
+        display: none;
+      }
+
+      .mobile-toc {
+        display: block;
+      }
+
+      .article-content {
+        margin-inline: auto;
+        width: 100%;
+      }
     }
+
     @media (max-width: 700px) {
-      .container { width: min(100% - 32px, var(--max-width)); }
-      .header-inner { min-height: 74px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 13px; padding: 15px 0; }
-      .brand-name { font-size: 24px; }
-      .brand-tagline { font-size: 9px; }
-      .main-nav { width: 100%; justify-content: space-between; gap: 10px; font-size: 11px; }
-      .nav-cta { padding: 7px 10px; }
-      .breadcrumbs { padding-top: 18px; }
-      .article-hero { padding: 28px 0 25px; }
-      .article-hero h1 { font-size: clamp(37px, 10vw, 52px); letter-spacing: -1.7px; }
-      .dek { font-size: 15px; }
-      .feature-visual { padding: 17px 14px; border-radius: 17px; }
-      .connection-flow { grid-template-columns: 1fr; gap: 9px; max-width: 330px; }
-      .device-card { min-height: auto; display: grid; grid-template-columns: 42px 1fr; justify-content: start; text-align: left; padding: 12px 14px; }
-      .device-card svg { width: 34px; height: 34px; grid-row: span 2; }
-      .device-card strong { align-self: end; font-size: 15px; }
-      .device-card small { align-self: start; }
-      .tunnel { display: grid; grid-template-columns: 24px 1fr; gap: 7px 10px; justify-items: start; text-align: left; padding-left: 24px; }
-      .tunnel-line { width: 3px; height: 19px; margin-left: 11px; grid-column: 1; grid-row: 1 / span 2; }
-      .tunnel-line::after { top: auto; bottom: -1px; right: -4px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 7px solid #5e9476; border-bottom: 0; }
-      .tunnel-icon { grid-column: 2; grid-row: 1; width: 23px; height: 23px; }
-      .tunnel-label { grid-column: 2; grid-row: 2; }
-      .article-layout { padding: 28px 0 58px; }
-      .article-content { font-size: 15px; line-height: 1.82; }
-      .article-content h2 { margin-top: 43px; font-size: 30px; }
-      .article-content h3 { font-size: 21px; }
-      .step { padding: 14px; }
-      .related-inner, .footer-inner { align-items: flex-start; flex-direction: column; }
+      .container {
+        width: min(100% - 32px, var(--max-width));
+      }
+
+      .header-inner {
+        min-height: 74px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 13px;
+        padding: 15px 0;
+      }
+
+      .brand-name {
+        font-size: 24px;
+      }
+
+      .brand-tagline {
+        font-size: 9px;
+      }
+
+      .main-nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 11px;
+      }
+
+      .nav-cta {
+        padding: 7px 10px;
+      }
+
+      .tools-trigger {
+        padding: 7px 0;
+      }
+
+      .tools-menu {
+        top: calc(100% + 8px);
+        right: -8px;
+        width: min(322px, calc(100vw - 32px));
+      }
+
+      .breadcrumbs {
+        padding-top: 18px;
+      }
+
+      .article-hero {
+        padding: 28px 0 25px;
+      }
+
+      .article-hero h1 {
+        font-size: clamp(37px, 10vw, 52px);
+        letter-spacing: -1.7px;
+      }
+
+      .dek {
+        font-size: 15px;
+      }
+
+      .feature-visual {
+        padding: 17px 14px;
+        border-radius: 17px;
+      }
+
+      .connection-flow {
+        grid-template-columns: 1fr;
+        gap: 9px;
+        max-width: 330px;
+      }
+
+      .device-card {
+        min-height: auto;
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        justify-content: start;
+        text-align: left;
+        padding: 12px 14px;
+      }
+
+      .device-card svg {
+        width: 34px;
+        height: 34px;
+        grid-row: span 2;
+      }
+
+      .device-card strong {
+        align-self: end;
+        font-size: 15px;
+      }
+
+      .device-card small {
+        align-self: start;
+      }
+
+      .tunnel {
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        gap: 7px 10px;
+        justify-items: start;
+        text-align: left;
+        padding-left: 24px;
+      }
+
+      .tunnel-line {
+        width: 3px;
+        height: 19px;
+        margin-left: 11px;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+      }
+
+      .tunnel-line::after {
+        top: auto;
+        bottom: -1px;
+        right: -4px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 7px solid #5e9476;
+        border-bottom: 0;
+      }
+
+      .tunnel-icon {
+        grid-column: 2;
+        grid-row: 1;
+        width: 23px;
+        height: 23px;
+      }
+
+      .tunnel-label {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .article-layout {
+        padding: 28px 0 58px;
+      }
+
+      .article-content {
+        font-size: 15px;
+        line-height: 1.82;
+      }
+
+      .article-content h2 {
+        margin-top: 43px;
+        font-size: 30px;
+      }
+
+      .article-content h3 {
+        font-size: 21px;
+      }
+
+      .step {
+        padding: 14px;
+      }
+
+      .related-inner,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+      }
     }
+
     @media print {
-      .site-header, .progress-track, .toc-wrap, .mobile-toc, .related-strip, .site-footer, .back-to-top { display: none !important; }
-      body { background: white; }
-      .container { width: 100%; }
-      .article-layout { display: block; padding: 0; }
-      .article-content { max-width: none; font-size: 11pt; }
-      .article-content h2 { break-after: avoid; }
-      a { color: inherit; }
+      .site-header,
+      .progress-track,
+      .toc-wrap,
+      .mobile-toc,
+      .related-strip,
+      .site-footer,
+      .back-to-top {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .article-layout {
+        display: block;
+        padding: 0;
+      }
+
+      .article-content {
+        max-width: none;
+        font-size: 11pt;
+      }
+
+      .article-content h2 {
+        break-after: avoid;
+      }
+
+      a {
+        color: inherit;
+      }
     }
   </style>
 </head>
+
 <body id="top">
+
+  <!-- ==============================
+       SITE HEADER
+  ============================== -->
+
   <header class="site-header">
     <div class="container header-inner">
+
       <a class="brand" href="/" aria-label="Synth Visual home">
         <span class="brand-name">Synth Visual</span>
         <span class="brand-tagline">Technology, made clearer</span>
       </a>
+
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=138160">NordVPN Plans</a>
-        <a href="/#about">About</a>
-        <a class="nav-cta" href="/#latest-guides">Explore Articles</a>
+
+        <div class="tools-dropdown" id="tools-dropdown">
+          <button
+            class="tools-trigger"
+            id="tools-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="tools-menu"
+          >
+            Tools
+            <span class="tools-chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="tools-menu" id="tools-menu" hidden>
+
+            <div
+              class="tools-menu-section"
+              aria-labelledby="privacy-tools-heading"
+            >
+              <p
+                class="tools-menu-heading"
+                id="privacy-tools-heading"
+              >
+                Privacy &amp; Network Tools
+              </p>
+
+              <a href="/dns-webrtc-leak-test.html">
+                DNS/WebRTC Leak Test
+              </a>
+
+              <a href="/what-is-my-ip.html">
+                What Is My IP?
+              </a>
+            </div>
+
+            <div
+              class="tools-menu-divider"
+              aria-hidden="true"
+            ></div>
+
+            <div
+              class="tools-menu-section"
+              aria-labelledby="security-software-heading"
+            >
+              <p
+                class="tools-menu-heading"
+                id="security-software-heading"
+              >
+                VPNs &amp; Security Software
+              </p>
+
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordVPN Plans ↗</a>
+            </div>
+
+          </div>
+        </div>
+
+        <a href="/about.html">About</a>
+
+        <a class="nav-cta" href="/#latest-guides">
+          Explore Articles
+        </a>
+
       </nav>
     </div>
-    <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="reading-progress"></div></div>
+
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-bar" id="reading-progress"></div>
+    </div>
   </header>
 
   <main>
+
     <div class="container">
+
+      <!-- ==============================
+           BREADCRUMBS
+      ============================== -->
+
       <nav class="breadcrumbs" aria-label="Breadcrumb">
         <ol>
           <li><a href="/">Home</a></li>
@@ -265,47 +1365,135 @@
         </ol>
       </nav>
 
+      <!-- ==============================
+           ARTICLE INTRODUCTION
+      ============================== -->
+
       <header class="article-hero">
         <div class="article-hero-inner">
+
           <p class="eyebrow">Practical Guide · Networking</p>
-          <h1>How to Find Your IP Address <em>on Any Device</em></h1>
-          <p class="dek">Step-by-step instructions for Windows, Mac, Android, iPhone, iPad, and your router — plus how to tell your public and private IP addresses apart.</p>
+
+          <h1>
+            How to Find Your IP Address
+            <em>on Any Device</em>
+          </h1>
+
+          <p class="dek">
+            Step-by-step instructions for Windows, Mac, Android, iPhone,
+            iPad, and your router — plus how to tell your public and
+            private IP addresses apart.
+          </p>
+
           <div class="article-meta" aria-label="Article information">
             <span class="topic-pill">Networking &amp; Privacy</span>
             <span class="meta-dot">Beginner friendly</span>
             <span class="meta-dot">About 12 min read</span>
           </div>
+
         </div>
       </header>
 
-      <figure class="feature-visual" aria-labelledby="ip-find-caption">
-        <div class="connection-flow" role="img" aria-label="A quick guide distinguishing public IP address, private device IP address, and router gateway address.">
-          <div class="device-card"><strong>Public IP</strong><small>What an external website observes</small></div>
-          <div class="tunnel" aria-hidden="true"><span class="tunnel-icon">→</span><span class="tunnel-label">Internet</span><span class="tunnel-line"></span></div>
-          <div class="device-card"><strong>Private IP</strong><small>Address assigned to your device on a local network</small></div>
-          <div class="tunnel" aria-hidden="true"><span class="tunnel-icon">→</span><span class="tunnel-label">Local network</span><span class="tunnel-line"></span></div>
-          <div class="device-card"><strong>Router / Gateway</strong><small>Local address used to reach other networks</small></div>
+      <!-- ==============================
+           FEATURE VISUAL
+      ============================== -->
+
+      <figure
+        class="feature-visual"
+        aria-labelledby="ip-find-caption"
+      >
+        <div
+          class="connection-flow"
+          role="img"
+          aria-label="A quick guide distinguishing public IP address, private device IP address, and router gateway address."
+        >
+
+          <div class="device-card">
+            <strong>Public IP</strong>
+            <small>What an external website observes</small>
+          </div>
+
+          <div class="tunnel" aria-hidden="true">
+            <span class="tunnel-icon">→</span>
+            <span class="tunnel-label">Internet</span>
+            <span class="tunnel-line"></span>
+          </div>
+
+          <div class="device-card">
+            <strong>Private IP</strong>
+            <small>Address assigned to your device on a local network</small>
+          </div>
+
+          <div class="tunnel" aria-hidden="true">
+            <span class="tunnel-icon">→</span>
+            <span class="tunnel-label">Local network</span>
+            <span class="tunnel-line"></span>
+          </div>
+
+          <div class="device-card">
+            <strong>Router / Gateway</strong>
+            <small>Local address used to reach other networks</small>
+          </div>
+
         </div>
-        <figcaption class="visual-caption" id="ip-find-caption">Start by deciding which address you need: an external service's observed public IP, your device's local IP, or the router's gateway address.</figcaption>
+
+        <figcaption
+          class="visual-caption"
+          id="ip-find-caption"
+        >
+          Start by deciding which address you need: an external service's
+          observed public IP, your device's local IP, or the router's
+          gateway address.
+        </figcaption>
       </figure>
+
     </div>
 
+    <!-- ==============================
+         ARTICLE BODY AND TABLE OF CONTENTS
+    ============================== -->
+
     <div class="container article-layout">
-      <aside class="toc-wrap" aria-label="Article navigation"><nav class="toc-card"><p class="toc-title">On this page</p><ol class="toc-list"><li><a href="#which-ip-address">First, Understand Which IP Address You Need</a></li>
-              <li><a href="#public-ip-fast">The Fastest Way to Find Your Public IP Address</a></li>
-              <li><a href="#windows">How to Find Your IP Address on Windows</a></li>
-              <li><a href="#mac">How to Find Your IP Address on a Mac</a></li>
-              <li><a href="#android">How to Find Your IP Address on Android</a></li>
-              <li><a href="#iphone-ipad">How to Find Your IP Address on an iPhone or iPad</a></li>
-              <li><a href="#router">How to Find Your Router's IP Address</a></li>
-              <li><a href="#why-different">Public IP vs. Private IP: Why the Results Are Different</a></li>
-              <li><a href="#troubleshooting">What If You Cannot Find Your IP Address?</a></li>
-              <li><a href="#privacy-safety">Is It Safe to Share Your IP Address?</a></li>
-              <li><a href="#faq">Frequently Asked Questions</a></li>
-              <li><a href="#conclusion">Conclusion</a></li>
-              <li><a href="#sources-heading">References</a></li></ol><p class="toc-note">Quick tip: public IP checkers show the address observed by the service; device settings usually show a local interface address.</p></nav></aside>
+
+      <aside class="toc-wrap" aria-label="Article navigation">
+        <nav class="toc-card">
+
+          <p class="toc-title">On this page</p>
+
+          <ol class="toc-list">
+            <li><a href="#which-ip-address">First, Understand Which IP Address You Need</a></li>
+            <li><a href="#public-ip-fast">The Fastest Way to Find Your Public IP Address</a></li>
+            <li><a href="#windows">How to Find Your IP Address on Windows</a></li>
+            <li><a href="#mac">How to Find Your IP Address on a Mac</a></li>
+            <li><a href="#android">How to Find Your IP Address on Android</a></li>
+            <li><a href="#iphone-ipad">How to Find Your IP Address on an iPhone or iPad</a></li>
+            <li><a href="#router">How to Find Your Router's IP Address</a></li>
+            <li><a href="#why-different">Public IP vs. Private IP: Why the Results Are Different</a></li>
+            <li><a href="#troubleshooting">What If You Cannot Find Your IP Address?</a></li>
+            <li><a href="#privacy-safety">Is It Safe to Share Your IP Address?</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <li><a href="#sources-heading">References</a></li>
+          </ol>
+
+          <p class="toc-note">
+            Quick tip: public IP checkers show the address observed by the
+            service; device settings usually show a local interface address.
+          </p>
+
+        </nav>
+      </aside>
+
       <article class="article-content">
-        <div class="mobile-toc"><details><summary>On this page · Article contents</summary><ol class="toc-list"><li><a href="#which-ip-address">First, Understand Which IP Address You Need</a></li>
+
+        <!-- Mobile table of contents -->
+
+        <div class="mobile-toc">
+          <details>
+            <summary>On this page · Article contents</summary>
+
+            <ol class="toc-list">
+              <li><a href="#which-ip-address">First, Understand Which IP Address You Need</a></li>
               <li><a href="#public-ip-fast">The Fastest Way to Find Your Public IP Address</a></li>
               <li><a href="#windows">How to Find Your IP Address on Windows</a></li>
               <li><a href="#mac">How to Find Your IP Address on a Mac</a></li>
@@ -317,159 +1505,919 @@
               <li><a href="#privacy-safety">Is It Safe to Share Your IP Address?</a></li>
               <li><a href="#faq">Frequently Asked Questions</a></li>
               <li><a href="#conclusion">Conclusion</a></li>
-              <li><a href="#sources-heading">References</a></li></ol></details></div>
-        <div class="quick-answer"><p class="quick-answer-label">The quick answer</p><p>To find your <strong>public IP address</strong>, open a browser and visit the <a href="https://www.cloudflare.com/cdn-cgi/trace" target="_blank" rel="noopener noreferrer">Cloudflare Trace endpoint</a>, then look for the <code>ip=</code> line. To find your <strong>private IP address</strong>, open your device's network settings. On Windows, you can also run <code>ipconfig</code> and check the active adapter's IPv4 Address. The right method depends on which address you need.</p></div>
+              <li><a href="#sources-heading">References</a></li>
+            </ol>
+
+          </details>
+        </div>
+
+        <!-- Quick answer -->
+
+        <div class="quick-answer">
+          <p class="quick-answer-label">The quick answer</p>
+
+          <p>
+            To find your <strong>public IP address</strong>, open a browser
+            and visit the
+            <a href="https://www.cloudflare.com/cdn-cgi/trace" target="_blank" rel="noopener noreferrer">Cloudflare Trace endpoint</a>,
+            then look for the <code>ip=</code> line. To find your
+            <strong>private IP address</strong>, open your device's network
+            settings. On Windows, you can also run <code>ipconfig</code>
+            and check the active adapter's IPv4 Address. The right method
+            depends on which address you need.
+          </p>
+        </div>
+
+        <!-- ==============================
+             SECTION: WHICH IP ADDRESS
+        ============================== -->
 
         <h2 id="which-ip-address">First, Understand Which IP Address You Need</h2>
-        <p>Finding your IP address depends on two things: whether you need your public or private IP address and which device you're using.</p>
-        <p>A <strong>public IP address</strong> is the publicly visible source address associated with your internet connection. Websites and online services can generally see this address when you connect to them. However, a VPN, proxy, or carrier-grade NAT (CGNAT) can affect which address appears and whether it belongs directly to your router.</p>
-        <p>A <strong>private IP address</strong> identifies a network interface within a private network, such as your home or office Wi-Fi. Your router commonly assigns these addresses to your computer, phone, printer, and other connected devices.</p>
-        <p>You might need your public IP address to check what websites can see or to troubleshoot an internet connection. You might need your private IP address to connect a printer, configure a local network, or diagnose a device-to-device connection problem.</p>
+
+        <p>
+          Finding your IP address depends on two things: whether you need
+          your public or private IP address and which device you're using.
+        </p>
+
+        <p>
+          A <strong>public IP address</strong> is the publicly visible
+          source address associated with your internet connection. Websites
+          and online services can generally see this address when you
+          connect to them. However, a VPN, proxy, or carrier-grade NAT
+          (CGNAT) can affect which address appears and whether it belongs
+          directly to your router.
+        </p>
+
+        <p>
+          A <strong>private IP address</strong> identifies a network
+          interface within a private network, such as your home or office
+          Wi-Fi. Your router commonly assigns these addresses to your
+          computer, phone, printer, and other connected devices.
+        </p>
+
+        <p>
+          You might need your public IP address to check what websites can
+          see or to troubleshoot an internet connection. You might need
+          your private IP address to connect a printer, configure a local
+          network, or diagnose a device-to-device connection problem.
+        </p>
+
         <p>Common private IPv4 ranges include:</p>
-        <ul><li><code>10.0.0.0</code> to <code>10.255.255.255</code></li><li><code>172.16.0.0</code> to <code>172.31.255.255</code></li><li><code>192.168.0.0</code> to <code>192.168.255.255</code></li></ul>
-        <p>These ranges are reserved for private use, as documented by the <a href="https://www.iana.org/help/private-addresses" target="_blank" rel="noopener noreferrer">Internet Assigned Numbers Authority (IANA)</a> and <a href="https://www.rfc-editor.org/rfc/rfc1918.html" target="_blank" rel="noopener noreferrer">RFC 1918</a>. Not every address beginning with <code>172</code> is private; it must fall within the specific range above.</p>
-        <p>You may also encounter IPv6 addresses, which use hexadecimal characters separated by colons instead of the dotted-decimal format used by IPv4. Depending on your network, a device can display both IPv4 and IPv6 addresses, sometimes with multiple entries for different purposes. For more detail, read our guide to <a href="https://synthvisuals.space/public-privateip.html">public vs. private IP addresses</a>.</p>
+
+        <ul>
+          <li><code>10.0.0.0</code> to <code>10.255.255.255</code></li>
+          <li><code>172.16.0.0</code> to <code>172.31.255.255</code></li>
+          <li><code>192.168.0.0</code> to <code>192.168.255.255</code></li>
+        </ul>
+
+        <p>
+          These ranges are reserved for private use, as documented by the
+          <a href="https://www.iana.org/help/private-addresses" target="_blank" rel="noopener noreferrer">Internet Assigned Numbers Authority (IANA)</a>
+          and
+          <a href="https://www.rfc-editor.org/rfc/rfc1918.html" target="_blank" rel="noopener noreferrer">RFC 1918</a>.
+          Not every address beginning with <code>172</code> is private;
+          it must fall within the specific range above.
+        </p>
+
+        <p>
+          You may also encounter IPv6 addresses, which use hexadecimal
+          characters separated by colons instead of the dotted-decimal
+          format used by IPv4. Depending on your network, a device can
+          display both IPv4 and IPv6 addresses, sometimes with multiple
+          entries for different purposes. For more detail, read our guide
+          to
+          <a href="https://synthvisuals.space/public-privateip.html">public vs. private IP addresses</a>.
+        </p>
+
+        <!-- ==============================
+             SECTION: PUBLIC IP
+        ============================== -->
 
         <h2 id="public-ip-fast">The Fastest Way to Find Your Public IP Address</h2>
-        <p>If you want to know which IP address an external service sees, you don't need to search through your device's settings. You can use a public IP-checking service directly in your browser.</p>
+
+        <p>
+          If you want to know which IP address an external service sees,
+          you don't need to search through your device's settings. You can
+          use a public IP-checking service directly in your browser.
+        </p>
+
         <h3 id="public-ip-steps">Steps to check your public IP</h3>
-        <ol><li>Open a web browser on your computer, smartphone, or tablet.</li><li>Visit the <a href="https://www.cloudflare.com/cdn-cgi/trace" target="_blank" rel="noopener noreferrer">Cloudflare Trace endpoint</a>.</li><li>Look for the line beginning with <code>ip=</code>.</li><li>The value after the equals sign is the IP address observed by Cloudflare for that request.</li></ol>
-        <p>The endpoint displays technical information in plain text rather than a conventional IP-checker interface. Cloudflare also provides a <a href="https://www.cloudflare.com/policies/privacy/" target="_blank" rel="noopener noreferrer">privacy policy</a> explaining how it handles information, including IP addresses.</p>
-        <p>If you are connected to a VPN, the result will commonly show the VPN's public-facing exit IP address rather than the address your internet provider would otherwise expose. The exact result depends on your connection and routing configuration.</p>
-        <p>The address can differ from the one shown in your device settings because those settings usually show an address assigned to a particular network interface, while an external service observes the connection reaching its servers. Checking one address is not a complete VPN leak test and does not guarantee anonymity.</p>
+
+        <ol>
+          <li>Open a web browser on your computer, smartphone, or tablet.</li>
+          <li>Visit the <a href="https://www.cloudflare.com/cdn-cgi/trace" target="_blank" rel="noopener noreferrer">Cloudflare Trace endpoint</a>.</li>
+          <li>Look for the line beginning with <code>ip=</code>.</li>
+          <li>The value after the equals sign is the IP address observed by Cloudflare for that request.</li>
+        </ol>
+
+        <p>
+          The endpoint displays technical information in plain text rather
+          than a conventional IP-checker interface. Cloudflare also
+          provides a
+          <a href="https://www.cloudflare.com/policies/privacy/" target="_blank" rel="noopener noreferrer">privacy policy</a>
+          explaining how it handles information, including IP addresses.
+        </p>
+
+        <p>
+          If you are connected to a VPN, the result will commonly show
+          the VPN's public-facing exit IP address rather than the address
+          your internet provider would otherwise expose. The exact result
+          depends on your connection and routing configuration.
+        </p>
+
+        <p>
+          The address can differ from the one shown in your device
+          settings because those settings usually show an address assigned
+          to a particular network interface, while an external service
+          observes the connection reaching its servers. Checking one
+          address is not a complete VPN leak test and does not guarantee
+          anonymity.
+        </p>
+
+        <!-- ==============================
+             SECTION: WINDOWS
+        ============================== -->
 
         <h2 id="windows">How to Find Your IP Address on Windows</h2>
-        <p>Windows 11 provides a straightforward way to find your private IP address through Settings. You can also use Command Prompt to display more network information.</p>
+
+        <p>
+          Windows 11 provides a straightforward way to find your private
+          IP address through Settings. You can also use Command Prompt
+          to display more network information.
+        </p>
+
         <h3 id="windows-settings">Method 1: Use Windows Settings</h3>
-        <ol><li>Open Start and select <strong>Settings</strong>.</li><li>Select <strong>Network &amp; internet</strong>.</li><li>If you're connected through Wi-Fi, select <strong>Wi-Fi</strong> and open the properties of your connected network. If you're using a wired connection, select <strong>Ethernet</strong>.</li><li>Find the <strong>IPv4 address</strong> field in the network information.</li></ol>
-        <p>If the network provides IPv6, related IPv6 information may also appear in the network details. The address listed here is normally the private IP address assigned to your computer's active network interface on a typical home or office network.</p>
+
+        <ol>
+          <li>Open Start and select <strong>Settings</strong>.</li>
+          <li>Select <strong>Network &amp; internet</strong>.</li>
+          <li>
+            If you're connected through Wi-Fi, select <strong>Wi-Fi</strong>
+            and open the properties of your connected network. If you're
+            using a wired connection, select <strong>Ethernet</strong>.
+          </li>
+          <li>Find the <strong>IPv4 address</strong> field in the network information.</li>
+        </ol>
+
+        <p>
+          If the network provides IPv6, related IPv6 information may also
+          appear in the network details. The address listed here is
+          normally the private IP address assigned to your computer's
+          active network interface on a typical home or office network.
+        </p>
+
         <h3 id="windows-command">Method 2: Use Command Prompt</h3>
-        <ol><li>Open the Start menu.</li><li>Search for <code>Command Prompt</code> and open it.</li><li>Type the following command and press Enter:</li></ol>
+
+        <ol>
+          <li>Open the Start menu.</li>
+          <li>Search for <code>Command Prompt</code> and open it.</li>
+          <li>Type the following command and press Enter:</li>
+        </ol>
+
         <pre><code>ipconfig</code></pre>
-        <ol start="4"><li>Find the section corresponding to your active network adapter, such as Wireless LAN adapter Wi-Fi or Ethernet adapter Ethernet.</li><li>Look for <strong>IPv4 Address</strong> and any relevant IPv6 entries.</li></ol>
-        <p>You will usually also see a field labeled <strong>Default Gateway</strong>. Your computer's IPv4 address identifies its network interface, while the default gateway is normally the local router or another device that forwards traffic to other networks.</p>
-        <p>If you use a VPN, the output may also include a virtual network adapter. Select the appropriate adapter for the address you need rather than assuming the first entry is always correct. The exact Settings layout can vary between Windows versions, but <code>ipconfig</code> is a widely available alternative.</p>
+
+        <ol start="4">
+          <li>
+            Find the section corresponding to your active network adapter,
+            such as Wireless LAN adapter Wi-Fi or Ethernet adapter Ethernet.
+          </li>
+          <li>Look for <strong>IPv4 Address</strong> and any relevant IPv6 entries.</li>
+        </ol>
+
+        <p>
+          You will usually also see a field labeled <strong>Default Gateway</strong>.
+          Your computer's IPv4 address identifies its network interface,
+          while the default gateway is normally the local router or another
+          device that forwards traffic to other networks.
+        </p>
+
+        <p>
+          If you use a VPN, the output may also include a virtual network
+          adapter. Select the appropriate adapter for the address you need
+          rather than assuming the first entry is always correct. The exact
+          Settings layout can vary between Windows versions, but
+          <code>ipconfig</code> is a widely available alternative.
+        </p>
+
+        <!-- ==============================
+             SECTION: MAC
+        ============================== -->
 
         <h2 id="mac">How to Find Your IP Address on a Mac</h2>
-        <p>On current macOS versions, you can find your local IP address through System Settings. The relevant network details depend on whether you're using Wi-Fi or Ethernet.</p>
+
+        <p>
+          On current macOS versions, you can find your local IP address
+          through System Settings. The relevant network details depend
+          on whether you're using Wi-Fi or Ethernet.
+        </p>
+
         <h3 id="mac-steps">Steps to find your Mac's private IP address</h3>
-        <ol><li>Open the Apple menu in the upper-left corner.</li><li>Select <strong>System Settings</strong>.</li><li>Click <strong>Network</strong> in the sidebar.</li><li>Select your active network connection, such as Wi-Fi or Ethernet.</li><li>Click <strong>Details</strong>.</li><li>Open <strong>TCP/IP</strong> to view the IP configuration.</li></ol>
-        <p>Look for the IPv4 address field. If IPv6 is enabled, you may also see IPv6 address information. The TCP/IP settings can also display the <strong>Router</strong> address, which is useful if you are trying to access your router's administration page.</p>
-        <p>Make sure you select the connection you are actually using. If both Wi-Fi and Ethernet are available, the addresses associated with them may differ. Menu labels and their placement can vary slightly across macOS versions. See Apple's guide to <a href="https://support.apple.com/guide/mac-help/change-tcpip-settings-on-mac-mh14129/mac" target="_blank" rel="noopener noreferrer">changing TCP/IP settings on Mac</a>.</p>
+
+        <ol>
+          <li>Open the Apple menu in the upper-left corner.</li>
+          <li>Select <strong>System Settings</strong>.</li>
+          <li>Click <strong>Network</strong> in the sidebar.</li>
+          <li>Select your active network connection, such as Wi-Fi or Ethernet.</li>
+          <li>Click <strong>Details</strong>.</li>
+          <li>Open <strong>TCP/IP</strong> to view the IP configuration.</li>
+        </ol>
+
+        <p>
+          Look for the IPv4 address field. If IPv6 is enabled, you may
+          also see IPv6 address information. The TCP/IP settings can also
+          display the <strong>Router</strong> address, which is useful if
+          you are trying to access your router's administration page.
+        </p>
+
+        <p>
+          Make sure you select the connection you are actually using.
+          If both Wi-Fi and Ethernet are available, the addresses
+          associated with them may differ. Menu labels and their placement
+          can vary slightly across macOS versions. See Apple's guide to
+          <a href="https://support.apple.com/guide/mac-help/change-tcpip-settings-on-mac-mh14129/mac" target="_blank" rel="noopener noreferrer">changing TCP/IP settings on Mac</a>.
+        </p>
+
+        <!-- ==============================
+             SECTION: ANDROID
+        ============================== -->
 
         <h2 id="android">How to Find Your IP Address on Android</h2>
-        <p>Android provides network information through Settings, but the exact menu layout depends on the phone manufacturer, Android version, and device interface. The following is a common approach based on the network settings used on Google Pixel devices.</p>
+
+        <p>
+          Android provides network information through Settings, but the
+          exact menu layout depends on the phone manufacturer, Android
+          version, and device interface. The following is a common approach
+          based on the network settings used on Google Pixel devices.
+        </p>
+
         <h3 id="android-steps">Steps to find your Android phone's private IP address</h3>
-        <ol><li>Open <strong>Settings</strong>.</li><li>Select <strong>Network &amp; internet</strong>.</li><li>Tap <strong>Internet</strong>.</li><li>Find your connected Wi-Fi network and open its details. Depending on your phone, this may involve tapping the network name or its settings icon.</li><li>Look for <strong>IP address</strong>, <strong>Network details</strong>, or an equivalent information section.</li></ol>
-        <p>Your device's private IPv4 address may appear alongside IPv6 information and other network settings. If you cannot find the IP address, try searching for <code>IP address</code> in the Settings search bar. Some manufacturers place the information under an Advanced section or use different labels.</p>
-        <p>Make sure you are reading the device's own IP address rather than the Gateway or router address. The gateway is the address used to reach other networks and is not normally the phone's own address.</p>
+
+        <ol>
+          <li>Open <strong>Settings</strong>.</li>
+          <li>Select <strong>Network &amp; internet</strong>.</li>
+          <li>Tap <strong>Internet</strong>.</li>
+          <li>
+            Find your connected Wi-Fi network and open its details.
+            Depending on your phone, this may involve tapping the network
+            name or its settings icon.
+          </li>
+          <li>
+            Look for <strong>IP address</strong>,
+            <strong>Network details</strong>, or an equivalent information section.
+          </li>
+        </ol>
+
+        <p>
+          Your device's private IPv4 address may appear alongside IPv6
+          information and other network settings. If you cannot find the
+          IP address, try searching for <code>IP address</code> in the
+          Settings search bar. Some manufacturers place the information
+          under an Advanced section or use different labels.
+        </p>
+
+        <p>
+          Make sure you are reading the device's own IP address rather
+          than the Gateway or router address. The gateway is the address
+          used to reach other networks and is not normally the phone's
+          own address.
+        </p>
+
         <h3 id="android-mobile-data">What if you're using mobile data?</h3>
-        <p>The instructions above focus on Wi-Fi. When you use mobile data, your phone connects through your cellular provider, and the relevant network settings may be different.</p>
-        <p>Mobile providers frequently use carrier-grade NAT, which allows multiple customers to share a public IPv4 address. As a result, the address visible to a website may not be assigned directly to your phone. To check the public-facing address of your mobile connection, turn off Wi-Fi, make sure mobile data is working, and visit the <a href="https://www.cloudflare.com/cdn-cgi/trace" target="_blank" rel="noopener noreferrer">Cloudflare Trace endpoint</a>.</p>
+
+        <p>
+          The instructions above focus on Wi-Fi. When you use mobile data,
+          your phone connects through your cellular provider, and the
+          relevant network settings may be different.
+        </p>
+
+        <p>
+          Mobile providers frequently use carrier-grade NAT, which allows
+          multiple customers to share a public IPv4 address. As a result,
+          the address visible to a website may not be assigned directly
+          to your phone. To check the public-facing address of your mobile
+          connection, turn off Wi-Fi, make sure mobile data is working,
+          and visit the
+          <a href="https://www.cloudflare.com/cdn-cgi/trace" target="_blank" rel="noopener noreferrer">Cloudflare Trace endpoint</a>.
+        </p>
+
+        <!-- ==============================
+             SECTION: IPHONE AND IPAD
+        ============================== -->
 
         <h2 id="iphone-ipad">How to Find Your IP Address on an iPhone or iPad</h2>
-        <p>Apple provides the private IP address for a Wi-Fi connection in the network's settings. The same general procedure applies to current iOS and iPadOS interfaces.</p>
+
+        <p>
+          Apple provides the private IP address for a Wi-Fi connection in
+          the network's settings. The same general procedure applies to
+          current iOS and iPadOS interfaces.
+        </p>
+
         <h3 id="iphone-steps">Steps to find your iPhone or iPad's private IP address</h3>
-        <ol><li>Open <strong>Settings</strong>.</li><li>Tap <strong>Wi-Fi</strong>.</li><li>Find the network you're currently connected to.</li><li>Tap the information button (ⓘ) beside the network name.</li><li>Look under the IPv4 address information for <strong>IP Address</strong>.</li></ol>
-        <p>If IPv6 is enabled, the details screen may also display IPv6 addresses. You may see the router's address in the same network details screen. The address shown here normally identifies your device on that Wi-Fi network; it is not necessarily the public IP address visible to websites.</p>
+
+        <ol>
+          <li>Open <strong>Settings</strong>.</li>
+          <li>Tap <strong>Wi-Fi</strong>.</li>
+          <li>Find the network you're currently connected to.</li>
+          <li>Tap the information button (ⓘ) beside the network name.</li>
+          <li>Look under the IPv4 address information for <strong>IP Address</strong>.</li>
+        </ol>
+
+        <p>
+          If IPv6 is enabled, the details screen may also display IPv6
+          addresses. You may see the router's address in the same network
+          details screen. The address shown here normally identifies your
+          device on that Wi-Fi network; it is not necessarily the public
+          IP address visible to websites.
+        </p>
+
         <h3 id="iphone-public">How to check your public IP on an iPhone</h3>
-        <ol><li>Open Safari or another browser.</li><li>Visit the <a href="https://www.cloudflare.com/cdn-cgi/trace" target="_blank" rel="noopener noreferrer">Cloudflare Trace endpoint</a>.</li><li>Look for the <code>ip=</code> field.</li></ol>
-        <p>If you use a VPN or a service such as iCloud Private Relay, the address observed by a website may differ from the address associated with your normal internet connection.</p>
+
+        <ol>
+          <li>Open Safari or another browser.</li>
+          <li>Visit the <a href="https://www.cloudflare.com/cdn-cgi/trace" target="_blank" rel="noopener noreferrer">Cloudflare Trace endpoint</a>.</li>
+          <li>Look for the <code>ip=</code> field.</li>
+        </ol>
+
+        <p>
+          If you use a VPN or a service such as iCloud Private Relay,
+          the address observed by a website may differ from the address
+          associated with your normal internet connection.
+        </p>
+
+        <!-- ==============================
+             SECTION: ROUTER
+        ============================== -->
 
         <h2 id="router">How to Find Your Router's IP Address</h2>
-        <p>Your router has its own local network address, which is different from the address assigned to your computer or phone. You may need this address to open your router's administration interface, troubleshoot a connection, or configure certain local network settings.</p>
-        <h3 id="router-windows">On Windows</h3><ol><li>Open Command Prompt.</li><li>Run <code>ipconfig</code>.</li><li>Find the active Wi-Fi or Ethernet adapter.</li><li>Look for <strong>Default Gateway</strong>.</li></ol><p>On a typical home network, the default gateway is the router's local IP address.</p>
-        <h3 id="router-mac">On a Mac</h3><ol><li>Open Apple menu → <strong>System Settings</strong>.</li><li>Select <strong>Network</strong>.</li><li>Select your active Wi-Fi or Ethernet connection.</li><li>Click <strong>Details → TCP/IP</strong>.</li><li>Find the <strong>Router</strong> field.</li></ol><p>Apple's <a href="https://support.apple.com/guide/mac-help/change-tcpip-settings-on-mac-mh14129/mac" target="_blank" rel="noopener noreferrer">Mac network settings documentation</a> explains where to find these TCP/IP details.</p>
+
+        <p>
+          Your router has its own local network address, which is different
+          from the address assigned to your computer or phone. You may
+          need this address to open your router's administration interface,
+          troubleshoot a connection, or configure certain local network
+          settings.
+        </p>
+
+        <h3 id="router-windows">On Windows</h3>
+
+        <ol>
+          <li>Open Command Prompt.</li>
+          <li>Run <code>ipconfig</code>.</li>
+          <li>Find the active Wi-Fi or Ethernet adapter.</li>
+          <li>Look for <strong>Default Gateway</strong>.</li>
+        </ol>
+
+        <p>
+          On a typical home network, the default gateway is the router's
+          local IP address.
+        </p>
+
+        <h3 id="router-mac">On a Mac</h3>
+
+        <ol>
+          <li>Open Apple menu → <strong>System Settings</strong>.</li>
+          <li>Select <strong>Network</strong>.</li>
+          <li>Select your active Wi-Fi or Ethernet connection.</li>
+          <li>Click <strong>Details → TCP/IP</strong>.</li>
+          <li>Find the <strong>Router</strong> field.</li>
+        </ol>
+
+        <p>
+          Apple's
+          <a href="https://support.apple.com/guide/mac-help/change-tcpip-settings-on-mac-mh14129/mac" target="_blank" rel="noopener noreferrer">Mac network settings documentation</a>
+          explains where to find these TCP/IP details.
+        </p>
+
         <h3 id="router-addresses">Why your router's address may be different</h3>
-        <p>Some routers use addresses such as <code>192.168.0.1</code> or <code>192.168.1.1</code>, but these are examples, not universal defaults. Your router may use another private address, including one from the <code>10.x.x.x</code> range or the private <code>172.16.x.x</code> through <code>172.31.x.x</code> range.</p>
-        <p>Also, distinguish the router's local gateway address from its internet-facing address. The former is used within the local network; the latter, when a public address is assigned directly, is associated with communication beyond that network. Some internet providers use CGNAT, so the address observed on the internet may not be directly assigned to the router.</p>
+
+        <p>
+          Some routers use addresses such as <code>192.168.0.1</code> or
+          <code>192.168.1.1</code>, but these are examples, not universal
+          defaults. Your router may use another private address, including
+          one from the <code>10.x.x.x</code> range or the private
+          <code>172.16.x.x</code> through <code>172.31.x.x</code> range.
+        </p>
+
+        <p>
+          Also, distinguish the router's local gateway address from its
+          internet-facing address. The former is used within the local
+          network; the latter, when a public address is assigned directly,
+          is associated with communication beyond that network. Some
+          internet providers use CGNAT, so the address observed on the
+          internet may not be directly assigned to the router.
+        </p>
+
+        <!-- ==============================
+             SECTION: PUBLIC VS PRIVATE IP
+        ============================== -->
 
         <h2 id="why-different">Public IP vs. Private IP: Why the Results Are Different</h2>
-        <p>Finding different IP addresses on your computer, phone, router, and an external website is normal. The results can differ for several reasons:</p>
-        <ul><li><strong>Local addresses and NAT:</strong> In a typical home IPv4 network, the router assigns private IP addresses to individual devices. Network Address Translation (NAT) allows those devices to access the internet through a shared public-facing IPv4 address.</li><li><strong>Different network interfaces:</strong> A device may have separate addresses for Wi-Fi, Ethernet, a VPN, and other virtual or physical interfaces.</li><li><strong>Wi-Fi vs. mobile data:</strong> Your Wi-Fi connection and cellular connection use different network paths. Their public-facing addresses may be different.</li><li><strong>VPNs and proxies:</strong> An external website will commonly see the address of the VPN exit server or other intermediary that sends the request.</li><li><strong>IPv4 and IPv6:</strong> Your network may support both protocols. A website or IP-checking service may observe IPv4 or IPv6 depending on its connectivity and the route used.</li></ul>
-        <p>These differences do not automatically indicate a problem. They reflect how network addressing and routing work. For a more detailed comparison, see <a href="https://synthvisuals.space/public-privateip.html">public vs. private IP addresses</a>. If you're investigating why a VPN changes the address that websites see, our article <a href="https://synthvisuals.space/what-is-a-vpn.html">What Is a VPN?</a> provides more background.</p>
+
+        <p>
+          Finding different IP addresses on your computer, phone, router,
+          and an external website is normal. The results can differ for
+          several reasons:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Local addresses and NAT:</strong> In a typical home
+            IPv4 network, the router assigns private IP addresses to
+            individual devices. Network Address Translation (NAT) allows
+            those devices to access the internet through a shared
+            public-facing IPv4 address.
+          </li>
+          <li>
+            <strong>Different network interfaces:</strong> A device may
+            have separate addresses for Wi-Fi, Ethernet, a VPN, and other
+            virtual or physical interfaces.
+          </li>
+          <li>
+            <strong>Wi-Fi vs. mobile data:</strong> Your Wi-Fi connection
+            and cellular connection use different network paths. Their
+            public-facing addresses may be different.
+          </li>
+          <li>
+            <strong>VPNs and proxies:</strong> An external website will
+            commonly see the address of the VPN exit server or other
+            intermediary that sends the request.
+          </li>
+          <li>
+            <strong>IPv4 and IPv6:</strong> Your network may support both
+            protocols. A website or IP-checking service may observe IPv4
+            or IPv6 depending on its connectivity and the route used.
+          </li>
+        </ul>
+
+        <p>
+          These differences do not automatically indicate a problem. They
+          reflect how network addressing and routing work. For a more
+          detailed comparison, see
+          <a href="https://synthvisuals.space/public-privateip.html">public vs. private IP addresses</a>.
+          If you're investigating why a VPN changes the address that
+          websites see, our article
+          <a href="https://synthvisuals.space/what-is-a-vpn.html">What Is a VPN?</a>
+          provides more background.
+        </p>
+
+        <!-- ==============================
+             SECTION: TROUBLESHOOTING
+        ============================== -->
 
         <h2 id="troubleshooting">What If You Cannot Find Your IP Address?</h2>
-        <p>If the expected address does not appear, work through the following checks:</p>
-        <ul><li><strong>Your device is disconnected.</strong> Connect to Wi-Fi or Ethernet, or confirm that mobile data is enabled and working. Then reopen the network details.</li><li><strong>You're viewing the wrong interface.</strong> Check which connection is active. VPN adapters, virtual interfaces, and disconnected network adapters can display additional addresses.</li><li><strong>You're using mobile data instead of Wi-Fi.</strong> The Wi-Fi settings screen may not describe your current internet connection. Use a browser-based IP check to see the address observed by an external service.</li><li><strong>The menus do not match these instructions.</strong> Search your device's Settings for <code>IP address</code> or consult the manufacturer's official documentation.</li><li><strong>You've confused the gateway with your device's address.</strong> On Windows, compare IPv4 Address with Default Gateway. On a Mac, compare the IP address with Router.</li><li><strong>A VPN is enabled.</strong> Visit the IP-checking service while connected, then compare the result with what you see when the VPN is disconnected, if appropriate. Remember that disconnecting changes the connection being tested.</li><li><strong>You see an unfamiliar IPv6 address.</strong> IPv6 addresses use colons and hexadecimal characters. Some devices also show link-local or other interface-specific IPv6 addresses, which are not necessarily the address an external website sees.</li></ul>
-        <p>Avoid changing advanced network settings simply because two addresses are different. First, confirm that you have identified the correct device, interface, and type of IP address.</p>
+
+        <p>
+          If the expected address does not appear, work through the
+          following checks:
+        </p>
+
+        <ul>
+          <li>
+            <strong>Your device is disconnected.</strong> Connect to Wi-Fi
+            or Ethernet, or confirm that mobile data is enabled and
+            working. Then reopen the network details.
+          </li>
+          <li>
+            <strong>You're viewing the wrong interface.</strong> Check
+            which connection is active. VPN adapters, virtual interfaces,
+            and disconnected network adapters can display additional
+            addresses.
+          </li>
+          <li>
+            <strong>You're using mobile data instead of Wi-Fi.</strong>
+            The Wi-Fi settings screen may not describe your current
+            internet connection. Use a browser-based IP check to see
+            the address observed by an external service.
+          </li>
+          <li>
+            <strong>The menus do not match these instructions.</strong>
+            Search your device's Settings for <code>IP address</code>
+            or consult the manufacturer's official documentation.
+          </li>
+          <li>
+            <strong>You've confused the gateway with your device's address.</strong>
+            On Windows, compare IPv4 Address with Default Gateway. On
+            a Mac, compare the IP address with Router.
+          </li>
+          <li>
+            <strong>A VPN is enabled.</strong> Visit the IP-checking
+            service while connected, then compare the result with what
+            you see when the VPN is disconnected, if appropriate.
+            Remember that disconnecting changes the connection being tested.
+          </li>
+          <li>
+            <strong>You see an unfamiliar IPv6 address.</strong> IPv6
+            addresses use colons and hexadecimal characters. Some devices
+            also show link-local or other interface-specific IPv6
+            addresses, which are not necessarily the address an external
+            website sees.
+          </li>
+        </ul>
+
+        <p>
+          Avoid changing advanced network settings simply because two
+          addresses are different. First, confirm that you have identified
+          the correct device, interface, and type of IP address.
+        </p>
+
+        <!-- ==============================
+             SECTION: IP PRIVACY AND SAFETY
+        ============================== -->
 
         <h2 id="privacy-safety">Is It Safe to Share Your IP Address?</h2>
-        <p>An IP address is not generally equivalent to a password or account credential, but sharing it publicly can reveal information about your network connection.</p>
-        <p>Depending on the address and available lookup data, someone may be able to identify your internet service provider or estimate your general geographic region. Geolocation is not the same as identifying an exact home address or confirming a person's identity.</p>
-        <p>An exposed public IP address can also be relevant to certain security risks, depending on the network configuration, firewall rules, and services accessible from the internet. A public IP address by itself does not prove that a device is vulnerable.</p>
-        <p>For sensible protection:</p><ul><li>Avoid publishing connection details unnecessarily in public forums or screenshots.</li><li>Keep your operating system, applications, and router firmware updated.</li><li>Use strong administrative credentials for your router.</li><li>Maintain appropriate firewall and network security settings.</li></ul>
-        <p>A VPN can change the public-facing address seen by many websites, depending on how traffic is routed. However, it does not guarantee complete anonymity or prevent every form of online tracking. To understand how VPN connections work and what they can and cannot protect, read <a href="https://synthvisuals.space/what-is-a-vpn.html">What Is a VPN?</a></p>
+
+        <p>
+          An IP address is not generally equivalent to a password or
+          account credential, but sharing it publicly can reveal
+          information about your network connection.
+        </p>
+
+        <p>
+          Depending on the address and available lookup data, someone
+          may be able to identify your internet service provider or
+          estimate your general geographic region. Geolocation is not
+          the same as identifying an exact home address or confirming
+          a person's identity.
+        </p>
+
+        <p>
+          An exposed public IP address can also be relevant to certain
+          security risks, depending on the network configuration,
+          firewall rules, and services accessible from the internet.
+          A public IP address by itself does not prove that a device
+          is vulnerable.
+        </p>
+
+        <p>For sensible protection:</p>
+
+        <ul>
+          <li>Avoid publishing connection details unnecessarily in public forums or screenshots.</li>
+          <li>Keep your operating system, applications, and router firmware updated.</li>
+          <li>Use strong administrative credentials for your router.</li>
+          <li>Maintain appropriate firewall and network security settings.</li>
+        </ul>
+
+        <p>
+          A VPN can change the public-facing address seen by many
+          websites, depending on how traffic is routed. However, it
+          does not guarantee complete anonymity or prevent every form
+          of online tracking. To understand how VPN connections work
+          and what they can and cannot protect, read
+          <a href="https://synthvisuals.space/what-is-a-vpn.html">What Is a VPN?</a>
+        </p>
+
+        <!-- ==============================
+             SECTION: FREQUENTLY ASKED QUESTIONS
+        ============================== -->
 
         <h2 id="faq">Frequently Asked Questions</h2>
-        <section class="faq-item"><h3>How do I find my IP address quickly?</h3><p>To find your public-facing IP address, open a browser and visit the <a href="https://www.cloudflare.com/cdn-cgi/trace" target="_blank" rel="noopener noreferrer">Cloudflare Trace endpoint</a>. Look for the <code>ip=</code> field. For your private IP address, open your device's network settings.</p></section>
-        <section class="faq-item"><h3>Can my IP address change?</h3><p>Yes. Public and private IP addresses can change depending on how they are assigned and how your network is configured. A dynamically assigned address may remain unchanged for a long period or change after a network event, lease renewal, or provider reassignment.</p></section>
-        <section class="faq-item"><h3>Does my IP address change when I use a VPN?</h3><p>A VPN commonly changes the public-facing IP address that websites see by routing traffic through a VPN server. The exact result depends on the VPN configuration, network path, protocol, and any other services or interfaces involved.</p></section>
-        <section class="faq-item"><h3>Can I find my IP address without installing an app?</h3><p>Yes. You can view a public-facing IP address using a browser-based checking service. Windows, macOS, Android, iOS, and iPadOS also provide built-in network settings for viewing local address information.</p></section>
-        <section class="faq-item"><h3>Is my IP address the same as my router's IP address?</h3><p>Not necessarily. Your computer or phone normally has its own private IP address on the local network. The router has a separate local address, often shown as the default gateway. A public-facing address may be shared by several devices, and an ISP may also use carrier-grade NAT.</p></section>
+
+        <section class="faq-item">
+          <h3>How do I find my IP address quickly?</h3>
+          <p>
+            To find your public-facing IP address, open a browser and
+            visit the
+            <a href="https://www.cloudflare.com/cdn-cgi/trace" target="_blank" rel="noopener noreferrer">Cloudflare Trace endpoint</a>.
+            Look for the <code>ip=</code> field. For your private IP
+            address, open your device's network settings.
+          </p>
+        </section>
+
+        <section class="faq-item">
+          <h3>Can my IP address change?</h3>
+          <p>
+            Yes. Public and private IP addresses can change depending
+            on how they are assigned and how your network is configured.
+            A dynamically assigned address may remain unchanged for a
+            long period or change after a network event, lease renewal,
+            or provider reassignment.
+          </p>
+        </section>
+
+        <section class="faq-item">
+          <h3>Does my IP address change when I use a VPN?</h3>
+          <p>
+            A VPN commonly changes the public-facing IP address that
+            websites see by routing traffic through a VPN server.
+            The exact result depends on the VPN configuration, network
+            path, protocol, and any other services or interfaces involved.
+          </p>
+        </section>
+
+        <section class="faq-item">
+          <h3>Can I find my IP address without installing an app?</h3>
+          <p>
+            Yes. You can view a public-facing IP address using a
+            browser-based checking service. Windows, macOS, Android,
+            iOS, and iPadOS also provide built-in network settings
+            for viewing local address information.
+          </p>
+        </section>
+
+        <section class="faq-item">
+          <h3>Is my IP address the same as my router's IP address?</h3>
+          <p>
+            Not necessarily. Your computer or phone normally has its
+            own private IP address on the local network. The router
+            has a separate local address, often shown as the default
+            gateway. A public-facing address may be shared by several
+            devices, and an ISP may also use carrier-grade NAT.
+          </p>
+        </section>
+
+        <!-- ==============================
+             SECTION: CONCLUSION
+        ============================== -->
 
         <h2 id="conclusion">Conclusion</h2>
-        <p>Finding your IP address is straightforward once you know which address you need. Use a browser-based service to check the public-facing address seen by an external website, or open your device's network settings to find its local IP address.</p>
-        <p>Windows, Mac, Android, iPhone, and iPad each provide ways to view their network details, although the exact menu paths can vary. If the results differ, check whether you're comparing a public address, a private address, a router address, or an IPv6 address.</p>
-        <p>For more context, explore the Synth Visual guides to <a href="https://synthvisuals.space/what-is-an-ip-address.html">IP addresses</a>, <a href="https://synthvisuals.space/public-privateip.html">public vs. private IP addresses</a>, and <a href="https://synthvisuals.space/what-is-a-vpn.html">VPNs</a>.</p>
 
-        <section class="references" id="sources" aria-labelledby="sources-heading"><h2 id="sources-heading">References</h2><p class="references-intro">Official support pages, technical standards, and service documentation used to prepare this guide.</p><ol class="reference-list">
-        <li><a href="https://support.microsoft.com/en-us/windows/experience/connectivity-networking/essential-network-settings-and-tasks-in-windows" target="_blank" rel="noopener noreferrer">Microsoft Support — Essential Network Settings and Tasks in Windows</a><p>Supports the Windows network settings procedure for finding an IP address.</p></li>
-        <li><a href="https://support.apple.com/guide/mac-help/wi-fi-settings-on-mac-mh11935/mac" target="_blank" rel="noopener noreferrer">Apple Support — Wi-Fi Settings on Mac</a><p>Explains where Mac Wi-Fi settings display IP and router addresses.</p></li>
-        <li><a href="https://support.apple.com/guide/mac-help/change-tcpip-settings-on-mac-mh14129/mac" target="_blank" rel="noopener noreferrer">Apple Support — Change TCP/IP Settings on Mac</a><p>Documents the TCP/IP configuration screen.</p></li>
-        <li><a href="https://support.google.com/android/answer/9075847?hl=en" target="_blank" rel="noopener noreferrer">Google Android Help — Connect to Wi-Fi Networks on Your Android Device</a><p>Documents Android Wi-Fi settings navigation.</p></li>
-        <li><a href="https://support.google.com/pixelphone/answer/2819519?hl=en" target="_blank" rel="noopener noreferrer">Google Pixel Phone Help — Connect to Wi-Fi Networks on Your Pixel Phone</a><p>Provides device-specific Wi-Fi navigation guidance.</p></li>
-        <li><a href="https://support.apple.com/guide/iphone/manage-wi-fi-settings-iphw5gjwl8k2/ios" target="_blank" rel="noopener noreferrer">Apple Support — Manage Wi-Fi Settings on iPhone</a><p>Documents how to access settings for a connected Wi-Fi network.</p></li>
-        <li><a href="https://www.iana.org/help/private-addresses" target="_blank" rel="noopener noreferrer">IANA — Private-Use IP Addresses</a><p>Lists IPv4 ranges reserved for private use.</p></li>
-        <li><a href="https://www.rfc-editor.org/rfc/rfc1918.html" target="_blank" rel="noopener noreferrer">IETF — RFC 1918: Address Allocation for Private Internets</a><p>Defines the IPv4 private address ranges.</p></li>
-        <li><a href="https://www.cloudflare.com/cdn-cgi/trace" target="_blank" rel="noopener noreferrer">Cloudflare — Trace Endpoint</a><p>Displays connection diagnostics, including the IP address observed for the request.</p></li>
-        <li><a href="https://www.cloudflare.com/policies/privacy/" target="_blank" rel="noopener noreferrer">Cloudflare — Privacy Policy</a><p>Explains Cloudflare's information-handling practices.</p></li>
-        <li><a href="https://synthvisuals.space/public-privateip.html">Synth Visual — Public vs. Private IP Address: Key Differences</a><p>Related guide to address types, NAT, and shared public IPv4 addresses.</p></li>
-        <li><a href="https://synthvisuals.space/what-is-an-ip-address.html">Synth Visual — What Is an IP Address? A Beginner's Guide</a><p>Related guide to IP addressing, IPv4, IPv6, and IP assignment.</p></li>
-        <li><a href="https://synthvisuals.space/what-is-a-vpn.html">Synth Visual — What Is a VPN? How It Works and What It's Used For</a><p>Related guide to VPN routing and public-facing addresses.</p></li>
-        </ol><a class="back-to-top" href="#top">↑ Back to the top</a></section>
+        <p>
+          Finding your IP address is straightforward once you know
+          which address you need. Use a browser-based service to check
+          the public-facing address seen by an external website, or
+          open your device's network settings to find its local IP address.
+        </p>
+
+        <p>
+          Windows, Mac, Android, iPhone, and iPad each provide ways
+          to view their network details, although the exact menu paths
+          can vary. If the results differ, check whether you're comparing
+          a public address, a private address, a router address, or
+          an IPv6 address.
+        </p>
+
+        <p>
+          For more context, explore the Synth Visual guides to
+          <a href="https://synthvisuals.space/what-is-an-ip-address.html">IP addresses</a>,
+          <a href="https://synthvisuals.space/public-privateip.html">public vs. private IP addresses</a>,
+          and
+          <a href="https://synthvisuals.space/what-is-a-vpn.html">VPNs</a>.
+        </p>
+
+        <!-- ==============================
+             REFERENCES
+        ============================== -->
+
+        <section
+          class="references"
+          id="sources"
+          aria-labelledby="sources-heading"
+        >
+          <h2 id="sources-heading">References</h2>
+
+          <p class="references-intro">
+            Official support pages, technical standards, and service
+            documentation used to prepare this guide.
+          </p>
+
+          <ol class="reference-list">
+
+            <li>
+              <a href="https://support.microsoft.com/en-us/windows/experience/connectivity-networking/essential-network-settings-and-tasks-in-windows" target="_blank" rel="noopener noreferrer">
+                Microsoft Support — Essential Network Settings and Tasks in Windows
+              </a>
+              <p>Supports the Windows network settings procedure for finding an IP address.</p>
+            </li>
+
+            <li>
+              <a href="https://support.apple.com/guide/mac-help/wi-fi-settings-on-mac-mh11935/mac" target="_blank" rel="noopener noreferrer">
+                Apple Support — Wi-Fi Settings on Mac
+              </a>
+              <p>Explains where Mac Wi-Fi settings display IP and router addresses.</p>
+            </li>
+
+            <li>
+              <a href="https://support.apple.com/guide/mac-help/change-tcpip-settings-on-mac-mh14129/mac" target="_blank" rel="noopener noreferrer">
+                Apple Support — Change TCP/IP Settings on Mac
+              </a>
+              <p>Documents the TCP/IP configuration screen.</p>
+            </li>
+
+            <li>
+              <a href="https://support.google.com/android/answer/9075847?hl=en" target="_blank" rel="noopener noreferrer">
+                Google Android Help — Connect to Wi-Fi Networks on Your Android Device
+              </a>
+              <p>Documents Android Wi-Fi settings navigation.</p>
+            </li>
+
+            <li>
+              <a href="https://support.google.com/pixelphone/answer/2819519?hl=en" target="_blank" rel="noopener noreferrer">
+                Google Pixel Phone Help — Connect to Wi-Fi Networks on Your Pixel Phone
+              </a>
+              <p>Provides device-specific Wi-Fi navigation guidance.</p>
+            </li>
+
+            <li>
+              <a href="https://support.apple.com/guide/iphone/manage-wi-fi-settings-iphw5gjwl8k2/ios" target="_blank" rel="noopener noreferrer">
+                Apple Support — Manage Wi-Fi Settings on iPhone
+              </a>
+              <p>Documents how to access settings for a connected Wi-Fi network.</p>
+            </li>
+
+            <li>
+              <a href="https://www.iana.org/help/private-addresses" target="_blank" rel="noopener noreferrer">
+                IANA — Private-Use IP Addresses
+              </a>
+              <p>Lists IPv4 ranges reserved for private use.</p>
+            </li>
+
+            <li>
+              <a href="https://www.rfc-editor.org/rfc/rfc1918.html" target="_blank" rel="noopener noreferrer">
+                IETF — RFC 1918: Address Allocation for Private Internets
+              </a>
+              <p>Defines the IPv4 private address ranges.</p>
+            </li>
+
+            <li>
+              <a href="https://www.cloudflare.com/cdn-cgi/trace" target="_blank" rel="noopener noreferrer">
+                Cloudflare — Trace Endpoint
+              </a>
+              <p>Displays connection diagnostics, including the IP address observed for the request.</p>
+            </li>
+
+            <li>
+              <a href="https://www.cloudflare.com/policies/privacy/" target="_blank" rel="noopener noreferrer">
+                Cloudflare — Privacy Policy
+              </a>
+              <p>Explains Cloudflare's information-handling practices.</p>
+            </li>
+
+            <li>
+              <a href="https://synthvisuals.space/public-privateip.html">
+                Synth Visual — Public vs. Private IP Address: Key Differences
+              </a>
+              <p>Related guide to address types, NAT, and shared public IPv4 addresses.</p>
+            </li>
+
+            <li>
+              <a href="https://synthvisuals.space/what-is-an-ip-address.html">
+                Synth Visual — What Is an IP Address? A Beginner's Guide
+              </a>
+              <p>Related guide to IP addressing, IPv4, IPv6, and IP assignment.</p>
+            </li>
+
+            <li>
+              <a href="https://synthvisuals.space/what-is-a-vpn.html">
+                Synth Visual — What Is a VPN? How It Works and What It's Used For
+              </a>
+              <p>Related guide to VPN routing and public-facing addresses.</p>
+            </li>
+
+          </ol>
+
+          <a class="back-to-top" href="#top">↑ Back to the top</a>
+
+        </section>
+
       </article>
     </div>
 
+    <!-- ==============================
+         RELATED ARTICLES
+    ============================== -->
+
     <section class="related-strip">
       <div class="container related-inner">
-        <div><h2>Keep exploring networking and privacy.</h2><p>Browse more straightforward guides to internet technology, online privacy, and digital security from Synth Visual.</p></div>
-        <a class="related-link" href="/#latest-guides">Explore all guides →</a>
+
+        <div>
+          <h2>Keep exploring networking and privacy.</h2>
+          <p>
+            Browse more straightforward guides to internet technology,
+            online privacy, and digital security from Synth Visual.
+          </p>
+        </div>
+
+        <a class="related-link" href="/#latest-guides">
+          Explore all guides →
+        </a>
+
       </div>
     </section>
+
   </main>
+
+  <!-- ==============================
+       FOOTER
+  ============================== -->
 
   <footer class="site-footer">
     <div class="container footer-inner">
+
       <div>
         <a class="footer-brand" href="/">Synth Visual</a>
-        <p class="copyright">© <span id="current-year">2026</span> Synth Visual. All rights reserved.</p>
+        <p class="copyright">
+          © <span id="current-year">2026</span> Synth Visual. All rights reserved.
+        </p>
       </div>
+
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="/about/">About</a>
         <a href="/contact/">Contact</a>
         <a href="/privacy-policy/">Privacy Policy</a>
         <a href="/affiliate-disclosure/">Affiliate Disclosure</a>
       </nav>
+
     </div>
   </footer>
+
+  <!-- ==============================
+       JAVASCRIPT
+  ============================== -->
+
   <script>
-    document.getElementById("current-year").textContent = new Date().getFullYear();
+    /* Update the copyright year */
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+
+    /* Reading progress bar */
     (function () {
       const bar = document.getElementById("reading-progress");
+
+      if (!bar) return;
+
       let ticking = false;
+
       function updateProgress() {
         const doc = document.documentElement;
         const max = doc.scrollHeight - window.innerHeight;
-        const amount = max > 0 ? (window.scrollY / max) * 100 : 0;
-        bar.style.width = Math.max(0, Math.min(100, amount)) + "%";
+
+        const amount = max > 0
+          ? (window.scrollY / max) * 100
+          : 0;
+
+        bar.style.width =
+          Math.max(0, Math.min(100, amount)) + "%";
+
         ticking = false;
       }
-      window.addEventListener("scroll", function () {
-        if (!ticking) { window.requestAnimationFrame(updateProgress); ticking = true; }
-      }, { passive: true });
+
+      window.addEventListener(
+        "scroll",
+        function () {
+          if (!ticking) {
+            window.requestAnimationFrame(updateProgress);
+            ticking = true;
+          }
+        },
+        { passive: true }
+      );
+
       updateProgress();
     })();
+
+    /* Tools dropdown menu */
+    (function () {
+      const dropdown = document.getElementById("tools-dropdown");
+      const trigger = document.getElementById("tools-trigger");
+      const menu = document.getElementById("tools-menu");
+
+      if (!dropdown || !trigger || !menu) return;
+
+      function setMenuOpen(shouldOpen) {
+        trigger.setAttribute(
+          "aria-expanded",
+          String(shouldOpen)
+        );
+
+        menu.hidden = !shouldOpen;
+      }
+
+      /* Open and close the menu using the Tools button */
+      trigger.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        const isOpen =
+          trigger.getAttribute("aria-expanded") === "true";
+
+        setMenuOpen(!isOpen);
+      });
+
+      /* Close the menu when clicking outside it */
+      document.addEventListener("click", function (event) {
+        if (!dropdown.contains(event.target)) {
+          setMenuOpen(false);
+        }
+      });
+
+      /* Close the menu with the Escape key */
+      document.addEventListener("keydown", function (event) {
+        const isOpen =
+          trigger.getAttribute("aria-expanded") === "true";
+
+        if (event.key === "Escape" && isOpen) {
+          setMenuOpen(false);
+          trigger.focus();
+        }
+      });
+
+      /* Close the menu after selecting an item */
+      menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          setMenuOpen(false);
+        });
+      });
+    })();
   </script>
+
 </body>
 </html>
