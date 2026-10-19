@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B2R2YLSL7R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2R2YLSL7R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B2R2YLSL7R');
+  </script>
 
-  gtag('config', 'G-B2R2YLSL7R');
-</script>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Learn how affiliate links may support Synth Visual, how commissions work, and how we approach transparency and editorial independence.">
@@ -50,7 +48,8 @@
 
     a { color: inherit; text-decoration: none; }
 
-    a:focus-visible {
+    a:focus-visible,
+    button:focus-visible {
       outline: 3px solid #7cae98;
       outline-offset: 4px;
       border-radius: 4px;
@@ -62,6 +61,8 @@
     }
 
     .site-header {
+      position: relative;
+      z-index: 20;
       border-bottom: 1px solid var(--line);
       background: rgba(247, 247, 244, 0.94);
     }
@@ -105,8 +106,13 @@
       font-weight: 600;
     }
 
-    .main-nav a { transition: color 160ms ease; }
-    .main-nav a:hover, .main-nav a[aria-current="page"] { color: var(--accent); }
+    .main-nav a,
+    .tools-trigger { transition: color 160ms ease; }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"],
+    .tools-trigger:hover,
+    .tools-trigger[aria-expanded="true"] { color: var(--accent); }
 
     .nav-cta {
       padding: 10px 15px;
@@ -116,6 +122,92 @@
     }
 
     .nav-cta:hover { background: var(--soft); }
+
+    /* Tools dropdown — shared with the About page */
+    .tools-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .tools-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 0;
+      border: 0;
+      background: transparent;
+      color: #424840;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .tools-chevron {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 160ms ease;
+    }
+
+    .tools-trigger[aria-expanded="true"] .tools-chevron {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .tools-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: -18px;
+      z-index: 50;
+      width: 322px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 16px 42px rgba(27, 39, 30, 0.13);
+    }
+
+    .tools-menu[hidden] { display: none; }
+
+    .tools-menu-section { padding: 8px 7px 9px; }
+
+    .tools-menu-heading {
+      margin: 0 0 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 1.25px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .tools-menu a {
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .tools-menu a:hover,
+    .tools-menu a:focus-visible {
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    .tools-menu-divider {
+      height: 1px;
+      margin: 3px 7px;
+      background: var(--line);
+    }
+
+    .tools-menu .tools-commercial-link { color: var(--accent); }
 
     .hero {
       padding: 78px 0 52px;
@@ -362,6 +454,8 @@
       .brand-tagline { font-size: 9px; }
       .main-nav { width: 100%; justify-content: space-between; gap: 10px; font-size: 11px; }
       .nav-cta { padding: 7px 10px; }
+      .tools-trigger { padding: 7px 0; }
+      .tools-menu { top: calc(100% + 8px); right: -8px; width: min(322px, calc(100vw - 32px)); }
       .hero { padding: 58px 0 40px; }
       .hero h1 { letter-spacing: -1.5px; }
       .hero-copy { font-size: 14px; }
@@ -404,6 +498,26 @@
               <a href="/dns-webrtc-leak-test.html">DNS/WebRTC Leak Test</a>
               <a href="/what-is-my-ip.html">What Is My IP?</a>
             </div>
+
+            <div class="tools-menu-divider" aria-hidden="true"></div>
+
+            <div class="tools-menu-section" aria-labelledby="security-software-heading">
+              <p class="tools-menu-heading" id="security-software-heading">VPNs &amp; Security Software</p>
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordVPN Plans ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/about.html">About</a>
+        <a class="nav-cta" href="/#latest-guides">Explore Articles</a>
+      </nav>
+    </div>
+  </header>
 
   <main>
     <section class="hero">
@@ -529,6 +643,43 @@
 
   <script>
     document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    (function () {
+      const dropdown = document.getElementById("tools-dropdown");
+      const trigger = document.getElementById("tools-trigger");
+      const menu = document.getElementById("tools-menu");
+
+      if (!dropdown || !trigger || !menu) return;
+
+      function setMenuOpen(shouldOpen) {
+        trigger.setAttribute("aria-expanded", String(shouldOpen));
+        menu.hidden = !shouldOpen;
+      }
+
+      trigger.addEventListener("click", function (event) {
+        event.stopPropagation();
+        const isOpen = trigger.getAttribute("aria-expanded") === "true";
+        setMenuOpen(!isOpen);
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!dropdown.contains(event.target)) setMenuOpen(false);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        const isOpen = trigger.getAttribute("aria-expanded") === "true";
+        if (event.key === "Escape" && isOpen) {
+          setMenuOpen(false);
+          trigger.focus();
+        }
+      });
+
+      menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          setMenuOpen(false);
+        });
+      });
+    })();
   </script>
 </body>
 </html>
