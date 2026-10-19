@@ -1,0 +1,541 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f4">
+  <meta name="description" content="View image metadata and remove supported privacy-sensitive information, including GPS and camera details, before sharing your photos online.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <title>Image Metadata Viewer &amp; Remover | Synth Visual Space</title>
+  <style>
+    :root{color-scheme:light;--sv-image-metadata-bg:#f7f7f4;--sv-image-metadata-card:#fff;--sv-image-metadata-ink:#202a27;--sv-image-metadata-muted:#5f6c67;--sv-image-metadata-accent:#245b49;--sv-image-metadata-accent-hover:#194638;--sv-image-metadata-line:#dce3df;--sv-image-metadata-soft:#edf4f0;--sv-image-metadata-warning:#7c4a10;--sv-image-metadata-warning-bg:#fff5e7;--sv-image-metadata-danger:#9c3030;--sv-image-metadata-radius:18px;--sv-image-metadata-shadow:0 10px 32px rgba(30,50,42,.055)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--sv-image-metadata-bg);color:var(--sv-image-metadata-ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:var(--sv-image-metadata-accent);text-underline-offset:3px}a:hover{color:var(--sv-image-metadata-accent-hover)}button,input{font:inherit}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.55}.sv-image-metadata-shell{width:min(1120px,calc(100% - 36px));margin:0 auto}.sv-image-metadata-header{background:rgba(255,255,255,.94);border-bottom:1px solid var(--sv-image-metadata-line)}.sv-image-metadata-header-inner{min-height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}.sv-image-metadata-brand{color:var(--sv-image-metadata-ink);font-size:1.08rem;font-weight:760;letter-spacing:-.035em;text-decoration:none;white-space:nowrap}.sv-image-metadata-brand-mark{display:inline-grid;place-items:center;width:31px;height:31px;margin-right:9px;border:2px solid var(--sv-image-metadata-accent);border-radius:10px;color:var(--sv-image-metadata-accent);font-size:.9rem;vertical-align:-2px}.sv-image-metadata-nav{display:flex;gap:22px;flex-wrap:wrap;align-items:center}.sv-image-metadata-nav a{font-size:.93rem;text-decoration:none;color:#44534d;font-weight:570}.sv-image-metadata-nav a:hover{color:var(--sv-image-metadata-accent)}.sv-image-metadata-main{padding:50px 0 72px}.sv-image-metadata-hero{max-width:790px;margin:0 auto 30px;text-align:center}.sv-image-metadata-eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--sv-image-metadata-accent);background:var(--sv-image-metadata-soft);border-radius:999px;padding:5px 12px;font-size:.8rem;font-weight:750;letter-spacing:.04em;text-transform:uppercase}.sv-image-metadata-hero h1{margin:17px 0 12px;font-size:clamp(2rem,5vw,3.3rem);line-height:1.08;letter-spacing:-.055em}.sv-image-metadata-hero p{max-width:740px;margin:0 auto 12px;color:var(--sv-image-metadata-muted);font-size:1.06rem}.sv-image-metadata-hero .sv-image-metadata-support{font-size:.94rem}.sv-image-metadata-privacy-note{display:flex;gap:12px;align-items:flex-start;background:#eef6f1;border:1px solid #d2e5da;border-radius:13px;padding:15px 18px;margin:22px auto 0;max-width:790px;text-align:left;color:#28513f;font-size:.92rem}.sv-image-metadata-privacy-note svg{flex:0 0 22px;margin-top:2px}.sv-image-metadata-card{background:var(--sv-image-metadata-card);border:1px solid var(--sv-image-metadata-line);border-radius:var(--sv-image-metadata-radius);box-shadow:var(--sv-image-metadata-shadow);padding:clamp(20px,4vw,30px);margin:22px 0}.sv-image-metadata-card h2{font-size:1.35rem;line-height:1.25;letter-spacing:-.025em;margin:0 0 7px}.sv-image-metadata-card-intro{color:var(--sv-image-metadata-muted);margin:0 0 20px;font-size:.95rem}.sv-image-metadata-dropzone{border:2px dashed #b9ccc2;border-radius:16px;min-height:245px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px 18px;background:#fbfcfa;outline:none;transition:border-color .15s,background .15s}.sv-image-metadata-dropzone:focus-visible,.sv-image-metadata-dropzone.sv-image-metadata-dragover{border-color:var(--sv-image-metadata-accent);background:#f0f7f2}.sv-image-metadata-upload-icon{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:#eaf3ed;color:var(--sv-image-metadata-accent);margin-bottom:10px}.sv-image-metadata-dropzone strong{font-size:1.08rem}.sv-image-metadata-muted{color:var(--sv-image-metadata-muted)}.sv-image-metadata-format-list{margin:7px 0 16px;color:var(--sv-image-metadata-muted);font-size:.82rem}.sv-image-metadata-button{display:inline-flex;justify-content:center;align-items:center;gap:9px;min-height:44px;border:1px solid transparent;border-radius:11px;padding:10px 17px;background:var(--sv-image-metadata-accent);color:white;font-weight:720;text-decoration:none;line-height:1.2}.sv-image-metadata-button:hover{background:var(--sv-image-metadata-accent-hover);color:white}.sv-image-metadata-button:focus-visible,.sv-image-metadata-secondary:focus-visible,.sv-image-metadata-nav a:focus-visible,.sv-image-metadata-brand:focus-visible{outline:3px solid #75ad91;outline-offset:3px}.sv-image-metadata-secondary{display:inline-flex;justify-content:center;align-items:center;gap:8px;min-height:42px;border:1px solid #cbd8d1;border-radius:11px;padding:9px 14px;background:#fff;color:var(--sv-image-metadata-ink);font-weight:650}.sv-image-metadata-secondary:hover{background:#f4f8f5}.sv-image-metadata-danger{color:var(--sv-image-metadata-danger);border-color:#e6c8c8}.sv-image-metadata-hidden-input{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.sv-image-metadata-status{display:none;margin:16px 0 0;padding:12px 14px;border-radius:10px;font-size:.92rem}.sv-image-metadata-status[data-visible="true"]{display:block}.sv-image-metadata-status[data-kind="info"]{background:#eff5fa;color:#284b63;border:1px solid #d2e3ed}.sv-image-metadata-status[data-kind="success"]{background:#edf7ef;color:#245b35;border:1px solid #cce7d0}.sv-image-metadata-status[data-kind="error"]{background:#fff0ef;color:#8d2d2d;border:1px solid #f0d0cd}.sv-image-metadata-status[data-kind="warning"]{background:var(--sv-image-metadata-warning-bg);color:var(--sv-image-metadata-warning);border:1px solid #f0dbb9}.sv-image-metadata-hidden{display:none!important}.sv-image-metadata-file-layout{display:grid;grid-template-columns:minmax(0, .86fr) minmax(0,1.14fr);gap:24px;align-items:start}.sv-image-metadata-preview-frame{display:grid;place-items:center;min-height:240px;max-height:480px;overflow:hidden;background:#f3f5f2;border:1px solid var(--sv-image-metadata-line);border-radius:13px;padding:10px}.sv-image-metadata-preview-frame img{display:block;max-width:100%;max-height:450px;width:auto;height:auto;object-fit:contain}.sv-image-metadata-output-preview{min-height:200px}.sv-image-metadata-file-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0 0}.sv-image-metadata-fact{padding:11px 12px;border:1px solid #e5ebe7;border-radius:11px;min-width:0}.sv-image-metadata-fact span{display:block;color:var(--sv-image-metadata-muted);font-size:.78rem;margin-bottom:2px}.sv-image-metadata-fact strong{display:block;font-size:.92rem;overflow-wrap:anywhere}.sv-image-metadata-warning{display:flex;gap:12px;align-items:flex-start;background:var(--sv-image-metadata-warning-bg);border:1px solid #efd9b6;color:#6b4416;border-radius:12px;padding:14px 16px;margin:16px 0}.sv-image-metadata-warning strong{display:block;margin-bottom:2px}.sv-image-metadata-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin:18px 0}.sv-image-metadata-summary-card{border:1px solid var(--sv-image-metadata-line);border-radius:13px;padding:14px;background:#fbfcfa}.sv-image-metadata-summary-card span{display:block;color:var(--sv-image-metadata-muted);font-size:.79rem}.sv-image-metadata-summary-card strong{display:block;margin-top:3px;font-size:.95rem}.sv-image-metadata-details{border-top:1px solid var(--sv-image-metadata-line);padding:12px 0}.sv-image-metadata-details:first-child{border-top:0}.sv-image-metadata-details summary{cursor:pointer;font-weight:740;list-style-position:outside;padding:4px 3px}.sv-image-metadata-dl{display:grid;grid-template-columns:minmax(155px,.42fr) minmax(0,1fr);gap:0;margin:8px 0 0}.sv-image-metadata-dl dt,.sv-image-metadata-dl dd{padding:9px 8px;border-bottom:1px solid #edf0ed;margin:0;overflow-wrap:anywhere;word-break:break-word}.sv-image-metadata-dl dt{font-size:.87rem;color:var(--sv-image-metadata-muted)}.sv-image-metadata-dl dd{font-size:.91rem}.sv-image-metadata-empty{background:#f6f8f6;border-radius:10px;padding:13px 15px;color:var(--sv-image-metadata-muted);font-size:.92rem}.sv-image-metadata-action-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.sv-image-metadata-progress{height:5px;border-radius:20px;background:#e4ebe6;overflow:hidden;margin-top:14px}.sv-image-metadata-progress span{display:block;width:40%;height:100%;background:var(--sv-image-metadata-accent);animation:sv-image-metadata-progress 1.2s ease-in-out infinite alternate}.sv-image-metadata-progress[hidden]{display:none}@keyframes sv-image-metadata-progress{from{transform:translateX(-40%)}to{transform:translateX(180%)}}.sv-image-metadata-educational{max-width:860px;margin:42px auto 0}.sv-image-metadata-educational>h2{font-size:1.6rem;letter-spacing:-.03em;margin:0 0 16px}.sv-image-metadata-edu-item{padding:19px 0;border-top:1px solid var(--sv-image-metadata-line)}.sv-image-metadata-edu-item h3{font-size:1.08rem;margin:0 0 6px}.sv-image-metadata-edu-item p{margin:0;color:#53615b}.sv-image-metadata-related{display:flex;flex-wrap:wrap;gap:11px 18px}.sv-image-metadata-footer{border-top:1px solid var(--sv-image-metadata-line);background:#fff;padding:27px 0;color:var(--sv-image-metadata-muted);font-size:.88rem}.sv-image-metadata-footer-inner{display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}.sv-image-metadata-footer nav{display:flex;gap:18px;flex-wrap:wrap}.sv-image-metadata-footer a{text-decoration:none}.sv-image-metadata-small{font-size:.83rem;color:var(--sv-image-metadata-muted)}.sv-image-metadata-loader{display:inline-block;width:14px;height:14px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;animation:sv-image-metadata-spin .7s linear infinite}@keyframes sv-image-metadata-spin{to{transform:rotate(360deg)}}
+    @media(max-width:760px){.sv-image-metadata-header-inner{align-items:flex-start;flex-direction:column;justify-content:center;padding:15px 0;gap:10px}.sv-image-metadata-nav{gap:14px}.sv-image-metadata-main{padding-top:32px}.sv-image-metadata-file-layout{grid-template-columns:1fr}.sv-image-metadata-summary{grid-template-columns:1fr}.sv-image-metadata-summary-card{display:flex;justify-content:space-between;align-items:center;gap:14px}.sv-image-metadata-summary-card strong{margin-top:0;text-align:right}.sv-image-metadata-dl{grid-template-columns:minmax(125px,.42fr) minmax(0,1fr)}}
+    @media(max-width:450px){.sv-image-metadata-shell{width:min(100% - 24px,1120px)}.sv-image-metadata-nav{gap:11px}.sv-image-metadata-nav a{font-size:.85rem}.sv-image-metadata-file-facts{grid-template-columns:1fr}.sv-image-metadata-dl{grid-template-columns:1fr}.sv-image-metadata-dl dt{padding-bottom:2px;border-bottom:0}.sv-image-metadata-dl dd{padding-top:2px}.sv-image-metadata-action-row>*{width:100%}.sv-image-metadata-dropzone{min-height:220px}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <header class="sv-image-metadata-header">
+    <div class="sv-image-metadata-shell sv-image-metadata-header-inner">
+      <a class="sv-image-metadata-brand" href="/" aria-label="Synth Visual Space home"><span class="sv-image-metadata-brand-mark" aria-hidden="true">S</span>Synth Visual</a>
+      <nav class="sv-image-metadata-nav" aria-label="Main navigation">
+        <a href="/what-is-a-vpn.html">Guides</a>
+        <a href="/about.html">About</a>
+        <a href="/">Explore Articles</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="sv-image-metadata-shell sv-image-metadata-main">
+    <section class="sv-image-metadata-hero" aria-labelledby="sv-image-metadata-title">
+      <span class="sv-image-metadata-eyebrow"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 2.9 7.7 7 10 4.1-2.3 7-5.5 7-10V6l-7-3Z"/><path d="m9 12 2 2 4-4"/></svg> Privacy utility</span>
+      <h1 id="sv-image-metadata-title">Image Metadata Viewer &amp; Remover</h1>
+      <p>Inspect hidden information in your images and remove supported privacy-sensitive metadata before sharing them online.</p>
+      <p class="sv-image-metadata-support">Photos can contain information beyond the visible image, including camera details, capture dates, and sometimes GPS coordinates. Check what's embedded and download a cleaner copy before sharing.</p>
+      <div class="sv-image-metadata-privacy-note" role="note"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3M12 14v3"/></svg><div><strong>Your image stays on your device.</strong><br>The image file and extracted metadata are processed locally in this browser. This page contains no upload endpoint, external image API, analytics, or third-party parser request.</div></div>
+    </section>
+
+    <section class="sv-image-metadata-card" aria-labelledby="sv-image-metadata-upload-title">
+      <h2 id="sv-image-metadata-upload-title">Choose an image to inspect</h2>
+      <p class="sv-image-metadata-card-intro">Start with one static JPEG, PNG, or WebP image. Your original file will never be overwritten.</p>
+      <div id="sv-image-metadata-dropzone" class="sv-image-metadata-dropzone" tabindex="0" role="region" aria-label="Image upload area. Drop an image here or use the Choose Image button." aria-describedby="sv-image-metadata-format-list">
+        <div class="sv-image-metadata-upload-icon" aria-hidden="true"><svg width="27" height="27" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 16V4m0 0L7.5 8.5M12 4l4.5 4.5"/><path d="M5 14v4a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-4"/></svg></div>
+        <strong>Drag and drop your image here</strong>
+        <span class="sv-image-metadata-muted">or choose a file from your device</span>
+        <p id="sv-image-metadata-format-list" class="sv-image-metadata-format-list">Supported: JPEG / JPG, PNG, static WebP · Maximum file size: 20 MB</p>
+        <button id="sv-image-metadata-choose" class="sv-image-metadata-button" type="button">Choose Image</button>
+      </div>
+      <input class="sv-image-metadata-hidden-input" id="sv-image-metadata-file-input" type="file" accept=".jpg,.jpeg,.png,.webp,image/jpeg,image/png,image/webp" aria-label="Choose a JPEG, PNG, or WebP image">
+      <div id="sv-image-metadata-status" class="sv-image-metadata-status" data-kind="info" data-visible="false" role="status" aria-live="polite"></div>
+      <div id="sv-image-metadata-progress" class="sv-image-metadata-progress" hidden aria-label="Processing image"><span></span></div>
+    </section>
+
+    <section id="sv-image-metadata-original-panel" class="sv-image-metadata-card sv-image-metadata-hidden" aria-labelledby="sv-image-metadata-original-title">
+      <h2 id="sv-image-metadata-original-title">Image details</h2>
+      <p class="sv-image-metadata-card-intro">The information below is read from the selected file. The file's local modification time is not necessarily the photograph's capture time.</p>
+      <div class="sv-image-metadata-file-layout">
+        <div>
+          <div class="sv-image-metadata-preview-frame"><img id="sv-image-metadata-original-preview" alt="Preview of the selected original image"></div>
+          <div class="sv-image-metadata-action-row"><button id="sv-image-metadata-reset-top" type="button" class="sv-image-metadata-secondary sv-image-metadata-danger">Remove Image / Start Over</button></div>
+        </div>
+        <div>
+          <div class="sv-image-metadata-file-facts" id="sv-image-metadata-file-facts"></div>
+          <div id="sv-image-metadata-location-warning" class="sv-image-metadata-warning sv-image-metadata-hidden" role="alert"><span aria-hidden="true">⚠</span><div><strong>Location Information Found</strong>This image contains embedded location data that may reveal where it was taken. Review it before sharing the original file.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sv-image-metadata-report-panel" class="sv-image-metadata-card sv-image-metadata-hidden" aria-labelledby="sv-image-metadata-report-title">
+      <h2 id="sv-image-metadata-report-title">Embedded metadata report</h2>
+      <p class="sv-image-metadata-card-intro">Only fields that the local parser actually finds are shown. A missing field does not prove that every possible metadata format is absent.</p>
+      <div id="sv-image-metadata-summary" class="sv-image-metadata-summary"></div>
+      <div id="sv-image-metadata-report-content"></div>
+      <div class="sv-image-metadata-action-row"><button id="sv-image-metadata-process" type="button" class="sv-image-metadata-button">Remove Metadata &amp; Download</button><button id="sv-image-metadata-reset" type="button" class="sv-image-metadata-secondary">Start Over</button></div>
+      <p class="sv-image-metadata-small" style="margin-top:13px">The tool strips supported metadata blocks without recompressing image pixels in the normal case. If an orientation tag must be normalized, the browser re-encodes the image and may slightly change image quality.</p>
+    </section>
+
+    <section id="sv-image-metadata-output-panel" class="sv-image-metadata-card sv-image-metadata-hidden" aria-labelledby="sv-image-metadata-output-title">
+      <h2 id="sv-image-metadata-output-title">Processed image</h2>
+      <p class="sv-image-metadata-card-intro">A separate copy has been created. The original image remains unchanged. The results below come from parsing the processed copy again.</p>
+      <div class="sv-image-metadata-file-layout">
+        <div class="sv-image-metadata-preview-frame sv-image-metadata-output-preview"><img id="sv-image-metadata-output-preview" alt="Preview of the processed image with supported metadata removed"></div>
+        <div>
+          <div class="sv-image-metadata-file-facts" id="sv-image-metadata-output-facts"></div>
+          <div id="sv-image-metadata-output-verification"></div>
+          <div class="sv-image-metadata-action-row"><a id="sv-image-metadata-download" class="sv-image-metadata-button" href="#" download>Download Clean Image</a><button id="sv-image-metadata-view-output" class="sv-image-metadata-secondary" type="button">View Processed Metadata</button><button id="sv-image-metadata-another" class="sv-image-metadata-secondary" type="button">Remove Another Image</button></div>
+        </div>
+      </div>
+      <div id="sv-image-metadata-output-report" class="sv-image-metadata-hidden" style="margin-top:24px"><h3>Processed metadata check</h3><div id="sv-image-metadata-output-report-content"></div></div>
+    </section>
+
+    <section class="sv-image-metadata-educational" aria-labelledby="sv-image-metadata-about-title">
+      <h2 id="sv-image-metadata-about-title">Understand image metadata</h2>
+      <div class="sv-image-metadata-edu-item"><h3>What Is Image Metadata?</h3><p>Metadata is information stored inside or alongside an image file. Depending on the format and source, it may describe a camera, capture settings, date, location, software, author, caption, or other details. This tool checks common embedded metadata structures in JPEG, PNG, and static WebP files.</p></div>
+      <div class="sv-image-metadata-edu-item"><h3>Why Can Image Metadata Matter?</h3><p>Location coordinates, capture timestamps, device details, or author information may reveal more than you intend when you share an original file. Not every image contains GPS coordinates, and not every website preserves or exposes the original metadata.</p></div>
+      <div class="sv-image-metadata-edu-item"><h3>Does Removing Metadata Affect the Image?</h3><p>Metadata removal is different from visually editing a picture. The normal format-aware operation removes supported metadata segments or chunks while preserving compressed image data. If a non-default orientation needs to be applied to the pixels before removing the orientation tag, the browser uses Canvas to re-encode the image; this can slightly alter lossy image quality.</p></div>
+      <div class="sv-image-metadata-edu-item"><h3>Does This Tool Remove Metadata From the Original File?</h3><p>No. It creates a separate processed copy for download. The original file on your device is not modified or overwritten.</p></div>
+      <div class="sv-image-metadata-edu-item"><h3>Does Removing Metadata Guarantee Anonymity?</h3><p>No. Removing supported embedded metadata can reduce information stored in the file, but it does not hide identifying details visible in the picture, such as faces, addresses, license plates, or recognizable locations. It also cannot erase copies that were already shared online.</p></div>
+      <div class="sv-image-metadata-edu-item"><h3>Supported Formats and Important Limitations</h3><p>JPEG, PNG, and static WebP are accepted. The parser checks common EXIF/TIFF fields, common GPS tags, standard XMP locations, selected IPTC IIM datasets in JPEG APP13 resources, PNG text chunks, and JPEG comments. It does not interpret every manufacturer-specific MakerNote, every vendor-specific metadata block, all extended XMP packets, or all possible proprietary fields. The removal operation strips supported containers rather than claiming that every possible metadata byte has been removed. Animated WebP, GIF, HEIC/HEIF, TIFF, RAW, and other formats are not supported.</p></div>
+      <div class="sv-image-metadata-edu-item"><h3>Related Guides</h3><div class="sv-image-metadata-related"><a href="/what-is-a-vpn.html">What Is a VPN?</a><a href="/what-is-an-ip-address.html">What Is an IP Address?</a><a href="/what-is-dns.html">What Is DNS?</a><a href="/about.html">About Synth Visual</a></div><p class="sv-image-metadata-small" style="margin-top:10px">A VPN and image metadata removal address different privacy concerns. Using a VPN does not remove metadata embedded in image files.</p></div>
+    </section>
+  </main>
+
+  <footer class="sv-image-metadata-footer"><div class="sv-image-metadata-shell sv-image-metadata-footer-inner"><span>© <span id="sv-image-metadata-year">2026</span> Synth Visual. All rights reserved.</span><nav aria-label="Footer navigation"><a href="/">Home</a><a href="/about.html">About</a><a href="/privacy-policy.html">Privacy Policy</a><a href="/affiliate-disclosure.html">Affiliate Disclosure</a></nav></div></footer>
+
+<script>
+(() => {
+  'use strict';
+  const PREFIX = 'sv-image-metadata-';
+  const MAX_FILE_SIZE = 20 * 1024 * 1024;
+  const MAX_EDGE = 12000;
+  const MAX_PIXELS = 60000000;
+  const $ = id => document.getElementById(PREFIX + id);
+  const els = {
+    input: $('file-input'), drop: $('dropzone'), choose: $('choose'), status: $('status'), progress: $('progress'), originalPanel: $('original-panel'), originalPreview: $('original-preview'), fileFacts: $('file-facts'), locationWarning: $('location-warning'), reportPanel: $('report-panel'), summary: $('summary'), reportContent: $('report-content'), process: $('process'), reset: $('reset'), resetTop: $('reset-top'), outputPanel: $('output-panel'), outputPreview: $('output-preview'), outputFacts: $('output-facts'), outputVerification: $('output-verification'), download: $('download'), viewOutput: $('view-output'), another: $('another'), outputReport: $('output-report'), outputReportContent: $('output-report-content')
+  };
+  const state = { file: null, analysis: null, sourceUrl: null, outputBlob: null, outputAnalysis: null, outputUrl: null, outputName: null, busy: false };
+  $('year').textContent = String(new Date().getFullYear());
+
+  function showStatus(message, kind = 'info') {
+    els.status.textContent = message;
+    els.status.dataset.kind = kind;
+    els.status.dataset.visible = 'true';
+  }
+  function hideStatus() { els.status.textContent = ''; els.status.dataset.visible = 'false'; }
+  function setBusy(busy, message) {
+    state.busy = busy;
+    els.progress.hidden = !busy;
+    els.process.disabled = busy;
+    els.choose.disabled = busy;
+    els.reset.disabled = busy;
+    els.resetTop.disabled = busy;
+    if (message) showStatus(message, 'info');
+  }
+  function revoke(url) { if (url) URL.revokeObjectURL(url); }
+  function cleanupOutput() { revoke(state.outputUrl); state.outputUrl = null; state.outputBlob = null; state.outputAnalysis = null; state.outputName = null; }
+  function resetAll() {
+    if (state.busy) return;
+    revoke(state.sourceUrl); state.sourceUrl = null;
+    cleanupOutput(); state.file = null; state.analysis = null; els.input.value = '';
+    els.originalPreview.removeAttribute('src'); els.outputPreview.removeAttribute('src');
+    els.originalPanel.classList.add(PREFIX + 'hidden'); els.reportPanel.classList.add(PREFIX + 'hidden'); els.outputPanel.classList.add(PREFIX + 'hidden');
+    els.fileFacts.replaceChildren(); els.summary.replaceChildren(); els.reportContent.replaceChildren(); els.outputFacts.replaceChildren(); els.outputVerification.replaceChildren(); els.outputReportContent.replaceChildren(); els.outputReport.classList.add(PREFIX + 'hidden'); els.locationWarning.classList.add(PREFIX + 'hidden');
+    els.download.removeAttribute('href'); els.download.removeAttribute('download'); hideStatus(); els.progress.hidden = true;
+  }
+  function fmtBytes(n) { if (!Number.isFinite(n)) return 'Unknown'; if (n < 1024) return `${n} B`; if (n < 1048576) return `${(n/1024).toFixed(1)} KB`; return `${(n/1048576).toFixed(2)} MB`; }
+  function fmtLocalDate(timestamp) { if (!timestamp) return 'Not available'; try { return new Date(timestamp).toLocaleString(undefined, {dateStyle:'medium',timeStyle:'short'}); } catch { return new Date(timestamp).toString(); } }
+  function makeFact(label, value) {
+    const div = document.createElement('div'); div.className = PREFIX + 'fact';
+    const span = document.createElement('span'); span.textContent = label;
+    const strong = document.createElement('strong'); strong.textContent = value == null || value === '' ? 'Not available' : String(value);
+    div.append(span, strong); return div;
+  }
+  function putFacts(target, facts) { target.replaceChildren(...facts.map(([label, value]) => makeFact(label, value))); }
+  function addMetadata(result, category, label, value, rawKey) {
+    if (value === undefined || value === null || value === '') return;
+    let textValue = Array.isArray(value) ? value.join(', ') : String(value);
+    textValue = textValue.trim(); if (!textValue) return;
+    if (textValue.length > 2400) textValue = textValue.slice(0, 2400) + '… [truncated for display]';
+    const entry = { category, label: String(label || rawKey || 'Metadata'), value: textValue, rawKey: rawKey || label || '' };
+    const key = `${entry.category}|${entry.label}|${entry.value}`;
+    if (!result._seen.has(key)) { result._seen.add(key); result.meta[category].push(entry); }
+  }
+  function newAnalysis(format, mime, width, height) {
+    return { format, mime, width: width || null, height: height || null, orientation: 1, meta: { camera:[], capture:[], gps:[], author:[], other:[], advanced:[] }, _seen:new Set(), notices:[], flags:{exif:false,xmp:false,iptc:false,pngText:false,comment:false} };
+  }
+  function finishAnalysis(a) { delete a._seen; a.hasMetadata = Object.values(a.meta).some(list => list.length > 0); a.hasLocation = a.meta.gps.length > 0; a.hasDeviceOrCapture = a.meta.camera.length + a.meta.capture.length > 0; a.hasOther = a.meta.author.length + a.meta.other.length + a.meta.advanced.length > 0; return a; }
+  function decodeText(bytes, encoding = 'utf-8') { try { return new TextDecoder(encoding, {fatal:false}).decode(bytes); } catch { return new TextDecoder().decode(bytes); } }
+  function cleanText(s) { return String(s ?? '').replace(/\u0000/g,'').replace(/[\u0001-\u0008\u000B\u000C\u000E-\u001F]/g,' ').replace(/\s+/g,' ').trim(); }
+  function starts(bytes, offset, text) { const arr = new TextEncoder().encode(text); if (offset + arr.length > bytes.length) return false; for (let i=0;i<arr.length;i++) if (bytes[offset+i] !== arr[i]) return false; return true; }
+  function ascii(bytes, start=0, end=bytes.length) { return decodeText(bytes.subarray(start,end),'latin1'); }
+  function readU32LE(bytes, offset) { return new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength).getUint32(offset, true); }
+  function isJpegSof(marker) { return [0xC0,0xC1,0xC2,0xC3,0xC5,0xC6,0xC7,0xC9,0xCA,0xCB,0xCD,0xCE,0xCF].includes(marker); }
+  function parseJpeg(bytes) {
+    if (bytes.length < 4 || bytes[0] !== 0xFF || bytes[1] !== 0xD8) throw new Error('The file is not a valid JPEG image.');
+    const segments=[],items=[{type:'segment',marker:0xD8,start:0,end:2,dataStart:2,dataEnd:2}]; let width=null,height=null,offset=2,eoiEnd=-1;
+    while (offset < bytes.length) {
+      if (bytes[offset] !== 0xFF) throw new Error('The JPEG structure appears malformed outside its compressed image data.');
+      const start=offset; while (offset < bytes.length && bytes[offset]===0xFF) offset++;
+      if (offset >= bytes.length) throw new Error('The JPEG file ends unexpectedly.');
+      const marker=bytes[offset++];
+      if (marker===0xD9) { const seg={type:'segment',marker:0xD9,start,end:offset,dataStart:offset,dataEnd:offset};segments.push(seg);items.push(seg);eoiEnd=offset;break; }
+      if (marker===0xD8 || marker===0x01 || (marker>=0xD0 && marker<=0xD7)) { const seg={type:'segment',marker,start,end:offset,dataStart:offset,dataEnd:offset};segments.push(seg);items.push(seg);continue; }
+      if (offset+2>bytes.length) throw new Error('A JPEG segment is incomplete.');
+      const len=(bytes[offset]<<8)|bytes[offset+1];
+      if (len<2 || offset+len>bytes.length) throw new Error('A JPEG segment has an invalid length.');
+      const dataStart=offset+2, end=offset+len;
+      if (isJpegSof(marker) && len>=7) { height=(bytes[dataStart+1]<<8)|bytes[dataStart+2]; width=(bytes[dataStart+3]<<8)|bytes[dataStart+4]; }
+      const seg={type:'segment',marker,start,end,dataStart,dataEnd:end}; segments.push(seg);items.push(seg);offset=end;
+      if (marker===0xDA) {
+        // Scan data can contain stuffed FF 00 bytes and restart markers. Other markers
+        // start the next JPEG segment (including metadata markers in multi-scan JPEGs).
+        const scanStart=offset;
+        while(offset<bytes.length){
+          if(bytes[offset]!==0xFF){offset++;continue;}
+          const markerStart=offset;let j=offset+1;while(j<bytes.length&&bytes[j]===0xFF)j++;
+          if(j>=bytes.length)break;
+          const nextMarker=bytes[j];
+          if(nextMarker===0x00||(nextMarker>=0xD0&&nextMarker<=0xD7)){offset=j+1;continue;}
+          items.push({type:'scan',start:scanStart,end:markerStart});offset=markerStart;break;
+        }
+      }
+    }
+    if (eoiEnd<0) throw new Error('The JPEG end marker was not found. The file may be corrupted or incomplete.');
+    if (width===null || height===null || width<1 || height<1) throw new Error('JPEG dimensions could not be read. The file may be corrupted or use an unsupported JPEG structure.');
+    return {segments,items,width,height,eoiEnd};
+  }
+  const TIFF_TYPES={1:1,2:1,3:2,4:4,5:8,6:1,7:1,8:2,9:4,10:8,11:4,12:8};
+  const TIFF_TAGS={
+    0x010E:['Image Description','author'],0x010F:['Camera Make','camera'],0x0110:['Camera Model','camera'],0x0112:['Orientation','capture'],0x011A:['X Resolution','other'],0x011B:['Y Resolution','other'],0x0128:['Resolution Unit','other'],0x0131:['Software','camera'],0x0132:['File Date/Time','capture'],0x013B:['Artist / Creator','author'],0x0213:['YCbCr Positioning','other'],0x8298:['Copyright','author'],
+    0x829A:['Exposure Time','capture'],0x829D:['F-number / Aperture','capture'],0x8822:['Exposure Program','capture'],0x8824:['Spectral Sensitivity','capture'],0x8827:['ISO Speed','capture'],0x9000:['Exif Version','other'],0x9003:['Original Capture Date/Time','capture'],0x9004:['Digitized Date/Time','capture'],0x9101:['Components Configuration','other'],0x9102:['Compressed Bits per Pixel','other'],0x9201:['Shutter Speed Value','capture'],0x9202:['Aperture Value','capture'],0x9203:['Brightness Value','capture'],0x9204:['Exposure Bias','capture'],0x9205:['Maximum Aperture','capture'],0x9206:['Subject Distance','capture'],0x9207:['Metering Mode','capture'],0x9208:['Light Source','capture'],0x9209:['Flash','capture'],0x920A:['Focal Length','capture'],0x9214:['Subject Area','capture'],0x927C:['MakerNote','advanced'],0x9286:['User Comment','author'],0x9290:['Subsecond Time','capture'],0x9291:['Subsecond Original Time','capture'],0x9292:['Subsecond Digitized Time','capture'],0xA000:['Flashpix Version','other'],0xA001:['Color Space','other'],0xA002:['Pixel Width','other'],0xA003:['Pixel Height','other'],0xA005:['Interoperability Offset','advanced'],0xA20B:['Flash Energy','capture'],0xA20E:['Focal Plane X Resolution','other'],0xA20F:['Focal Plane Y Resolution','other'],0xA210:['Focal Plane Resolution Unit','other'],0xA214:['Subject Location','capture'],0xA217:['Sensing Method','other'],0xA300:['File Source','other'],0xA301:['Scene Type','other'],0xA401:['Custom Rendered','capture'],0xA402:['Exposure Mode','capture'],0xA403:['White Balance','capture'],0xA404:['Digital Zoom Ratio','capture'],0xA405:['Focal Length in 35mm Film','capture'],0xA406:['Scene Capture Type','capture'],0xA407:['Gain Control','capture'],0xA408:['Contrast','capture'],0xA409:['Saturation','capture'],0xA40A:['Sharpness','capture'],0xA420:['Image Unique ID','advanced'],0xA430:['Camera Owner Name','author'],0xA431:['Camera Body Serial Number','camera'],0xA432:['Lens Specification','camera'],0xA434:['Lens Model','camera'],0xA435:['Lens Serial Number','camera'],0xA436:['Image Title','author'],0xA437:['Photographer','author'],0xA438:['Image Editor','author'],0xA439:['Camera Firmware','camera'],0xC4A5:['Print Image Matching','advanced'],
+    0x9C9B:['XP Title','author'],0x9C9C:['XP Comment','author'],0x9C9D:['XP Author','author'],0x9C9E:['XP Keywords','author'],0x9C9F:['XP Subject','author']
+  };
+  const GPS_TAGS={0:'GPS Version ID',1:'GPS Latitude Reference',2:'GPS Latitude',3:'GPS Longitude Reference',4:'GPS Longitude',5:'GPS Altitude Reference',6:'GPS Altitude',7:'GPS Time Stamp',8:'GPS Satellites',9:'GPS Status',10:'GPS Measure Mode',11:'GPS Dilution of Precision',12:'GPS Speed Reference',13:'GPS Speed',14:'GPS Track Reference',15:'GPS Track',16:'GPS Image Direction Reference',17:'GPS Image Direction',18:'GPS Map Datum',19:'GPS Destination Latitude Reference',20:'GPS Destination Latitude',21:'GPS Destination Longitude Reference',22:'GPS Destination Longitude',23:'GPS Destination Bearing Reference',24:'GPS Destination Bearing',25:'GPS Destination Distance Reference',26:'GPS Destination Distance',27:'GPS Processing Method',28:'GPS Area Information',29:'GPS Date Stamp',30:'GPS Differential',31:'GPS Horizontal Positioning Error'};
+  function formatTiffValue(value, type) {
+    if (Array.isArray(value)) return value.map(v=>typeof v==='number' && Number.isFinite(v) ? Number(v.toFixed(6)) : v).join(', ');
+    if (typeof value==='number' && Number.isFinite(value)) return String(Number(value.toFixed(6)));
+    return cleanText(value);
+  }
+  function parseTiff(tiffBytes, result) {
+    const bytes=tiffBytes; if (bytes.length<8) return;
+    const order=ascii(bytes,0,2); if (order!=='II' && order!=='MM') return;
+    const little=order==='II'; const view=new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength);
+    const safe16=o=>o>=0&&o+2<=bytes.length?view.getUint16(o,little):null;
+    const safe32=o=>o>=0&&o+4<=bytes.length?view.getUint32(o,little):null;
+    if (safe16(2)!==42) return;
+    const first=safe32(4); if (first===null || first>=bytes.length) return;
+    const gps={}, ifdPointers=[]; let ifd0=[];
+    function readValue(entryPos,type,count) {
+      const size=TIFF_TYPES[type]; if (!size || count>4096) return 'Unsupported/large TIFF value';
+      const total=size*count; const valuePos=total<=4 ? entryPos+8 : safe32(entryPos+8);
+      if (valuePos===null || valuePos<0 || valuePos+total>bytes.length) return 'Invalid TIFF value offset';
+      if (type===2) return cleanText(ascii(bytes,valuePos,valuePos+Math.max(0,count-1)));
+      const vals=[];
+      for(let i=0;i<count && i<100;i++){
+        const p=valuePos+i*size; let v;
+        try {
+          if(type===1 || type===6 || type===7) v=type===6?view.getInt8(p):bytes[p];
+          else if(type===3) v=view.getUint16(p,little);
+          else if(type===8) v=view.getInt16(p,little);
+          else if(type===4) v=view.getUint32(p,little);
+          else if(type===9) v=view.getInt32(p,little);
+          else if(type===5 || type===10){ const n=type===10?view.getInt32(p,little):view.getUint32(p,little); const d=type===10?view.getInt32(p+4,little):view.getUint32(p+4,little); v=d===0?'n/a':n/d; }
+          else if(type===11) v=view.getFloat32(p,little);
+          else if(type===12) v=view.getFloat64(p,little);
+        } catch { return 'Invalid TIFF value'; }
+        vals.push(v);
+      }
+      if(type===7 || type===1){ if(count>1) return `Binary data (${count} bytes)`; return vals[0]; }
+      return count===1 ? vals[0] : vals;
+    }
+    function readIfd(offset, kind, depth=0) {
+      if(depth>3 || offset===null || offset<0 || offset+2>bytes.length) return [];
+      const count=safe16(offset); if(count===null || count>512 || offset+2+count*12>bytes.length) return [];
+      const entries=[];
+      for(let i=0;i<count;i++){
+        const p=offset+2+i*12, tag=safe16(p), type=safe16(p+2), n=safe32(p+4);
+        if(tag===null || type===null || n===null) continue;
+        const value=readValue(p,type,n); entries.push({tag,type,count:n,value,entryPos:p});
+      }
+      const nextPos=offset+2+count*12; const next=safe32(nextPos);
+      if(kind==='ifd0') { ifd0=entries; if(next && next<bytes.length) ifdPointers.push({offset:next,kind:'ifd1'}); }
+      for(const e of entries){
+        if(kind==='ifd0' && (e.tag===0x8769 || e.tag===0x8825) && typeof e.value==='number' && e.value<bytes.length) ifdPointers.push({offset:e.value,kind:e.tag===0x8769?'exif':'gps'});
+      }
+      return entries;
+    }
+    const all=[{kind:'ifd0',entries:readIfd(first,'ifd0')}];
+    const seenOffsets=new Set([first]);
+    for(const p of ifdPointers){ if(!seenOffsets.has(p.offset)){seenOffsets.add(p.offset);all.push({kind:p.kind,entries:readIfd(p.offset,p.kind,1)});} }
+    let gotSomething=false;
+    for(const group of all){
+      for(const e of group.entries){
+        if(group.kind==='gps') { gps[e.tag]=e.value; const label=GPS_TAGS[e.tag]; if(label){ const category='gps'; addMetadata(result,category,label,formatTiffValue(e.value,e.type),`GPS:${e.tag}`); gotSomething=true; } continue; }
+        if([0x8769,0x8825,0xA005].includes(e.tag)) continue;
+        const mapped=TIFF_TAGS[e.tag];
+        if(mapped){ let value=formatTiffValue(e.value,e.type); if(e.tag===0x0112){ const orientationNames={1:'1 — Normal',2:'2 — Mirrored horizontally',3:'3 — Rotated 180°',4:'4 — Mirrored vertically',5:'5 — Mirrored and rotated 90°',6:'6 — Rotated 90° clockwise',7:'7 — Mirrored and rotated 270°',8:'8 — Rotated 270° clockwise'}; value=orientationNames[Number(e.value)]||value; if(group.kind==='ifd0') result.orientation=Number(e.value)||1; }
+          addMetadata(result,mapped[1],mapped[0],value,`EXIF:${e.tag.toString(16)}`); gotSomething=true;
+        } else if(group.kind!=='ifd1') { addMetadata(result,'advanced',`TIFF tag 0x${e.tag.toString(16).toUpperCase()}`,formatTiffValue(e.value,e.type),`TIFF:${e.tag}`); gotSomething=true; }
+      }
+    }
+    const coord=(v,ref)=>{ const a=Array.isArray(v)?v:[v]; if(a.length<3 || a.some(n=>typeof n!=='number'||!Number.isFinite(n))) return null; let d=a[0]+a[1]/60+a[2]/3600; if(ref && /[SW]/i.test(String(ref))) d=-d; return d.toFixed(6)+'°'; };
+    const lat=coord(gps[2],formatTiffValue(gps[1],2)), lon=coord(gps[4],formatTiffValue(gps[3],2));
+    if(lat || lon){
+      if(lat) addMetadata(result,'gps','GPS Latitude (decimal)',lat,'GPS:latitude-decimal');
+      if(lon) addMetadata(result,'gps','GPS Longitude (decimal)',lon,'GPS:longitude-decimal');
+    }
+    if(gps[6]!==undefined){ const alt=Number(gps[6]); const ref=Number(gps[5])===1?-1:1; if(Number.isFinite(alt)) addMetadata(result,'gps','GPS Altitude',`${(alt*ref).toFixed(2)} m`,'GPS:altitude-decimal'); }
+    if(gotSomething) result.flags.exif=true;
+  }
+  function extractXmp(text, result, rawLabel='XMP packet') {
+    const s=String(text||''); if (!/(xmpmeta|rdf:RDF|<xmp:|<dc:|<exif:|<photoshop:)/i.test(s)) return false;
+    result.flags.xmp=true;
+    const specs=[
+      ['Camera Make','camera',/(?:tiff:Make|exif:Make)/i],['Camera Model','camera',/(?:tiff:Model|exif:Model)/i],['Lens Model','camera',/(?:aux:Lens|exifEX:LensModel|exif:LensModel)/i],['Software','camera',/(?:xmp:CreatorTool|tiff:Software)/i],['Original Capture Date/Time','capture',/(?:exif:DateTimeOriginal|photoshop:DateCreated|xmp:CreateDate)/i],['Modify Date','capture',/(?:xmp:ModifyDate|photoshop:DateModified)/i],['GPS Latitude','gps',/(?:exif:GPSLatitude|exifEX:GPSLatitude)/i],['GPS Longitude','gps',/(?:exif:GPSLongitude|exifEX:GPSLongitude)/i],['Creator / Artist','author',/(?:dc:creator|photoshop:AuthorsPosition|xmpDM:artist)/i],['Copyright','author',/(?:dc:rights|xmpRights:UsageTerms|photoshop:Copyright)/i],['Image Description','author',/(?:dc:description|photoshop:CaptionWriter)/i],['Image Title','author',/(?:dc:title|photoshop:Headline)/i],['Keywords','author',/(?:dc:subject|photoshop:Keywords)/i]
+    ];
+    const extracted = new Map();
+    // Walk opening tags individually so an outer RDF element does not hide nested XMP properties.
+    const openRe=/<([A-Za-z_][\w.-]*:[\w.-]+|[A-Za-z_][\w.-]*)\b([^>]*)>/g; let m;
+    while((m=openRe.exec(s))!==null){
+      const tag=m[1], attrs=m[2]||'';
+      for(const [label,cat,rx] of specs){
+        if(!rx.test(tag)) continue;
+        let vals=[];
+        // XMP properties can be XML elements or attributes on rdf:Description.
+        const propertyName=tag.replace(/[.*+?^${}()|[\]\\]/g,'\\$&');
+        const after=s.slice(openRe.lastIndex);
+        const closeRe=new RegExp(`<\\/${propertyName}\\s*>`,'i'); const close=closeRe.exec(after);
+        if(close && close.index<8000){ const inner=after.slice(0,close.index); const v=cleanText(inner.replace(/<[^>]*>/g,' ').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&quot;/g,'"').replace(/&apos;/g,"'")); if(v)vals.push(v); }
+        const attrRe=/([\w.-]+:[\w.-]+)\s*=\s*(["'])(.*?)\2/g; let a;
+        while((a=attrRe.exec(attrs))!==null){ if(rx.test(a[1])){const v=cleanText(a[3]);if(v)vals.push(v);} }
+        if(vals.length){if(!extracted.has(label))extracted.set(label,{cat,vals:[]});extracted.get(label).vals.push(...vals);}
+      }
+    }
+    // Attributes often live on rdf:Description; scan known property attributes independent of the element name.
+    const attrRe=/([A-Za-z_][\w.-]*:[\w.-]+)\s*=\s*(["'])(.*?)\2/g; let a;
+    while((a=attrRe.exec(s))!==null){for(const [label,cat,rx] of specs){if(rx.test(a[1])){const v=cleanText(a[3]);if(v){if(!extracted.has(label))extracted.set(label,{cat,vals:[]});extracted.get(label).vals.push(v);}}}}
+    for(const [label,{cat,vals}] of extracted){for(const v of [...new Set(vals)].slice(0,4))addMetadata(result,cat,label,v,`XMP:${label}`);}
+    addMetadata(result,'advanced',rawLabel,'An XMP packet was detected. Only selected common XMP properties are interpreted by this viewer.','XMP:packet-present');
+    return true;
+  }
+  const IPTC_LABELS={
+    '2:5':['Object Name','author'],'2:7':['Edit Status','other'],'2:10':['Priority','other'],'2:15':['Category','author'],'2:20':['Supplemental Categories','author'],'2:25':['Keywords','author'],'2:40':['Special Instructions','author'],'2:55':['Date Created','capture'],'2:60':['Time Created','capture'],'2:62':['Digital Creation Date','capture'],'2:63':['Digital Creation Time','capture'],'2:80':['Creator / Byline','author'],'2:85':['Creator Job Title','author'],'2:90':['City','author'],'2:92':['Sublocation','author'],'2:95':['State / Province','author'],'2:100':['Country Code','author'],'2:101':['Country Name','author'],'2:103':['Original Transmission Reference','advanced'],'2:105':['Headline','author'],'2:110':['Credit','author'],'2:115':['Source','author'],'2:116':['Copyright Notice','author'],'2:118':['Contact','author'],'2:120':['Caption / Description','author'],'2:122':['Writer / Editor','author']
+  };
+  function parseIptc(data, result) {
+    let p=0;
+    while(p+5<=data.length){
+      if(data[p]!==0x1C){ p++; continue; }
+      const record=data[p+1], dataset=data[p+2]; let len=(data[p+3]<<8)|data[p+4]; p+=5;
+      if(len&0x8000){ const n=len&0x7FFF; if(n<1||n>4||p+n>data.length)break; len=0; for(let j=0;j<n;j++)len=(len<<8)|data[p++]; }
+      if(p+len>data.length) break;
+      const value=cleanText(decodeText(data.subarray(p,p+len),'latin1')); p+=len;
+      const key=`${record}:${dataset}`, mapped=IPTC_LABELS[key];
+      if(mapped && value){ addMetadata(result,mapped[1],mapped[0],value,`IPTC:${key}`); result.flags.iptc=true; }
+    }
+  }
+  function parsePhotoshopResources(data, result) {
+    const sig=new TextEncoder().encode('Photoshop 3.0\0'); if(data.length<sig.length) return;
+    for(let i=0;i<sig.length;i++) if(data[i]!==sig[i]) return;
+    let p=sig.length;
+    while(p+12<=data.length){
+      if(ascii(data,p,p+4)!=='8BIM') { p++; continue; }
+      const id=(data[p+4]<<8)|data[p+5]; const nameLen=data[p+6]; const nameEnd=p+7+nameLen; const paddedNameEnd=nameEnd+(nameLen%2===0?1:0);
+      if(paddedNameEnd+4>data.length) break;
+      const size=readU32BE(data,paddedNameEnd); const start=paddedNameEnd+4,end=start+size; if(end>data.length)break;
+      const payload=data.subarray(start,end);
+      if(id===0x0404) parseIptc(payload,result);
+      if(id===0x0424) extractXmp(decodeText(payload),result,'Photoshop resource XMP packet');
+      p=end+(size%2);
+    }
+  }
+  function readU32BE(bytes,offset){return new DataView(bytes.buffer,bytes.byteOffset,bytes.byteLength).getUint32(offset,false);}
+  function parseJpegMetadata(bytes, parsed, result) {
+    const xmpPrefix='http://ns.adobe.com/xap/1.0/';
+    for(const s of parsed.segments){
+      if(s.marker===0xE1){
+        if(starts(bytes,s.dataStart,'Exif\0\0')){ parseTiff(bytes.subarray(s.dataStart+6,s.dataEnd),result); result.flags.exif=true; }
+        else if(starts(bytes,s.dataStart,xmpPrefix)){ extractXmp(decodeText(bytes.subarray(s.dataStart+new TextEncoder().encode(xmpPrefix).length+1,s.dataEnd)),result); }
+        else if(starts(bytes,s.dataStart,'http://ns.adobe.com/xmp/extension/\0')){ result.flags.xmp=true; addMetadata(result,'advanced','Extended XMP','An extended XMP segment is present, but its packets are not reassembled by this viewer.','XMP:extended'); }
+      } else if(s.marker===0xED) parsePhotoshopResources(bytes.subarray(s.dataStart,s.dataEnd),result);
+      else if(s.marker===0xFE){ const comment=cleanText(decodeText(bytes.subarray(s.dataStart,s.dataEnd),'latin1')); if(comment){addMetadata(result,'other','JPEG Comment',comment,'JPEG:COM'); result.flags.comment=true;} }
+    }
+  }
+  function crc32(bytes,start,end){
+    if(!crc32.table){crc32.table=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=(c&1)?(0xEDB88320^(c>>>1)):(c>>>1);crc32.table[n]=c>>>0;}}
+    let c=0xFFFFFFFF;for(let i=start;i<end;i++)c=crc32.table[(c^bytes[i])&0xFF]^(c>>>8);return (c^0xFFFFFFFF)>>>0;
+  }
+  async function inflateDeflate(data){
+    if(typeof DecompressionStream!=='function') throw new Error('This browser cannot decompress this PNG text chunk. The chunk can still be removed, but its text value cannot be previewed here.');
+    const ds=new DecompressionStream('deflate'); const reader=new Blob([data]).stream().pipeThrough(ds).getReader();
+    const parts=[]; let total=0; const maxOutput=5*1024*1024;
+    try { while(true){ const {done,value}=await reader.read(); if(done)break; total+=value.byteLength; if(total>maxOutput){await reader.cancel();throw new Error('The decompressed PNG text exceeds the 5 MB safety limit. It will be removed, but not displayed.');} parts.push(value); } }
+    finally { try{reader.releaseLock();}catch{} }
+    return concatBytes(parts);
+  }
+  function parsePngChunks(bytes){
+    const sig=[137,80,78,71,13,10,26,10]; if(bytes.length<33 || !sig.every((v,i)=>bytes[i]===v)) throw new Error('The file is not a valid PNG image.');
+    let p=8,width=null,height=null,chunks=[],hasIend=false;
+    while(p+12<=bytes.length){
+      const start=p,len=readU32BE(bytes,p),type=ascii(bytes,p+4,p+8),dataStart=p+8,dataEnd=dataStart+len,end=dataEnd+4;
+      if(len>bytes.length || end>bytes.length || dataEnd< dataStart) throw new Error('A PNG chunk has an invalid length. The file may be corrupted.');
+      const expected=readU32BE(bytes,dataEnd),actual=crc32(bytes,p+4,dataEnd); if(expected!==actual) throw new Error(`The PNG ${type} chunk failed its integrity check. The file may be corrupted or incomplete.`);
+      const chunk={type,start,dataStart,dataEnd,end,len}; chunks.push(chunk);
+      if(type==='IHDR'){ if(len<13)throw new Error('The PNG header is incomplete.'); width=readU32BE(bytes,dataStart);height=readU32BE(bytes,dataStart+4); }
+      p=end;if(type==='IEND'){hasIend=true;break;}
+      if(chunks.length>200000)throw new Error('The PNG contains too many chunks to process safely.');
+    }
+    if(!hasIend || width===null || height===null || !width || !height) throw new Error('The PNG image is incomplete or its dimensions could not be read.');
+    return {width,height,chunks,end:chunks[chunks.length-1].end};
+  }
+  async function parsePngMetadata(bytes, parsed, result){
+    for(const c of parsed.chunks){
+      if(c.type==='eXIf'){ parseTiff(bytes.subarray(c.dataStart,c.dataEnd),result); result.flags.exif=true; }
+      else if(c.type==='tEXt'){
+        const data=bytes.subarray(c.dataStart,c.dataEnd), nul=data.indexOf(0); if(nul<0)continue;
+        const key=cleanText(ascii(data,0,nul)), val=cleanText(decodeText(data.subarray(nul+1),'latin1')); processPngText(key,val,result);
+      } else if(c.type==='zTXt'){
+        const data=bytes.subarray(c.dataStart,c.dataEnd),nul=data.indexOf(0);if(nul<0||nul+2>data.length)continue;
+        const key=cleanText(ascii(data,0,nul)); if(data[nul+1]!==0)continue;
+        try{const val=cleanText(decodeText(await inflateDeflate(data.subarray(nul+2))));processPngText(key,val,result);}catch(err){result.notices.push('A compressed PNG text field was detected but could not be decoded in this browser. It will be removed in the processed copy.');addMetadata(result,'advanced',`PNG text field: ${key||'unknown'}`,'Compressed text was detected but could not be decoded.','PNG:zTXt');}
+      } else if(c.type==='iTXt'){
+        const d=bytes.subarray(c.dataStart,c.dataEnd);let p=d.indexOf(0);if(p<0)continue;const key=cleanText(ascii(d,0,p));p++;if(p+2>d.length)continue;const compressed=d[p]===1,method=d[p+1];p+=2;
+        const langEnd=d.indexOf(0,p);if(langEnd<0)continue;p=langEnd+1;const transEnd=d.indexOf(0,p);if(transEnd<0)continue;p=transEnd+1;let val;
+        try{const raw=compressed&&method===0?await inflateDeflate(d.subarray(p)):d.subarray(p);val=cleanText(decodeText(raw));processPngText(key,val,result);}catch(err){result.notices.push('A PNG international text field was detected but could not be decoded in this browser. It will be removed in the processed copy.');addMetadata(result,'advanced',`PNG text field: ${key||'unknown'}`,'Text content could not be decoded.','PNG:iTXt');}
+      }
+    }
+  }
+  function processPngText(key,value,result){
+    if(!key && !value)return; result.flags.pngText=true;
+    const low=key.toLowerCase();
+    if(low.includes('xmp') || /<\?xpacket|xmpmeta|rdf:RDF/i.test(value)){extractXmp(value,result,`PNG ${key||'text'} XMP packet`);}
+    const known={title:['Image Title','author'],author:['Creator / Author','author'],description:['Image Description','author'],copyright:['Copyright','author'],comment:['Comment','other'],software:['Software','camera'],creation_time:['PNG Creation Time','capture'],source:['Source','author'],disclaimer:['Disclaimer','other'],warning:['Warning','other'],make:['Camera Make','camera'],model:['Camera Model','camera'],date:createPngDate()};
+    const item=known[low]; if(item && value){addMetadata(result,item[1],item[0],value,`PNG:${key}`);} else if(value){addMetadata(result,'other',`PNG text: ${key||'Unlabelled'}`,value,`PNG:${key}`);}
+  }
+  function createPngDate(){return ['PNG Date','capture'];}
+  function parseWebpChunks(bytes){
+    if(bytes.length<20||ascii(bytes,0,4)!=='RIFF'||ascii(bytes,8,12)!=='WEBP')throw new Error('The file is not a valid WebP image.');
+    const riffSize=readU32LE(bytes,4),riffEnd=riffSize+8;if(riffEnd>bytes.length||riffEnd<20)throw new Error('The WebP RIFF container has an invalid length.');
+    const chunks=[];let p=12,width=null,height=null,isAnimated=false;
+    while(p+8<=riffEnd){const start=p,type=ascii(bytes,p,p+4),len=readU32LE(bytes,p+4),dataStart=p+8,dataEnd=dataStart+len,end=dataEnd+(len%2);if(dataEnd>riffEnd||end>riffEnd)throw new Error('A WebP chunk has an invalid length.');const c={type,start,dataStart,dataEnd,end,len};chunks.push(c);
+      if(type==='VP8X'&&len>=10){width=1+bytes[dataStart+4]+(bytes[dataStart+5]<<8)+(bytes[dataStart+6]<<16);height=1+bytes[dataStart+7]+(bytes[dataStart+8]<<8)+(bytes[dataStart+9]<<16);if(bytes[dataStart]&0x02)isAnimated=true;}
+      else if(type==='VP8 '&&len>=10&&width===null){const d=bytes[dataStart+3]===0x9D&&bytes[dataStart+4]===0x01&&bytes[dataStart+5]===0x2A;if(d){width=((bytes[dataStart+6]|(bytes[dataStart+7]<<8))&0x3FFF);height=((bytes[dataStart+8]|(bytes[dataStart+9]<<8))&0x3FFF);}}
+      else if(type==='VP8L'&&len>=5&&width===null&&bytes[dataStart]===0x2F){width=1+bytes[dataStart+1]+((bytes[dataStart+2]&0x3F)<<8);height=1+((bytes[dataStart+2]>>6)|(bytes[dataStart+3]<<2)|((bytes[dataStart+4]&0x0F)<<10));}
+      if(type==='ANIM'||type==='ANMF')isAnimated=true;p=end;if(chunks.length>200000)throw new Error('The WebP contains too many chunks to process safely.');
+    }
+    if(width===null||height===null||!width||!height)throw new Error('WebP dimensions could not be read. The file may be malformed or use an unsupported structure.');
+    if(isAnimated)throw new Error('Animated WebP is not supported in this version. Please choose a static JPEG, PNG, or WebP image.');
+    return {width,height,chunks,end:riffEnd};
+  }
+  function parseWebpMetadata(bytes,parsed,result){
+    for(const c of parsed.chunks){if(c.type==='EXIF'){let data=bytes.subarray(c.dataStart,c.dataEnd);if(starts(data,0,'Exif\0\0'))data=data.subarray(6);parseTiff(data,result);result.flags.exif=true;}else if(c.type==='XMP '){extractXmp(decodeText(bytes.subarray(c.dataStart,c.dataEnd)),result,'WebP XMP packet');}}
+  }
+  async function analyzeBytes(bytes){
+    if(bytes.length>=2&&bytes[0]===0xFF&&bytes[1]===0xD8){const p=parseJpeg(bytes),a=newAnalysis('JPEG','image/jpeg',p.width,p.height);parseJpegMetadata(bytes,p,a);a.container=p;return finishAnalysis(a);}
+    if(bytes.length>=8&&bytes[0]===137&&bytes[1]===80&&bytes[2]===78&&bytes[3]===71){const p=parsePngChunks(bytes),a=newAnalysis('PNG','image/png',p.width,p.height);await parsePngMetadata(bytes,p,a);a.container=p;return finishAnalysis(a);}
+    if(bytes.length>=12&&ascii(bytes,0,4)==='RIFF'&&ascii(bytes,8,12)==='WEBP'){const p=parseWebpChunks(bytes),a=newAnalysis('WebP','image/webp',p.width,p.height);parseWebpMetadata(bytes,p,a);a.container=p;return finishAnalysis(a);}
+    throw new Error('Unsupported file type. Please choose a JPEG/JPG, PNG, or static WebP image. File extensions alone are not enough; the image contents must match a supported format.');
+  }
+  function safeImageDimensions(a){
+    if(!Number.isFinite(a.width)||!Number.isFinite(a.height)||a.width<1||a.height<1)throw new Error('Valid image dimensions could not be determined.');
+    if(a.width>MAX_EDGE||a.height>MAX_EDGE||a.width*a.height>MAX_PIXELS)throw new Error(`This image is very large (${a.width.toLocaleString()} × ${a.height.toLocaleString()} pixels). For safety and performance, this tool accepts images up to ${MAX_EDGE.toLocaleString()} pixels on each edge and ${MAX_PIXELS/1000000} megapixels.`);
+  }
+  function categoryTitle(key){return ({camera:'Camera and device information',capture:'Capture information',gps:'GPS and location data',author:'Author, copyright, and descriptive information',other:'Other supported metadata',advanced:'Advanced metadata and parser notes'})[key]||key;}
+  function renderReport(target, summaryTarget, analysis){
+    target.replaceChildren();
+    const categories=['camera','capture','gps','author','other','advanced'];
+    const counts={camera:analysis.meta.camera.length,capture:analysis.meta.capture.length,gps:analysis.meta.gps.length,author:analysis.meta.author.length,other:analysis.meta.other.length+analysis.meta.advanced.length};
+    summaryTarget.replaceChildren();
+    const summaryItems=[['Metadata found',analysis.hasMetadata?'Yes':'No'],['Location data',analysis.hasLocation?'Found':'Not found'],['Device / capture details',(counts.camera+counts.capture)>0?'Found':'Not found'],['Other supported metadata',analysis.hasOther?'Found':'Not found']];
+    for(const [label,value] of summaryItems){const card=document.createElement('div');card.className=PREFIX+'summary-card';const s=document.createElement('span');s.textContent=label;const b=document.createElement('strong');b.textContent=value;card.append(s,b);summaryTarget.append(card);}
+    if(!analysis.hasMetadata){const p=document.createElement('p');p.className=PREFIX+'empty';p.textContent='No supported embedded metadata was found in this image.';target.append(p);}
+    for(const key of categories){const items=analysis.meta[key];if(!items.length)continue;const details=document.createElement('details');details.className=PREFIX+'details';if(key==='gps')details.open=true;const summary=document.createElement('summary');summary.textContent=`${categoryTitle(key)} (${items.length})`;details.append(summary);const dl=document.createElement('dl');dl.className=PREFIX+'dl';for(const item of items){const dt=document.createElement('dt');dt.textContent=item.label;const dd=document.createElement('dd');dd.textContent=item.value;dl.append(dt,dd);}details.append(dl);target.append(details);}
+    if(analysis.notices.length){const p=document.createElement('p');p.className=PREFIX+'empty';p.textContent=[...new Set(analysis.notices)].join(' ');target.append(p);}
+    const note=document.createElement('p');note.className=PREFIX+'small';note.style.marginTop='14px';note.textContent=`Format: ${analysis.format}. This report covers supported metadata structures only; it is not a guarantee that every proprietary field or possible metadata block has been detected.`;target.append(note);
+  }
+  function validateLocalFile(file){
+    if(!file)throw new Error('Choose an image file to continue.');
+    if(file.size>MAX_FILE_SIZE)throw new Error(`This file is ${fmtBytes(file.size)}. The maximum supported file size is 20 MB.`);
+    if(file.size===0)throw new Error('The selected file is empty. Choose a different image.');
+  }
+  async function selectFile(file){
+    if(state.busy)return;resetAll();hideStatus();
+    try{validateLocalFile(file);setBusy(true,'Reading the selected image locally and checking its supported metadata…');const buffer=await file.arrayBuffer();const bytes=new Uint8Array(buffer);const analysis=await analyzeBytes(bytes);safeImageDimensions(analysis);state.file=file;state.analysis=analysis;state.sourceUrl=URL.createObjectURL(file);els.originalPreview.src=state.sourceUrl;els.originalPanel.classList.remove(PREFIX+'hidden');els.reportPanel.classList.remove(PREFIX+'hidden');
+      putFacts(els.fileFacts,[['File name',file.name],['Detected type',`${analysis.format} (${analysis.mime})`],['File size',fmtBytes(file.size)],['Image dimensions',`${analysis.width.toLocaleString()} × ${analysis.height.toLocaleString()} px`],['Last modified (file info)',file.lastModified?fmtLocalDate(file.lastModified):'Not available']]);
+      els.locationWarning.classList.toggle(PREFIX+'hidden',!analysis.hasLocation);
+      renderReport(els.reportContent,els.summary,analysis);
+      showStatus('Image analyzed locally. Review the report before creating a clean copy.','success');
+    }catch(err){resetAll();showStatus(err instanceof Error?err.message:'The image could not be processed. Please try a different file.','error');}
+    finally{setBusy(false);}
+  }
+  function getRemovalExplanation(a){const fields=[];if(a.format==='JPEG')fields.push('EXIF/XMP APP1 segments, Photoshop APP13 resources (including parsed IPTC), and JPEG comment segments');if(a.format==='PNG')fields.push('eXIf, text (tEXt/zTXt/iTXt), and tIME chunks');if(a.format==='WebP')fields.push('EXIF and XMP chunks');return fields.join('; ');}
+  function stripJpeg(bytes, parsed){
+    const remove=new Set([0xE1,0xED,0xFE]);const parts=[];
+    for(const item of parsed.items){if(item.type==='segment'&&remove.has(item.marker))continue;parts.push(bytes.subarray(item.start,item.end));}
+    return concatBytes(parts);
+  }
+  function stripPng(bytes,parsed){const remove=new Set(['eXIf','tEXt','zTXt','iTXt','tIME']);const parts=[bytes.subarray(0,8)];for(const c of parsed.chunks){if(remove.has(c.type))continue;parts.push(bytes.subarray(c.start,c.end));}return concatBytes(parts);}
+  function stripWebp(bytes,parsed){const remove=new Set(['EXIF','XMP ']);const parts=[bytes.subarray(0,12)];for(const c of parsed.chunks){if(remove.has(c.type))continue;const piece=bytes.subarray(c.start,c.end);if(c.type==='VP8X'&&c.len>=1){const copy=piece.slice();copy[8]&=~0x0C;parts.push(copy);}else parts.push(piece);}const out=concatBytes(parts);const view=new DataView(out.buffer,out.byteOffset,out.byteLength);view.setUint32(4,out.length-8,true);return out;}
+  function concatBytes(parts){let len=0;for(const p of parts)len+=p.length;const out=new Uint8Array(len);let pos=0;for(const p of parts){out.set(p,pos);pos+=p.length;}return out;}
+  async function canvasReencode(file,analysis){
+    const url=URL.createObjectURL(file);
+    try{
+      const img=new Image();img.decoding='async';img.src=url;
+      if(typeof img.decode==='function')await img.decode();else await new Promise((resolve,reject)=>{img.onload=resolve;img.onerror=()=>reject(new Error('The browser could not decode this image to correct its orientation.'));});
+      const w=img.naturalWidth,h=img.naturalHeight;if(!w||!h)throw new Error('The browser could not decode the image for orientation correction.');
+      if(w>MAX_EDGE||h>MAX_EDGE||w*h>MAX_PIXELS)throw new Error('Orientation correction would require a very large Canvas. The image was not changed.');
+      const canvas=document.createElement('canvas');canvas.width=w;canvas.height=h;const ctx=canvas.getContext('2d',{alpha:analysis.format!=='JPEG'});if(!ctx)throw new Error('This browser could not create an image-processing canvas.');
+      if(analysis.format==='JPEG'){ctx.fillStyle='#fff';ctx.fillRect(0,0,w,h);}ctx.drawImage(img,0,0,w,h);
+      const blob=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error('The browser failed to encode the oriented image.')) ,analysis.mime,analysis.format==='PNG'?undefined:0.95));
+      if(blob.type!==analysis.mime)throw new Error(`This browser did not export the image as ${analysis.mime}. No file was downloaded; try another browser or an image without an orientation tag.`);
+      return new Uint8Array(await blob.arrayBuffer());
+    }finally{revoke(url);}
+  }
+  function outputFilename(name,format){const base=name.replace(/\.[^.]+$/,'').replace(/[\\/:*?"<>|\u0000-\u001F]/g,'_').trim()||'image';const ext=({JPEG:'jpg',PNG:'png',WebP:'webp'})[format];return `${base}-metadata-removed.${ext}`;}
+  async function processCurrent(){
+    if(state.busy||!state.file||!state.analysis)return;const file=state.file,analysis=state.analysis;
+    try{
+      cleanupOutput();setBusy(true,'Removing supported metadata locally and verifying the processed copy…');
+      let outputBytes,usedReencode=false;
+      if(analysis.orientation>1){outputBytes=await canvasReencode(file,analysis);usedReencode=true;}
+      else{
+        const bytes=new Uint8Array(await file.arrayBuffer());
+        if(analysis.format==='JPEG'){const p=parseJpeg(bytes);outputBytes=stripJpeg(bytes,p);}
+        else if(analysis.format==='PNG'){const p=parsePngChunks(bytes);outputBytes=stripPng(bytes,p);}
+        else if(analysis.format==='WebP'){const p=parseWebpChunks(bytes);outputBytes=stripWebp(bytes,p);}
+        else throw new Error('No metadata removal routine is available for this format.');
+      }
+      const blob=new Blob([outputBytes],{type:analysis.mime});const outputAnalysis=await analyzeBytes(new Uint8Array(await blob.arrayBuffer()));safeImageDimensions(outputAnalysis);
+      state.outputBlob=blob;state.outputAnalysis=outputAnalysis;state.outputName=outputFilename(file.name,analysis.format);state.outputUrl=URL.createObjectURL(blob);
+      els.outputPreview.src=state.outputUrl;els.outputPanel.classList.remove(PREFIX+'hidden');
+      putFacts(els.outputFacts,[['Output file',state.outputName],['Detected type',`${outputAnalysis.format} (${outputAnalysis.mime})`],['Output size',fmtBytes(blob.size)],['Image dimensions',`${outputAnalysis.width.toLocaleString()} × ${outputAnalysis.height.toLocaleString()} px`],['Remaining supported metadata',outputAnalysis.hasMetadata?'Still detected':'None detected by this parser']]);
+      const box=document.createElement('div');box.className=PREFIX+'empty';
+      const remaining=Object.values(outputAnalysis.meta).reduce((sum,list)=>sum+list.length,0);
+      if(remaining===0){box.textContent='Your processed image is ready to download. The tool checked supported metadata fields after processing. No supported embedded metadata fields were detected in the processed copy.';}
+      else {box.textContent=`The output was created and checked, but ${remaining} supported metadata field(s) are still detectable. Review the verification report before sharing.`;}
+      els.outputVerification.replaceChildren(box);
+      if(usedReencode){const p=document.createElement('p');p.className=PREFIX+'small';p.textContent='Orientation was normalized with browser Canvas re-encoding. This may slightly alter image quality; transparency is preserved by Canvas for PNG and supported WebP outputs.';els.outputVerification.append(p);}
+      const detail=document.createElement('p');detail.className=PREFIX+'small';detail.style.marginTop='10px';detail.textContent=`Removal operation: ${usedReencode?'decode and re-encode to normalize orientation; browser-generated image data should omit embedded metadata':getRemovalExplanation(analysis)}. Color profile chunks/segments are retained where supported to reduce color changes. Not every proprietary metadata format is inspected.`;els.outputVerification.append(detail);
+      renderReport(els.outputReportContent,document.createElement('div'),outputAnalysis);
+      els.download.href=state.outputUrl;els.download.download=state.outputName;
+      showStatus(remaining===0?'The processed copy was created and checked. Review its limitations, then download it.':'The processed copy was created, but some supported metadata remains. Check the report before downloading.',remaining===0?'success':'warning');
+      els.outputPanel.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'start'});
+    }catch(err){showStatus(err instanceof Error?err.message:'Metadata removal or verification failed. The original image has not been changed.','error');}
+    finally{setBusy(false);}
+  }
+
+  els.choose.addEventListener('click',()=>{if(!state.busy)els.input.click();});
+  els.input.addEventListener('change',e=>{const file=e.target.files&&e.target.files[0];if(file)selectFile(file);});
+  els.drop.addEventListener('keydown',e=>{if((e.key==='Enter'||e.key===' ')&&e.target===els.drop){e.preventDefault();if(!state.busy)els.input.click();}});
+  ['dragenter','dragover'].forEach(type=>els.drop.addEventListener(type,e=>{e.preventDefault();e.stopPropagation();if(!state.busy)els.drop.classList.add(PREFIX+'dragover');}));
+  ['dragleave','dragend','drop'].forEach(type=>els.drop.addEventListener(type,e=>{e.preventDefault();e.stopPropagation();els.drop.classList.remove(PREFIX+'dragover');}));
+  els.drop.addEventListener('drop',e=>{if(state.busy)return;const file=e.dataTransfer&&e.dataTransfer.files&&e.dataTransfer.files[0];if(file)selectFile(file);else showStatus('Drop one image file to continue.','error');});
+  els.process.addEventListener('click',processCurrent);
+  [els.reset,els.resetTop,els.another].forEach(button=>button.addEventListener('click',resetAll));
+  els.viewOutput.addEventListener('click',()=>{els.outputReport.classList.toggle(PREFIX+'hidden');els.viewOutput.textContent=els.outputReport.classList.contains(PREFIX+'hidden')?'View Processed Metadata':'Hide Processed Metadata';if(!els.outputReport.classList.contains(PREFIX+'hidden'))els.outputReport.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth',block:'nearest'});});
+  window.addEventListener('pagehide',()=>{revoke(state.sourceUrl);revoke(state.outputUrl);});
+})();
+</script>
+</body>
+</html>
