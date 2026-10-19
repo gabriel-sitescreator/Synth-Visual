@@ -2,16 +2,14 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B2R2YLSL7R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2R2YLSL7R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B2R2YLSL7R');
+  </script>
 
-  gtag('config', 'G-B2R2YLSL7R');
-</script>
-
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Learn about Synth Visual, our mission, and how we approach clear, practical guides to VPNs, online privacy, and digital security.">
@@ -50,7 +48,8 @@
 
     a { color: inherit; text-decoration: none; }
 
-    a:focus-visible {
+    a:focus-visible,
+    button:focus-visible {
       outline: 3px solid #7cae98;
       outline-offset: 4px;
       border-radius: 4px;
@@ -63,6 +62,8 @@
 
     /* Header — consistent with the Synth Visual homepage */
     .site-header {
+      position: relative;
+      z-index: 20;
       border-bottom: 1px solid var(--line);
       background: rgba(247, 247, 244, 0.94);
     }
@@ -106,8 +107,11 @@
       font-weight: 600;
     }
 
-    .main-nav a { transition: color 160ms ease; }
-    .main-nav a:hover { color: var(--accent); }
+    .main-nav a,
+    .tools-trigger { transition: color 160ms ease; }
+
+    .main-nav a:hover,
+    .tools-trigger:hover { color: var(--accent); }
 
     .main-nav a[aria-current="page"] { color: var(--accent); }
 
@@ -115,6 +119,98 @@
       padding: 10px 15px;
       border: 1px solid #cbd6ce;
       border-radius: 999px;
+      color: var(--accent);
+    }
+
+    /* Tools dropdown */
+    .tools-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .tools-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 0;
+      border: 0;
+      background: transparent;
+      color: #424840;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .tools-trigger[aria-expanded="true"] {
+      color: var(--accent);
+    }
+
+    .tools-chevron {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 160ms ease;
+    }
+
+    .tools-trigger[aria-expanded="true"] .tools-chevron {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .tools-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: -18px;
+      z-index: 50;
+      width: 322px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 16px 42px rgba(27, 39, 30, 0.13);
+    }
+
+    .tools-menu[hidden] { display: none; }
+
+    .tools-menu-section { padding: 8px 7px 9px; }
+
+    .tools-menu-heading {
+      margin: 0 0 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 1.25px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .tools-menu a {
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .tools-menu a:hover,
+    .tools-menu a:focus-visible {
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    .tools-menu-divider {
+      height: 1px;
+      margin: 3px 7px;
+      background: var(--line);
+    }
+
+    .tools-menu .tools-commercial-link {
       color: var(--accent);
     }
 
@@ -409,13 +505,9 @@
 
     @media (max-width: 800px) {
       .main-nav { gap: 15px; }
-
       .content-layout { grid-template-columns: 1fr; }
-
       .side-panel { padding: 25px; }
-
       .principles-grid { grid-template-columns: 1fr; }
-
       .principle-card { min-height: auto; }
 
       .closing-inner {
@@ -448,6 +540,15 @@
       }
 
       .nav-cta { padding: 7px 10px; }
+
+      .tools-trigger { padding: 7px 0; }
+
+      .tools-menu {
+        top: calc(100% + 8px);
+        right: -8px;
+        width: min(322px, calc(100vw - 32px));
+      }
+
       .hero { padding: 61px 0 45px; }
       .hero h1 { letter-spacing: -1.5px; }
       .hero-copy { font-size: 14px; }
@@ -484,7 +585,38 @@
       </a>
 
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=138160">NordVPN Plans</a>
+        <div class="tools-dropdown" id="tools-dropdown">
+          <button
+            class="tools-trigger"
+            id="tools-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="tools-menu"
+          >
+            Tools <span class="tools-chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="tools-menu" id="tools-menu" hidden>
+            <div class="tools-menu-section" aria-labelledby="privacy-tools-heading">
+              <p class="tools-menu-heading" id="privacy-tools-heading">Privacy &amp; Network Tools</p>
+              <a href="/dns-webrtc-leak-test.html">DNS/WebRTC Leak Test</a>
+              <a href="/what-is-my-ip.html">What Is My IP?</a>
+            </div>
+
+            <div class="tools-menu-divider" aria-hidden="true"></div>
+
+            <div class="tools-menu-section" aria-labelledby="security-software-heading">
+              <p class="tools-menu-heading" id="security-software-heading">VPNs &amp; Security Software</p>
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordVPN Plans ↗</a>
+            </div>
+          </div>
+        </div>
+
         <a href="https://synthvisuals.space/about.html" aria-current="page">About</a>
         <a class="nav-cta" href="/#latest-guides">Explore Articles</a>
       </nav>
@@ -619,6 +751,43 @@
 
   <script>
     document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    (function () {
+      const dropdown = document.getElementById("tools-dropdown");
+      const trigger = document.getElementById("tools-trigger");
+      const menu = document.getElementById("tools-menu");
+
+      if (!dropdown || !trigger || !menu) return;
+
+      function setMenuOpen(shouldOpen) {
+        trigger.setAttribute("aria-expanded", String(shouldOpen));
+        menu.hidden = !shouldOpen;
+      }
+
+      trigger.addEventListener("click", function (event) {
+        event.stopPropagation();
+        const isOpen = trigger.getAttribute("aria-expanded") === "true";
+        setMenuOpen(!isOpen);
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!dropdown.contains(event.target)) setMenuOpen(false);
+      });
+
+      document.addEventListener("keydown", function (event) {
+        const isOpen = trigger.getAttribute("aria-expanded") === "true";
+        if (event.key === "Escape" && isOpen) {
+          setMenuOpen(false);
+          trigger.focus();
+        }
+      });
+
+      menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          setMenuOpen(false);
+        });
+      });
+    })();
   </script>
 </body>
 </html>
