@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,7 @@
     gtag('js', new Date());
     gtag('config', 'G-B2R2YLSL7R');
   </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Learn how a VPN hides your public IP address, what your ISP and websites can still see, how leaks happen, and how to check your VPN privacy.">
@@ -23,6 +25,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Does a VPN Hide Your IP Address? What You Need to Know | Synth Visual">
   <meta name="twitter:description" content="Learn how a VPN hides your public IP address, what your ISP and websites can still see, how leaks happen, and how to check your VPN privacy.">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -58,188 +61,1286 @@
     ]
   }
   </script>
+
   <style>
     :root {
-      --page: #f7f7f4; --surface: #ffffff; --text: #20231f; --muted: #686d66;
-      --line: #e2e5de; --accent: #245b49; --accent-hover: #194637; --soft: #eaf0eb;
-      --soft-2: #f0f2ed; --max-width: 1120px; --reading-width: 760px;
-      --radius: 16px; --shadow: 0 8px 30px rgba(27, 39, 30, 0.045);
+      --page: #f7f7f4;
+      --surface: #ffffff;
+      --text: #20231f;
+      --muted: #686d66;
+      --line: #e2e5de;
+      --accent: #245b49;
+      --accent-hover: #194637;
+      --soft: #eaf0eb;
+      --soft-2: #f0f2ed;
+      --max-width: 1120px;
+      --reading-width: 760px;
+      --radius: 16px;
+      --shadow: 0 8px 30px rgba(27, 39, 30, 0.045);
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
-    body { margin: 0; background: var(--page); color: var(--text); font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; -webkit-font-smoothing: antialiased; }
-    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-    a:hover { color: var(--accent-hover); }
-    a:focus-visible, button:focus-visible, summary:focus-visible { outline: 3px solid #7cae98; outline-offset: 4px; border-radius: 4px; }
-    .container { width: min(var(--max-width), calc(100% - 48px)); margin-inline: auto; }
-    .site-header { border-bottom: 1px solid var(--line); background: rgba(247, 247, 244, .96); }
-    .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-    .brand { display: inline-flex; flex-direction: column; line-height: 1.05; flex-shrink: 0; color: var(--text); text-decoration: none; }
-    .brand-name { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 700; letter-spacing: -1.2px; }
-    .brand-tagline { margin-top: 6px; color: var(--muted); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; }
-    .main-nav { display: flex; align-items: center; gap: 27px; color: #424840; font-size: 13px; font-weight: 600; }
-    .main-nav a { color: inherit; text-decoration: none; transition: color 160ms ease; }
-    .main-nav a:hover { color: var(--accent); }
-    .nav-cta { padding: 10px 15px; border: 1px solid #cbd6ce; border-radius: 999px; color: var(--accent) !important; }
-    .progress-track { height: 3px; background: transparent; }
-    .progress-bar { width: 0; height: 100%; background: var(--accent); transition: width 80ms linear; }
-    .breadcrumbs { padding: 25px 0 0; color: var(--muted); font-size: 12px; }
-    .breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
-    .breadcrumbs li + li::before { content: "/"; margin-right: 8px; color: #a0a59d; }
-    .breadcrumbs a { color: var(--muted); text-decoration: none; }
-    .breadcrumbs a:hover { color: var(--accent); }
-    .article-hero { padding: 34px 0 35px; }
-    .article-hero-inner { max-width: 920px; margin: 0 auto; text-align: center; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 1.9px; text-transform: uppercase; }
-    .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; }
-    h1, h2, h3 { text-wrap: pretty; }
-    .article-hero h1 { max-width: 850px; margin: 0 auto; font-family: Georgia, "Times New Roman", serif; font-size: clamp(38px, 6vw, 66px); font-weight: 500; letter-spacing: -2.3px; line-height: 1.08; }
-    .article-hero h1 em { color: var(--accent); font-weight: 500; }
-    .dek { max-width: 710px; margin: 22px auto 0; color: var(--muted); font-size: 17px; line-height: 1.8; }
-    .article-meta { display: flex; justify-content: center; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 24px; color: var(--muted); font-size: 12px; }
-    .meta-dot { display: inline-flex; align-items: center; gap: 7px; }
-    .meta-dot::before { content: ""; width: 4px; height: 4px; background: #99a69b; border-radius: 50%; }
-    .topic-pill { padding: 6px 10px; background: var(--soft); border: 1px solid #dce6dc; border-radius: 999px; color: var(--accent); font-size: 10px; font-weight: 750; letter-spacing: .5px; text-transform: uppercase; }
-    .feature-visual { overflow: hidden; position: relative; max-width: 1000px; margin: 0 auto; padding: clamp(22px, 4vw, 42px); border: 1px solid #dfe6dd; border-radius: 22px; background: linear-gradient(135deg, #eff3ee 0%, #f9fbf8 48%, #e7eee8 100%); box-shadow: var(--shadow); }
-    .visual-caption { margin: 17px 0 0; color: var(--muted); font-size: 11px; text-align: center; }
-    .connection-flow { display: grid; grid-template-columns: 1fr minmax(100px, 1.2fr) 1fr minmax(100px, 1.2fr) 1fr; align-items: center; gap: 12px; max-width: 830px; margin: 0 auto; }
-    .device-card { min-height: 142px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 18px 10px; border: 1px solid rgba(36, 91, 73, .18); border-radius: 17px; background: rgba(255,255,255,.82); text-align: center; }
-    .device-card svg { width: 43px; height: 43px; color: var(--accent); }
-    .device-card strong { font-family: Georgia, "Times New Roman", serif; font-size: 17px; font-weight: 600; line-height: 1.25; }
-    .device-card small { color: var(--muted); font-size: 10px; line-height: 1.4; }
-    .tunnel { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--accent); text-align: center; }
-    .tunnel-line { position: relative; width: 100%; height: 3px; border-radius: 999px; background: #9ab9a5; }
-    .tunnel-line::after { content: ""; position: absolute; right: -1px; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid #5e9476; }
-    .tunnel-label { font-size: 10px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; }
-    .tunnel-icon { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: 1px solid #c8d9cb; border-radius: 50%; background: #fafffa; }
-    .tunnel-icon svg { width: 13px; height: 13px; }
-    .article-layout { display: grid; grid-template-columns: 220px minmax(0, 760px); align-items: start; justify-content: center; gap: clamp(28px, 5vw, 64px); padding: 40px 0 86px; }
-    .toc-wrap { position: sticky; top: 24px; }
-    .toc-card { padding: 23px 19px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
-    .toc-title { margin: 0 0 14px; color: var(--text); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
-    .toc-list { display: flex; flex-direction: column; gap: 9px; margin: 0; padding: 0; list-style: none; }
-    .toc-list a { color: var(--muted); font-size: 12px; line-height: 1.45; text-decoration: none; }
-    .toc-list a:hover, .toc-list a:focus { color: var(--accent); }
-    .toc-note { margin: 20px 0 0; padding-top: 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.7; }
-    .mobile-toc { display: none; margin-bottom: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-    .mobile-toc summary { padding: 14px 16px; cursor: pointer; color: var(--accent); font-size: 13px; font-weight: 750; }
-    .mobile-toc .toc-list { padding: 0 16px 17px; }
-    .article-content { min-width: 0; max-width: var(--reading-width); font-size: 16px; line-height: 1.85; }
-    .article-content p { margin: 0 0 21px; }
-    .article-content h2 { margin: 54px 0 17px; padding-top: 5px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(29px, 3.5vw, 36px); font-weight: 500; letter-spacing: -.8px; line-height: 1.18; scroll-margin-top: 24px; }
-    .article-content h3 { margin: 32px 0 12px; font-family: Georgia, "Times New Roman", serif; font-size: 23px; font-weight: 500; letter-spacing: -.35px; line-height: 1.3; scroll-margin-top: 24px; }
-    .article-content h4 { margin: 26px 0 10px; font-size: 16px; font-weight: 750; line-height: 1.4; }
-    .article-content strong { color: #242923; }
-    .article-content ul, .article-content ol { margin: 0 0 24px; padding-left: 25px; }
-    .article-content li { margin: 7px 0; padding-left: 3px; }
-    .article-content li::marker { color: var(--accent); }
-    .article-content blockquote { margin: 26px 0; padding: 18px 22px; border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; background: var(--soft-2); color: #434940; }
-    .article-content blockquote p:last-child { margin-bottom: 0; }
-    .article-content a { text-decoration-thickness: 1px; }
-    .quick-answer { margin: 6px 0 36px; padding: 23px 25px 3px; border: 1px solid #d8e3d9; border-radius: 15px; background: #f0f5ef; }
-    .quick-answer-label { margin: 0 0 8px !important; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
-    .quick-answer p { font-size: 15px; }
-    .scroll-table { margin: 26px 0 30px; overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-    .article-content table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.65; }
-    .article-content th, .article-content td { min-width: 150px; padding: 14px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-    .article-content th { background: #f0f2ed; color: #323930; font-size: 11px; letter-spacing: .2px; }
-    .article-content tr:last-child td { border-bottom: 0; }
-    .article-content td:first-child { min-width: 165px; font-weight: 700; }
-    .article-content pre { overflow-x: auto; margin: 24px 0; padding: 18px 20px; border: 1px solid var(--line); border-radius: 11px; background: #fff; font-size: 13px; line-height: 1.6; }
-    .article-content code { overflow-wrap: anywhere; }
-    .step-list { display: grid; gap: 12px; margin: 22px 0 28px; }
-    .step { display: grid; grid-template-columns: 38px 1fr; gap: 13px; padding: 17px; border: 1px solid var(--line); border-radius: 13px; background: #fff; }
-    .step-number { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--soft); color: var(--accent); font-size: 12px; font-weight: 800; }
-    .step h3 { margin: 2px 0 5px; font-family: inherit; font-size: 15px; font-weight: 750; letter-spacing: 0; }
-    .step p { margin: 0; color: #51584f; font-size: 14px; line-height: 1.75; }
-    .takeaway { margin: 35px 0; padding: 24px; border: 1px solid #d8e3d9; border-radius: 15px; background: #eef4ee; }
-    .takeaway h3 { margin-top: 0; }
-    .takeaway p:last-child { margin-bottom: 0; }
-    .faq-item { padding: 19px 0 0; border-top: 1px solid var(--line); }
-    .faq-item h3 { margin-top: 0; font-family: inherit; font-size: 16px; font-weight: 750; letter-spacing: 0; }
-    .faq-item p { margin-bottom: 20px; }
-    .references { margin-top: 56px; padding-top: 30px; border-top: 1px solid var(--line); }
-    .references h2 { margin-top: 0; font-size: 29px; }
-    .references-intro { color: var(--muted); font-size: 13px; }
-    .reference-list { display: grid; gap: 0; list-style: none !important; margin: 21px 0 0 !important; padding: 0 !important; }
-    .reference-list li { margin: 0; padding: 14px 0; border-top: 1px solid var(--line); }
-    .reference-list a { display: inline-block; font-size: 14px; font-weight: 750; }
-    .reference-list p { margin: 4px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
-    .back-to-top { display: inline-flex; align-items: center; gap: 7px; margin-top: 12px; color: var(--accent); font-size: 12px; font-weight: 750; text-decoration: none; }
-    .related-strip { padding: 32px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--soft-2); }
-    .related-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .related-inner h2 { margin: 0 0 5px; font-family: Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 500; }
-    .related-inner p { max-width: 660px; margin: 0; color: var(--muted); font-size: 13px; }
-    .related-link { flex-shrink: 0; display: inline-block; padding: 11px 16px; border-radius: 999px; background: var(--accent); color: white; font-size: 12px; font-weight: 750; text-decoration: none; }
-    .related-link:hover { background: var(--accent-hover); color: white; }
-    .site-footer { padding: 27px 0; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .footer-brand { font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; letter-spacing: -.5px; color: var(--text); text-decoration: none; }
-    .copyright { margin: 5px 0 0; color: var(--muted); font-size: 11px; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 19px; color: var(--muted); font-size: 11px; }
-    .footer-links a { color: var(--muted); text-decoration: none; }
-    .footer-links a:hover { color: var(--accent); }
-    @media (max-width: 900px) { .article-layout { grid-template-columns: minmax(0, 760px); } .toc-wrap { display: none; } .mobile-toc { display: block; } .article-content { margin-inline: auto; width: 100%; } }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #7cae98;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    /* Site header */
+    .site-header {
+      position: relative;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 247, 244, .96);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1.05;
+      flex-shrink: 0;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -1.2px;
+    }
+
+    .brand-tagline {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      color: #424840;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .main-nav a,
+    .tools-trigger {
+      color: inherit;
+      text-decoration: none;
+      transition: color 160ms ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"],
+    .tools-trigger:hover,
+    .tools-trigger[aria-expanded="true"] {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      padding: 10px 15px;
+      border: 1px solid #cbd6ce;
+      border-radius: 999px;
+      color: var(--accent) !important;
+    }
+
+    /* Tools dropdown */
+    .tools-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .tools-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 0;
+      border: 0;
+      background: transparent;
+      color: #424840;
+      font: inherit;
+      cursor: pointer;
+      transition: color 160ms ease;
+    }
+
+    .tools-chevron {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 160ms ease;
+    }
+
+    .tools-trigger[aria-expanded="true"] .tools-chevron {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .tools-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: -18px;
+      z-index: 50;
+      width: 322px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 16px 42px rgba(27, 39, 30, .13);
+    }
+
+    .tools-menu[hidden] {
+      display: none;
+    }
+
+    .tools-menu-section {
+      padding: 8px 7px 9px;
+    }
+
+    .tools-menu-heading {
+      margin: 0 0 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 1.25px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .tools-menu a {
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+    }
+
+    .tools-menu a:hover,
+    .tools-menu a:focus-visible {
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    .tools-menu-divider {
+      height: 1px;
+      margin: 3px 7px;
+      background: var(--line);
+    }
+
+    .tools-menu .tools-commercial-link {
+      color: var(--accent);
+    }
+
+    .progress-track {
+      height: 3px;
+      background: transparent;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: var(--accent);
+      transition: width 80ms linear;
+    }
+
+    .breadcrumbs {
+      padding: 25px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .breadcrumbs ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .breadcrumbs li + li::before {
+      content: "/";
+      margin-right: 8px;
+      color: #a0a59d;
+    }
+
+    .breadcrumbs a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--accent);
+    }
+
+    .article-hero {
+      padding: 34px 0 35px;
+    }
+
+    .article-hero-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.9px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1,
+    h2,
+    h3 {
+      text-wrap: pretty;
+    }
+
+    .article-hero h1 {
+      max-width: 850px;
+      margin: 0 auto;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 6vw, 66px);
+      font-weight: 500;
+      letter-spacing: -2.3px;
+      line-height: 1.08;
+    }
+
+    .article-hero h1 em {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .dek {
+      max-width: 710px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 18px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .meta-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .meta-dot::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background: #99a69b;
+      border-radius: 50%;
+    }
+
+    .topic-pill {
+      padding: 6px 10px;
+      background: var(--soft);
+      border: 1px solid #dce6dc;
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    .feature-visual {
+      overflow: hidden;
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: clamp(22px, 4vw, 42px);
+      border: 1px solid #dfe6dd;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #eff3ee 0%, #f9fbf8 48%, #e7eee8 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .visual-caption {
+      margin: 17px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .connection-flow {
+      display: grid;
+      grid-template-columns: 1fr minmax(100px, 1.2fr) 1fr minmax(100px, 1.2fr) 1fr;
+      align-items: center;
+      gap: 12px;
+      max-width: 830px;
+      margin: 0 auto;
+    }
+
+    .device-card {
+      min-height: 142px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 10px;
+      border: 1px solid rgba(36, 91, 73, .18);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, .82);
+      text-align: center;
+    }
+
+    .device-card svg {
+      width: 43px;
+      height: 43px;
+      color: var(--accent);
+    }
+
+    .device-card strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .device-card small {
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    .tunnel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .tunnel-line {
+      position: relative;
+      width: 100%;
+      height: 3px;
+      border-radius: 999px;
+      background: #9ab9a5;
+    }
+
+    .tunnel-line::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -4px;
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 7px solid #5e9476;
+    }
+
+    .tunnel-label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+    .tunnel-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border: 1px solid #c8d9cb;
+      border-radius: 50%;
+      background: #fafffa;
+    }
+
+    .tunnel-icon svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 760px);
+      align-items: start;
+      justify-content: center;
+      gap: clamp(28px, 5vw, 64px);
+      padding: 40px 0 86px;
+    }
+
+    .toc-wrap {
+      position: sticky;
+      top: 24px;
+    }
+
+    .toc-card {
+      padding: 23px 19px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .toc-title {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .toc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc-list a {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      text-decoration: none;
+    }
+
+    .toc-list a:hover,
+    .toc-list a:focus {
+      color: var(--accent);
+    }
+
+    .toc-note {
+      margin: 20px 0 0;
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .mobile-toc {
+      display: none;
+      margin-bottom: 28px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .mobile-toc summary {
+      padding: 14px 16px;
+      cursor: pointer;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .mobile-toc .toc-list {
+      padding: 0 16px 17px;
+    }
+
+    .article-content {
+      min-width: 0;
+      max-width: var(--reading-width);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .article-content p {
+      margin: 0 0 21px;
+    }
+
+    .article-content h2 {
+      margin: 54px 0 17px;
+      padding-top: 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 3.5vw, 36px);
+      font-weight: 500;
+      letter-spacing: -.8px;
+      line-height: 1.18;
+      scroll-margin-top: 24px;
+    }
+
+    .article-content h3 {
+      margin: 32px 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 23px;
+      font-weight: 500;
+      letter-spacing: -.35px;
+      line-height: 1.3;
+      scroll-margin-top: 24px;
+    }
+
+    .article-content h4 {
+      margin: 26px 0 10px;
+      font-size: 16px;
+      font-weight: 750;
+      line-height: 1.4;
+    }
+
+    .article-content strong {
+      color: #242923;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      margin: 0 0 24px;
+      padding-left: 25px;
+    }
+
+    .article-content li {
+      margin: 7px 0;
+      padding-left: 3px;
+    }
+
+    .article-content li::marker {
+      color: var(--accent);
+    }
+
+    .article-content blockquote {
+      margin: 26px 0;
+      padding: 18px 22px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      background: var(--soft-2);
+      color: #434940;
+    }
+
+    .article-content blockquote p:last-child {
+      margin-bottom: 0;
+    }
+
+    .article-content a {
+      text-decoration-thickness: 1px;
+    }
+
+    .quick-answer {
+      margin: 6px 0 36px;
+      padding: 23px 25px 3px;
+      border: 1px solid #d8e3d9;
+      border-radius: 15px;
+      background: #f0f5ef;
+    }
+
+    .quick-answer-label {
+      margin: 0 0 8px !important;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .quick-answer p {
+      font-size: 15px;
+    }
+
+    .scroll-table {
+      margin: 26px 0 30px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .article-content th,
+    .article-content td {
+      min-width: 150px;
+      padding: 14px 15px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: #f0f2ed;
+      color: #323930;
+      font-size: 11px;
+      letter-spacing: .2px;
+    }
+
+    .article-content tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .article-content td:first-child {
+      min-width: 165px;
+      font-weight: 700;
+    }
+
+    .article-content pre {
+      overflow-x: auto;
+      margin: 24px 0;
+      padding: 18px 20px;
+      border: 1px solid var(--line);
+      border-radius: 11px;
+      background: #fff;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .article-content code {
+      overflow-wrap: anywhere;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0 28px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 13px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin: 2px 0 5px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .step p {
+      margin: 0;
+      color: #51584f;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .takeaway {
+      margin: 35px 0;
+      padding: 24px;
+      border: 1px solid #d8e3d9;
+      border-radius: 15px;
+      background: #eef4ee;
+    }
+
+    .takeaway h3 {
+      margin-top: 0;
+    }
+
+    .takeaway p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-item {
+      padding: 19px 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-item h3 {
+      margin-top: 0;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .faq-item p {
+      margin-bottom: 20px;
+    }
+
+    .references {
+      margin-top: 56px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .references h2 {
+      margin-top: 0;
+      font-size: 29px;
+    }
+
+    .references-intro {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .reference-list {
+      display: grid;
+      gap: 0;
+      list-style: none !important;
+      margin: 21px 0 0 !important;
+      padding: 0 !important;
+    }
+
+    .reference-list li {
+      margin: 0;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .reference-list a {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .reference-list p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .back-to-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .related-strip {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--soft-2);
+    }
+
+    .related-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .related-inner h2 {
+      margin: 0 0 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    .related-inner p {
+      max-width: 660px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .related-link {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .related-link:hover {
+      background: var(--accent-hover);
+      color: white;
+    }
+
+    .site-footer {
+      padding: 27px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .copyright {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 19px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    @media (max-width: 900px) {
+      .article-layout {
+        grid-template-columns: minmax(0, 760px);
+      }
+
+      .toc-wrap {
+        display: none;
+      }
+
+      .mobile-toc {
+        display: block;
+      }
+
+      .article-content {
+        margin-inline: auto;
+        width: 100%;
+      }
+    }
+
     @media (max-width: 700px) {
-      .container { width: min(100% - 32px, var(--max-width)); }
-      .header-inner { min-height: 74px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 13px; padding: 15px 0; }
-      .brand-name { font-size: 24px; } .brand-tagline { font-size: 9px; }
-      .main-nav { width: 100%; justify-content: space-between; gap: 10px; font-size: 11px; }
-      .nav-cta { padding: 7px 10px; } .breadcrumbs { padding-top: 18px; }
-      .article-hero { padding: 28px 0 25px; }
-      .article-hero h1 { font-size: clamp(37px, 10vw, 52px); letter-spacing: -1.7px; }
-      .dek { font-size: 15px; } .feature-visual { padding: 17px 14px; border-radius: 17px; }
-      .connection-flow { grid-template-columns: 1fr; gap: 9px; max-width: 330px; }
-      .device-card { min-height: auto; display: grid; grid-template-columns: 42px 1fr; justify-content: start; text-align: left; padding: 12px 14px; }
-      .device-card svg { width: 34px; height: 34px; grid-row: span 2; }
-      .device-card strong { align-self: end; font-size: 15px; } .device-card small { align-self: start; }
-      .tunnel { display: grid; grid-template-columns: 24px 1fr; gap: 7px 10px; justify-items: start; text-align: left; padding-left: 24px; }
-      .tunnel-line { width: 3px; height: 19px; margin-left: 11px; grid-column: 1; grid-row: 1 / span 2; }
-      .tunnel-line::after { top: auto; bottom: -1px; right: -4px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 7px solid #5e9476; border-bottom: 0; }
-      .tunnel-icon { grid-column: 2; grid-row: 1; width: 23px; height: 23px; }
-      .tunnel-label { grid-column: 2; grid-row: 2; }
-      .article-layout { padding: 28px 0 58px; } .article-content { font-size: 15px; line-height: 1.82; }
-      .article-content h2 { margin-top: 43px; font-size: 30px; } .article-content h3 { font-size: 21px; }
-      .step { padding: 14px; } .related-inner, .footer-inner { align-items: flex-start; flex-direction: column; }
+      .container {
+        width: min(100% - 32px, var(--max-width));
+      }
+
+      .header-inner {
+        min-height: 74px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 13px;
+        padding: 15px 0;
+      }
+
+      .brand-name {
+        font-size: 24px;
+      }
+
+      .brand-tagline {
+        font-size: 9px;
+      }
+
+      .main-nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 11px;
+      }
+
+      .nav-cta {
+        padding: 7px 10px;
+      }
+
+      .tools-trigger {
+        padding: 7px 0;
+      }
+
+      .tools-menu {
+        top: calc(100% + 8px);
+        right: -8px;
+        width: min(322px, calc(100vw - 32px));
+      }
+
+      .breadcrumbs {
+        padding-top: 18px;
+      }
+
+      .article-hero {
+        padding: 28px 0 25px;
+      }
+
+      .article-hero h1 {
+        font-size: clamp(37px, 10vw, 52px);
+        letter-spacing: -1.7px;
+      }
+
+      .dek {
+        font-size: 15px;
+      }
+
+      .feature-visual {
+        padding: 17px 14px;
+        border-radius: 17px;
+      }
+
+      .connection-flow {
+        grid-template-columns: 1fr;
+        gap: 9px;
+        max-width: 330px;
+      }
+
+      .device-card {
+        min-height: auto;
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        justify-content: start;
+        text-align: left;
+        padding: 12px 14px;
+      }
+
+      .device-card svg {
+        width: 34px;
+        height: 34px;
+        grid-row: span 2;
+      }
+
+      .device-card strong {
+        align-self: end;
+        font-size: 15px;
+      }
+
+      .device-card small {
+        align-self: start;
+      }
+
+      .tunnel {
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        gap: 7px 10px;
+        justify-items: start;
+        text-align: left;
+        padding-left: 24px;
+      }
+
+      .tunnel-line {
+        width: 3px;
+        height: 19px;
+        margin-left: 11px;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+      }
+
+      .tunnel-line::after {
+        top: auto;
+        bottom: -1px;
+        right: -4px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 7px solid #5e9476;
+        border-bottom: 0;
+      }
+
+      .tunnel-icon {
+        grid-column: 2;
+        grid-row: 1;
+        width: 23px;
+        height: 23px;
+      }
+
+      .tunnel-label {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .article-layout {
+        padding: 28px 0 58px;
+      }
+
+      .article-content {
+        font-size: 15px;
+        line-height: 1.82;
+      }
+
+      .article-content h2 {
+        margin-top: 43px;
+        font-size: 30px;
+      }
+
+      .article-content h3 {
+        font-size: 21px;
+      }
+
+      .step {
+        padding: 14px;
+      }
+
+      .related-inner,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: .01ms !important; } }
-    @media print { .site-header, .progress-track, .toc-wrap, .mobile-toc, .related-strip, .site-footer, .back-to-top { display: none !important; } body { background: white; } .container { width: 100%; } .article-layout { display: block; padding: 0; } .article-content { max-width: none; font-size: 11pt; } .article-content h2 { break-after: avoid; } a { color: inherit; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+      }
+    }
+
+    @media print {
+      .site-header,
+      .progress-track,
+      .toc-wrap,
+      .mobile-toc,
+      .related-strip,
+      .site-footer,
+      .back-to-top {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .article-layout {
+        display: block;
+        padding: 0;
+      }
+
+      .article-content {
+        max-width: none;
+        font-size: 11pt;
+      }
+
+      .article-content h2 {
+        break-after: avoid;
+      }
+
+      a {
+        color: inherit;
+      }
+    }
   </style>
 </head>
+
 <body id="top">
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="/" aria-label="Synth Visual home"><span class="brand-name">Synth Visual</span><span class="brand-tagline">Technology, made clearer</span></a>
-      <nav class="main-nav" aria-label="Main navigation"><a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=138160">NordVPN Plans</a><a href="https://synthvisuals.space/about.html">About</a><a class="nav-cta" href="/#latest-guides">Explore Articles</a></nav>
+      <a class="brand" href="/" aria-label="Synth Visual home">
+        <span class="brand-name">Synth Visual</span>
+        <span class="brand-tagline">Technology, made clearer</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+        <div class="tools-dropdown">
+          <button
+            class="tools-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="tools-menu"
+          >
+            Tools
+            <span class="tools-chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="tools-menu" id="tools-menu" hidden>
+            <div class="tools-menu-section">
+              <p class="tools-menu-heading">Privacy &amp; Network Tools</p>
+              <a href="/dns-webrtc-leak-test.html">DNS/WebRTC Leak Test</a>
+              <a href="/what-is-my-ip.html">What Is My IP?</a>
+            </div>
+
+            <div class="tools-menu-divider" aria-hidden="true"></div>
+
+            <div class="tools-menu-section">
+              <p class="tools-menu-heading">VPNs &amp; Security Software</p>
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordVPN Plans ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/about.html">About</a>
+        <a class="nav-cta" href="/#latest-guides">Explore Articles</a>
+      </nav>
     </div>
-    <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="reading-progress"></div></div>
+
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-bar" id="reading-progress"></div>
+    </div>
   </header>
+
   <main>
     <div class="container">
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li><li><a href="/#latest-guides">Guides</a></li><li aria-current="page">Does a VPN Hide Your IP Address?</li></ol></nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#latest-guides">Guides</a></li>
+          <li aria-current="page">Does a VPN Hide Your IP Address?</li>
+        </ol>
+      </nav>
+
       <header class="article-hero">
         <div class="article-hero-inner">
           <p class="eyebrow">Digital Privacy · VPN Guide</p>
           <h1>Does a VPN Hide Your <em>IP Address?</em></h1>
           <p class="dek">Learn how a VPN masks your public IP address, what your ISP and websites can still see, how leaks happen, and how to check your VPN privacy.</p>
-          <div class="article-meta" aria-label="Article information"><span class="topic-pill">Cybersecurity</span><span class="meta-dot">Beginner friendly</span><span class="meta-dot">About 16 min read</span></div>
+          <div class="article-meta" aria-label="Article information">
+            <span class="topic-pill">Cybersecurity</span>
+            <span class="meta-dot">Beginner friendly</span>
+            <span class="meta-dot">About 16 min read</span>
+          </div>
         </div>
       </header>
+
       <figure class="feature-visual" aria-labelledby="vpn-flow-caption">
         <div class="connection-flow" role="img" aria-label="Diagram showing a device sending traffic through an encrypted VPN connection to a VPN server, which then connects to a destination website">
           <div class="device-card">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="7" y="6" width="34" height="27" rx="3"/><path d="M18 41h12M24 33v8M3 36h42"/></svg>
-            <strong>Your Device</strong><small>Original public IP</small>
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <rect x="7" y="6" width="34" height="27" rx="3"/>
+              <path d="M18 41h12M24 33v8M3 36h42"/>
+            </svg>
+            <strong>Your Device</strong>
+            <small>Original public IP</small>
           </div>
-          <div class="tunnel"><span class="tunnel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span><span class="tunnel-line"></span><span class="tunnel-label">Encrypted VPN tunnel</span></div>
-          <div class="device-card">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="7" y="5" width="34" height="12" rx="3"/><rect x="7" y="20" width="34" height="12" rx="3"/><path d="M12 11h2m-2 9h2m-2 7h2M7 37h34M17 32v5m14-5v5"/></svg>
-            <strong>VPN Server</strong><small>Outgoing VPN IP</small>
+
+          <div class="tunnel">
+            <span class="tunnel-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect x="5" y="10" width="14" height="11" rx="2"/>
+                <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+              </svg>
+            </span>
+            <span class="tunnel-line"></span>
+            <span class="tunnel-label">Encrypted VPN tunnel</span>
           </div>
-          <div class="tunnel"><span class="tunnel-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></span><span class="tunnel-line"></span><span class="tunnel-label">Forwarded request</span></div>
+
           <div class="device-card">
-            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="24" cy="24" r="19"/><path d="M5 24h38M24 5c6 6 8 12 8 19s-2 13-8 19c-6-6-8-12-8-19s2-13 8-19Z"/></svg>
-            <strong>Website</strong><small>Normally sees VPN IP</small>
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <rect x="7" y="5" width="34" height="12" rx="3"/>
+              <rect x="7" y="20" width="34" height="12" rx="3"/>
+              <path d="M12 11h2m-2 9h2m-2 7h2M7 37h34M17 32v5m14-5v5"/>
+            </svg>
+            <strong>VPN Server</strong>
+            <small>Outgoing VPN IP</small>
+          </div>
+
+          <div class="tunnel">
+            <span class="tunnel-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14m-6-6 6 6-6 6"/>
+              </svg>
+            </span>
+            <span class="tunnel-line"></span>
+            <span class="tunnel-label">Forwarded request</span>
+          </div>
+
+          <div class="device-card">
+            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="24" cy="24" r="19"/>
+              <path d="M5 24h38M24 5c6 6 8 12 8 19s-2 13-8 19c-6-6-8-12-8-19s2-13 8-19Z"/>
+            </svg>
+            <strong>Website</strong>
+            <small>Normally sees VPN IP</small>
           </div>
         </div>
         <figcaption class="visual-caption" id="vpn-flow-caption">A VPN routes covered traffic through a remote server, so destination websites usually see the VPN server's public IP address instead of the address assigned to your connection.</figcaption>
@@ -313,16 +1414,72 @@
         <h2 id="how-vpn-hides-ip">How Does a VPN Hide Your IP Address?</h2>
         <p>A virtual private network (VPN) creates a protected connection between your device and a VPN server. It routes selected internet traffic through that connection before forwarding it to its destination.</p>
         <p>The process generally works as follows.</p>
+
         <div class="step-list" aria-label="How VPN IP masking works">
-          <div class="step"><span class="step-number">1</span><div><h3>Your device connects to a VPN server</h3><p>The VPN application establishes a connection using a supported VPN protocol.</p></div></div>
-          <div class="step"><span class="step-number">2</span><div><h3>A protected tunnel is established</h3><p>Traffic covered by the VPN's routing rules is encapsulated and typically encrypted while traveling between your device and the VPN server.</p></div></div>
-          <div class="step"><span class="step-number">3</span><div><h3>The VPN server forwards your traffic</h3><p>The server sends requests to websites and other online services on your behalf.</p></div></div>
-          <div class="step"><span class="step-number">4</span><div><h3>The destination sees the VPN server's IP address</h3><p>The website normally sees the public IP address from which the VPN server's outgoing connection originates.</p></div></div>
-          <div class="step"><span class="step-number">5</span><div><h3>The response returns through the VPN</h3><p>The VPN server sends the response back through the protected connection, where your device processes it.</p></div></div>
+          <div class="step">
+            <span class="step-number">1</span>
+            <div>
+              <h3>Your device connects to a VPN server</h3>
+              <p>The VPN application establishes a connection using a supported VPN protocol.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <div>
+              <h3>A protected tunnel is established</h3>
+              <p>Traffic covered by the VPN's routing rules is encapsulated and typically encrypted while traveling between your device and the VPN server.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <div>
+              <h3>The VPN server forwards your traffic</h3>
+              <p>The server sends requests to websites and other online services on your behalf.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">4</span>
+            <div>
+              <h3>The destination sees the VPN server's IP address</h3>
+              <p>The website normally sees the public IP address from which the VPN server's outgoing connection originates.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">5</span>
+            <div>
+              <h3>The response returns through the VPN</h3>
+              <p>The VPN server sends the response back through the protected connection, where your device processes it.</p>
+            </div>
+          </div>
         </div>
+
         <p>The Internet Engineering Task Force's <a href="https://datatracker.ietf.org/doc/html/rfc4301" target="_blank" rel="noopener noreferrer">IPsec architecture, RFC 4301</a>, documents how IPsec can protect traffic through tunnel-mode operation. Consumer VPN implementations vary, but the general principle of routing traffic through a remote server explains the IP-masking effect.</p>
         <p>The basic traffic flow is:</p>
-        <div class="scroll-table"><table aria-label="Simplified VPN traffic flow"><thead><tr><th scope="col">Stage</th><th scope="col">What happens</th><th scope="col">Address generally visible</th></tr></thead><tbody><tr><td>Your device to VPN server</td><td>Covered traffic travels through the protected VPN tunnel.</td><td>The VPN server can generally observe the public source address connecting to it.</td></tr><tr><td>VPN server to destination website</td><td>The VPN server forwards the request to the destination.</td><td>The website normally sees the VPN server's outgoing public IP address.</td></tr></tbody></table></div>
+
+        <div class="scroll-table">
+          <table aria-label="Simplified VPN traffic flow">
+            <thead>
+              <tr>
+                <th scope="col">Stage</th>
+                <th scope="col">What happens</th>
+                <th scope="col">Address generally visible</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Your device to VPN server</td>
+                <td>Covered traffic travels through the protected VPN tunnel.</td>
+                <td>The VPN server can generally observe the public source address connecting to it.</td>
+              </tr>
+              <tr>
+                <td>VPN server to destination website</td>
+                <td>The VPN server forwards the request to the destination.</td>
+                <td>The website normally sees the VPN server's outgoing public IP address.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <p>Encryption and IP masking serve related but different purposes. Encryption helps prevent intermediaries on the path to the VPN server from reading protected traffic. Routing through the VPN server changes the apparent public source address seen by the destination.</p>
         <p>A VPN does not necessarily route every application or connection through its tunnel. Split tunneling, application-specific settings, unsupported traffic, connection failures, and operating-system routing behavior can affect which traffic is protected. If some traffic bypasses the VPN, its public source IP address may remain visible to the destination.</p>
 
@@ -416,29 +1573,118 @@
 
         <h2 id="check-vpn-ip">How Can You Check Whether Your VPN Is Hiding Your IP Address?</h2>
         <p>You can perform several simple checks to see whether your VPN is presenting the expected public IP address.</p>
+
         <div class="step-list" aria-label="Steps to check VPN privacy">
-          <div class="step"><span class="step-number">1</span><div><h3>Check your public IP address before connecting</h3><p>Use a reputable IP-checking service and note the displayed address. Avoid publishing or sharing it unnecessarily.</p></div></div>
-          <div class="step"><span class="step-number">2</span><div><h3>Connect to your VPN</h3><p>Choose a server and wait for the application to confirm that the connection is active.</p></div></div>
-          <div class="step"><span class="step-number">3</span><div><h3>Check your public IP address again</h3><p>The displayed address should normally differ from the one you recorded before connecting.</p></div></div>
-          <div class="step"><span class="step-number">4</span><div><h3>Review the approximate location</h3><p>Check whether the displayed region is consistent with your chosen VPN server. Remember that geolocation databases are not always accurate.</p></div></div>
-          <div class="step"><span class="step-number">5</span><div><h3>Review your VPN settings</h3><p>Look for options related to leak protection, split tunneling, IPv6 handling, and routing behavior.</p></div></div>
-          <div class="step"><span class="step-number">6</span><div><h3>Check DNS behavior</h3><p>Use a reputable DNS leak-testing service to see which DNS resolvers are detected. Review what the results mean alongside your provider's technical documentation.</p></div></div>
-          <div class="step"><span class="step-number">7</span><div><h3>Review IPv6 and WebRTC behavior</h3><p>Follow reliable testing instructions appropriate to your operating system and browser. A single test may not reveal every possible exposure.</p></div></div>
-          <div class="step"><span class="step-number">8</span><div><h3>Check connection-drop protection</h3><p>Review whether your VPN offers a kill switch and whether it is enabled. Where appropriate, consult the provider's instructions for understanding how the feature behaves if the VPN disconnects.</p></div></div>
+          <div class="step">
+            <span class="step-number">1</span>
+            <div>
+              <h3>Check your public IP address before connecting</h3>
+              <p>Use a reputable IP-checking service and note the displayed address. Avoid publishing or sharing it unnecessarily.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">2</span>
+            <div>
+              <h3>Connect to your VPN</h3>
+              <p>Choose a server and wait for the application to confirm that the connection is active.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">3</span>
+            <div>
+              <h3>Check your public IP address again</h3>
+              <p>The displayed address should normally differ from the one you recorded before connecting.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">4</span>
+            <div>
+              <h3>Review the approximate location</h3>
+              <p>Check whether the displayed region is consistent with your chosen VPN server. Remember that geolocation databases are not always accurate.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">5</span>
+            <div>
+              <h3>Review your VPN settings</h3>
+              <p>Look for options related to leak protection, split tunneling, IPv6 handling, and routing behavior.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">6</span>
+            <div>
+              <h3>Check DNS behavior</h3>
+              <p>Use a reputable DNS leak-testing service to see which DNS resolvers are detected. Review what the results mean alongside your provider's technical documentation.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">7</span>
+            <div>
+              <h3>Review IPv6 and WebRTC behavior</h3>
+              <p>Follow reliable testing instructions appropriate to your operating system and browser. A single test may not reveal every possible exposure.</p>
+            </div>
+          </div>
+          <div class="step">
+            <span class="step-number">8</span>
+            <div>
+              <h3>Check connection-drop protection</h3>
+              <p>Review whether your VPN offers a kill switch and whether it is enabled. Where appropriate, consult the provider's instructions for understanding how the feature behaves if the VPN disconnects.</p>
+            </div>
+          </div>
         </div>
+
         <p>A kill switch is intended to block selected internet traffic when the VPN connection drops unexpectedly. Its exact behavior depends on the implementation and configuration.</p>
         <p>Seeing a different public IP address is useful evidence that IP masking is working for the connection being tested. It does not prove that every application, DNS request, or network path is protected.</p>
         <p>Do not enter sensitive information into unfamiliar testing sites or install unknown software simply to test your connection.</p>
 
         <h2 id="vpn-proxy-tor">VPN vs. Proxy vs. Tor: What's the Difference?</h2>
         <p>VPNs, proxy servers, and Tor can all change the network path through which a destination sees a connection, but they use different approaches and provide different protections.</p>
-        <div class="scroll-table"><table><thead><tr><th scope="col">Feature</th><th scope="col">VPN</th><th scope="col">Proxy Server</th><th scope="col">Tor Network</th></tr></thead><tbody>
-          <tr><th scope="row">General routing</th><td>Routes selected device traffic through a VPN server.</td><td>Forwards traffic for a specific application or protocol, depending on configuration.</td><td>Routes supported traffic through multiple relays.</td></tr>
-          <tr><th scope="row">IP address seen by the destination</th><td>Usually the VPN exit server's public IP.</td><td>Usually the proxy's outgoing IP.</td><td>Usually the Tor exit relay's IP for public internet destinations.</td></tr>
-          <tr><th scope="row">Encryption</th><td>Typically protects traffic between device and VPN server.</td><td>Depends on the proxy; HTTPS may independently encrypt traffic.</td><td>Uses layered encryption within the Tor network.</td></tr>
-          <tr><th scope="row">Typical uses</th><td>Network privacy, remote access, and IP masking.</td><td>Application-specific routing and intermediary services.</td><td>Privacy-focused browsing and reducing direct linkability between user and destination.</td></tr>
-          <tr><th scope="row">Important limitation</th><td>Provider becomes a point of trust; anonymity is not guaranteed.</td><td>May not protect all applications or encrypt the connection.</td><td>Some services block Tor traffic; exit traffic still needs HTTPS protection for end-to-end confidentiality.</td></tr>
-        </tbody></table></div>
+
+        <div class="scroll-table">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                <th scope="col">VPN</th>
+                <th scope="col">Proxy Server</th>
+                <th scope="col">Tor Network</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">General routing</th>
+                <td>Routes selected device traffic through a VPN server.</td>
+                <td>Forwards traffic for a specific application or protocol, depending on configuration.</td>
+                <td>Routes supported traffic through multiple relays.</td>
+              </tr>
+              <tr>
+                <th scope="row">IP address seen by the destination</th>
+                <td>Usually the VPN exit server's public IP.</td>
+                <td>Usually the proxy's outgoing IP.</td>
+                <td>Usually the Tor exit relay's IP for public internet destinations.</td>
+              </tr>
+              <tr>
+                <th scope="row">Encryption</th>
+                <td>Typically protects traffic between device and VPN server.</td>
+                <td>Depends on the proxy; HTTPS may independently encrypt traffic.</td>
+                <td>Uses layered encryption within the Tor network.</td>
+              </tr>
+              <tr>
+                <th scope="row">Typical uses</th>
+                <td>Network privacy, remote access, and IP masking.</td>
+                <td>Application-specific routing and intermediary services.</td>
+                <td>Privacy-focused browsing and reducing direct linkability between user and destination.</td>
+              </tr>
+              <tr>
+                <th scope="row">Important limitation</th>
+                <td>Provider becomes a point of trust; anonymity is not guaranteed.</td>
+                <td>May not protect all applications or encrypt the connection.</td>
+                <td>Some services block Tor traffic; exit traffic still needs HTTPS protection for end-to-end confidentiality.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
         <p>A proxy does not necessarily encrypt traffic. For example, a plain proxy connection and an HTTPS connection are different things: HTTPS may protect data between your browser and the destination even when a proxy is involved.</p>
         <p>Tor takes another approach. According to the <a href="https://support.torproject.org/tor-browser/getting-started/about-tor-browser/" target="_blank" rel="noopener noreferrer">Tor Project's overview of Tor Browser</a>, traffic is routed through multiple relays rather than a conventional single VPN exit server. The destination generally sees an exit relay address, while the different stages of the route serve distinct roles.</p>
         <p>None of these tools automatically prevents identification through account logins, unsafe browsing, or all forms of tracking.</p>
@@ -459,58 +1705,207 @@
         <p>The most useful approach is to understand the limitations of each tool instead of expecting one application to solve every privacy and security problem.</p>
 
         <h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
-        <section class="faq-item"><h3 id="faq-completely-hide-ip">1. Does a VPN completely hide your IP address?</h3><p>A properly functioning VPN generally hides your original public IP address from destination websites for traffic routed through its tunnel. It does not guarantee that every application or connection is protected, and leaks or configuration problems can expose information.</p></section>
-        <section class="faq-item"><h3 id="faq-google-ip">2. Can Google see my real IP address when I use a VPN?</h3><p>When Google receives a request through a properly functioning VPN connection, it generally sees the VPN server's public IP address rather than your original public IP address. However, Google may still recognize you through your account, cookies, or other identifying signals. Traffic that bypasses the VPN may also reveal your original address.</p></section>
-        <section class="faq-item"><h3 id="faq-isp-websites">3. Can my internet provider see what websites I visit when I use a VPN?</h3><p>Your ISP can ordinarily see that you are connecting to a VPN server, along with connection timing and traffic volume. A correctly configured VPN generally protects the traffic it carries from direct inspection by your ISP. DNS leaks, split tunneling, or other traffic outside the tunnel can reveal additional information.</p></section>
-        <section class="faq-item"><h3 id="faq-government-ip">4. Can a VPN hide my IP address from the government?</h3><p>A VPN can hide your original public IP address from destination services and change what your ISP can directly observe about traffic routed through the tunnel. It does not guarantee anonymity from government agencies. Relevant information may be available through other sources, and the legal processes and technical capabilities involved vary by jurisdiction and circumstance.</p></section>
-        <section class="faq-item"><h3 id="faq-websites-track">5. Can websites track me while I use a VPN?</h3><p>Yes. Websites may recognize you through account logins, cookies, browser fingerprinting, and other tracking signals. A VPN changes your apparent public IP address, but it does not automatically erase other identifiers.</p></section>
-        <section class="faq-item"><h3 id="faq-location-completely">6. Does a VPN hide my location completely?</h3><p>No. A VPN can change the approximate location associated with your public IP address. It does not automatically change GPS coordinates, prevent all permission-based location access, or remove every other clue about your location.</p></section>
-        <section class="faq-item"><h3 id="faq-vpn-leak">7. Can a VPN leak my real IP address?</h3><p>Yes, under certain conditions. DNS leaks, routing errors, IPv6 handling, browser behavior, or unexpected VPN disconnections may expose information outside the protected tunnel. The likelihood and type of exposure depend on the VPN implementation, operating system, browser, and configuration.</p></section>
-        <section class="faq-item"><h3 id="faq-anonymity">8. Is a VPN enough to make me anonymous online?</h3><p>No. A VPN can reduce direct exposure of your original public IP address, but anonymity also depends on account activity, tracking technologies, browser configuration, provider visibility, and other identifying information. A VPN is a privacy tool, not a guarantee of anonymity.</p></section>
+
+        <section class="faq-item">
+          <h3 id="faq-completely-hide-ip">1. Does a VPN completely hide your IP address?</h3>
+          <p>A properly functioning VPN generally hides your original public IP address from destination websites for traffic routed through its tunnel. It does not guarantee that every application or connection is protected, and leaks or configuration problems can expose information.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3 id="faq-google-ip">2. Can Google see my real IP address when I use a VPN?</h3>
+          <p>When Google receives a request through a properly functioning VPN connection, it generally sees the VPN server's public IP address rather than your original public IP address. However, Google may still recognize you through your account, cookies, or other identifying signals. Traffic that bypasses the VPN may also reveal your original address.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3 id="faq-isp-websites">3. Can my internet provider see what websites I visit when I use a VPN?</h3>
+          <p>Your ISP can ordinarily see that you are connecting to a VPN server, along with connection timing and traffic volume. A correctly configured VPN generally protects the traffic it carries from direct inspection by your ISP. DNS leaks, split tunneling, or other traffic outside the tunnel can reveal additional information.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3 id="faq-government-ip">4. Can a VPN hide my IP address from the government?</h3>
+          <p>A VPN can hide your original public IP address from destination services and change what your ISP can directly observe about traffic routed through the tunnel. It does not guarantee anonymity from government agencies. Relevant information may be available through other sources, and the legal processes and technical capabilities involved vary by jurisdiction and circumstance.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3 id="faq-websites-track">5. Can websites track me while I use a VPN?</h3>
+          <p>Yes. Websites may recognize you through account logins, cookies, browser fingerprinting, and other tracking signals. A VPN changes your apparent public IP address, but it does not automatically erase other identifiers.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3 id="faq-location-completely">6. Does a VPN hide my location completely?</h3>
+          <p>No. A VPN can change the approximate location associated with your public IP address. It does not automatically change GPS coordinates, prevent all permission-based location access, or remove every other clue about your location.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3 id="faq-vpn-leak">7. Can a VPN leak my real IP address?</h3>
+          <p>Yes, under certain conditions. DNS leaks, routing errors, IPv6 handling, browser behavior, or unexpected VPN disconnections may expose information outside the protected tunnel. The likelihood and type of exposure depend on the VPN implementation, operating system, browser, and configuration.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3 id="faq-anonymity">8. Is a VPN enough to make me anonymous online?</h3>
+          <p>No. A VPN can reduce direct exposure of your original public IP address, but anonymity also depends on account activity, tracking technologies, browser configuration, provider visibility, and other identifying information. A VPN is a privacy tool, not a guarantee of anonymity.</p>
+        </section>
 
         <h2 id="final-thoughts">Final Thoughts</h2>
         <p>A VPN can help hide your original public IP address from destination websites by routing your traffic through a VPN server. When the connection is working as intended, websites generally see the VPN server's public IP address rather than the address associated with your original internet connection.</p>
         <p>However, IP masking does not make every aspect of your online activity invisible. Your ISP can still observe the connection to the VPN server, the VPN provider may be able to observe your connecting IP address and relevant metadata, and websites can recognize users through account logins, cookies, browser fingerprinting, and other signals.</p>
         <p>The practical takeaway is to understand what a VPN protects, verify that it is routing your traffic as expected, and combine it with appropriate privacy and security practices. A VPN can improve privacy, but realistic expectations and careful configuration are just as important as the tool itself.</p>
-        <div class="takeaway"><h3>The main takeaway</h3><p>A VPN generally replaces the public IP address websites see with the VPN server's outgoing address for traffic routed through its tunnel. It can improve privacy, but it does not hide every identifier, prevent all leaks, or guarantee anonymity. Verify your setup and combine a VPN with HTTPS, sensible account security, updated software, and careful privacy settings.</p></div>
+
+        <div class="takeaway">
+          <h3>The main takeaway</h3>
+          <p>A VPN generally replaces the public IP address websites see with the VPN server's outgoing address for traffic routed through its tunnel. It can improve privacy, but it does not hide every identifier, prevent all leaks, or guarantee anonymity. Verify your setup and combine a VPN with HTTPS, sensible account security, updated software, and careful privacy settings.</p>
+        </div>
 
         <section aria-labelledby="sources-heading" class="references" id="sources">
           <h2 id="sources-heading">References &amp; Further Reading</h2>
           <p class="references-intro">These standards, official technical documents, and educational resources support the article's explanations of VPN tunneling, IP geolocation, tracking, location permissions, and online privacy.</p>
+
           <ol class="reference-list">
-            <li><a href="https://datatracker.ietf.org/doc/html/rfc4301" target="_blank" rel="noopener noreferrer">Internet Engineering Task Force (IETF) — RFC 4301: Security Architecture for the Internet Protocol</a><p>Technical standard describing IPsec security architecture, protected traffic, and tunnel-mode operation.</p></li>
-            <li><a href="https://www.ftc.gov/business-guidance/blog/2018/02/market-vpn-app" target="_blank" rel="noopener noreferrer">Federal Trade Commission (FTC) — In the Market for a VPN App?</a><p>Guidance concerning VPN apps, privacy claims, and the trust users place in VPN providers.</p></li>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/address" target="_blank" rel="noopener noreferrer">MDN — RTCIceCandidate: address property</a><p>Technical documentation explaining how WebRTC IP-related address information can be exposed.</p></li>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation" target="_blank" rel="noopener noreferrer">MDN — Geolocation API</a><p>Browser documentation explaining access to device location and associated permission controls.</p></li>
-            <li><a href="https://www.mozilla.org/firefox/features/block-fingerprinting/" target="_blank" rel="noopener noreferrer">Mozilla — Firefox: Blocking Fingerprinting</a><p>Educational explanation of browser fingerprinting and how device and browser characteristics can contribute to tracking.</p></li>
-            <li><a href="https://support.maxmind.com/knowledge-base/articles/maxmind-geolocation-accuracy" target="_blank" rel="noopener noreferrer">MaxMind — Understanding IP Geolocation Accuracy</a><p>Guidance on the limitations of associating IP addresses with geographic locations.</p></li>
-            <li><a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTPS" target="_blank" rel="noopener noreferrer">MDN — HTTPS</a><p>Technical explanation of HTTPS and the encryption provided by TLS.</p></li>
-            <li><a href="https://support.torproject.org/tor-browser/getting-started/about-tor-browser/" target="_blank" rel="noopener noreferrer">Tor Project — About Tor Browser</a><p>Official explanation of Tor's multi-relay routing model and its privacy properties.</p></li>
+            <li>
+              <a href="https://datatracker.ietf.org/doc/html/rfc4301" target="_blank" rel="noopener noreferrer">Internet Engineering Task Force (IETF) — RFC 4301: Security Architecture for the Internet Protocol</a>
+              <p>Technical standard describing IPsec security architecture, protected traffic, and tunnel-mode operation.</p>
+            </li>
+            <li>
+              <a href="https://www.ftc.gov/business-guidance/blog/2018/02/market-vpn-app" target="_blank" rel="noopener noreferrer">Federal Trade Commission (FTC) — In the Market for a VPN App?</a>
+              <p>Guidance concerning VPN apps, privacy claims, and the trust users place in VPN providers.</p>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/API/RTCIceCandidate/address" target="_blank" rel="noopener noreferrer">MDN — RTCIceCandidate: address property</a>
+              <p>Technical documentation explaining how WebRTC IP-related address information can be exposed.</p>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Web/API/Geolocation" target="_blank" rel="noopener noreferrer">MDN — Geolocation API</a>
+              <p>Browser documentation explaining access to device location and associated permission controls.</p>
+            </li>
+            <li>
+              <a href="https://www.mozilla.org/firefox/features/block-fingerprinting/" target="_blank" rel="noopener noreferrer">Mozilla — Firefox: Blocking Fingerprinting</a>
+              <p>Educational explanation of browser fingerprinting and how device and browser characteristics can contribute to tracking.</p>
+            </li>
+            <li>
+              <a href="https://support.maxmind.com/knowledge-base/articles/maxmind-geolocation-accuracy" target="_blank" rel="noopener noreferrer">MaxMind — Understanding IP Geolocation Accuracy</a>
+              <p>Guidance on the limitations of associating IP addresses with geographic locations.</p>
+            </li>
+            <li>
+              <a href="https://developer.mozilla.org/en-US/docs/Glossary/HTTPS" target="_blank" rel="noopener noreferrer">MDN — HTTPS</a>
+              <p>Technical explanation of HTTPS and the encryption provided by TLS.</p>
+            </li>
+            <li>
+              <a href="https://support.torproject.org/tor-browser/getting-started/about-tor-browser/" target="_blank" rel="noopener noreferrer">Tor Project — About Tor Browser</a>
+              <p>Official explanation of Tor's multi-relay routing model and its privacy properties.</p>
+            </li>
           </ol>
+
           <a class="back-to-top" href="#top">↑ Back to the top</a>
         </section>
       </article>
     </div>
 
-    <section class="related-strip"><div class="container related-inner"><div><h2>Keep exploring digital privacy.</h2><p>Explore more straightforward guides to IP addresses, DNS, VPNs, and the technologies that shape your online privacy and security.</p></div><a class="related-link" href="/#latest-guides">Explore all guides →</a></div></section>
+    <section class="related-strip">
+      <div class="container related-inner">
+        <div>
+          <h2>Keep exploring digital privacy.</h2>
+          <p>Explore more straightforward guides to IP addresses, DNS, VPNs, and the technologies that shape your online privacy and security.</p>
+        </div>
+        <a class="related-link" href="/#latest-guides">Explore all guides →</a>
+      </div>
+    </section>
   </main>
-  <footer class="site-footer"><div class="container footer-inner"><div><a class="footer-brand" href="/">Synth Visual</a><p class="copyright">© <span id="current-year">2026</span> Synth Visual. All rights reserved.</p></div><nav class="footer-links" aria-label="Footer navigation"><a href="https://synthvisuals.space/about.html">About</a><a href="https://synthvisuals.space/privacy-policy.html">Privacy Policy</a><a href="https://synthvisuals.space/affiliate-disclosure.html">Affiliate Disclosure</a></nav></div></footer>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="footer-brand" href="/">Synth Visual</a>
+        <p class="copyright">© <span id="current-year">2026</span> Synth Visual. All rights reserved.</p>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://synthvisuals.space/about.html">About</a>
+        <a href="https://synthvisuals.space/privacy-policy.html">Privacy Policy</a>
+        <a href="https://synthvisuals.space/affiliate-disclosure.html">Affiliate Disclosure</a>
+      </nav>
+    </div>
+  </footer>
+
   <script>
+    /* Update copyright year */
     document.getElementById("current-year").textContent = new Date().getFullYear();
+
+    /* Reading progress */
     (function () {
       const bar = document.getElementById("reading-progress");
       let ticking = false;
+
       function updateProgress() {
         const doc = document.documentElement;
         const max = doc.scrollHeight - window.innerHeight;
         const amount = max > 0 ? (window.scrollY / max) * 100 : 0;
+
         bar.style.width = Math.max(0, Math.min(100, amount)) + "%";
         ticking = false;
       }
+
       window.addEventListener("scroll", function () {
-        if (!ticking) { window.requestAnimationFrame(updateProgress); ticking = true; }
+        if (!ticking) {
+          window.requestAnimationFrame(updateProgress);
+          ticking = true;
+        }
       }, { passive: true });
+
       updateProgress();
+    })();
+
+    /* Tools dropdown behavior */
+    (function () {
+      const dropdown = document.querySelector(".tools-dropdown");
+      const trigger = document.querySelector(".tools-trigger");
+      const menu = document.getElementById("tools-menu");
+
+      if (!dropdown || !trigger || !menu) return;
+
+      function openMenu() {
+        menu.hidden = false;
+        trigger.setAttribute("aria-expanded", "true");
+      }
+
+      function closeMenu(returnFocus) {
+        menu.hidden = true;
+        trigger.setAttribute("aria-expanded", "false");
+
+        if (returnFocus) {
+          trigger.focus();
+        }
+      }
+
+      trigger.addEventListener("click", function () {
+        const isExpanded = trigger.getAttribute("aria-expanded") === "true";
+
+        if (isExpanded) {
+          closeMenu(false);
+        } else {
+          openMenu();
+        }
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!dropdown.contains(event.target)) {
+          closeMenu(false);
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (
+          event.key === "Escape" &&
+          trigger.getAttribute("aria-expanded") === "true"
+        ) {
+          closeMenu(true);
+        }
+      });
+
+      menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          closeMenu(false);
+        });
+      });
     })();
   </script>
 </body>
