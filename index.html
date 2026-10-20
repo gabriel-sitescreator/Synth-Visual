@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,9 +35,13 @@
       --shadow: 0 8px 30px rgba(27, 39, 30, 0.045);
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
@@ -47,9 +52,13 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-    a:focus-visible {
+    a:focus-visible,
+    button:focus-visible {
       outline: 3px solid #7cae98;
       outline-offset: 4px;
       border-radius: 4px;
@@ -61,7 +70,10 @@
     }
 
     /* Header */
+
     .site-header {
+      position: relative;
+      z-index: 20;
       border-bottom: 1px solid var(--line);
       background: rgba(247, 247, 244, 0.94);
     }
@@ -105,8 +117,17 @@
       font-weight: 600;
     }
 
-    .main-nav a { transition: color 160ms ease; }
-    .main-nav a:hover { color: var(--accent); }
+    .main-nav a,
+    .tools-trigger {
+      transition: color 160ms ease;
+    }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"],
+    .tools-trigger:hover,
+    .tools-trigger[aria-expanded="true"] {
+      color: var(--accent);
+    }
 
     .nav-cta {
       padding: 10px 15px;
@@ -115,7 +136,105 @@
       color: var(--accent);
     }
 
+    .nav-cta:hover {
+      background: var(--soft);
+    }
+
+    /* Tools dropdown — shared with the Affiliate Disclosure page */
+
+    .tools-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .tools-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 0;
+      border: 0;
+      background: transparent;
+      color: #424840;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .tools-chevron {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 160ms ease;
+    }
+
+    .tools-trigger[aria-expanded="true"] .tools-chevron {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .tools-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: -18px;
+      z-index: 50;
+      width: 322px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 16px 42px rgba(27, 39, 30, 0.13);
+    }
+
+    .tools-menu[hidden] {
+      display: none;
+    }
+
+    .tools-menu-section {
+      padding: 8px 7px 9px;
+    }
+
+    .tools-menu-heading {
+      margin: 0 0 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 1.25px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .tools-menu a {
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .tools-menu a:hover,
+    .tools-menu a:focus-visible {
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    .tools-menu-divider {
+      height: 1px;
+      margin: 3px 7px;
+      background: var(--line);
+    }
+
+    .tools-menu .tools-commercial-link {
+      color: var(--accent);
+    }
+
     /* Hero */
+
     .hero {
       padding: 88px 0 65px;
       text-align: center;
@@ -150,7 +269,10 @@
       line-height: 1.08;
     }
 
-    .hero h1 em { color: var(--accent); font-weight: 500; }
+    .hero h1 em {
+      color: var(--accent);
+      font-weight: 500;
+    }
 
     .hero-copy {
       max-width: 620px;
@@ -172,7 +294,10 @@
     }
 
     /* Articles */
-    .articles-section { padding: 25px 0 94px; }
+
+    .articles-section {
+      padding: 25px 0 94px;
+    }
 
     .section-heading {
       display: flex;
@@ -234,6 +359,7 @@
     }
 
     /* The entire linked card is clickable. */
+
     a.article-card {
       color: inherit;
       text-decoration: none;
@@ -280,10 +406,16 @@
       font-weight: 750;
     }
 
-    .read-link span { transition: transform 160ms ease; }
-    .article-card:hover .read-link span { transform: translateX(4px); }
+    .read-link span {
+      transition: transform 160ms ease;
+    }
+
+    .article-card:hover .read-link span {
+      transform: translateX(4px);
+    }
 
     /* About */
+
     .about-strip {
       padding: 34px 0;
       border-top: 1px solid var(--line);
@@ -326,7 +458,10 @@
     }
 
     /* Footer */
-    .site-footer { padding: 27px 0; }
+
+    .site-footer {
+      padding: 27px 0;
+    }
 
     .footer-inner {
       display: flex;
@@ -342,7 +477,11 @@
       letter-spacing: -0.5px;
     }
 
-    .copyright { margin: 5px 0 0; color: var(--muted); font-size: 11px; }
+    .copyright {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
 
     .footer-links {
       display: flex;
@@ -352,19 +491,38 @@
       font-size: 11px;
     }
 
-    .footer-links a:hover { color: var(--accent); }
+    .footer-links a:hover {
+      color: var(--accent);
+    }
 
     /* Tablet */
+
     @media (max-width: 800px) {
-      .main-nav { gap: 15px; }
-      .article-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .article-card { min-height: 225px; }
-      .about-inner { align-items: flex-start; flex-direction: column; gap: 18px; }
+      .main-nav {
+        gap: 15px;
+      }
+
+      .article-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .article-card {
+        min-height: 225px;
+      }
+
+      .about-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+      }
     }
 
     /* Mobile */
+
     @media (max-width: 560px) {
-      .container { width: min(calc(100% - 32px), var(--max-width)); }
+      .container {
+        width: min(calc(100% - 32px), var(--max-width));
+      }
 
       .header-inner {
         min-height: 74px;
@@ -375,8 +533,13 @@
         padding: 15px 0;
       }
 
-      .brand-name { font-size: 24px; }
-      .brand-tagline { font-size: 9px; }
+      .brand-name {
+        font-size: 24px;
+      }
+
+      .brand-tagline {
+        font-size: 9px;
+      }
 
       .main-nav {
         width: 100%;
@@ -385,11 +548,35 @@
         font-size: 11px;
       }
 
-      .nav-cta { padding: 7px 10px; }
-      .hero { padding: 64px 0 48px; }
-      .hero h1 { letter-spacing: -1.5px; }
-      .hero-copy { font-size: 14px; }
-      .articles-section { padding-bottom: 65px; }
+      .nav-cta {
+        padding: 7px 10px;
+      }
+
+      .tools-trigger {
+        padding: 7px 0;
+      }
+
+      .tools-menu {
+        top: calc(100% + 8px);
+        right: -8px;
+        width: min(322px, calc(100vw - 32px));
+      }
+
+      .hero {
+        padding: 64px 0 48px;
+      }
+
+      .hero h1 {
+        letter-spacing: -1.5px;
+      }
+
+      .hero-copy {
+        font-size: 14px;
+      }
+
+      .articles-section {
+        padding-bottom: 65px;
+      }
 
       .section-heading {
         align-items: flex-start;
@@ -397,10 +584,21 @@
         gap: 8px;
       }
 
-      .section-aside { text-align: left; }
-      .article-grid { grid-template-columns: 1fr; }
-      .article-card { padding: 23px; }
-      .article-card h3 { font-size: 24px; }
+      .section-aside {
+        text-align: left;
+      }
+
+      .article-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .article-card {
+        padding: 23px;
+      }
+
+      .article-card h3 {
+        font-size: 24px;
+      }
 
       .footer-inner {
         align-items: flex-start;
@@ -409,10 +607,15 @@
     }
 
     /* Accessibility */
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
 
-      *, *::before, *::after {
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
         transition-duration: 0.01ms !important;
       }
     }
@@ -422,15 +625,72 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
+
       <a class="brand" href="/" aria-label="Synth Visual home">
         <span class="brand-name">Synth Visual</span>
         <span class="brand-tagline">Technology, made clearer</span>
       </a>
 
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=138160">NordVPN Plans</a>
-        <a href="https://synthvisuals.space/about.html">About</a>
-        <a class="nav-cta" href="#latest-guides">Explore Articles</a>
+
+        <div class="tools-dropdown" id="tools-dropdown">
+          <button
+            class="tools-trigger"
+            id="tools-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="tools-menu"
+          >
+            Tools
+            <span class="tools-chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="tools-menu" id="tools-menu" hidden>
+
+            <div
+              class="tools-menu-section"
+              aria-labelledby="privacy-tools-heading"
+            >
+              <p class="tools-menu-heading" id="privacy-tools-heading">
+                Privacy &amp; Network Tools
+              </p>
+
+              <a href="/dns-webrtc-leak-test.html">
+                DNS/WebRTC Leak Test
+              </a>
+
+              <a href="/what-is-my-ip.html">
+                What Is My IP?
+              </a>
+            </div>
+
+            <div class="tools-menu-divider" aria-hidden="true"></div>
+
+            <div
+              class="tools-menu-section"
+              aria-labelledby="security-software-heading"
+            >
+              <p class="tools-menu-heading" id="security-software-heading">
+                VPNs &amp; Security Software
+              </p>
+
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordVPN Plans ↗</a>
+            </div>
+
+          </div>
+        </div>
+
+        <a href="/about.html">About</a>
+
+        <a class="nav-cta" href="/#latest-guides">
+          Explore Articles
+        </a>
+
       </nav>
     </div>
   </header>
@@ -640,7 +900,58 @@
   </footer>
 
   <script>
-    document.getElementById("current-year").textContent = new Date().getFullYear();
+    /* Update the copyright year */
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+
+    /* Tools dropdown menu */
+    (function () {
+      const dropdown = document.getElementById("tools-dropdown");
+      const trigger = document.getElementById("tools-trigger");
+      const menu = document.getElementById("tools-menu");
+
+      if (!dropdown || !trigger || !menu) return;
+
+      function setMenuOpen(shouldOpen) {
+        trigger.setAttribute("aria-expanded", String(shouldOpen));
+        menu.hidden = !shouldOpen;
+      }
+
+      /* Toggle the menu when Tools is clicked */
+      trigger.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        const isOpen =
+          trigger.getAttribute("aria-expanded") === "true";
+
+        setMenuOpen(!isOpen);
+      });
+
+      /* Close the menu when clicking outside it */
+      document.addEventListener("click", function (event) {
+        if (!dropdown.contains(event.target)) {
+          setMenuOpen(false);
+        }
+      });
+
+      /* Close the menu with Escape and restore focus */
+      document.addEventListener("keydown", function (event) {
+        const isOpen =
+          trigger.getAttribute("aria-expanded") === "true";
+
+        if (event.key === "Escape" && isOpen) {
+          setMenuOpen(false);
+          trigger.focus();
+        }
+      });
+
+      /* Close the menu after selecting an item */
+      menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          setMenuOpen(false);
+        });
+      });
+    })();
   </script>
 </body>
 </html>
