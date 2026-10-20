@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +13,7 @@
   <meta property="og:title" content="What Is My IP Address? Free IP Checker | Synth Visual Space">
   <meta property="og:description" content="Check your public IP address and view available information about your connection, approximate location, and internet service provider.">
   <meta property="og:url" content="https://synthvisuals.space/what-is-my-ip.html">
+
   <style>
     :root {
       --page: #f7f7f4;
@@ -29,8 +31,15 @@
       --shadow: 0 8px 30px rgba(27, 39, 30, 0.045);
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
     body {
       margin: 0;
       background: var(--page);
@@ -39,144 +48,894 @@
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-    a:hover { color: var(--accent-hover); }
-    a:focus-visible, button:focus-visible, summary:focus-visible {
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
       outline: 3px solid #7cae98;
       outline-offset: 4px;
       border-radius: 4px;
     }
-    button { font: inherit; }
-    [hidden] { display: none !important; }
-    .container { width: min(var(--max-width), calc(100% - 48px)); margin-inline: auto; }
+
+    button {
+      font: inherit;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin-inline: auto;
+    }
 
     /* Shared Synth Visual header and navigation */
-    .site-header { border-bottom: 1px solid var(--line); background: rgba(247, 247, 244, .96); }
-    .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-    .brand { display: inline-flex; flex-direction: column; line-height: 1.05; flex-shrink: 0; color: var(--text); text-decoration: none; }
-    .brand-name { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 700; letter-spacing: -1.2px; }
-    .brand-tagline { margin-top: 6px; color: var(--muted); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; }
-    .main-nav { display: flex; align-items: center; gap: 22px; color: #424840; font-size: 13px; font-weight: 600; }
-    .main-nav a { color: inherit; text-decoration: none; transition: color 160ms ease; }
-    .main-nav a:hover, .main-nav a[aria-current="page"] { color: var(--accent); }
-    .main-nav .nav-cta { padding: 9px 14px; border: 1px solid #cbd6ce; border-radius: 999px; color: var(--accent); white-space: nowrap; }
+    .site-header {
+      position: relative;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 247, 244, .96);
+    }
 
-    .breadcrumbs { padding: 25px 0 0; color: var(--muted); font-size: 12px; }
-    .breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
-    .breadcrumbs li + li::before { content: "/"; margin-right: 8px; color: #a0a59d; }
-    .breadcrumbs a { color: var(--muted); text-decoration: none; }
-    .breadcrumbs a:hover { color: var(--accent); }
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
 
-    .page-hero { padding: 34px 0 22px; }
-    .hero-inner { max-width: 820px; }
-    .eyebrow, .section-kicker { margin: 0 0 10px; color: var(--accent); font-size: 11px; font-weight: 750; letter-spacing: 1.45px; text-transform: uppercase; }
-    h1, h2, h3, p { overflow-wrap: anywhere; }
-    .page-hero h1 { max-width: 850px; margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(38px, 6vw, 62px); line-height: 1.08; letter-spacing: -2px; font-weight: 700; }
-    .page-hero h1 em { color: var(--accent); font-weight: 500; }
-    .dek { max-width: 720px; margin: 18px 0 0; color: #50564e; font-size: 17px; line-height: 1.7; }
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1.05;
+      flex-shrink: 0;
+      color: var(--text);
+      text-decoration: none;
+    }
 
-    .tool-section { padding: 12px 0 48px; }
-    .tool-panel { overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
-    .tool-panel-head { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 20px 24px; border-bottom: 1px solid var(--line); background: #fbfcfa; }
-    .tool-panel-head h2 { margin: 0; font-size: 16px; line-height: 1.35; letter-spacing: -.2px; }
-    .tool-kicker { margin: 0 0 3px; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: 1.4px; text-transform: uppercase; }
-    .live-label { display: inline-flex; align-items: center; gap: 7px; color: var(--muted); font-size: 11px; white-space: nowrap; }
-    .live-dot { width: 7px; height: 7px; border-radius: 50%; background: #44866a; box-shadow: 0 0 0 3px #e6f0e9; }
-    .tool-panel-body { padding: 24px; }
-    .status-row { display: flex; align-items: flex-start; gap: 10px; min-height: 24px; margin: 0 0 18px; color: var(--muted); font-size: 13px; }
-    .spinner { width: 16px; height: 16px; flex: 0 0 16px; margin-top: 3px; border: 2px solid #d7e4dc; border-top-color: var(--accent); border-radius: 50%; animation: spin .8s linear infinite; }
-    .status-row[data-state="error"] { color: #8a342d; }
-    .status-row[data-state="success"] { color: var(--accent); }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -1.2px;
+    }
+
+    .brand-tagline {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      color: #424840;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .main-nav a,
+    .tools-trigger {
+      transition: color 160ms ease;
+    }
+
+    .main-nav a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"],
+    .tools-trigger:hover,
+    .tools-trigger[aria-expanded="true"] {
+      color: var(--accent);
+    }
+
+    .main-nav .nav-cta {
+      padding: 10px 15px;
+      border: 1px solid #cbd6ce;
+      border-radius: 999px;
+      color: var(--accent) !important;
+      white-space: nowrap;
+    }
+
+    /* Tools dropdown */
+    .tools-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .tools-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 0;
+      border: 0;
+      background: transparent;
+      color: #424840;
+      font: inherit;
+      cursor: pointer;
+      transition: color 160ms ease;
+    }
+
+    .tools-chevron {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 160ms ease;
+    }
+
+    .tools-trigger[aria-expanded="true"] .tools-chevron {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .tools-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: -18px;
+      z-index: 50;
+      width: 322px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 16px 42px rgba(27, 39, 30, .13);
+    }
+
+    .tools-menu[hidden] {
+      display: none !important;
+    }
+
+    .tools-menu-section {
+      padding: 8px 7px 9px;
+    }
+
+    .tools-menu-heading {
+      margin: 0 0 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 1.25px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .tools-menu a {
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+    }
+
+    .tools-menu a:hover,
+    .tools-menu a:focus-visible {
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    .tools-menu-divider {
+      height: 1px;
+      margin: 3px 7px;
+      background: var(--line);
+    }
+
+    .tools-menu .tools-commercial-link {
+      color: var(--accent);
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      padding: 25px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .breadcrumbs ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .breadcrumbs li + li::before {
+      content: "/";
+      margin-right: 8px;
+      color: #a0a59d;
+    }
+
+    .breadcrumbs a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--accent);
+    }
+
+    /* Page hero */
+    .page-hero {
+      padding: 34px 0 22px;
+    }
+
+    .hero-inner {
+      max-width: 820px;
+    }
+
+    .eyebrow,
+    .section-kicker {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: 1.45px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      overflow-wrap: anywhere;
+    }
+
+    .page-hero h1 {
+      max-width: 850px;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 6vw, 62px);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      font-weight: 700;
+    }
+
+    .page-hero h1 em {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .dek {
+      max-width: 720px;
+      margin: 18px 0 0;
+      color: #50564e;
+      font-size: 17px;
+      line-height: 1.7;
+    }
+
+    /* IP checker panel */
+    .tool-section {
+      padding: 12px 0 48px;
+    }
+
+    .tool-panel {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .tool-panel-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfcfa;
+    }
+
+    .tool-panel-head h2 {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.35;
+      letter-spacing: -.2px;
+    }
+
+    .tool-kicker {
+      margin: 0 0 3px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+    }
+
+    .live-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--muted);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #44866a;
+      box-shadow: 0 0 0 3px #e6f0e9;
+    }
+
+    .tool-panel-body {
+      padding: 24px;
+    }
+
+    .status-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      min-height: 24px;
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .spinner {
+      width: 16px;
+      height: 16px;
+      flex: 0 0 16px;
+      margin-top: 3px;
+      border: 2px solid #d7e4dc;
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+
+    .status-row[data-state="error"] {
+      color: #8a342d;
+    }
+
+    .status-row[data-state="success"] {
+      color: var(--accent);
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: .01ms !important;
+      }
     }
 
-    .ip-summary { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px; border: 1px solid #d8e3db; border-radius: 13px; background: #f7faf7; }
-    .ip-main { min-width: 0; }
-    .field-label { display: block; margin-bottom: 5px; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: 1.25px; text-transform: uppercase; }
-    .ip-address { display: block; max-width: 100%; color: var(--text); font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: clamp(22px, 4vw, 34px); font-weight: 700; line-height: 1.3; letter-spacing: -.7px; overflow-wrap: anywhere; user-select: text; }
-    .ip-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 9px; margin-top: 11px; }
-    .version-badge { display: inline-flex; align-items: center; min-height: 24px; padding: 2px 9px; border: 1px solid #cbd9cf; border-radius: 999px; background: #fff; color: var(--accent); font-size: 10px; font-weight: 750; letter-spacing: .4px; }
-    .country-line { display: inline-flex; align-items: center; gap: 6px; color: #545b53; font-size: 12px; }
-    .country-flag { font-size: 17px; line-height: 1; }
-    .button { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 43px; padding: 10px 15px; border: 1px solid var(--accent); border-radius: 999px; background: var(--accent); color: #fff; font-size: 12px; font-weight: 750; cursor: pointer; text-align: center; text-decoration: none; transition: background 150ms ease, border-color 150ms ease, opacity 150ms ease; }
-    .button:hover:not(:disabled) { border-color: var(--accent-hover); background: var(--accent-hover); color: #fff; }
-    .button:disabled { cursor: not-allowed; opacity: .55; }
-    .button-secondary { border-color: #cbd6ce; background: #fff; color: var(--accent); }
-    .button-secondary:hover:not(:disabled) { border-color: #b7c8bc; background: var(--soft); color: var(--accent-hover); }
-    .button-icon { display: inline-block; font-size: 15px; line-height: 1; }
-    .copy-status { min-height: 20px; margin: 9px 0 0; color: var(--accent); font-size: 11px; }
-    .details-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 16px; }
-    .detail-card { min-width: 0; padding: 15px 16px; border: 1px solid var(--line); border-radius: 12px; background: #fff; }
-    .detail-card dt { margin: 0 0 5px; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: .6px; text-transform: uppercase; }
-    .detail-card dd { margin: 0; color: #292e28; font-size: 13px; font-weight: 650; line-height: 1.5; overflow-wrap: anywhere; }
-    .refresh-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 18px; }
-    .refresh-note { margin: 0; color: var(--muted); font-size: 11px; }
-    .privacy-note { margin-top: 18px; padding: 15px 17px; border-left: 3px solid #c5d6ca; border-radius: 0 9px 9px 0; background: #f6f8f5; color: #535950; font-size: 12px; line-height: 1.65; }
-    .privacy-note strong { color: #343a33; }
+    .ip-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px;
+      border: 1px solid #d8e3db;
+      border-radius: 13px;
+      background: #f7faf7;
+    }
 
-    .education-section { padding: 4px 0 60px; }
-    .section-header { max-width: 740px; margin-bottom: 22px; }
-    .section-header h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: clamp(26px, 4vw, 35px); line-height: 1.2; letter-spacing: -.8px; }
-    .section-header p:last-child { margin: 9px 0 0; color: var(--muted); font-size: 14px; }
-    .education-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
-    .education-card { padding: 20px 21px; border: 1px solid var(--line); border-radius: 13px; background: var(--surface); }
-    .education-card h3 { margin: 0 0 8px; font-size: 16px; line-height: 1.35; letter-spacing: -.2px; }
-    .education-card p { margin: 0; color: #575d55; font-size: 13px; line-height: 1.7; }
-    .related-guides { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--line); }
-    .related-label { width: 100%; margin: 0; color: var(--muted); font-size: 10px; font-weight: 750; letter-spacing: 1.25px; text-transform: uppercase; }
-    .related-link { display: inline-flex; align-items: center; gap: 8px; padding: 9px 13px; border: 1px solid #d5dfd7; border-radius: 999px; background: var(--surface); color: var(--accent); font-size: 12px; font-weight: 700; text-decoration: none; }
-    .related-link:hover { background: var(--soft); color: var(--accent-hover); }
+    .ip-main {
+      min-width: 0;
+    }
 
-    .site-footer { padding: 27px 0; border-top: 1px solid var(--line); }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .footer-brand { font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; letter-spacing: -.5px; color: var(--text); text-decoration: none; }
-    .copyright { margin: 5px 0 0; color: var(--muted); font-size: 11px; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 19px; color: var(--muted); font-size: 11px; }
-    .footer-links a { color: var(--muted); text-decoration: none; }
-    .footer-links a:hover { color: var(--accent); }
+    .field-label {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 1.25px;
+      text-transform: uppercase;
+    }
 
+    .ip-address {
+      display: block;
+      max-width: 100%;
+      color: var(--text);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: clamp(22px, 4vw, 34px);
+      font-weight: 700;
+      line-height: 1.3;
+      letter-spacing: -.7px;
+      overflow-wrap: anywhere;
+      user-select: text;
+    }
+
+    .ip-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px;
+      margin-top: 11px;
+    }
+
+    .version-badge {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 2px 9px;
+      border: 1px solid #cbd9cf;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .4px;
+    }
+
+    .country-line {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #545b53;
+      font-size: 12px;
+    }
+
+    .country-flag {
+      font-size: 17px;
+      line-height: 1;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 43px;
+      padding: 10px 15px;
+      border: 1px solid var(--accent);
+      border-radius: 999px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 750;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: background 150ms ease, border-color 150ms ease, opacity 150ms ease;
+    }
+
+    .button:hover:not(:disabled) {
+      border-color: var(--accent-hover);
+      background: var(--accent-hover);
+      color: #fff;
+    }
+
+    .button:disabled {
+      cursor: not-allowed;
+      opacity: .55;
+    }
+
+    .button-secondary {
+      border-color: #cbd6ce;
+      background: #fff;
+      color: var(--accent);
+    }
+
+    .button-secondary:hover:not(:disabled) {
+      border-color: #b7c8bc;
+      background: var(--soft);
+      color: var(--accent-hover);
+    }
+
+    .button-icon {
+      display: inline-block;
+      font-size: 15px;
+      line-height: 1;
+    }
+
+    .copy-status {
+      min-height: 20px;
+      margin: 9px 0 0;
+      color: var(--accent);
+      font-size: 11px;
+    }
+
+    .details-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .detail-card {
+      min-width: 0;
+      padding: 15px 16px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .detail-card dt {
+      margin: 0 0 5px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+    }
+
+    .detail-card dd {
+      margin: 0;
+      color: #292e28;
+      font-size: 13px;
+      font-weight: 650;
+      line-height: 1.5;
+      overflow-wrap: anywhere;
+    }
+
+    .refresh-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .refresh-note {
+      margin: 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .privacy-note {
+      margin-top: 18px;
+      padding: 15px 17px;
+      border-left: 3px solid #c5d6ca;
+      border-radius: 0 9px 9px 0;
+      background: #f6f8f5;
+      color: #535950;
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .privacy-note strong {
+      color: #343a33;
+    }
+
+    /* Educational content */
+    .education-section {
+      padding: 4px 0 60px;
+    }
+
+    .section-header {
+      max-width: 740px;
+      margin-bottom: 22px;
+    }
+
+    .section-header h2 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(26px, 4vw, 35px);
+      line-height: 1.2;
+      letter-spacing: -.8px;
+    }
+
+    .section-header p:last-child {
+      margin: 9px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .education-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .education-card {
+      padding: 20px 21px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: var(--surface);
+    }
+
+    .education-card h3 {
+      margin: 0 0 8px;
+      font-size: 16px;
+      line-height: 1.35;
+      letter-spacing: -.2px;
+    }
+
+    .education-card p {
+      margin: 0;
+      color: #575d55;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .related-guides {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .related-label {
+      width: 100%;
+      margin: 0;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 1.25px;
+      text-transform: uppercase;
+    }
+
+    .related-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 13px;
+      border: 1px solid #d5dfd7;
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .related-link:hover {
+      background: var(--soft);
+      color: var(--accent-hover);
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 27px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .copyright {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 19px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Tablet */
     @media (max-width: 900px) {
-      .details-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .main-nav { gap: 15px; }
+      .details-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
+
+    /* Mobile */
     @media (max-width: 700px) {
-      .container { width: min(100% - 32px, var(--max-width)); }
-      .header-inner { min-height: 74px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 13px; padding: 15px 0; }
-      .brand-name { font-size: 24px; }
-      .brand-tagline { font-size: 9px; }
-      .main-nav { width: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 10px 15px; font-size: 11px; }
-      .main-nav .nav-cta { padding: 6px 10px; }
-      .breadcrumbs { padding-top: 18px; }
-      .page-hero { padding: 28px 0 18px; }
-      .page-hero h1 { font-size: clamp(37px, 10vw, 52px); letter-spacing: -1.7px; }
-      .dek { font-size: 15px; }
-      .tool-section { padding: 8px 0 38px; }
-      .tool-panel-head { align-items: flex-start; padding: 17px; }
-      .tool-panel-body { padding: 16px; }
-      .ip-summary { align-items: flex-start; flex-direction: column; padding: 17px; }
-      .ip-address { font-size: clamp(21px, 7vw, 29px); }
-      .copy-area, .copy-area .button { width: 100%; }
-      .details-grid { grid-template-columns: minmax(0, 1fr); gap: 9px; }
-      .detail-card { padding: 13px 14px; }
-      .refresh-row { align-items: stretch; flex-direction: column; gap: 10px; }
-      .refresh-row .button { width: 100%; }
-      .education-section { padding-bottom: 42px; }
-      .education-grid { grid-template-columns: minmax(0, 1fr); }
-      .education-card { padding: 18px; }
-      .footer-inner { align-items: flex-start; flex-direction: column; }
-      .footer-links { gap: 12px 17px; }
+      .container {
+        width: min(100% - 32px, var(--max-width));
+      }
+
+      .header-inner {
+        min-height: 74px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 13px;
+        padding: 15px 0;
+      }
+
+      .brand-name {
+        font-size: 24px;
+      }
+
+      .brand-tagline {
+        font-size: 9px;
+      }
+
+      .main-nav {
+        width: 100%;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 11px;
+      }
+
+      .tools-trigger {
+        padding: 7px 0;
+      }
+
+      .tools-menu {
+        top: calc(100% + 8px);
+        right: -8px;
+        width: min(322px, calc(100vw - 32px));
+      }
+
+      .main-nav .nav-cta {
+        padding: 7px 10px;
+      }
+
+      .breadcrumbs {
+        padding-top: 18px;
+      }
+
+      .page-hero {
+        padding: 28px 0 18px;
+      }
+
+      .page-hero h1 {
+        font-size: clamp(37px, 10vw, 52px);
+        letter-spacing: -1.7px;
+      }
+
+      .dek {
+        font-size: 15px;
+      }
+
+      .tool-section {
+        padding: 8px 0 38px;
+      }
+
+      .tool-panel-head {
+        align-items: flex-start;
+        padding: 17px;
+      }
+
+      .tool-panel-body {
+        padding: 16px;
+      }
+
+      .ip-summary {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 17px;
+      }
+
+      .ip-address {
+        font-size: clamp(21px, 7vw, 29px);
+      }
+
+      .copy-area,
+      .copy-area .button {
+        width: 100%;
+      }
+
+      .details-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 9px;
+      }
+
+      .detail-card {
+        padding: 13px 14px;
+      }
+
+      .refresh-row {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .refresh-row .button {
+        width: 100%;
+      }
+
+      .education-section {
+        padding-bottom: 42px;
+      }
+
+      .education-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .education-card {
+        padding: 18px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .footer-links {
+        gap: 12px 17px;
+      }
     }
+
+    @media (max-width: 390px) {
+      .main-nav {
+        gap: 7px;
+        font-size: 10px;
+      }
+
+      .main-nav .nav-cta {
+        padding: 6px 8px;
+      }
+
+      .tools-menu {
+        right: -8px;
+        width: min(322px, calc(100vw - 32px));
+      }
+    }
+
     @media (max-width: 360px) {
-      .live-label { font-size: 10px; }
-      .tool-panel-head { gap: 8px; }
-      .tool-panel-head h2 { font-size: 14px; }
-      .button { padding-inline: 12px; }
+      .live-label {
+        font-size: 10px;
+      }
+
+      .tool-panel-head {
+        gap: 8px;
+      }
+
+      .tool-panel-head h2 {
+        font-size: 14px;
+      }
+
+      .button {
+        padding-inline: 12px;
+      }
     }
   </style>
 </head>
+
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -184,10 +943,41 @@
         <span class="brand-name">Synth Visual</span>
         <span class="brand-tagline">Technology, made clearer</span>
       </a>
+
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160">NordVPN Plans</a>
-        <a href="https://synthvisuals.space/about.html">About</a>
-        <a href="https://synthvisuals.space/what-is-my-ip.html" aria-current="page">Tools</a>
+        <div class="tools-dropdown">
+          <button
+            class="tools-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="tools-menu"
+          >
+            Tools
+            <span class="tools-chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="tools-menu" id="tools-menu" hidden>
+            <div class="tools-menu-section">
+              <p class="tools-menu-heading">Privacy &amp; Network Tools</p>
+              <a href="/dns-webrtc-leak-test.html">DNS/WebRTC Leak Test</a>
+              <a href="/what-is-my-ip.html" aria-current="page">What Is My IP?</a>
+            </div>
+
+            <div class="tools-menu-divider" aria-hidden="true"></div>
+
+            <div class="tools-menu-section">
+              <p class="tools-menu-heading">VPNs &amp; Security Software</p>
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordVPN Plans ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/about.html">About</a>
         <a class="nav-cta" href="/#latest-guides">Explore Articles</a>
       </nav>
     </div>
@@ -218,10 +1008,21 @@
               <p class="tool-kicker">Your connection</p>
               <h2 id="tool-heading">Public IP address information</h2>
             </div>
-            <span class="live-label"><span class="live-dot" aria-hidden="true"></span>Live lookup</span>
+            <span class="live-label">
+              <span class="live-dot" aria-hidden="true"></span>
+              Live lookup
+            </span>
           </div>
+
           <div class="tool-panel-body">
-            <div class="status-row" id="tool-status" data-state="loading" role="status" aria-live="polite" aria-atomic="true">
+            <div
+              class="status-row"
+              id="tool-status"
+              data-state="loading"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            >
               <span class="spinner" id="loading-spinner" aria-hidden="true"></span>
               <span id="status-message">Detecting your public IP address...</span>
             </div>
@@ -233,11 +1034,18 @@
                   <output class="ip-address" id="ip-address" aria-label="Detected public IP address">Not available</output>
                   <div class="ip-meta">
                     <span class="version-badge" id="ip-version">IP version unavailable</span>
-                    <span class="country-line"><span class="country-flag" id="country-flag" aria-hidden="true"></span><span id="country-name">Not available</span></span>
+                    <span class="country-line">
+                      <span class="country-flag" id="country-flag" aria-hidden="true"></span>
+                      <span id="country-name">Not available</span>
+                    </span>
                   </div>
                 </div>
+
                 <div class="copy-area">
-                  <button class="button" id="copy-button" type="button" disabled><span class="button-icon" aria-hidden="true">▢</span> Copy IP</button>
+                  <button class="button" id="copy-button" type="button" disabled>
+                    <span class="button-icon" aria-hidden="true">▢</span>
+                    Copy IP
+                  </button>
                   <p class="copy-status" id="copy-status" role="status" aria-live="polite" aria-atomic="true"></p>
                 </div>
               </div>
@@ -247,7 +1055,10 @@
 
             <div class="refresh-row">
               <p class="refresh-note">IP location is an estimate, not your exact physical address.</p>
-              <button class="button button-secondary" id="refresh-button" type="button"><span class="button-icon" aria-hidden="true">↻</span> Refresh IP Information</button>
+              <button class="button button-secondary" id="refresh-button" type="button">
+                <span class="button-icon" aria-hidden="true">↻</span>
+                Refresh IP Information
+              </button>
             </div>
 
             <aside class="privacy-note" aria-label="Privacy information">
@@ -269,22 +1080,27 @@
             <h3>What Is a Public IP Address?</h3>
             <p>A public IP address is the address external internet services see for a network connection. It may represent a router, a VPN exit server, or a shared connection rather than one individual device or person. Learn more in our <a href="https://synthvisuals.space/what-is-an-ip-address.html">guide to IP addresses</a>.</p>
           </article>
+
           <article class="education-card">
             <h3>What Information Can an IP Address Reveal?</h3>
             <p>An IP address can provide clues about the network, internet provider, and approximate geographic area associated with a connection. On its own, it generally does not reveal a person's exact home address or reliably establish their identity.</p>
           </article>
+
           <article class="education-card">
             <h3>What Is the Difference Between IPv4 and IPv6?</h3>
             <p>IPv4 uses 32-bit addresses, usually written as four numbers separated by dots. IPv6 uses 128-bit addresses and hexadecimal groups separated by colons, providing a much larger address space. Both are used to identify network interfaces and route internet traffic.</p>
           </article>
+
           <article class="education-card">
             <h3>Does a VPN Change My Public IP Address?</h3>
             <p>A VPN normally causes external services to see the VPN server's public IP address instead of the connection's original public IP when traffic is routed through the VPN. Results depend on the VPN configuration and how traffic is routed. Read our <a href="https://synthvisuals.space/what-is-a-vpn.html">VPN guide</a>.</p>
           </article>
+
           <article class="education-card">
             <h3>Is IP Geolocation Exact?</h3>
             <p>No. IP geolocation is an estimate based on databases and network information. VPNs, proxies, mobile networks, ISP routing, and outdated or incomplete databases can affect the result. It should not be treated as proof of someone's exact location.</p>
           </article>
+
           <article class="education-card">
             <h3>How Does DNS Fit In?</h3>
             <p>DNS translates domain names into information computers use to locate services on a network. It works alongside IP addressing, but it serves a different purpose. See our explanation of <a href="https://synthvisuals.space/what-is-dns.html">how DNS works</a>.</p>
@@ -293,10 +1109,18 @@
 
         <nav class="related-guides" aria-label="Related guides">
           <p class="related-label">Related guides</p>
-          <a class="related-link" href="https://synthvisuals.space/what-is-an-ip-address.html">What Is an IP Address? <span aria-hidden="true">→</span></a>
-          <a class="related-link" href="https://synthvisuals.space/public-privateip.html">Public vs. Private IP <span aria-hidden="true">→</span></a>
-          <a class="related-link" href="https://synthvisuals.space/what-is-a-vpn.html">What Is a VPN? <span aria-hidden="true">→</span></a>
-          <a class="related-link" href="https://synthvisuals.space/what-is-dns.html">What Is DNS? <span aria-hidden="true">→</span></a>
+          <a class="related-link" href="https://synthvisuals.space/what-is-an-ip-address.html">
+            What Is an IP Address? <span aria-hidden="true">→</span>
+          </a>
+          <a class="related-link" href="https://synthvisuals.space/public-privateip.html">
+            Public vs. Private IP <span aria-hidden="true">→</span>
+          </a>
+          <a class="related-link" href="https://synthvisuals.space/what-is-a-vpn.html">
+            What Is a VPN? <span aria-hidden="true">→</span>
+          </a>
+          <a class="related-link" href="https://synthvisuals.space/what-is-dns.html">
+            What Is DNS? <span aria-hidden="true">→</span>
+          </a>
         </nav>
       </section>
     </div>
@@ -308,6 +1132,7 @@
         <a class="footer-brand" href="/">Synth Visual</a>
         <p class="copyright">© <span id="current-year">2026</span> Synth Visual. All rights reserved.</p>
       </div>
+
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="https://synthvisuals.space/about.html">About</a>
         <a href="https://synthvisuals.space/privacy-policy.html">Privacy Policy</a>
@@ -342,7 +1167,9 @@
       let currentPublicIP = "";
 
       function isObject(value) {
-        return value !== null && typeof value === "object" && !Array.isArray(value);
+        return value !== null &&
+          typeof value === "object" &&
+          !Array.isArray(value);
       }
 
       function readText(value) {
@@ -368,6 +1195,7 @@
       function isValidIPAddress(ip) {
         if (ip.includes(":")) {
           if (!/^[0-9a-fA-F:.]+$/.test(ip)) return false;
+
           try {
             return new URL(`http://[${ip}]/`).hostname.length > 2;
           } catch (_error) {
@@ -376,7 +1204,8 @@
         }
 
         const octets = ip.split(".");
-        return octets.length === 4 && octets.every((octet) => /^\d{1,3}$/.test(octet) && Number(octet) <= 255);
+        return octets.length === 4 &&
+          octets.every((octet) => /^\d{1,3}$/.test(octet) && Number(octet) <= 255);
       }
 
       function setStatus(message, state = "info", loading = false) {
@@ -405,6 +1234,7 @@
         const connection = isObject(data.connection) ? data.connection : {};
         const timezone = isObject(data.timezone) ? data.timezone : {};
         const flag = isObject(data.flag) ? data.flag : {};
+
         const country = firstText(data.country);
         const flagEmoji = firstText(flag.emoji, flag.flag_icon, flag.flag_Icon);
         const ipVersion = firstText(data.type, inferIPVersion(ip));
@@ -413,20 +1243,33 @@
         const continent = firstText(data.continent);
         const isp = firstText(connection.isp);
         const organization = firstText(connection.org, connection.asn_org);
+
         const asnRaw = connection.asn ?? connection.asn_number;
-        const asn = readText(asnRaw) ? `AS${readText(asnRaw).replace(/^AS/i, "")}` : "Not available";
+        const asn = readText(asnRaw)
+          ? `AS${readText(asnRaw).replace(/^AS/i, "")}`
+          : "Not available";
+
         const timezoneID = readText(timezone.id) || readText(timezone.time_zone);
         const timezoneUTC = readText(timezone.utc);
         let timezoneValue = timezoneID;
+
         if (timezoneUTC) {
-          const formattedUTC = timezoneUTC.startsWith("UTC") ? timezoneUTC : `UTC${timezoneUTC}`;
-          timezoneValue = timezoneValue ? `${timezoneValue} (${formattedUTC})` : formattedUTC;
+          const formattedUTC = timezoneUTC.startsWith("UTC")
+            ? timezoneUTC
+            : `UTC${timezoneUTC}`;
+
+          timezoneValue = timezoneValue
+            ? `${timezoneValue} (${formattedUTC})`
+            : formattedUTC;
         }
+
         if (!timezoneValue && Number.isFinite(timezone.offset)) {
           const offsetMinutes = Math.trunc(timezone.offset / 60);
           const sign = offsetMinutes < 0 ? "−" : "+";
           const absoluteMinutes = Math.abs(offsetMinutes);
-          timezoneValue = `UTC${sign}${String(Math.floor(absoluteMinutes / 60)).padStart(2, "0")}:${String(absoluteMinutes % 60).padStart(2, "0")}`;
+
+          timezoneValue =
+            `UTC${sign}${String(Math.floor(absoluteMinutes / 60)).padStart(2, "0")}:${String(absoluteMinutes % 60).padStart(2, "0")}`;
         }
 
         ipAddressOutput.textContent = ip;
@@ -449,7 +1292,8 @@
       }
 
       function isRateLimitMessage(message) {
-        return typeof message === "string" && /(rate.?limit|too many requests|\b429\b)/i.test(message);
+        return typeof message === "string" &&
+          /(rate.?limit|too many requests|\b429\b)/i.test(message);
       }
 
       async function lookupPublicIP() {
@@ -459,6 +1303,7 @@
         const requestID = ++requestSequence;
         let timedOut = false;
         const controller = new AbortController();
+
         const timeoutID = window.setTimeout(() => {
           timedOut = true;
           controller.abort();
@@ -466,7 +1311,14 @@
 
         refreshButton.disabled = true;
         copyStatus.textContent = "";
-        setStatus(currentPublicIP ? "Refreshing your IP information..." : "Detecting your public IP address...", "loading", true);
+
+        setStatus(
+          currentPublicIP
+            ? "Refreshing your IP information..."
+            : "Detecting your public IP address...",
+          "loading",
+          true
+        );
 
         try {
           const response = await fetch(API_URL, {
@@ -484,11 +1336,13 @@
           if (response.status === 429) {
             throw new Error("RATE_LIMIT");
           }
+
           if (!response.ok) {
             throw new Error("HTTP_ERROR");
           }
 
           let data;
+
           try {
             data = await response.json();
           } catch (_error) {
@@ -497,37 +1351,73 @@
 
           if (requestID !== requestSequence) return;
           if (!isObject(data)) throw new Error("INVALID_RESPONSE");
+
           if (data.success !== true) {
-            if (isRateLimitMessage(data.message)) throw new Error("RATE_LIMIT");
+            if (isRateLimitMessage(data.message)) {
+              throw new Error("RATE_LIMIT");
+            }
+
             throw new Error("API_ERROR");
           }
 
           const detectedIP = readText(data.ip);
+
           if (!detectedIP || !isValidIPAddress(detectedIP)) {
             throw new Error("INVALID_RESPONSE");
           }
 
           renderResults(data);
-          setStatus("Your public IP information was retrieved successfully.", "success", false);
+
+          setStatus(
+            "Your public IP information was retrieved successfully.",
+            "success",
+            false
+          );
         } catch (error) {
           if (requestID !== requestSequence) return;
 
           if (error && error.name === "AbortError" && !timedOut) return;
+
           if (timedOut || (error && error.name === "AbortError")) {
-            setStatus("The request took too long. Please check your connection and try again.", "error", false);
+            setStatus(
+              "The request took too long. Please check your connection and try again.",
+              "error",
+              false
+            );
           } else if (error instanceof Error && error.message === "RATE_LIMIT") {
-            setStatus("The IP lookup service has reached its request limit. Please try again later.", "error", false);
+            setStatus(
+              "The IP lookup service has reached its request limit. Please try again later.",
+              "error",
+              false
+            );
           } else if (error instanceof Error && error.message === "INVALID_RESPONSE") {
-            setStatus("The IP lookup service returned an unexpected response. Please try again later.", "error", false);
+            setStatus(
+              "The IP lookup service returned an unexpected response. Please try again later.",
+              "error",
+              false
+            );
           } else if (error instanceof Error && error.message === "API_ERROR") {
-            setStatus("The IP lookup service could not complete this request. Please try again shortly.", "error", false);
+            setStatus(
+              "The IP lookup service could not complete this request. Please try again shortly.",
+              "error",
+              false
+            );
           } else if (error instanceof Error && error.message === "INVALID_JSON") {
-            setStatus("The IP lookup service returned an unreadable response. Please try again later.", "error", false);
+            setStatus(
+              "The IP lookup service returned an unreadable response. Please try again later.",
+              "error",
+              false
+            );
           } else {
-            setStatus("Unable to retrieve your IP information. Please check your connection and try again.", "error", false);
+            setStatus(
+              "Unable to retrieve your IP information. Please check your connection and try again.",
+              "error",
+              false
+            );
           }
         } finally {
           window.clearTimeout(timeoutID);
+
           if (requestID === requestSequence) {
             isLoading = false;
             refreshButton.disabled = false;
@@ -538,34 +1428,45 @@
 
       async function copyTextFallback(text) {
         const temporaryInput = document.createElement("textarea");
+
         temporaryInput.value = text;
         temporaryInput.setAttribute("readonly", "");
         temporaryInput.style.position = "fixed";
         temporaryInput.style.opacity = "0";
         temporaryInput.style.pointerEvents = "none";
         temporaryInput.style.left = "-9999px";
+
         document.body.append(temporaryInput);
         temporaryInput.focus();
         temporaryInput.select();
         temporaryInput.setSelectionRange(0, temporaryInput.value.length);
+
         let copied = false;
+
         try {
           copied = document.execCommand("copy");
         } catch (_error) {
           copied = false;
         }
+
         temporaryInput.remove();
         return copied;
       }
 
       async function copyPublicIP() {
         if (!currentPublicIP) return;
+
         copyButton.disabled = true;
         copyStatus.textContent = "";
+
         let copied = false;
 
         try {
-          if (navigator.clipboard && typeof navigator.clipboard.writeText === "function" && window.isSecureContext) {
+          if (
+            navigator.clipboard &&
+            typeof navigator.clipboard.writeText === "function" &&
+            window.isSecureContext
+          ) {
             await navigator.clipboard.writeText(currentPublicIP);
             copied = true;
           } else {
@@ -578,17 +1479,76 @@
         if (copied) {
           copyStatus.textContent = "IP address copied!";
         } else {
-          copyStatus.textContent = "Copy failed. Please select and copy the IP address manually.";
+          copyStatus.textContent =
+            "Copy failed. Please select and copy the IP address manually.";
         }
+
         copyButton.disabled = !currentPublicIP;
       }
 
       refreshButton.addEventListener("click", lookupPublicIP);
       copyButton.addEventListener("click", copyPublicIP);
-      document.getElementById("current-year").textContent = String(new Date().getFullYear());
+
+      document.getElementById("current-year").textContent =
+        String(new Date().getFullYear());
 
       // Perform one lookup on page load. No polling or automatic retry loop is used.
       lookupPublicIP();
+    })();
+
+    /* Tools dropdown behavior */
+    (function () {
+      const dropdown = document.querySelector(".tools-dropdown");
+      const trigger = document.querySelector(".tools-trigger");
+      const menu = document.getElementById("tools-menu");
+
+      if (!dropdown || !trigger || !menu) return;
+
+      function openMenu() {
+        menu.hidden = false;
+        trigger.setAttribute("aria-expanded", "true");
+      }
+
+      function closeMenu(returnFocus) {
+        menu.hidden = true;
+        trigger.setAttribute("aria-expanded", "false");
+
+        if (returnFocus) {
+          trigger.focus();
+        }
+      }
+
+      trigger.addEventListener("click", function () {
+        const isExpanded =
+          trigger.getAttribute("aria-expanded") === "true";
+
+        if (isExpanded) {
+          closeMenu(false);
+        } else {
+          openMenu();
+        }
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!dropdown.contains(event.target)) {
+          closeMenu(false);
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (
+          event.key === "Escape" &&
+          trigger.getAttribute("aria-expanded") === "true"
+        ) {
+          closeMenu(true);
+        }
+      });
+
+      menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          closeMenu(false);
+        });
+      });
     })();
   </script>
 </body>
