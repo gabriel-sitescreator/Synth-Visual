@@ -1,15 +1,15 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B2R2YLSL7R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-B2R2YLSL7R');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2R2YLSL7R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B2R2YLSL7R');
+  </script>
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,6 +25,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="What Is an IP Address? A Beginner’s Guide">
   <meta name="twitter:description" content="A clear, practical introduction to IP addresses, routing, public and private IPs, IPv4, IPv6, and online privacy.">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,6 +47,7 @@
     }
   }
   </script>
+
   <style>
     :root {
       --page: #f7f7f4;
@@ -62,8 +64,16 @@
       --radius: 16px;
       --shadow: 0 8px 30px rgba(27, 39, 30, 0.045);
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
     body {
       margin: 0;
       background: var(--page);
@@ -72,167 +82,1129 @@
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
-    a:hover { color: var(--accent-hover); }
-    a:focus-visible, button:focus-visible, summary:focus-visible {
-      outline: 3px solid #7cae98; outline-offset: 4px; border-radius: 4px;
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
     }
-    .container { width: min(var(--max-width), calc(100% - 48px)); margin-inline: auto; }
-    .site-header { border-bottom: 1px solid var(--line); background: rgba(247, 247, 244, .96); }
-    .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-    .brand { display: inline-flex; flex-direction: column; line-height: 1.05; flex-shrink: 0; color: var(--text); text-decoration: none; }
-    .brand-name { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 700; letter-spacing: -1.2px; }
-    .brand-tagline { margin-top: 6px; color: var(--muted); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; }
-    .main-nav { display: flex; align-items: center; gap: 27px; color: #424840; font-size: 13px; font-weight: 600; }
-    .main-nav a { color: inherit; text-decoration: none; transition: color 160ms ease; }
-    .main-nav a:hover { color: var(--accent); }
-    .nav-cta { padding: 10px 15px; border: 1px solid #cbd6ce; border-radius: 999px; color: var(--accent) !important; }
-    .progress-track { height: 3px; background: transparent; }
-    .progress-bar { width: 0; height: 100%; background: var(--accent); transition: width 80ms linear; }
-    .breadcrumbs { padding: 25px 0 0; color: var(--muted); font-size: 12px; }
-    .breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
-    .breadcrumbs li + li::before { content: "/"; margin-right: 8px; color: #a0a59d; }
-    .breadcrumbs a { color: var(--muted); text-decoration: none; }
-    .breadcrumbs a:hover { color: var(--accent); }
-    .article-hero { padding: 34px 0 35px; }
-    .article-hero-inner { max-width: 920px; margin: 0 auto; text-align: center; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 1.9px; text-transform: uppercase; }
-    .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; }
-    h1, h2, h3 { text-wrap: pretty; }
-    .article-hero h1 { max-width: 850px; margin: 0 auto; font-family: Georgia, "Times New Roman", serif; font-size: clamp(38px, 6vw, 66px); font-weight: 500; letter-spacing: -2.3px; line-height: 1.08; }
-    .article-hero h1 em { color: var(--accent); font-weight: 500; }
-    .dek { max-width: 710px; margin: 22px auto 0; color: var(--muted); font-size: 17px; line-height: 1.8; }
-    .article-meta { display: flex; justify-content: center; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 24px; color: var(--muted); font-size: 12px; }
-    .meta-dot { display: inline-flex; align-items: center; gap: 7px; }
-    .meta-dot::before { content: ""; width: 4px; height: 4px; background: #99a69b; border-radius: 50%; }
-    .topic-pill { padding: 6px 10px; background: var(--soft); border: 1px solid #dce6dc; border-radius: 999px; color: var(--accent); font-size: 10px; font-weight: 750; letter-spacing: .5px; text-transform: uppercase; }
-    .feature-visual { overflow: hidden; position: relative; max-width: 1000px; margin: 0 auto; padding: clamp(22px, 4vw, 42px); border: 1px solid #dfe6dd; border-radius: 22px; background: linear-gradient(135deg, #eff3ee 0%, #f9fbf8 48%, #e7eee8 100%); box-shadow: var(--shadow); }
-    .visual-caption { margin: 17px 0 0; color: var(--muted); font-size: 11px; text-align: center; }
-    .connection-flow { display: grid; grid-template-columns: 1fr minmax(70px, .7fr) 1fr minmax(70px, .7fr) 1fr; align-items: center; gap: 12px; max-width: 900px; margin: 0 auto; }
-    .device-card { min-height: 142px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 18px 10px; border: 1px solid rgba(36, 91, 73, .18); border-radius: 17px; background: rgba(255,255,255,.86); text-align: center; }
-    .device-card svg { width: 43px; height: 43px; color: var(--accent); }
-    .device-card strong { font-family: Georgia, "Times New Roman", serif; font-size: 16px; font-weight: 600; line-height: 1.25; }
-    .device-card small { color: var(--muted); font-size: 10px; line-height: 1.4; overflow-wrap: anywhere; }
-    .tunnel { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--accent); text-align: center; }
-    .tunnel-line { position: relative; width: 100%; height: 3px; border-radius: 999px; background: #9ab9a5; }
-    .tunnel-line::after { content: ""; position: absolute; right: -1px; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid #5e9476; }
-    .tunnel-label { font-size: 9px; font-weight: 800; letter-spacing: .5px; text-transform: uppercase; }
-    .tunnel-icon { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: 1px solid #c8d9cb; border-radius: 50%; background: #fafffa; }
-    .tunnel-icon svg { width: 13px; height: 13px; }
-    .article-layout { display: grid; grid-template-columns: 220px minmax(0, 760px); align-items: start; justify-content: center; gap: clamp(28px, 5vw, 64px); padding: 40px 0 86px; }
-    .toc-wrap { position: sticky; top: 24px; }
-    .toc-card { padding: 23px 19px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
-    .toc-title { margin: 0 0 14px; color: var(--text); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
-    .toc-list { display: flex; flex-direction: column; gap: 9px; margin: 0; padding: 0; list-style: none; }
-    .toc-list a { color: var(--muted); font-size: 12px; line-height: 1.45; text-decoration: none; }
-    .toc-list a:hover, .toc-list a:focus { color: var(--accent); }
-    .toc-note { margin: 20px 0 0; padding-top: 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.7; }
-    .mobile-toc { display: none; margin-bottom: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-    .mobile-toc summary { padding: 14px 16px; cursor: pointer; color: var(--accent); font-size: 13px; font-weight: 750; }
-    .mobile-toc .toc-list { padding: 0 16px 17px; }
-    .article-content { min-width: 0; max-width: var(--reading-width); font-size: 16px; line-height: 1.85; }
-    .article-content p { margin: 0 0 21px; }
-    .article-content h2 { margin: 54px 0 17px; padding-top: 5px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(29px, 3.5vw, 36px); font-weight: 500; letter-spacing: -.8px; line-height: 1.18; scroll-margin-top: 24px; }
-    .article-content h3 { margin: 32px 0 12px; font-family: Georgia, "Times New Roman", serif; font-size: 23px; font-weight: 500; letter-spacing: -.35px; line-height: 1.3; scroll-margin-top: 24px; }
-    .article-content h4 { margin: 26px 0 10px; font-size: 16px; font-weight: 750; line-height: 1.4; }
-    .article-content strong { color: #242923; }
-    .article-content ul, .article-content ol { margin: 0 0 24px; padding-left: 25px; }
-    .article-content li { margin: 7px 0; padding-left: 3px; }
-    .article-content li::marker { color: var(--accent); }
-    .article-content blockquote { margin: 26px 0; padding: 18px 22px; border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; background: var(--soft-2); color: #434940; }
-    .article-content blockquote p:last-child { margin-bottom: 0; }
-    .article-content a { text-decoration-thickness: 1px; }
-    .quick-answer { margin: 6px 0 36px; padding: 23px 25px 3px; border: 1px solid #d8e3d9; border-radius: 15px; background: #f0f5ef; }
-    .quick-answer-label { margin: 0 0 8px !important; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
-    .quick-answer p { font-size: 15px; }
-    .scroll-table { margin: 26px 0 30px; overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-    .article-content table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.65; }
-    .article-content th, .article-content td { min-width: 150px; padding: 14px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-    .article-content th { background: #f0f2ed; color: #323930; font-size: 11px; letter-spacing: .2px; }
-    .article-content tr:last-child td { border-bottom: 0; }
-    .article-content td:first-child { min-width: 165px; font-weight: 700; }
-    .step-list { display: grid; gap: 12px; margin: 22px 0 28px; }
-    .step { display: grid; grid-template-columns: 38px 1fr; gap: 13px; padding: 17px; border: 1px solid var(--line); border-radius: 13px; background: #fff; }
-    .step-number { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--soft); color: var(--accent); font-size: 12px; font-weight: 800; }
-    .step h3 { margin: 2px 0 5px; font-family: inherit; font-size: 15px; font-weight: 750; letter-spacing: 0; }
-    .step p { margin: 0; color: #51584f; font-size: 14px; line-height: 1.75; }
-    .takeaway { margin: 35px 0; padding: 24px; border: 1px solid #d8e3d9; border-radius: 15px; background: #eef4ee; }
-    .takeaway h3 { margin-top: 0; }
-    .takeaway p:last-child { margin-bottom: 0; }
-    .faq-item { padding: 19px 0 0; border-top: 1px solid var(--line); }
-    .faq-item h3 { margin-top: 0; font-family: inherit; font-size: 16px; font-weight: 750; letter-spacing: 0; }
-    .faq-item p { margin-bottom: 20px; }
-    .references { margin-top: 56px; padding-top: 30px; border-top: 1px solid var(--line); }
-    .references h2 { margin-top: 0; font-size: 29px; }
-    .references-intro { color: var(--muted); font-size: 13px; }
-    .reference-list { display: grid; gap: 0; list-style: none !important; margin: 21px 0 0 !important; padding: 0 !important; }
-    .reference-list li { margin: 0; padding: 14px 0; border-top: 1px solid var(--line); }
-    .reference-list a { display: inline-block; font-size: 14px; font-weight: 750; }
-    .reference-list p { margin: 4px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
-    .back-to-top { display: inline-flex; align-items: center; gap: 7px; margin-top: 12px; color: var(--accent); font-size: 12px; font-weight: 750; text-decoration: none; }
-    .related-strip { padding: 32px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--soft-2); }
-    .related-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .related-inner h2 { margin: 0 0 5px; font-family: Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 500; }
-    .related-inner p { max-width: 660px; margin: 0; color: var(--muted); font-size: 13px; }
-    .related-link { flex-shrink: 0; display: inline-block; padding: 11px 16px; border-radius: 999px; background: var(--accent); color: white; font-size: 12px; font-weight: 750; text-decoration: none; }
-    .related-link:hover { background: var(--accent-hover); color: white; }
-    .site-footer { padding: 27px 0; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .footer-brand { font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; letter-spacing: -.5px; color: var(--text); text-decoration: none; }
-    .copyright { margin: 5px 0 0; color: var(--muted); font-size: 11px; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 19px; color: var(--muted); font-size: 11px; }
-    .footer-links a { color: var(--muted); text-decoration: none; }
-    .footer-links a:hover { color: var(--accent); }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #7cae98;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    /* Header */
+    .site-header {
+      position: relative;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 247, 244, .96);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1.05;
+      flex-shrink: 0;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -1.2px;
+    }
+
+    .brand-tagline {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      color: #424840;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .main-nav a,
+    .tools-trigger {
+      transition: color 160ms ease;
+    }
+
+    .main-nav a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"],
+    .tools-trigger:hover,
+    .tools-trigger[aria-expanded="true"] {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      padding: 10px 15px;
+      border: 1px solid #cbd6ce;
+      border-radius: 999px;
+      color: var(--accent) !important;
+    }
+
+    /* Tools dropdown */
+    .tools-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .tools-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 0;
+      border: 0;
+      background: transparent;
+      color: #424840;
+      font: inherit;
+      cursor: pointer;
+      transition: color 160ms ease;
+    }
+
+    .tools-chevron {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 160ms ease;
+    }
+
+    .tools-trigger[aria-expanded="true"] .tools-chevron {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .tools-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: -18px;
+      z-index: 50;
+      width: 322px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 16px 42px rgba(27, 39, 30, .13);
+    }
+
+    .tools-menu[hidden] {
+      display: none;
+    }
+
+    .tools-menu-section {
+      padding: 8px 7px 9px;
+    }
+
+    .tools-menu-heading {
+      margin: 0 0 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 1.25px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .tools-menu a {
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+    }
+
+    .tools-menu a:hover,
+    .tools-menu a:focus-visible {
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    .tools-menu-divider {
+      height: 1px;
+      margin: 3px 7px;
+      background: var(--line);
+    }
+
+    .tools-menu .tools-commercial-link {
+      color: var(--accent);
+    }
+
+    .progress-track {
+      height: 3px;
+      background: transparent;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: var(--accent);
+      transition: width 80ms linear;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      padding: 25px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .breadcrumbs ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .breadcrumbs li + li::before {
+      content: "/";
+      margin-right: 8px;
+      color: #a0a59d;
+    }
+
+    .breadcrumbs a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--accent);
+    }
+
+    /* Article hero */
+    .article-hero {
+      padding: 34px 0 35px;
+    }
+
+    .article-hero-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.9px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1,
+    h2,
+    h3 {
+      text-wrap: pretty;
+    }
+
+    .article-hero h1 {
+      max-width: 850px;
+      margin: 0 auto;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 6vw, 66px);
+      font-weight: 500;
+      letter-spacing: -2.3px;
+      line-height: 1.08;
+    }
+
+    .article-hero h1 em {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .dek {
+      max-width: 710px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 18px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .meta-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .meta-dot::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background: #99a69b;
+      border-radius: 50%;
+    }
+
+    .topic-pill {
+      padding: 6px 10px;
+      background: var(--soft);
+      border: 1px solid #dce6dc;
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    /* IP address illustration */
+    .feature-visual {
+      overflow: hidden;
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: clamp(22px, 4vw, 42px);
+      border: 1px solid #dfe6dd;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #eff3ee 0%, #f9fbf8 48%, #e7eee8 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .visual-caption {
+      margin: 17px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .connection-flow {
+      display: grid;
+      grid-template-columns: 1fr minmax(70px, .7fr) 1fr minmax(70px, .7fr) 1fr;
+      align-items: center;
+      gap: 12px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .device-card {
+      min-height: 142px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px 10px;
+      border: 1px solid rgba(36, 91, 73, .18);
+      border-radius: 17px;
+      background: rgba(255,255,255,.86);
+      text-align: center;
+    }
+
+    .device-card svg {
+      width: 43px;
+      height: 43px;
+      color: var(--accent);
+    }
+
+    .device-card strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .device-card small {
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.4;
+      overflow-wrap: anywhere;
+    }
+
+    .tunnel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .tunnel-line {
+      position: relative;
+      width: 100%;
+      height: 3px;
+      border-radius: 999px;
+      background: #9ab9a5;
+    }
+
+    .tunnel-line::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -4px;
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 7px solid #5e9476;
+    }
+
+    .tunnel-label {
+      font-size: 9px;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    .tunnel-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border: 1px solid #c8d9cb;
+      border-radius: 50%;
+      background: #fafffa;
+    }
+
+    .tunnel-icon svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    /* Article layout and table of contents */
+    .article-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 760px);
+      align-items: start;
+      justify-content: center;
+      gap: clamp(28px, 5vw, 64px);
+      padding: 40px 0 86px;
+    }
+
+    .toc-wrap {
+      position: sticky;
+      top: 24px;
+    }
+
+    .toc-card {
+      padding: 23px 19px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .toc-title {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .toc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc-list a {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      text-decoration: none;
+    }
+
+    .toc-list a:hover,
+    .toc-list a:focus {
+      color: var(--accent);
+    }
+
+    .toc-note {
+      margin: 20px 0 0;
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .mobile-toc {
+      display: none;
+      margin-bottom: 28px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .mobile-toc summary {
+      padding: 14px 16px;
+      cursor: pointer;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .mobile-toc .toc-list {
+      padding: 0 16px 17px;
+    }
+
+    /* Article content */
+    .article-content {
+      min-width: 0;
+      max-width: var(--reading-width);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .article-content p {
+      margin: 0 0 21px;
+    }
+
+    .article-content h2 {
+      margin: 54px 0 17px;
+      padding-top: 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 3.5vw, 36px);
+      font-weight: 500;
+      letter-spacing: -.8px;
+      line-height: 1.18;
+      scroll-margin-top: 24px;
+    }
+
+    .article-content h3 {
+      margin: 32px 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 23px;
+      font-weight: 500;
+      letter-spacing: -.35px;
+      line-height: 1.3;
+      scroll-margin-top: 24px;
+    }
+
+    .article-content h4 {
+      margin: 26px 0 10px;
+      font-size: 16px;
+      font-weight: 750;
+      line-height: 1.4;
+    }
+
+    .article-content strong {
+      color: #242923;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      margin: 0 0 24px;
+      padding-left: 25px;
+    }
+
+    .article-content li {
+      margin: 7px 0;
+      padding-left: 3px;
+    }
+
+    .article-content li::marker {
+      color: var(--accent);
+    }
+
+    .article-content blockquote {
+      margin: 26px 0;
+      padding: 18px 22px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      background: var(--soft-2);
+      color: #434940;
+    }
+
+    .article-content blockquote p:last-child {
+      margin-bottom: 0;
+    }
+
+    .article-content a {
+      text-decoration-thickness: 1px;
+    }
+
+    .quick-answer {
+      margin: 6px 0 36px;
+      padding: 23px 25px 3px;
+      border: 1px solid #d8e3d9;
+      border-radius: 15px;
+      background: #f0f5ef;
+    }
+
+    .quick-answer-label {
+      margin: 0 0 8px !important;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .quick-answer p {
+      font-size: 15px;
+    }
+
+    .scroll-table {
+      margin: 26px 0 30px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .article-content th,
+    .article-content td {
+      min-width: 150px;
+      padding: 14px 15px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: #f0f2ed;
+      color: #323930;
+      font-size: 11px;
+      letter-spacing: .2px;
+    }
+
+    .article-content tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .article-content td:first-child {
+      min-width: 165px;
+      font-weight: 700;
+    }
+
+    /* Step-by-step sections */
+    .step-list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0 28px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 13px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin: 2px 0 5px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .step p {
+      margin: 0;
+      color: #51584f;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    /* Takeaway and FAQ */
+    .takeaway {
+      margin: 35px 0;
+      padding: 24px;
+      border: 1px solid #d8e3d9;
+      border-radius: 15px;
+      background: #eef4ee;
+    }
+
+    .takeaway h3 {
+      margin-top: 0;
+    }
+
+    .takeaway p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-item {
+      padding: 19px 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-item h3 {
+      margin-top: 0;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .faq-item p {
+      margin-bottom: 20px;
+    }
+
+    /* References */
+    .references {
+      margin-top: 56px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .references h2 {
+      margin-top: 0;
+      font-size: 29px;
+    }
+
+    .references-intro {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .reference-list {
+      display: grid;
+      gap: 0;
+      list-style: none !important;
+      margin: 21px 0 0 !important;
+      padding: 0 !important;
+    }
+
+    .reference-list li {
+      margin: 0;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .reference-list a {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .reference-list p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .back-to-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    /* Related articles */
+    .related-strip {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--soft-2);
+    }
+
+    .related-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .related-inner h2 {
+      margin: 0 0 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    .related-inner p {
+      max-width: 660px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .related-link {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .related-link:hover {
+      background: var(--accent-hover);
+      color: white;
+    }
+
+    /* Footer */
+    .site-footer {
+      padding: 27px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .copyright {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 19px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Tablet */
     @media (max-width: 900px) {
-      .article-layout { grid-template-columns: minmax(0, 760px); }
-      .toc-wrap { display: none; }
-      .mobile-toc { display: block; }
-      .article-content { margin-inline: auto; width: 100%; }
+      .article-layout {
+        grid-template-columns: minmax(0, 760px);
+      }
+
+      .toc-wrap {
+        display: none;
+      }
+
+      .mobile-toc {
+        display: block;
+      }
+
+      .article-content {
+        margin-inline: auto;
+        width: 100%;
+      }
     }
+
+    /* Mobile */
     @media (max-width: 700px) {
-      .container { width: min(100% - 32px, var(--max-width)); }
-      .header-inner { min-height: 74px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 13px; padding: 15px 0; }
-      .brand-name { font-size: 24px; }
-      .brand-tagline { font-size: 9px; }
-      .main-nav { width: 100%; justify-content: space-between; gap: 10px; font-size: 11px; }
-      .nav-cta { padding: 7px 10px; }
-      .breadcrumbs { padding-top: 18px; }
-      .article-hero { padding: 28px 0 25px; }
-      .article-hero h1 { font-size: clamp(37px, 10vw, 52px); letter-spacing: -1.7px; }
-      .dek { font-size: 15px; }
-      .feature-visual { padding: 17px 14px; border-radius: 17px; }
-      .connection-flow { grid-template-columns: 1fr; gap: 9px; max-width: 330px; }
-      .device-card { min-height: auto; display: grid; grid-template-columns: 42px 1fr; justify-content: start; text-align: left; padding: 12px 14px; }
-      .device-card svg { width: 34px; height: 34px; grid-row: span 2; }
-      .device-card strong { align-self: end; font-size: 15px; }
-      .device-card small { align-self: start; }
-      .tunnel { display: grid; grid-template-columns: 24px 1fr; gap: 7px 10px; justify-items: start; text-align: left; padding-left: 24px; }
-      .tunnel-line { width: 3px; height: 19px; margin-left: 11px; grid-column: 1; grid-row: 1 / span 2; }
-      .tunnel-line::after { top: auto; bottom: -1px; right: -4px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 7px solid #5e9476; border-bottom: 0; }
-      .tunnel-icon { grid-column: 2; grid-row: 1; width: 23px; height: 23px; }
-      .tunnel-label { grid-column: 2; grid-row: 2; }
-      .article-layout { padding: 28px 0 58px; }
-      .article-content { font-size: 15px; line-height: 1.82; }
-      .article-content h2 { margin-top: 43px; font-size: 30px; }
-      .article-content h3 { font-size: 21px; }
-      .step { padding: 14px; }
-      .related-inner, .footer-inner { align-items: flex-start; flex-direction: column; }
+      .container {
+        width: min(100% - 32px, var(--max-width));
+      }
+
+      .header-inner {
+        min-height: 74px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 13px;
+        padding: 15px 0;
+      }
+
+      .brand-name {
+        font-size: 24px;
+      }
+
+      .brand-tagline {
+        font-size: 9px;
+      }
+
+      .main-nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 11px;
+      }
+
+      .tools-trigger {
+        padding: 7px 0;
+      }
+
+      .tools-menu {
+        top: calc(100% + 8px);
+        right: -8px;
+        width: min(322px, calc(100vw - 32px));
+      }
+
+      .nav-cta {
+        padding: 7px 10px;
+      }
+
+      .breadcrumbs {
+        padding-top: 18px;
+      }
+
+      .article-hero {
+        padding: 28px 0 25px;
+      }
+
+      .article-hero h1 {
+        font-size: clamp(37px, 10vw, 52px);
+        letter-spacing: -1.7px;
+      }
+
+      .dek {
+        font-size: 15px;
+      }
+
+      .feature-visual {
+        padding: 17px 14px;
+        border-radius: 17px;
+      }
+
+      .connection-flow {
+        grid-template-columns: 1fr;
+        gap: 9px;
+        max-width: 330px;
+      }
+
+      .device-card {
+        min-height: auto;
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        justify-content: start;
+        text-align: left;
+        padding: 12px 14px;
+      }
+
+      .device-card svg {
+        width: 34px;
+        height: 34px;
+        grid-row: span 2;
+      }
+
+      .device-card strong {
+        align-self: end;
+        font-size: 15px;
+      }
+
+      .device-card small {
+        align-self: start;
+      }
+
+      .tunnel {
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        gap: 7px 10px;
+        justify-items: start;
+        text-align: left;
+        padding-left: 24px;
+      }
+
+      .tunnel-line {
+        width: 3px;
+        height: 19px;
+        margin-left: 11px;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+      }
+
+      .tunnel-line::after {
+        top: auto;
+        bottom: -1px;
+        right: -4px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 7px solid #5e9476;
+        border-bottom: 0;
+      }
+
+      .tunnel-icon {
+        grid-column: 2;
+        grid-row: 1;
+        width: 23px;
+        height: 23px;
+      }
+
+      .tunnel-label {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .article-layout {
+        padding: 28px 0 58px;
+      }
+
+      .article-content {
+        font-size: 15px;
+        line-height: 1.82;
+      }
+
+      .article-content h2 {
+        margin-top: 43px;
+        font-size: 30px;
+      }
+
+      .article-content h3 {
+        font-size: 21px;
+      }
+
+      .step {
+        padding: 14px;
+      }
+
+      .related-inner,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; }
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+      }
     }
+
     @media print {
-      .site-header, .progress-track, .toc-wrap, .mobile-toc, .related-strip, .site-footer, .back-to-top { display: none !important; }
-      body { background: white; }
-      .container { width: 100%; }
-      .article-layout { display: block; padding: 0; }
-      .article-content { max-width: none; font-size: 11pt; }
-      .article-content h2 { break-after: avoid; }
-      a { color: inherit; }
+      .site-header,
+      .progress-track,
+      .toc-wrap,
+      .mobile-toc,
+      .related-strip,
+      .site-footer,
+      .back-to-top {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .article-layout {
+        display: block;
+        padding: 0;
+      }
+
+      .article-content {
+        max-width: none;
+        font-size: 11pt;
+      }
+
+      .article-content h2 {
+        break-after: avoid;
+      }
+
+      a {
+        color: inherit;
+      }
     }
   </style>
 </head>
+
 <body id="top">
   <header class="site-header">
     <div class="container header-inner">
@@ -240,13 +1212,48 @@
         <span class="brand-name">Synth Visual</span>
         <span class="brand-tagline">Technology, made clearer</span>
       </a>
+
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=138160">NordVPN Plans</a>
-        <a href="https://synthvisuals.space/about.html">About</a>
+        <div class="tools-dropdown">
+          <button
+            class="tools-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="tools-menu"
+          >
+            Tools
+            <span class="tools-chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="tools-menu" id="tools-menu" hidden>
+            <div class="tools-menu-section">
+              <p class="tools-menu-heading">Privacy &amp; Network Tools</p>
+              <a href="/dns-webrtc-leak-test.html">DNS/WebRTC Leak Test</a>
+              <a href="/what-is-my-ip.html">What Is My IP?</a>
+            </div>
+
+            <div class="tools-menu-divider" aria-hidden="true"></div>
+
+            <div class="tools-menu-section">
+              <p class="tools-menu-heading">VPNs &amp; Security Software</p>
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordVPN Plans ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/about.html">About</a>
         <a class="nav-cta" href="/#latest-guides">Explore Articles</a>
       </nav>
     </div>
-    <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="reading-progress"></div></div>
+
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-bar" id="reading-progress"></div>
+    </div>
   </header>
 
   <main>
@@ -279,19 +1286,36 @@
             <strong>Your devices</strong>
             <small>Laptop · Phone<br>Private IPs: 192.168.1.x</small>
           </div>
-          <div class="tunnel" aria-hidden="true"><span class="tunnel-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 4l4 4-4 4"/></svg></span><span class="tunnel-label">Local network</span><span class="tunnel-line"></span></div>
+
+          <div class="tunnel" aria-hidden="true">
+            <span class="tunnel-icon">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 8h12M9 4l4 4-4 4"/></svg>
+            </span>
+            <span class="tunnel-label">Local network</span>
+            <span class="tunnel-line"></span>
+          </div>
+
           <div class="device-card">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="6" y="20" width="36" height="16" rx="3"/><path d="M11 20v-5m26 5v-5M15 28h1m5 0h1m5 0h1"/><circle cx="35" cy="28" r="1.5" fill="currentColor"/><path d="M14 14c2.5-2.5 5.5-3.8 10-3.8s7.5 1.3 10 3.8M18 17c1.5-1.3 3.5-2 6-2s4.5.7 6 2"/></svg>
             <strong>Home router</strong>
             <small>Connects the local network<br>Public IP: assigned by ISP</small>
           </div>
-          <div class="tunnel" aria-hidden="true"><span class="tunnel-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span><span class="tunnel-label">Internet routing</span><span class="tunnel-line"></span></div>
+
+          <div class="tunnel" aria-hidden="true">
+            <span class="tunnel-icon">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </span>
+            <span class="tunnel-label">Internet routing</span>
+            <span class="tunnel-line"></span>
+          </div>
+
           <div class="device-card">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M6 24h36M24 6c5 5 7 11 7 18s-2 13-7 18c-5-5-7-11-7-18s2-13 7-18Z"/><path d="M10 14h28M10 34h28" opacity=".55"/></svg>
             <strong>Web server</strong>
             <small>Receives the request<br>Destination IP: server address</small>
           </div>
         </div>
+
         <figcaption class="visual-caption" id="ip-diagram-caption">A simplified view of network communication: local devices use their network addresses while routers forward data toward internet destinations.</figcaption>
       </figure>
     </div>
@@ -365,13 +1389,49 @@
 
         <h2 id="how-ip-works">How Does an IP Address Work?</h2>
         <p>IP addressing helps data move between networks. Here is what happens when you open a website on your laptop or smartphone.</p>
+
         <div class="step-list">
-          <section class="step"><span class="step-number">1</span><div><h3>Your device connects to a network</h3><p>Your laptop joins a home Wi-Fi network, for example, and receives the network configuration needed to communicate.</p></div></section>
-          <section class="step"><span class="step-number">2</span><div><h3>Your device uses an appropriate IP address</h3><p>It may have a private IP address for communication within the home network and use a public IP address through the router when accessing the internet.</p></div></section>
-          <section class="step"><span class="step-number">3</span><div><h3>Your device requests information</h3><p>When you open a website, your device sends network traffic toward the destination server. The packets contain source and destination IP addresses.</p></div></section>
-          <section class="step"><span class="step-number">4</span><div><h3>Routers forward the packets</h3><p>Your home router sends traffic toward your internet service provider (ISP), and routers across the internet forward packets according to routing information.</p></div></section>
-          <section class="step"><span class="step-number">5</span><div><h3>The destination responds</h3><p>The server processes the request and sends response data toward the source. The network routes those packets back through the relevant connections.</p></div></section>
+          <section class="step">
+            <span class="step-number">1</span>
+            <div>
+              <h3>Your device connects to a network</h3>
+              <p>Your laptop joins a home Wi-Fi network, for example, and receives the network configuration needed to communicate.</p>
+            </div>
+          </section>
+
+          <section class="step">
+            <span class="step-number">2</span>
+            <div>
+              <h3>Your device uses an appropriate IP address</h3>
+              <p>It may have a private IP address for communication within the home network and use a public IP address through the router when accessing the internet.</p>
+            </div>
+          </section>
+
+          <section class="step">
+            <span class="step-number">3</span>
+            <div>
+              <h3>Your device requests information</h3>
+              <p>When you open a website, your device sends network traffic toward the destination server. The packets contain source and destination IP addresses.</p>
+            </div>
+          </section>
+
+          <section class="step">
+            <span class="step-number">4</span>
+            <div>
+              <h3>Routers forward the packets</h3>
+              <p>Your home router sends traffic toward your internet service provider (ISP), and routers across the internet forward packets according to routing information.</p>
+            </div>
+          </section>
+
+          <section class="step">
+            <span class="step-number">5</span>
+            <div>
+              <h3>The destination responds</h3>
+              <p>The server processes the request and sends response data toward the source. The network routes those packets back through the relevant connections.</p>
+            </div>
+          </section>
         </div>
+
         <p>In a typical home IPv4 setup, the router often uses a technique called <strong>Network Address Translation (NAT)</strong> to allow devices with private addresses to communicate with the internet through a shared public address.</p>
         <p>Another important part of this process is the Domain Name System (DNS). When you enter a website address such as <code>example.com</code>, DNS helps your device discover the IP address associated with that domain name. IP addressing and DNS work together, but they are not the same thing: DNS helps resolve names, while IP addressing supports the delivery of network packets.</p>
         <p>The specific route and addressing details depend on the destination and how the network is configured.</p>
@@ -399,18 +1459,46 @@
 
         <h2 id="public-vs-private">Public IP vs. Private IP: What's the Difference?</h2>
         <p>The key difference is where the address is used and how it participates in network communication.</p>
+
         <div class="scroll-table">
           <table>
-            <thead><tr><th scope="col">Feature</th><th scope="col">Public IP address</th><th scope="col">Private IP address</th></tr></thead>
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                <th scope="col">Public IP address</th>
+                <th scope="col">Private IP address</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td>Where it is used</td><td>For communication across the public internet when globally routable</td><td>Within a private network</td></tr>
-              <tr><td>Main role</td><td>Helps identify a network endpoint for internet communication</td><td>Identifies an endpoint within a local network</td></tr>
-              <tr><td>Normally visible to websites</td><td>Often visible as the connection's source address</td><td>Usually not visible to external websites as the device's source address</td></tr>
-              <tr><td>Role in a home network</td><td>May be assigned to the router's internet-facing interface</td><td>Usually assigned to individual devices by the router</td></tr>
-              <tr><td>Example</td><td>A globally routable IPv4 address assigned by an ISP</td><td><code>192.168.1.20</code></td></tr>
+              <tr>
+                <td>Where it is used</td>
+                <td>For communication across the public internet when globally routable</td>
+                <td>Within a private network</td>
+              </tr>
+              <tr>
+                <td>Main role</td>
+                <td>Helps identify a network endpoint for internet communication</td>
+                <td>Identifies an endpoint within a local network</td>
+              </tr>
+              <tr>
+                <td>Normally visible to websites</td>
+                <td>Often visible as the connection's source address</td>
+                <td>Usually not visible to external websites as the device's source address</td>
+              </tr>
+              <tr>
+                <td>Role in a home network</td>
+                <td>May be assigned to the router's internet-facing interface</td>
+                <td>Usually assigned to individual devices by the router</td>
+              </tr>
+              <tr>
+                <td>Example</td>
+                <td>A globally routable IPv4 address assigned by an ISP</td>
+                <td><code>192.168.1.20</code></td>
+              </tr>
             </tbody>
           </table>
         </div>
+
         <p>These distinctions describe common IPv4 networking arrangements. IPv6 uses a different addressing structure, including globally routable addresses and addresses intended for local communication.</p>
         <p>Neither address category automatically makes a device secure or insecure. Security depends on factors such as firewall rules, software updates, network configuration, and exposed services.</p>
 
@@ -418,7 +1506,9 @@
         <p>IPv4, or Internet Protocol version 4, is one of the principal versions of IP used on the internet.</p>
         <p>IPv4 uses <strong>32-bit addresses</strong>, typically written as four decimal numbers separated by periods. Each number ranges from 0 to 255.</p>
         <p>For example:</p>
-        <blockquote><p><code>192.0.2.1</code></p></blockquote>
+        <blockquote>
+          <p><code>192.0.2.1</code></p>
+        </blockquote>
         <p>This format is called dotted-decimal notation. The address is divided into four sections, each representing eight bits.</p>
         <p>IPv4 provides a theoretical address space of approximately 4.3 billion possible combinations. However, not all combinations are available for ordinary public use because various ranges are reserved for specific purposes.</p>
         <p>One important example is <code>192.0.2.0/24</code>. This block is reserved for documentation and examples, according to <a href="https://www.rfc-editor.org/rfc/rfc5737.html" target="_blank" rel="noopener noreferrer">RFC 5737</a>. Therefore, <code>192.0.2.1</code> is an illustrative address, not a typical public address assigned to an ordinary internet user.</p>
@@ -429,7 +1519,9 @@
         <p>IPv6, or Internet Protocol version 6, is a newer version of IP designed to expand available addressing capacity and support the continued growth of interconnected networks.</p>
         <p>IPv6 uses <strong>128-bit addresses</strong>, providing a vastly larger address space than IPv4.</p>
         <p>A valid illustrative IPv6 address is:</p>
-        <blockquote><p><code>2001:db8::1</code></p></blockquote>
+        <blockquote>
+          <p><code>2001:db8::1</code></p>
+        </blockquote>
         <p>IPv6 addresses use hexadecimal notation and colon-separated groups. The double colon (<code>::</code>) can represent one or more consecutive groups of zeros, making long addresses easier to write.</p>
         <p>The prefix <code>2001:db8::/32</code> is reserved for documentation and examples under <a href="https://www.rfc-editor.org/rfc/rfc3849.html" target="_blank" rel="noopener noreferrer">RFC 3849</a>.</p>
         <p>IPv6 matters because its larger address space provides far more room for addressing network interfaces and organizing networks. It also includes other protocol changes described in the <a href="https://www.rfc-editor.org/rfc/rfc8200.html" target="_blank" rel="noopener noreferrer">IPv6 specification, RFC 8200</a>.</p>
@@ -441,16 +1533,36 @@
         <p>A <strong>static IP address</strong> is configured or assigned to remain consistent. Businesses may use static public addresses for certain servers, remote-access systems, or services that need a stable network endpoint.</p>
         <p>A <strong>dynamic IP address</strong> is assigned through a configuration process and may change over time. Dynamic Host Configuration Protocol (DHCP), for example, can automatically assign IP addresses to devices on a local network. Internet providers may also assign public addresses dynamically.</p>
         <p>Dynamic addressing is common in home networks because devices can receive their network configuration without users manually entering an address.</p>
+
         <div class="scroll-table">
           <table>
-            <thead><tr><th scope="col">Feature</th><th scope="col">Static IP</th><th scope="col">Dynamic IP</th></tr></thead>
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                <th scope="col">Static IP</th>
+                <th scope="col">Dynamic IP</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td>Assignment</td><td>Intended to remain stable</td><td>Assigned automatically or through a changing allocation</td></tr>
-              <tr><td>Common uses</td><td>Servers and services needing a stable address</td><td>Home devices and many ordinary network connections</td></tr>
-              <tr><td>Can it change?</td><td>Yes, if reconfigured or reassigned</td><td>Yes, although it may remain unchanged for long periods</td></tr>
+              <tr>
+                <td>Assignment</td>
+                <td>Intended to remain stable</td>
+                <td>Assigned automatically or through a changing allocation</td>
+              </tr>
+              <tr>
+                <td>Common uses</td>
+                <td>Servers and services needing a stable address</td>
+                <td>Home devices and many ordinary network connections</td>
+              </tr>
+              <tr>
+                <td>Can it change?</td>
+                <td>Yes, if reconfigured or reassigned</td>
+                <td>Yes, although it may remain unchanged for long periods</td>
+              </tr>
             </tbody>
           </table>
         </div>
+
         <p>A dynamic address does not necessarily change every time you open a website, reconnect to Wi-Fi, or restart your computer. An address may remain the same across multiple connections, depending on the provider, DHCP lease, and network configuration.</p>
 
         <h2 id="ip-information">What Can Someone Learn From Your IP Address?</h2>
@@ -475,6 +1587,7 @@
 
         <h2 id="find-ip">How to Find Your IP Address</h2>
         <p>There are two common things people mean when they ask how to find their IP address: their <strong>public IP address</strong>, which internet services may see, and their <strong>local IP address</strong>, which their device uses on its connected network.</p>
+
         <h3>How to Find Your Public IP Address</h3>
         <p>The simplest method is to use a reputable IP-checking website.</p>
         <ol>
@@ -484,8 +1597,10 @@
         </ol>
         <p>Depending on your connection, the service may show one address or both. If you use a VPN or proxy, it may display the address associated with that service instead of your original public IP address.</p>
         <p>You do not need to install an application or provide personal information just to check your IP address.</p>
+
         <h3>How to Find Your Local IP Address</h3>
         <p>The steps vary by operating system and software version.</p>
+
         <h4>Windows 10 and Windows 11</h4>
         <ol>
           <li>Open <strong>Start → Settings → Network &amp; internet</strong>.</li>
@@ -493,6 +1608,7 @@
           <li>Look for <strong>IPv4 address</strong> in the network properties.</li>
         </ol>
         <p>You can also see an IPv6 address if your network supports it. Microsoft's <a href="https://support.microsoft.com/en-us/windows/experience/connectivity-networking/essential-network-settings-and-tasks-in-windows" target="_blank" rel="noopener noreferrer">network settings guide</a> provides additional details.</p>
+
         <h4>macOS</h4>
         <ol>
           <li>Open the Apple menu and select <strong>System Settings</strong>.</li>
@@ -501,6 +1617,7 @@
           <li>Open <strong>Details</strong> and look for the IP address in the network settings. For Wi-Fi, the address is available in the connection details.</li>
         </ol>
         <p>See Apple's guide to <a href="https://support.apple.com/en-ca/guide/mac-help/mh11935/27/mac/27" target="_blank" rel="noopener noreferrer">Wi-Fi settings on Mac</a>.</p>
+
         <h4>Android</h4>
         <ol>
           <li>Open <strong>Settings</strong>.</li>
@@ -509,6 +1626,7 @@
           <li>Look for the network details or IP address information.</li>
         </ol>
         <p>Menu names vary between Android versions and manufacturers. Some devices place the address under additional network details. See <a href="https://support.google.com/android/answer/9075847" target="_blank" rel="noopener noreferrer">Google Android Help: Connect to Wi-Fi networks</a>.</p>
+
         <h4>iPhone</h4>
         <ol>
           <li>Open <strong>Settings</strong>.</li>
@@ -529,31 +1647,95 @@
         <h2 id="ip-vs-mac">IP Address vs. MAC Address: What's the Difference?</h2>
         <p>IP addresses and Media Access Control (MAC) addresses serve different purposes in networking.</p>
         <p>An IP address supports Internet Protocol communication and routing between network endpoints. A MAC address, in networks that use MAC addressing, helps identify an interface for communication on a local network link.</p>
+
         <div class="scroll-table">
           <table>
-            <thead><tr><th scope="col">Feature</th><th scope="col">IP address</th><th scope="col">MAC address</th></tr></thead>
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                <th scope="col">IP address</th>
+                <th scope="col">MAC address</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td>Main purpose</td><td>IP communication and routing between networks</td><td>Link-layer communication on a local network</td></tr>
-              <tr><td>Typical format</td><td>IPv4: <code>192.168.1.20</code>; IPv6: <code>2001:db8::1</code></td><td>Commonly written as <code>00:1A:2B:3C:4D:5E</code></td></tr>
-              <tr><td>Can it change?</td><td>Yes, depending on the assignment and configuration</td><td>Yes; some devices use randomized or locally administered MAC addresses</td></tr>
-              <tr><td>Visibility</td><td>IP addresses are carried in IP packets as traffic crosses networks</td><td>MAC addresses are used on the relevant local link and are not normally carried unchanged end to end across routers</td></tr>
+              <tr>
+                <td>Main purpose</td>
+                <td>IP communication and routing between networks</td>
+                <td>Link-layer communication on a local network</td>
+              </tr>
+              <tr>
+                <td>Typical format</td>
+                <td>IPv4: <code>192.168.1.20</code>; IPv6: <code>2001:db8::1</code></td>
+                <td>Commonly written as <code>00:1A:2B:3C:4D:5E</code></td>
+              </tr>
+              <tr>
+                <td>Can it change?</td>
+                <td>Yes, depending on the assignment and configuration</td>
+                <td>Yes; some devices use randomized or locally administered MAC addresses</td>
+              </tr>
+              <tr>
+                <td>Visibility</td>
+                <td>IP addresses are carried in IP packets as traffic crosses networks</td>
+                <td>MAC addresses are used on the relevant local link and are not normally carried unchanged end to end across routers</td>
+              </tr>
             </tbody>
           </table>
         </div>
+
         <p>For example, when a laptop sends data to a server on another network, the IP destination identifies the network endpoint the traffic is trying to reach. The link-layer addressing used to send the packet to the next hop is a separate part of the process.</p>
         <p>MAC addresses should not be assumed to be universally permanent or globally visible identifiers. Modern devices and operating systems may use address randomization to reduce tracking across Wi-Fi networks.</p>
 
         <h2 id="faq">Frequently Asked Questions About IP Addresses</h2>
-        <section class="faq-item"><h3>1. What is an IP address in simple terms?</h3><p>An IP address is a numerical network address that helps identify where data comes from and where it needs to go. It allows devices and network equipment to exchange information.</p></section>
-        <section class="faq-item"><h3>2. Why does every device need an IP address?</h3><p>A device needs an appropriate IP address on a network when it communicates using IP. A device may have more than one address or network interface, and not every address must be globally routable.</p></section>
-        <section class="faq-item"><h3>3. Is an IP address the same as a physical address?</h3><p>No. A physical mailing address identifies a location for postal delivery. An IP address identifies a network endpoint for digital communication and does not necessarily identify a precise physical location.</p></section>
-        <section class="faq-item"><h3>4. What is the difference between a public and private IP address?</h3><p>A public IP address can be used for globally routed internet communication. A private IPv4 address is used within private networks, such as a home or office network.</p></section>
-        <section class="faq-item"><h3>5. Can two devices have the same IP address?</h3><p>Yes, devices can share a public IPv4 address when they access the internet through NAT. However, duplicate addresses on the same network segment where unique addresses are required can cause connectivity problems.</p></section>
-        <section class="faq-item"><h3>6. Can an IP address identify a person?</h3><p>Not reliably by itself. An IP address may be associated with an internet connection, but additional information is generally needed to connect it to a particular individual.</p></section>
-        <section class="faq-item"><h3>7. Does an IP address reveal my exact location?</h3><p>No. IP geolocation can estimate a general location, but the result can be inaccurate and should not be treated as an exact physical address.</p></section>
-        <section class="faq-item"><h3>8. Does my IP address change when I restart my router?</h3><p>It might, but it is not guaranteed. Your provider's address-assignment policies and your router's configuration determine whether your public IP address changes. Your device's local address may also remain the same.</p></section>
-        <section class="faq-item"><h3>9. What is the difference between IPv4 and IPv6?</h3><p>IPv4 uses 32-bit addresses and commonly displays them as four decimal numbers separated by periods. IPv6 uses 128-bit addresses and displays them as hexadecimal groups separated by colons.</p></section>
-        <section class="faq-item"><h3>10. Is it safe to share your public IP address?</h3><p>A public IP address is not normally a secret credential like a password. However, it can provide information about a network connection and may be useful to someone investigating exposed services or attempting unwanted network activity. Avoid publishing it unnecessarily and keep your router, firewall, and connected devices properly configured.</p></section>
+
+        <section class="faq-item">
+          <h3>1. What is an IP address in simple terms?</h3>
+          <p>An IP address is a numerical network address that helps identify where data comes from and where it needs to go. It allows devices and network equipment to exchange information.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>2. Why does every device need an IP address?</h3>
+          <p>A device needs an appropriate IP address on a network when it communicates using IP. A device may have more than one address or network interface, and not every address must be globally routable.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>3. Is an IP address the same as a physical address?</h3>
+          <p>No. A physical mailing address identifies a location for postal delivery. An IP address identifies a network endpoint for digital communication and does not necessarily identify a precise physical location.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>4. What is the difference between a public and private IP address?</h3>
+          <p>A public IP address can be used for globally routed internet communication. A private IPv4 address is used within private networks, such as a home or office network.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>5. Can two devices have the same IP address?</h3>
+          <p>Yes, devices can share a public IPv4 address when they access the internet through NAT. However, duplicate addresses on the same network segment where unique addresses are required can cause connectivity problems.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>6. Can an IP address identify a person?</h3>
+          <p>Not reliably by itself. An IP address may be associated with an internet connection, but additional information is generally needed to connect it to a particular individual.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>7. Does an IP address reveal my exact location?</h3>
+          <p>No. IP geolocation can estimate a general location, but the result can be inaccurate and should not be treated as an exact physical address.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>8. Does my IP address change when I restart my router?</h3>
+          <p>It might, but it is not guaranteed. Your provider's address-assignment policies and your router's configuration determine whether your public IP address changes. Your device's local address may also remain the same.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>9. What is the difference between IPv4 and IPv6?</h3>
+          <p>IPv4 uses 32-bit addresses and commonly displays them as four decimal numbers separated by periods. IPv6 uses 128-bit addresses and displays them as hexadecimal groups separated by colons.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>10. Is it safe to share your public IP address?</h3>
+          <p>A public IP address is not normally a secret credential like a password. However, it can provide information about a network connection and may be useful to someone investigating exposed services or attempting unwanted network activity. Avoid publishing it unnecessarily and keep your router, firewall, and connected devices properly configured.</p>
+        </section>
 
         <h2 id="conclusion">Conclusion</h2>
         <p>An IP address is a fundamental part of how devices communicate over networks. It helps identify the source and destination of data, allowing routers and other network equipment to forward information toward the appropriate endpoint.</p>
@@ -564,21 +1746,62 @@
         <section class="references" id="sources" aria-labelledby="sources-heading">
           <h2 id="sources-heading">Sources &amp; Further Reading</h2>
           <p class="references-intro">These technical standards and support resources provide further information about IP addressing, network configuration, and IP geolocation. Links to sources are also included alongside relevant explanations throughout this guide.</p>
+
           <ol class="reference-list">
-            <li><a href="https://www.rfc-editor.org/rfc/rfc1918.html" target="_blank" rel="noopener noreferrer">RFC 1918 — Address Allocation for Private Internets</a><p>Defines the IPv4 address ranges reserved for private networks.</p></li>
-            <li><a href="https://www.rfc-editor.org/rfc/rfc3022.html" target="_blank" rel="noopener noreferrer">RFC 3022 — Traditional IP Network Address Translator (NAT)</a><p>Describes traditional network address translation.</p></li>
-            <li><a href="https://www.rfc-editor.org/rfc/rfc5737.html" target="_blank" rel="noopener noreferrer">RFC 5737 — IPv4 Address Blocks Reserved for Documentation</a><p>Lists IPv4 address blocks intended for examples and documentation.</p></li>
-            <li><a href="https://www.rfc-editor.org/rfc/rfc8200.html" target="_blank" rel="noopener noreferrer">RFC 8200 — Internet Protocol, Version 6 (IPv6) Specification</a><p>The core specification for IPv6.</p></li>
-            <li><a href="https://www.rfc-editor.org/rfc/rfc3849.html" target="_blank" rel="noopener noreferrer">RFC 3849 — IPv6 Address Prefix Reserved for Documentation</a><p>Defines the IPv6 prefix reserved for examples and documentation.</p></li>
-            <li><a href="https://www.rfc-editor.org/rfc/rfc2131.html" target="_blank" rel="noopener noreferrer">RFC 2131 — Dynamic Host Configuration Protocol (DHCP)</a><p>Describes DHCP, which can automatically assign network configuration to devices.</p></li>
-            <li><a href="https://www.rfc-editor.org/rfc/rfc1034.html" target="_blank" rel="noopener noreferrer">RFC 1034 — Domain Names: Concepts and Facilities</a><p>Foundational description of the Domain Name System.</p></li>
-            <li><a href="https://support.microsoft.com/en-us/windows/experience/connectivity-networking/essential-network-settings-and-tasks-in-windows" target="_blank" rel="noopener noreferrer">Microsoft Support — Essential Network Settings and Tasks in Windows</a><p>Help with network settings and connection details in Windows.</p></li>
-            <li><a href="https://support.apple.com/en-ca/guide/mac-help/mh11935/27/mac/27" target="_blank" rel="noopener noreferrer">Apple Support — Wi-Fi Settings on Mac</a><p>Guidance for viewing and managing Wi-Fi settings on macOS.</p></li>
-            <li><a href="https://support.apple.com/guide/iphone/manage-wi-fi-settings-iphw5gjwl8k2/27/ios/27" target="_blank" rel="noopener noreferrer">Apple Support — Manage Wi-Fi Settings on iPhone</a><p>Guidance on connected Wi-Fi network settings on iPhone.</p></li>
-            <li><a href="https://support.google.com/android/answer/9075847" target="_blank" rel="noopener noreferrer">Google Android Help — Connect to Wi-Fi Networks</a><p>Help with connecting Android devices to Wi-Fi networks.</p></li>
-            <li><a href="https://support.maxmind.com/knowledge-base/articles/maxmind-geolocation-accuracy" target="_blank" rel="noopener noreferrer">MaxMind — Geolocation Accuracy</a><p>Explains the limits and accuracy considerations of IP-based location estimates.</p></li>
-            <li><a href="https://synthvisuals.space/what-is-a-vpn.html">Synth Visual — What Is a VPN?</a><p>A related beginner-friendly guide to VPNs and how they affect the public IP address websites see.</p></li>
+            <li>
+              <a href="https://www.rfc-editor.org/rfc/rfc1918.html" target="_blank" rel="noopener noreferrer">RFC 1918 — Address Allocation for Private Internets</a>
+              <p>Defines the IPv4 address ranges reserved for private networks.</p>
+            </li>
+            <li>
+              <a href="https://www.rfc-editor.org/rfc/rfc3022.html" target="_blank" rel="noopener noreferrer">RFC 3022 — Traditional IP Network Address Translator (NAT)</a>
+              <p>Describes traditional network address translation.</p>
+            </li>
+            <li>
+              <a href="https://www.rfc-editor.org/rfc/rfc5737.html" target="_blank" rel="noopener noreferrer">RFC 5737 — IPv4 Address Blocks Reserved for Documentation</a>
+              <p>Lists IPv4 address blocks intended for examples and documentation.</p>
+            </li>
+            <li>
+              <a href="https://www.rfc-editor.org/rfc/rfc8200.html" target="_blank" rel="noopener noreferrer">RFC 8200 — Internet Protocol, Version 6 (IPv6) Specification</a>
+              <p>The core specification for IPv6.</p>
+            </li>
+            <li>
+              <a href="https://www.rfc-editor.org/rfc/rfc3849.html" target="_blank" rel="noopener noreferrer">RFC 3849 — IPv6 Address Prefix Reserved for Documentation</a>
+              <p>Defines the IPv6 prefix reserved for examples and documentation.</p>
+            </li>
+            <li>
+              <a href="https://www.rfc-editor.org/rfc/rfc2131.html" target="_blank" rel="noopener noreferrer">RFC 2131 — Dynamic Host Configuration Protocol (DHCP)</a>
+              <p>Describes DHCP, which can automatically assign network configuration to devices.</p>
+            </li>
+            <li>
+              <a href="https://www.rfc-editor.org/rfc/rfc1034.html" target="_blank" rel="noopener noreferrer">RFC 1034 — Domain Names: Concepts and Facilities</a>
+              <p>Foundational description of the Domain Name System.</p>
+            </li>
+            <li>
+              <a href="https://support.microsoft.com/en-us/windows/experience/connectivity-networking/essential-network-settings-and-tasks-in-windows" target="_blank" rel="noopener noreferrer">Microsoft Support — Essential Network Settings and Tasks in Windows</a>
+              <p>Help with network settings and connection details in Windows.</p>
+            </li>
+            <li>
+              <a href="https://support.apple.com/en-ca/guide/mac-help/mh11935/27/mac/27" target="_blank" rel="noopener noreferrer">Apple Support — Wi-Fi Settings on Mac</a>
+              <p>Guidance for viewing and managing Wi-Fi settings on macOS.</p>
+            </li>
+            <li>
+              <a href="https://support.apple.com/guide/iphone/manage-wi-fi-settings-iphw5gjwl8k2/27/ios/27" target="_blank" rel="noopener noreferrer">Apple Support — Manage Wi-Fi Settings on iPhone</a>
+              <p>Guidance on connected Wi-Fi network settings on iPhone.</p>
+            </li>
+            <li>
+              <a href="https://support.google.com/android/answer/9075847" target="_blank" rel="noopener noreferrer">Google Android Help — Connect to Wi-Fi Networks</a>
+              <p>Help with connecting Android devices to Wi-Fi networks.</p>
+            </li>
+            <li>
+              <a href="https://support.maxmind.com/knowledge-base/articles/maxmind-geolocation-accuracy" target="_blank" rel="noopener noreferrer">MaxMind — Geolocation Accuracy</a>
+              <p>Explains the limits and accuracy considerations of IP-based location estimates.</p>
+            </li>
+            <li>
+              <a href="https://synthvisuals.space/what-is-a-vpn.html">Synth Visual — What Is a VPN?</a>
+              <p>A related beginner-friendly guide to VPNs and how they affect the public IP address websites see.</p>
+            </li>
           </ol>
+
           <a class="back-to-top" href="#top">↑ Back to the top</a>
         </section>
       </article>
@@ -586,7 +1809,10 @@
 
     <section class="related-strip">
       <div class="container related-inner">
-        <div><h2>Keep exploring networking and privacy.</h2><p>Browse more straightforward guides to internet technology, online privacy, and digital security from Synth Visual.</p></div>
+        <div>
+          <h2>Keep exploring networking and privacy.</h2>
+          <p>Browse more straightforward guides to internet technology, online privacy, and digital security from Synth Visual.</p>
+        </div>
         <a class="related-link" href="/#latest-guides">Explore all guides →</a>
       </div>
     </section>
@@ -598,6 +1824,7 @@
         <a class="footer-brand" href="/">Synth Visual</a>
         <p class="copyright">© <span id="current-year">2026</span> Synth Visual. All rights reserved.</p>
       </div>
+
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="https://synthvisuals.space/about.html">About</a>
         <a href="https://synthvisuals.space/privacy-policy.html">Privacy Policy</a>
@@ -605,22 +1832,85 @@
       </nav>
     </div>
   </footer>
+
   <script>
     document.getElementById("current-year").textContent = new Date().getFullYear();
+
     (function () {
       const bar = document.getElementById("reading-progress");
       let ticking = false;
+
       function updateProgress() {
         const doc = document.documentElement;
         const max = doc.scrollHeight - window.innerHeight;
         const amount = max > 0 ? (window.scrollY / max) * 100 : 0;
+
         bar.style.width = Math.max(0, Math.min(100, amount)) + "%";
         ticking = false;
       }
+
       window.addEventListener("scroll", function () {
-        if (!ticking) { window.requestAnimationFrame(updateProgress); ticking = true; }
+        if (!ticking) {
+          window.requestAnimationFrame(updateProgress);
+          ticking = true;
+        }
       }, { passive: true });
+
       updateProgress();
+    })();
+
+    /* Tools dropdown behavior */
+    (function () {
+      const dropdown = document.querySelector(".tools-dropdown");
+      const trigger = document.querySelector(".tools-trigger");
+      const menu = document.getElementById("tools-menu");
+
+      if (!dropdown || !trigger || !menu) return;
+
+      function openMenu() {
+        menu.hidden = false;
+        trigger.setAttribute("aria-expanded", "true");
+      }
+
+      function closeMenu(returnFocus) {
+        menu.hidden = true;
+        trigger.setAttribute("aria-expanded", "false");
+
+        if (returnFocus) {
+          trigger.focus();
+        }
+      }
+
+      trigger.addEventListener("click", function () {
+        const isExpanded = trigger.getAttribute("aria-expanded") === "true";
+
+        if (isExpanded) {
+          closeMenu(false);
+        } else {
+          openMenu();
+        }
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!dropdown.contains(event.target)) {
+          closeMenu(false);
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (
+          event.key === "Escape" &&
+          trigger.getAttribute("aria-expanded") === "true"
+        ) {
+          closeMenu(true);
+        }
+      });
+
+      menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          closeMenu(false);
+        });
+      });
     })();
   </script>
 </body>
