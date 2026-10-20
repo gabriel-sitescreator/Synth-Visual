@@ -1,16 +1,16 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-B2R2YLSL7R"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2R2YLSL7R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B2R2YLSL7R');
+  </script>
 
-  gtag('config', 'G-B2R2YLSL7R');
-</script>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Learn what a VPN is, how it works, what a virtual private network is used for, its benefits and limitations, and how to choose between free and paid VPNs.">
@@ -25,6 +25,7 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="What Is a VPN? How It Works and What It's Used For">
   <meta name="twitter:description" content="Learn what a VPN does, how it works, and what it can and cannot protect.">
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -46,6 +47,7 @@
     }
   }
   </script>
+
   <style>
     :root {
       --page: #f7f7f4;
@@ -62,8 +64,14 @@
       --radius: 16px;
       --shadow: 0 8px 30px rgba(27, 39, 30, 0.045);
     }
+
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
     body {
       margin: 0;
       background: var(--page);
@@ -72,167 +80,1058 @@
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
     a:hover { color: var(--accent-hover); }
-    a:focus-visible, button:focus-visible, summary:focus-visible {
-      outline: 3px solid #7cae98; outline-offset: 4px; border-radius: 4px;
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #7cae98;
+      outline-offset: 4px;
+      border-radius: 4px;
     }
-    .container { width: min(var(--max-width), calc(100% - 48px)); margin-inline: auto; }
-    .site-header { border-bottom: 1px solid var(--line); background: rgba(247, 247, 244, .96); }
-    .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
-    .brand { display: inline-flex; flex-direction: column; line-height: 1.05; flex-shrink: 0; color: var(--text); text-decoration: none; }
-    .brand-name { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 700; letter-spacing: -1.2px; }
-    .brand-tagline { margin-top: 6px; color: var(--muted); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; }
-    .main-nav { display: flex; align-items: center; gap: 27px; color: #424840; font-size: 13px; font-weight: 600; }
-    .main-nav a { color: inherit; text-decoration: none; transition: color 160ms ease; }
-    .main-nav a:hover { color: var(--accent); }
-    .nav-cta { padding: 10px 15px; border: 1px solid #cbd6ce; border-radius: 999px; color: var(--accent) !important; }
-    .progress-track { height: 3px; background: transparent; }
-    .progress-bar { width: 0; height: 100%; background: var(--accent); transition: width 80ms linear; }
-    .breadcrumbs { padding: 25px 0 0; color: var(--muted); font-size: 12px; }
-    .breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 0; padding: 0; }
-    .breadcrumbs li + li::before { content: "/"; margin-right: 8px; color: #a0a59d; }
-    .breadcrumbs a { color: var(--muted); text-decoration: none; }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    /* Header */
+    .site-header {
+      position: relative;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 247, 244, .96);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1.05;
+      flex-shrink: 0;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -1.2px;
+    }
+
+    .brand-tagline {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      color: #424840;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .main-nav a,
+    .tools-trigger {
+      transition: color 160ms ease;
+    }
+
+    .main-nav a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"],
+    .tools-trigger:hover,
+    .tools-trigger[aria-expanded="true"] {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      padding: 10px 15px;
+      border: 1px solid #cbd6ce;
+      border-radius: 999px;
+      color: var(--accent) !important;
+    }
+
+    /* Tools dropdown */
+    .tools-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .tools-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 0;
+      border: 0;
+      background: transparent;
+      color: #424840;
+      font: inherit;
+      cursor: pointer;
+      transition: color 160ms ease;
+    }
+
+    .tools-chevron {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 160ms ease;
+    }
+
+    .tools-trigger[aria-expanded="true"] .tools-chevron {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .tools-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: -18px;
+      z-index: 50;
+      width: 322px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 16px 42px rgba(27, 39, 30, .13);
+    }
+
+    .tools-menu[hidden] {
+      display: none;
+    }
+
+    .tools-menu-section {
+      padding: 8px 7px 9px;
+    }
+
+    .tools-menu-heading {
+      margin: 0 0 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 1.25px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .tools-menu a {
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+      text-decoration: none;
+    }
+
+    .tools-menu a:hover,
+    .tools-menu a:focus-visible {
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    .tools-menu-divider {
+      height: 1px;
+      margin: 3px 7px;
+      background: var(--line);
+    }
+
+    .tools-menu .tools-commercial-link {
+      color: var(--accent);
+    }
+
+    .progress-track {
+      height: 3px;
+      background: transparent;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: var(--accent);
+      transition: width 80ms linear;
+    }
+
+    /* Breadcrumbs */
+    .breadcrumbs {
+      padding: 25px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .breadcrumbs ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .breadcrumbs li + li::before {
+      content: "/";
+      margin-right: 8px;
+      color: #a0a59d;
+    }
+
+    .breadcrumbs a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
     .breadcrumbs a:hover { color: var(--accent); }
+
+    /* Article hero */
     .article-hero { padding: 34px 0 35px; }
-    .article-hero-inner { max-width: 920px; margin: 0 auto; text-align: center; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 18px; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 1.9px; text-transform: uppercase; }
-    .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+
+    .article-hero-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.9px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: currentColor;
+    }
+
     h1, h2, h3 { text-wrap: pretty; }
-    .article-hero h1 { max-width: 850px; margin: 0 auto; font-family: Georgia, "Times New Roman", serif; font-size: clamp(38px, 6vw, 66px); font-weight: 500; letter-spacing: -2.3px; line-height: 1.08; }
-    .article-hero h1 em { color: var(--accent); font-weight: 500; }
-    .dek { max-width: 710px; margin: 22px auto 0; color: var(--muted); font-size: 17px; line-height: 1.8; }
-    .article-meta { display: flex; justify-content: center; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin-top: 24px; color: var(--muted); font-size: 12px; }
-    .meta-dot { display: inline-flex; align-items: center; gap: 7px; }
-    .meta-dot::before { content: ""; width: 4px; height: 4px; background: #99a69b; border-radius: 50%; }
-    .topic-pill { padding: 6px 10px; background: var(--soft); border: 1px solid #dce6dc; border-radius: 999px; color: var(--accent); font-size: 10px; font-weight: 750; letter-spacing: .5px; text-transform: uppercase; }
-    .feature-visual { overflow: hidden; position: relative; max-width: 1000px; margin: 0 auto; padding: clamp(22px, 4vw, 42px); border: 1px solid #dfe6dd; border-radius: 22px; background: linear-gradient(135deg, #eff3ee 0%, #f9fbf8 48%, #e7eee8 100%); box-shadow: var(--shadow); }
-    .visual-caption { margin: 17px 0 0; color: var(--muted); font-size: 11px; text-align: center; }
-    .connection-flow { display: grid; grid-template-columns: 1fr minmax(100px, 1.2fr) 1fr minmax(100px, 1.2fr) 1fr; align-items: center; gap: 12px; max-width: 830px; margin: 0 auto; }
-    .device-card { min-height: 142px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 18px 10px; border: 1px solid rgba(36, 91, 73, .18); border-radius: 17px; background: rgba(255,255,255,.82); text-align: center; }
-    .device-card svg { width: 43px; height: 43px; color: var(--accent); }
-    .device-card strong { font-family: Georgia, "Times New Roman", serif; font-size: 17px; font-weight: 600; line-height: 1.25; }
-    .device-card small { color: var(--muted); font-size: 10px; line-height: 1.4; }
-    .tunnel { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--accent); text-align: center; }
-    .tunnel-line { position: relative; width: 100%; height: 3px; border-radius: 999px; background: #9ab9a5; }
-    .tunnel-line::after { content: ""; position: absolute; right: -1px; top: -4px; width: 0; height: 0; border-top: 5px solid transparent; border-bottom: 5px solid transparent; border-left: 7px solid #5e9476; }
-    .tunnel-label { font-size: 10px; font-weight: 800; letter-spacing: .8px; text-transform: uppercase; }
-    .tunnel-icon { display: inline-flex; align-items: center; justify-content: center; width: 26px; height: 26px; border: 1px solid #c8d9cb; border-radius: 50%; background: #fafffa; }
-    .tunnel-icon svg { width: 13px; height: 13px; }
-    .article-layout { display: grid; grid-template-columns: 220px minmax(0, 760px); align-items: start; justify-content: center; gap: clamp(28px, 5vw, 64px); padding: 40px 0 86px; }
-    .toc-wrap { position: sticky; top: 24px; }
-    .toc-card { padding: 23px 19px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
-    .toc-title { margin: 0 0 14px; color: var(--text); font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
-    .toc-list { display: flex; flex-direction: column; gap: 9px; margin: 0; padding: 0; list-style: none; }
-    .toc-list a { color: var(--muted); font-size: 12px; line-height: 1.45; text-decoration: none; }
-    .toc-list a:hover, .toc-list a:focus { color: var(--accent); }
-    .toc-note { margin: 20px 0 0; padding-top: 15px; border-top: 1px solid var(--line); color: var(--muted); font-size: 11px; line-height: 1.7; }
-    .mobile-toc { display: none; margin-bottom: 28px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-    .mobile-toc summary { padding: 14px 16px; cursor: pointer; color: var(--accent); font-size: 13px; font-weight: 750; }
-    .mobile-toc .toc-list { padding: 0 16px 17px; }
-    .article-content { min-width: 0; max-width: var(--reading-width); font-size: 16px; line-height: 1.85; }
+
+    .article-hero h1 {
+      max-width: 850px;
+      margin: 0 auto;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 6vw, 66px);
+      font-weight: 500;
+      letter-spacing: -2.3px;
+      line-height: 1.08;
+    }
+
+    .article-hero h1 em {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .dek {
+      max-width: 710px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 18px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .meta-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .meta-dot::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background: #99a69b;
+      border-radius: 50%;
+    }
+
+    .topic-pill {
+      padding: 6px 10px;
+      background: var(--soft);
+      border: 1px solid #dce6dc;
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    /* VPN connection illustration */
+    .feature-visual {
+      overflow: hidden;
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: clamp(22px, 4vw, 42px);
+      border: 1px solid #dfe6dd;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #eff3ee 0%, #f9fbf8 48%, #e7eee8 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .visual-caption {
+      margin: 17px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .connection-flow {
+      display: grid;
+      grid-template-columns: 1fr minmax(100px, 1.2fr) 1fr minmax(100px, 1.2fr) 1fr;
+      align-items: center;
+      gap: 12px;
+      max-width: 830px;
+      margin: 0 auto;
+    }
+
+    .device-card {
+      min-height: 142px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 10px;
+      border: 1px solid rgba(36, 91, 73, .18);
+      border-radius: 17px;
+      background: rgba(255,255,255,.82);
+      text-align: center;
+    }
+
+    .device-card svg {
+      width: 43px;
+      height: 43px;
+      color: var(--accent);
+    }
+
+    .device-card strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .device-card small {
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    .tunnel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .tunnel-line {
+      position: relative;
+      width: 100%;
+      height: 3px;
+      border-radius: 999px;
+      background: #9ab9a5;
+    }
+
+    .tunnel-line::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -4px;
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 7px solid #5e9476;
+    }
+
+    .tunnel-label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+    .tunnel-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border: 1px solid #c8d9cb;
+      border-radius: 50%;
+      background: #fafffa;
+    }
+
+    .tunnel-icon svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    /* Article layout and table of contents */
+    .article-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 760px);
+      align-items: start;
+      justify-content: center;
+      gap: clamp(28px, 5vw, 64px);
+      padding: 40px 0 86px;
+    }
+
+    .toc-wrap {
+      position: sticky;
+      top: 24px;
+    }
+
+    .toc-card {
+      padding: 23px 19px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .toc-title {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .toc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc-list a {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      text-decoration: none;
+    }
+
+    .toc-list a:hover,
+    .toc-list a:focus {
+      color: var(--accent);
+    }
+
+    .toc-note {
+      margin: 20px 0 0;
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .mobile-toc {
+      display: none;
+      margin-bottom: 28px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .mobile-toc summary {
+      padding: 14px 16px;
+      cursor: pointer;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .mobile-toc .toc-list {
+      padding: 0 16px 17px;
+    }
+
+    /* Article content */
+    .article-content {
+      min-width: 0;
+      max-width: var(--reading-width);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
     .article-content p { margin: 0 0 21px; }
-    .article-content h2 { margin: 54px 0 17px; padding-top: 5px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(29px, 3.5vw, 36px); font-weight: 500; letter-spacing: -.8px; line-height: 1.18; scroll-margin-top: 24px; }
-    .article-content h3 { margin: 32px 0 12px; font-family: Georgia, "Times New Roman", serif; font-size: 23px; font-weight: 500; letter-spacing: -.35px; line-height: 1.3; scroll-margin-top: 24px; }
-    .article-content h4 { margin: 26px 0 10px; font-size: 16px; font-weight: 750; line-height: 1.4; }
+
+    .article-content h2 {
+      margin: 54px 0 17px;
+      padding-top: 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 3.5vw, 36px);
+      font-weight: 500;
+      letter-spacing: -.8px;
+      line-height: 1.18;
+      scroll-margin-top: 24px;
+    }
+
+    .article-content h3 {
+      margin: 32px 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 23px;
+      font-weight: 500;
+      letter-spacing: -.35px;
+      line-height: 1.3;
+      scroll-margin-top: 24px;
+    }
+
+    .article-content h4 {
+      margin: 26px 0 10px;
+      font-size: 16px;
+      font-weight: 750;
+      line-height: 1.4;
+    }
+
     .article-content strong { color: #242923; }
-    .article-content ul, .article-content ol { margin: 0 0 24px; padding-left: 25px; }
-    .article-content li { margin: 7px 0; padding-left: 3px; }
+
+    .article-content ul,
+    .article-content ol {
+      margin: 0 0 24px;
+      padding-left: 25px;
+    }
+
+    .article-content li {
+      margin: 7px 0;
+      padding-left: 3px;
+    }
+
     .article-content li::marker { color: var(--accent); }
-    .article-content blockquote { margin: 26px 0; padding: 18px 22px; border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; background: var(--soft-2); color: #434940; }
+
+    .article-content blockquote {
+      margin: 26px 0;
+      padding: 18px 22px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      background: var(--soft-2);
+      color: #434940;
+    }
+
     .article-content blockquote p:last-child { margin-bottom: 0; }
+
     .article-content a { text-decoration-thickness: 1px; }
-    .quick-answer { margin: 6px 0 36px; padding: 23px 25px 3px; border: 1px solid #d8e3d9; border-radius: 15px; background: #f0f5ef; }
-    .quick-answer-label { margin: 0 0 8px !important; color: var(--accent); font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; }
+
+    .quick-answer {
+      margin: 6px 0 36px;
+      padding: 23px 25px 3px;
+      border: 1px solid #d8e3d9;
+      border-radius: 15px;
+      background: #f0f5ef;
+    }
+
+    .quick-answer-label {
+      margin: 0 0 8px !important;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
     .quick-answer p { font-size: 15px; }
-    .scroll-table { margin: 26px 0 30px; overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
-    .article-content table { width: 100%; border-collapse: collapse; font-size: 13px; line-height: 1.65; }
-    .article-content th, .article-content td { min-width: 150px; padding: 14px 15px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
-    .article-content th { background: #f0f2ed; color: #323930; font-size: 11px; letter-spacing: .2px; }
+
+    .scroll-table {
+      margin: 26px 0 30px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .article-content th,
+    .article-content td {
+      min-width: 150px;
+      padding: 14px 15px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: #f0f2ed;
+      color: #323930;
+      font-size: 11px;
+      letter-spacing: .2px;
+    }
+
     .article-content tr:last-child td { border-bottom: 0; }
-    .article-content td:first-child { min-width: 165px; font-weight: 700; }
-    .step-list { display: grid; gap: 12px; margin: 22px 0 28px; }
-    .step { display: grid; grid-template-columns: 38px 1fr; gap: 13px; padding: 17px; border: 1px solid var(--line); border-radius: 13px; background: #fff; }
-    .step-number { display: grid; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: var(--soft); color: var(--accent); font-size: 12px; font-weight: 800; }
-    .step h3 { margin: 2px 0 5px; font-family: inherit; font-size: 15px; font-weight: 750; letter-spacing: 0; }
-    .step p { margin: 0; color: #51584f; font-size: 14px; line-height: 1.75; }
-    .takeaway { margin: 35px 0; padding: 24px; border: 1px solid #d8e3d9; border-radius: 15px; background: #eef4ee; }
+
+    .article-content td:first-child {
+      min-width: 165px;
+      font-weight: 700;
+    }
+
+    /* Steps */
+    .step-list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0 28px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 13px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin: 2px 0 5px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .step p {
+      margin: 0;
+      color: #51584f;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    /* Takeaway and FAQ */
+    .takeaway {
+      margin: 35px 0;
+      padding: 24px;
+      border: 1px solid #d8e3d9;
+      border-radius: 15px;
+      background: #eef4ee;
+    }
+
     .takeaway h3 { margin-top: 0; }
+
     .takeaway p:last-child { margin-bottom: 0; }
-    .faq-item { padding: 19px 0 0; border-top: 1px solid var(--line); }
-    .faq-item h3 { margin-top: 0; font-family: inherit; font-size: 16px; font-weight: 750; letter-spacing: 0; }
+
+    .faq-item {
+      padding: 19px 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-item h3 {
+      margin-top: 0;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
     .faq-item p { margin-bottom: 20px; }
-    .references { margin-top: 56px; padding-top: 30px; border-top: 1px solid var(--line); }
-    .references h2 { margin-top: 0; font-size: 29px; }
-    .references-intro { color: var(--muted); font-size: 13px; }
-    .reference-list { display: grid; gap: 0; list-style: none !important; margin: 21px 0 0 !important; padding: 0 !important; }
-    .reference-list li { margin: 0; padding: 14px 0; border-top: 1px solid var(--line); }
-    .reference-list a { display: inline-block; font-size: 14px; font-weight: 750; }
-    .reference-list p { margin: 4px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
-    .back-to-top { display: inline-flex; align-items: center; gap: 7px; margin-top: 12px; color: var(--accent); font-size: 12px; font-weight: 750; text-decoration: none; }
-    .related-strip { padding: 32px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--soft-2); }
-    .related-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-    .related-inner h2 { margin: 0 0 5px; font-family: Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 500; }
-    .related-inner p { max-width: 660px; margin: 0; color: var(--muted); font-size: 13px; }
-    .related-link { flex-shrink: 0; display: inline-block; padding: 11px 16px; border-radius: 999px; background: var(--accent); color: white; font-size: 12px; font-weight: 750; text-decoration: none; }
-    .related-link:hover { background: var(--accent-hover); color: white; }
+
+    /* References */
+    .references {
+      margin-top: 56px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .references h2 {
+      margin-top: 0;
+      font-size: 29px;
+    }
+
+    .references-intro {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .reference-list {
+      display: grid;
+      gap: 0;
+      list-style: none !important;
+      margin: 21px 0 0 !important;
+      padding: 0 !important;
+    }
+
+    .reference-list li {
+      margin: 0;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .reference-list a {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .reference-list p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .back-to-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    /* Related articles */
+    .related-strip {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--soft-2);
+    }
+
+    .related-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .related-inner h2 {
+      margin: 0 0 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    .related-inner p {
+      max-width: 660px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .related-link {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .related-link:hover {
+      background: var(--accent-hover);
+      color: white;
+    }
+
+    /* Footer */
     .site-footer { padding: 27px 0; }
-    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .footer-brand { font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; letter-spacing: -.5px; color: var(--text); text-decoration: none; }
-    .copyright { margin: 5px 0 0; color: var(--muted); font-size: 11px; }
-    .footer-links { display: flex; flex-wrap: wrap; gap: 19px; color: var(--muted); font-size: 11px; }
-    .footer-links a { color: var(--muted); text-decoration: none; }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .copyright {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 19px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
     .footer-links a:hover { color: var(--accent); }
+
+    /* Tablet */
     @media (max-width: 900px) {
-      .article-layout { grid-template-columns: minmax(0, 760px); }
+      .article-layout {
+        grid-template-columns: minmax(0, 760px);
+      }
+
       .toc-wrap { display: none; }
+
       .mobile-toc { display: block; }
-      .article-content { margin-inline: auto; width: 100%; }
+
+      .article-content {
+        margin-inline: auto;
+        width: 100%;
+      }
     }
+
+    /* Mobile */
     @media (max-width: 700px) {
-      .container { width: min(100% - 32px, var(--max-width)); }
-      .header-inner { min-height: 74px; align-items: flex-start; flex-direction: column; justify-content: center; gap: 13px; padding: 15px 0; }
+      .container {
+        width: min(100% - 32px, var(--max-width));
+      }
+
+      .header-inner {
+        min-height: 74px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 13px;
+        padding: 15px 0;
+      }
+
       .brand-name { font-size: 24px; }
+
       .brand-tagline { font-size: 9px; }
-      .main-nav { width: 100%; justify-content: space-between; gap: 10px; font-size: 11px; }
+
+      .main-nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 11px;
+      }
+
+      .tools-trigger { padding: 7px 0; }
+
+      .tools-menu {
+        top: calc(100% + 8px);
+        right: -8px;
+        width: min(322px, calc(100vw - 32px));
+      }
+
       .nav-cta { padding: 7px 10px; }
+
       .breadcrumbs { padding-top: 18px; }
+
       .article-hero { padding: 28px 0 25px; }
-      .article-hero h1 { font-size: clamp(37px, 10vw, 52px); letter-spacing: -1.7px; }
+
+      .article-hero h1 {
+        font-size: clamp(37px, 10vw, 52px);
+        letter-spacing: -1.7px;
+      }
+
       .dek { font-size: 15px; }
-      .feature-visual { padding: 17px 14px; border-radius: 17px; }
-      .connection-flow { grid-template-columns: 1fr; gap: 9px; max-width: 330px; }
-      .device-card { min-height: auto; display: grid; grid-template-columns: 42px 1fr; justify-content: start; text-align: left; padding: 12px 14px; }
-      .device-card svg { width: 34px; height: 34px; grid-row: span 2; }
-      .device-card strong { align-self: end; font-size: 15px; }
+
+      .feature-visual {
+        padding: 17px 14px;
+        border-radius: 17px;
+      }
+
+      .connection-flow {
+        grid-template-columns: 1fr;
+        gap: 9px;
+        max-width: 330px;
+      }
+
+      .device-card {
+        min-height: auto;
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        justify-content: start;
+        text-align: left;
+        padding: 12px 14px;
+      }
+
+      .device-card svg {
+        width: 34px;
+        height: 34px;
+        grid-row: span 2;
+      }
+
+      .device-card strong {
+        align-self: end;
+        font-size: 15px;
+      }
+
       .device-card small { align-self: start; }
-      .tunnel { display: grid; grid-template-columns: 24px 1fr; gap: 7px 10px; justify-items: start; text-align: left; padding-left: 24px; }
-      .tunnel-line { width: 3px; height: 19px; margin-left: 11px; grid-column: 1; grid-row: 1 / span 2; }
-      .tunnel-line::after { top: auto; bottom: -1px; right: -4px; border-left: 5px solid transparent; border-right: 5px solid transparent; border-top: 7px solid #5e9476; border-bottom: 0; }
-      .tunnel-icon { grid-column: 2; grid-row: 1; width: 23px; height: 23px; }
-      .tunnel-label { grid-column: 2; grid-row: 2; }
+
+      .tunnel {
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        gap: 7px 10px;
+        justify-items: start;
+        text-align: left;
+        padding-left: 24px;
+      }
+
+      .tunnel-line {
+        width: 3px;
+        height: 19px;
+        margin-left: 11px;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+      }
+
+      .tunnel-line::after {
+        top: auto;
+        bottom: -1px;
+        right: -4px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 7px solid #5e9476;
+        border-bottom: 0;
+      }
+
+      .tunnel-icon {
+        grid-column: 2;
+        grid-row: 1;
+        width: 23px;
+        height: 23px;
+      }
+
+      .tunnel-label {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
       .article-layout { padding: 28px 0 58px; }
-      .article-content { font-size: 15px; line-height: 1.82; }
-      .article-content h2 { margin-top: 43px; font-size: 30px; }
+
+      .article-content {
+        font-size: 15px;
+        line-height: 1.82;
+      }
+
+      .article-content h2 {
+        margin-top: 43px;
+        font-size: 30px;
+      }
+
       .article-content h3 { font-size: 21px; }
+
       .step { padding: 14px; }
-      .related-inner, .footer-inner { align-items: flex-start; flex-direction: column; }
+
+      .related-inner,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
+
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+      }
     }
+
     @media print {
-      .site-header, .progress-track, .toc-wrap, .mobile-toc, .related-strip, .site-footer, .back-to-top { display: none !important; }
+      .site-header,
+      .progress-track,
+      .toc-wrap,
+      .mobile-toc,
+      .related-strip,
+      .site-footer,
+      .back-to-top {
+        display: none !important;
+      }
+
       body { background: white; }
+
       .container { width: 100%; }
-      .article-layout { display: block; padding: 0; }
-      .article-content { max-width: none; font-size: 11pt; }
+
+      .article-layout {
+        display: block;
+        padding: 0;
+      }
+
+      .article-content {
+        max-width: none;
+        font-size: 11pt;
+      }
+
       .article-content h2 { break-after: avoid; }
+
       a { color: inherit; }
     }
   </style>
 </head>
+
 <body id="top">
   <header class="site-header">
     <div class="container header-inner">
@@ -240,13 +1139,48 @@
         <span class="brand-name">Synth Visual</span>
         <span class="brand-tagline">Technology, made clearer</span>
       </a>
+
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="https://go.nordvpn.net/aff_c?offer_id=15&aff_id=138160">NordVPN Plans</a>
-        <a href="/#about">About</a>
+        <div class="tools-dropdown">
+          <button
+            class="tools-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="tools-menu"
+          >
+            Tools
+            <span class="tools-chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="tools-menu" id="tools-menu" hidden>
+            <div class="tools-menu-section">
+              <p class="tools-menu-heading">Privacy &amp; Network Tools</p>
+              <a href="/dns-webrtc-leak-test.html">DNS/WebRTC Leak Test</a>
+              <a href="/what-is-my-ip.html">What Is My IP?</a>
+            </div>
+
+            <div class="tools-menu-divider" aria-hidden="true"></div>
+
+            <div class="tools-menu-section">
+              <p class="tools-menu-heading">VPNs &amp; Security Software</p>
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordVPN Plans ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/about.html">About</a>
         <a class="nav-cta" href="/#latest-guides">Explore Articles</a>
       </nav>
     </div>
-    <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="reading-progress"></div></div>
+
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-bar" id="reading-progress"></div>
+    </div>
   </header>
 
   <main>
@@ -276,19 +1210,39 @@
         <div class="connection-flow" role="img" aria-label="Diagram showing a device sending traffic through an encrypted VPN tunnel to a VPN server, which forwards the request to a website.">
           <div class="device-card">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="5" y="7" width="38" height="26" rx="3"/><path d="M2 39h44M18 33l-2 6m14-6 2 6"/><rect x="16" y="14" width="16" height="11" rx="1.5"/><path d="M21 19h6m-3-3v6"/></svg>
-            <strong>Your device</strong><small>Laptop or phone</small>
+            <strong>Your device</strong>
+            <small>Laptop or phone</small>
           </div>
-          <div class="tunnel" aria-hidden="true"><span class="tunnel-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg></span><span class="tunnel-label">Encrypted tunnel</span><span class="tunnel-line"></span></div>
+
+          <div class="tunnel" aria-hidden="true">
+            <span class="tunnel-icon">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg>
+            </span>
+            <span class="tunnel-label">Encrypted tunnel</span>
+            <span class="tunnel-line"></span>
+          </div>
+
           <div class="device-card">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="9" y="5" width="30" height="10" rx="2"/><rect x="9" y="19" width="30" height="10" rx="2"/><rect x="9" y="33" width="30" height="10" rx="2"/><path d="M15 10h1m4 0h1M15 24h1m4 0h1M15 38h1m4 0h1"/><circle cx="34" cy="10" r="1" fill="currentColor"/><circle cx="34" cy="24" r="1" fill="currentColor"/><circle cx="34" cy="38" r="1" fill="currentColor"/></svg>
-            <strong>VPN server</strong><small>Routes your request</small>
+            <strong>VPN server</strong>
+            <small>Routes your request</small>
           </div>
-          <div class="tunnel" aria-hidden="true"><span class="tunnel-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span><span class="tunnel-label">Request forwarded</span><span class="tunnel-line"></span></div>
+
+          <div class="tunnel" aria-hidden="true">
+            <span class="tunnel-icon">
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h10M9 4l4 4-4 4"/></svg>
+            </span>
+            <span class="tunnel-label">Request forwarded</span>
+            <span class="tunnel-line"></span>
+          </div>
+
           <div class="device-card">
             <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="24" cy="24" r="18"/><path d="M6 24h36M24 6c5 5 7 11 7 18s-2 13-7 18c-5-5-7-11-7-18s2-13 7-18Z"/><path d="M10 14h28M10 34h28" opacity=".55"/></svg>
-            <strong>Website</strong><small>Sees the VPN server IP</small>
+            <strong>Website</strong>
+            <small>Sees the VPN server IP</small>
           </div>
         </div>
+
         <figcaption class="visual-caption" id="vpn-diagram-caption">A simplified view of a VPN connection. The tunnel typically ends at the VPN server; HTTPS can provide separate encryption between your browser and a website.</figcaption>
       </figure>
     </div>
@@ -307,7 +1261,7 @@
             <li><a href="#free-vs-paid">Free vs. Paid VPNs</a></li>
             <li><a href="#do-you-need-a-vpn">Do You Need a VPN?</a></li>
             <li><a href="#faq">Frequently Asked Questions</a></li>
-            <li><a href="#sources">Sources & Further Reading</a></li>
+            <li><a href="#sources">Sources &amp; Further Reading</a></li>
           </ol>
           <p class="toc-note">The key takeaway: a VPN can add privacy and connection protection, but it is not a complete security solution.</p>
         </nav>
@@ -327,7 +1281,7 @@
               <li><a href="#free-vs-paid">Free vs. Paid VPNs</a></li>
               <li><a href="#do-you-need-a-vpn">Do You Need a VPN?</a></li>
               <li><a href="#faq">Frequently Asked Questions</a></li>
-              <li><a href="#sources">Sources & Further Reading</a></li>
+              <li><a href="#sources">Sources &amp; Further Reading</a></li>
             </ol>
           </details>
         </div>
@@ -364,55 +1318,98 @@
         <div class="step-list">
           <section class="step">
             <span class="step-number">1</span>
-            <div><h3>Your Device Connects to a VPN Server</h3><p>You open a VPN application or activate a VPN connection configured on your device. The application establishes a connection to a VPN server operated by the provider or your organization. This server acts as an intermediary between your device and the destination you want to reach.</p></div>
+            <div>
+              <h3>Your Device Connects to a VPN Server</h3>
+              <p>You open a VPN application or activate a VPN connection configured on your device. The application establishes a connection to a VPN server operated by the provider or your organization. This server acts as an intermediary between your device and the destination you want to reach.</p>
+            </div>
           </section>
+
           <section class="step">
             <span class="step-number">2</span>
-            <div><h3>Your Internet Traffic Travels Through an Encrypted Tunnel</h3><p>Once the VPN connection is established, the VPN software encrypts traffic carried through the tunnel. <strong>Encryption</strong> transforms readable information into a form that cannot normally be understood without the appropriate key. This helps protect the traffic from someone monitoring the local network, including other people connected to the same public Wi-Fi network. Protection depends on the VPN implementing encryption correctly and routing the relevant traffic through the tunnel. Some configurations allow selected traffic to bypass the VPN.</p></div>
+            <div>
+              <h3>Your Internet Traffic Travels Through an Encrypted Tunnel</h3>
+              <p>Once the VPN connection is established, the VPN software encrypts traffic carried through the tunnel. <strong>Encryption</strong> transforms readable information into a form that cannot normally be understood without the appropriate key. This helps protect the traffic from someone monitoring the local network, including other people connected to the same public Wi-Fi network. Protection depends on the VPN implementing encryption correctly and routing the relevant traffic through the tunnel. Some configurations allow selected traffic to bypass the VPN.</p>
+            </div>
           </section>
+
           <section class="step">
             <span class="step-number">3</span>
-            <div><h3>The VPN Server Forwards Your Traffic</h3><p>Your traffic travels through the internet to the VPN server. The server processes the VPN connection and forwards your request to the intended destination, such as a website or an online service. If the destination uses HTTPS, the browser-to-website connection also has its own encryption. HTTPS protection can continue through the VPN server to the website, so the provider does not automatically gain access to the contents of properly encrypted HTTPS pages. If a connection uses an unencrypted protocol, information may be exposed after it leaves the VPN tunnel.</p></div>
+            <div>
+              <h3>The VPN Server Forwards Your Traffic</h3>
+              <p>Your traffic travels through the internet to the VPN server. The server processes the VPN connection and forwards your request to the intended destination, such as a website or an online service. If the destination uses HTTPS, the browser-to-website connection also has its own encryption. HTTPS protection can continue through the VPN server to the website, so the provider does not automatically gain access to the contents of properly encrypted HTTPS pages. If a connection uses an unencrypted protocol, information may be exposed after it leaves the VPN tunnel.</p>
+            </div>
           </section>
+
           <section class="step">
             <span class="step-number">4</span>
-            <div><h3>The Website Sees the VPN Server's Public IP Address</h3><p>An IP address is a numerical address used to identify a device or network connection on the internet. When you use a VPN, websites typically see the public IP address of the VPN server forwarding your request, rather than your original public IP address.</p><p>For example, imagine you are at home in New York and connect to a VPN server in London. When you visit a website, it may see a public IP address associated with the London VPN server instead of your home internet connection's public IP address. This can change the apparent location associated with your connection, although IP-based location estimates are not always precise.</p></div>
+            <div>
+              <h3>The Website Sees the VPN Server's Public IP Address</h3>
+              <p>An IP address is a numerical address used to identify a device or network connection on the internet. When you use a VPN, websites typically see the public IP address of the VPN server forwarding your request, rather than your original public IP address.</p>
+              <p>For example, imagine you are at home in New York and connect to a VPN server in London. When you visit a website, it may see a public IP address associated with the London VPN server instead of your home internet connection's public IP address. This can change the apparent location associated with your connection, although IP-based location estimates are not always precise.</p>
+            </div>
           </section>
         </div>
 
         <h3>What Can a VPN Hide?</h3>
         <p>A VPN changes who can see certain parts of your internet connection, but it does not make all your online activity invisible.</p>
+
         <div class="scroll-table">
           <table>
-            <thead><tr><th scope="col">Who is observing?</th><th scope="col">What a VPN generally changes</th></tr></thead>
+            <thead>
+              <tr>
+                <th scope="col">Who is observing?</th>
+                <th scope="col">What a VPN generally changes</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td>Your internet service provider</td><td>A properly configured VPN prevents the ISP from ordinarily reading the contents of traffic protected by the tunnel. The ISP can still see the VPN connection and may observe timing, data volume, and other connection information.</td></tr>
-              <tr><td>Other people on public Wi-Fi</td><td>Encryption helps prevent local observers from reading the traffic protected by the VPN tunnel.</td></tr>
-              <tr><td>Websites you visit</td><td>Websites typically see the VPN server's public IP address instead of your original public IP address.</td></tr>
-              <tr><td>Your VPN provider</td><td>The provider can process traffic passing through its servers and may have access to certain connection information, depending on its design and policies.</td></tr>
-              <tr><td>Advertisers and tracking services</td><td>A VPN may reduce tracking based on your IP address, but it does not automatically prevent tracking through cookies, account activity, browser fingerprinting, or other techniques.</td></tr>
+              <tr>
+                <td>Your internet service provider</td>
+                <td>A properly configured VPN prevents the ISP from ordinarily reading the contents of traffic protected by the tunnel. The ISP can still see the VPN connection and may observe timing, data volume, and other connection information.</td>
+              </tr>
+              <tr>
+                <td>Other people on public Wi-Fi</td>
+                <td>Encryption helps prevent local observers from reading the traffic protected by the VPN tunnel.</td>
+              </tr>
+              <tr>
+                <td>Websites you visit</td>
+                <td>Websites typically see the VPN server's public IP address instead of your original public IP address.</td>
+              </tr>
+              <tr>
+                <td>Your VPN provider</td>
+                <td>The provider can process traffic passing through its servers and may have access to certain connection information, depending on its design and policies.</td>
+              </tr>
+              <tr>
+                <td>Advertisers and tracking services</td>
+                <td>A VPN may reduce tracking based on your IP address, but it does not automatically prevent tracking through cookies, account activity, browser fingerprinting, or other techniques.</td>
+              </tr>
             </tbody>
           </table>
         </div>
+
         <p>The <a href="https://www.ftc.gov/business-guidance/blog/2018/02/market-vpn-app" target="_blank" rel="noopener noreferrer">Federal Trade Commission's guidance on VPN applications</a> emphasizes an important point: using a VPN shifts some trust away from your local network and internet provider toward the VPN provider.</p>
         <p>For that reason, choosing a trustworthy service matters as much as understanding the technology.</p>
 
         <h2 id="what-is-a-vpn-used-for">What Is a VPN Used For?</h2>
         <p>What is a virtual private network used for? Common uses include protecting internet traffic on untrusted networks, accessing private workplace resources, and changing the public IP address that websites see.</p>
         <p>Here are some practical examples.</p>
+
         <h3>1. Improving Online Privacy</h3>
         <p>A VPN can make it harder for your internet provider and people monitoring your local network to inspect traffic protected by the VPN tunnel. This is useful when you want another layer of privacy during everyday internet use.</p>
         <p>However, a VPN does not prevent every form of tracking. Websites can still recognize you when you sign in to an account or use other identifying information.</p>
+
         <h3>2. Adding Protection When Using Public Wi-Fi</h3>
         <p>Public Wi-Fi is available in places such as airports, hotels, libraries, and coffee shops.</p>
         <p>Although modern websites often use HTTPS encryption, not every application or connection is equally protected. A correctly configured VPN adds encryption between your device and the VPN server, helping protect traffic that might otherwise be exposed to people monitoring the local network.</p>
         <p>It is still important to use HTTPS, keep your devices updated, and avoid suspicious links.</p>
+
         <h3>3. Connecting Securely to Work Networks</h3>
         <p>Businesses often use VPNs to let employees connect to internal systems while working from home, traveling, or working at another location. For example, an employee might need to access company files or an internal application that is not available to the general public.</p>
         <p>A company VPN can provide an encrypted connection and restrict access to authorized users. Organizations may also use authentication and device security checks to reduce risk. The <a href="https://www.nccoe.nist.gov/publication/1800-22/VolB/index.html" target="_blank" rel="noopener noreferrer">NIST National Cybersecurity Center of Excellence</a> documents security approaches for mobile devices used to access organizational resources.</p>
+
         <h3>4. Accessing Online Services While Traveling</h3>
         <p>Some websites and online services display different content depending on the apparent location of the connection. A VPN can make your traffic appear to originate from a server in another region. This may help with certain location-dependent services while traveling.</p>
         <p>However, a VPN does not guarantee access to particular content. Websites may block VPN connections, require additional verification, or use other methods to determine your location. Access may also be subject to local laws, licensing restrictions, and the service's terms of use.</p>
+
         <h3>5. Changing Your Apparent Public IP Address</h3>
         <p>Websites and online services can use your public IP address to estimate your location or apply certain network restrictions. Because a VPN routes traffic through its server, it can make your connection appear to originate from a different public IP address.</p>
         <p>This may be useful when you want to avoid exposing your home connection's IP address directly to every website you visit. Keep in mind that your IP address is only one piece of identifying information. Changing it does not erase other information associated with your online activity.</p>
@@ -430,22 +1427,28 @@
 
         <h2 id="limitations">What Are the Limitations of a VPN?</h2>
         <p>A VPN can improve certain aspects of privacy and security, but it cannot solve every online security problem.</p>
+
         <h3>A VPN Does Not Make You Completely Anonymous</h3>
         <p>A VPN can hide your original public IP address from websites, but it does not automatically hide everything that could identify you. Signing in to an account, accepting tracking cookies, sharing personal information, or using an identifiable browser profile can still connect your activity to you.</p>
         <p>Websites may also use browser fingerprinting, which involves combining technical details about your browser and device to help recognize them.</p>
+
         <h3>A VPN Does Not Prevent Every Cyberattack</h3>
         <p>A VPN is not a substitute for antivirus protection or safe browsing habits. It does not automatically stop malware infections, phishing attacks, fraudulent websites, or scams that trick you into revealing personal information.</p>
         <p>For example, if you receive a fake email asking you to enter your password on a fraudulent website, a VPN will not necessarily recognize the deception or prevent you from entering your credentials.</p>
         <p>Basic security practices remain essential. The <a href="https://www.cisa.gov/secure-our-world" target="_blank" rel="noopener noreferrer">Cybersecurity and Infrastructure Security Agency's Secure Our World guidance</a> covers habits such as recognizing phishing, using strong passwords, enabling multifactor authentication, and keeping software updated. Some CISA pages in this program are archived, so readers should check for current guidance where applicable.</p>
+
         <h3>VPN Encryption Has Limits</h3>
         <p>A VPN's encrypted tunnel typically ends at the VPN server. Traffic traveling beyond that server may still be protected by HTTPS or another encryption protocol, but the VPN tunnel itself does not automatically encrypt every subsequent connection.</p>
         <p>This is why HTTPS remains important. As the <a href="https://consumer.ftc.gov/articles/online-shopping" target="_blank" rel="noopener noreferrer">FTC explains in its online shopping guidance</a>, HTTPS indicates that a website connection is encrypted, but it does not prove that the website itself is legitimate.</p>
+
         <h3>Your VPN Provider Becomes an Important Trust Decision</h3>
         <p>Your VPN provider operates a key part of your connection. Depending on the service's infrastructure, configuration, and privacy practices, it may be able to observe some connection metadata or traffic that is not independently encrypted.</p>
         <p>A provider's privacy policy, technical safeguards, data retention practices, and transparency therefore deserve careful attention. A claim that a service keeps no activity logs should be evaluated rather than accepted automatically.</p>
+
         <h3>A VPN May Slow Down Your Internet</h3>
         <p>Using a VPN can reduce connection speeds or increase latency, which is the delay before a response arrives. This may happen because your traffic travels through an additional server, the server is far away, the service is congested, or the encryption process adds overhead.</p>
         <p>The effect varies considerably between services, devices, servers, and network conditions. Choosing a nearby server with sufficient capacity may improve performance. For more detail, see <a href="https://www.cloudflare.com/learning/security/vpn-speed/" target="_blank" rel="noopener noreferrer">Cloudflare's explanation of how VPNs affect internet speed</a>.</p>
+
         <h3>Other Security Measures Still Matter</h3>
         <p>Even when a VPN is enabled, you should continue to use HTTPS websites, install security updates, choose strong and unique passwords, enable multifactor authentication, and be cautious with unexpected messages and downloads.</p>
         <p>A VPN works best as one part of a broader approach to online security.</p>
@@ -453,34 +1456,71 @@
         <h2 id="vpn-vs-proxy">VPN vs. Proxy: What Is the Difference?</h2>
         <p>VPNs and proxy servers can both route internet traffic through an intermediary, making the destination see the intermediary's IP address rather than the original IP address.</p>
         <p>The key differences are how they handle traffic, what they protect, and how they are configured.</p>
+
         <div class="scroll-table">
           <table>
-            <thead><tr><th scope="col">Feature</th><th scope="col">VPN</th><th scope="col">Proxy</th></tr></thead>
+            <thead>
+              <tr>
+                <th scope="col">Feature</th>
+                <th scope="col">VPN</th>
+                <th scope="col">Proxy</th>
+              </tr>
+            </thead>
             <tbody>
-              <tr><td>Main purpose</td><td>Creates a protected network connection and routes traffic through a VPN server.</td><td>Forwards selected requests through an intermediary.</td></tr>
-              <tr><td>Traffic coverage</td><td>Often covers much of a device's traffic, depending on configuration.</td><td>Frequently covers a particular application or browser.</td></tr>
-              <tr><td>Encryption</td><td>A properly configured VPN encrypts traffic inside its tunnel.</td><td>Encryption depends on the type of proxy and the protocol used.</td></tr>
-              <tr><td>IP address masking</td><td>Usually replaces the visible source IP with the VPN server's IP.</td><td>Can replace the visible source IP with the proxy's IP.</td></tr>
-              <tr><td>Common uses</td><td>Remote work, connection protection, and additional online privacy.</td><td>Web access, request routing, caching, and other application-specific tasks.</td></tr>
+              <tr>
+                <td>Main purpose</td>
+                <td>Creates a protected network connection and routes traffic through a VPN server.</td>
+                <td>Forwards selected requests through an intermediary.</td>
+              </tr>
+              <tr>
+                <td>Traffic coverage</td>
+                <td>Often covers much of a device's traffic, depending on configuration.</td>
+                <td>Frequently covers a particular application or browser.</td>
+              </tr>
+              <tr>
+                <td>Encryption</td>
+                <td>A properly configured VPN encrypts traffic inside its tunnel.</td>
+                <td>Encryption depends on the type of proxy and the protocol used.</td>
+              </tr>
+              <tr>
+                <td>IP address masking</td>
+                <td>Usually replaces the visible source IP with the VPN server's IP.</td>
+                <td>Can replace the visible source IP with the proxy's IP.</td>
+              </tr>
+              <tr>
+                <td>Common uses</td>
+                <td>Remote work, connection protection, and additional online privacy.</td>
+                <td>Web access, request routing, caching, and other application-specific tasks.</td>
+              </tr>
             </tbody>
           </table>
         </div>
+
         <p>A basic proxy does not necessarily provide the same protection as an encrypted VPN. However, secure proxies can also use encryption, and some VPN-like browser features operate by routing only browser traffic through a proxy.</p>
         <p>Coverage is not absolute: some VPNs support split tunneling, which allows selected traffic to bypass the VPN.</p>
         <p>For a practical comparison, see <a href="https://www.mozilla.org/en-US/products/vpn/resource-center/the-difference-between-a-vpn-and-a-web-proxy/" target="_blank" rel="noopener noreferrer">Mozilla's explanation of the difference between a VPN and a web proxy</a>.</p>
-        <blockquote><p><strong>Which should you choose?</strong> A VPN is generally the more appropriate option when you want a protected connection for multiple applications or need secure remote access. A proxy may be sufficient for a specific task that only requires forwarding selected traffic. The right choice depends on the protection you need and the service you are considering.</p></blockquote>
+        <blockquote>
+          <p><strong>Which should you choose?</strong> A VPN is generally the more appropriate option when you want a protected connection for multiple applications or need secure remote access. A proxy may be sufficient for a specific task that only requires forwarding selected traffic. The right choice depends on the protection you need and the service you are considering.</p>
+        </blockquote>
 
         <h2 id="free-vs-paid">Free VPN vs. Paid VPN: Which Should You Choose?</h2>
         <p>Free and paid VPNs can both be useful, but their capabilities, business models, and privacy practices vary.</p>
+
         <h3>Free VPNs</h3>
         <p>A free VPN can be a reasonable starting point when you need basic protection and can find a trustworthy provider.</p>
         <p>Potential advantages include:</p>
-        <ul><li>No subscription cost.</li><li>An opportunity to test a VPN before paying.</li><li>Sufficient features for occasional or basic use.</li></ul>
+        <ul>
+          <li>No subscription cost.</li>
+          <li>An opportunity to test a VPN before paying.</li>
+          <li>Sufficient features for occasional or basic use.</li>
+        </ul>
         <p>Possible disadvantages include data limits, slower speeds, fewer available servers, restricted features, or limits on simultaneous connections.</p>
         <p>Some free services may also rely on advertising or collect and share information with third parties. That does not mean every free VPN is unsafe, but it makes evaluating the provider especially important.</p>
+
         <h3>Paid VPNs</h3>
         <p>Paid VPNs often offer more server locations, higher data limits, additional features, and more options for customer support. Depending on the service, these features may be useful for frequent travelers, remote workers, or people who need a more consistent connection.</p>
         <p>However, paying for a VPN does not automatically guarantee good privacy or security. A paid provider can still have weak policies, technical shortcomings, or misleading claims.</p>
+
         <h3>How to Choose a Trustworthy VPN</h3>
         <p>Before selecting a service, consider these questions:</p>
         <ol>
@@ -503,35 +1543,100 @@
         <p>There is no universal requirement for every internet user to purchase a VPN.</p>
 
         <h2 id="faq">Frequently Asked Questions About VPNs</h2>
-        <section class="faq-item"><h3>1. What Is a VPN in Simple Terms?</h3><p>A VPN is a technology that creates an encrypted connection between your device and a VPN server. It helps protect the traffic sent through that connection and makes websites see the VPN server's public IP address instead of your original public IP address.</p></section>
-        <section class="faq-item"><h3>2. Is Using a VPN Legal?</h3><p>VPNs are legal in many countries, but laws and restrictions vary by jurisdiction. Some governments restrict certain VPN services or uses. Check the current rules where you live or travel, and remember that using a VPN does not make otherwise unlawful activity legal. The <a href="https://www.internetsociety.org/resources/policybriefs/2026/vpn-restrictions/" target="_blank" rel="noopener noreferrer">Internet Society's overview of VPN restrictions</a> discusses differences between jurisdictions.</p></section>
-        <section class="faq-item"><h3>3. Does a VPN Hide My IP Address?</h3><p>A VPN typically hides your original public IP address from the websites you visit by routing your traffic through a VPN server. However, it does not necessarily hide your identity, account activity, cookies, or other identifying information.</p></section>
-        <section class="faq-item"><h3>4. Can a VPN Protect Me on Public Wi-Fi?</h3><p>A properly configured VPN helps protect traffic inside its encrypted tunnel from people monitoring a public Wi-Fi network. It does not eliminate every threat, so you should still use HTTPS, update your devices, and avoid suspicious links and downloads.</p></section>
-        <section class="faq-item"><h3>5. Can a VPN Make Me Completely Anonymous?</h3><p>No. A VPN can improve privacy, but websites may still recognize you through accounts, cookies, browser fingerprinting, and information you voluntarily provide. Your VPN provider also becomes an important part of your privacy model.</p></section>
-        <section class="faq-item"><h3>6. Does a VPN Slow Down My Internet?</h3><p>It can. Routing traffic through an additional server, server congestion, distance, and encryption overhead may reduce speeds or increase latency. The actual effect depends on your connection and the VPN service you use.</p></section>
-        <section class="faq-item"><h3>7. Is a Free VPN Safe?</h3><p>Some free VPNs can be suitable, but others may have weak security, intrusive data collection, or unclear privacy policies. Evaluate each provider individually and avoid assuming that a service is trustworthy simply because it is free—or that it is secure because it is paid.</p></section>
-        <section class="faq-item"><h3>8. Should I Leave My VPN On All the Time?</h3><p>You can leave a reputable VPN enabled continuously if you value the additional privacy and it does not interfere with your activities. Keeping it on may help ensure that supported traffic remains protected. However, some services may require a local connection, may block VPN traffic, or may work differently depending on your settings. Decide when to use it based on your needs and the service's requirements.</p></section>
+
+        <section class="faq-item">
+          <h3>1. What Is a VPN in Simple Terms?</h3>
+          <p>A VPN is a technology that creates an encrypted connection between your device and a VPN server. It helps protect the traffic sent through that connection and makes websites see the VPN server's public IP address instead of your original public IP address.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>2. Is Using a VPN Legal?</h3>
+          <p>VPNs are legal in many countries, but laws and restrictions vary by jurisdiction. Some governments restrict certain VPN services or uses. Check the current rules where you live or travel, and remember that using a VPN does not make otherwise unlawful activity legal. The <a href="https://www.internetsociety.org/resources/policybriefs/2026/vpn-restrictions/" target="_blank" rel="noopener noreferrer">Internet Society's overview of VPN restrictions</a> discusses differences between jurisdictions.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>3. Does a VPN Hide My IP Address?</h3>
+          <p>A VPN typically hides your original public IP address from the websites you visit by routing your traffic through a VPN server. However, it does not necessarily hide your identity, account activity, cookies, or other identifying information.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>4. Can a VPN Protect Me on Public Wi-Fi?</h3>
+          <p>A properly configured VPN helps protect traffic inside its encrypted tunnel from people monitoring a public Wi-Fi network. It does not eliminate every threat, so you should still use HTTPS, update your devices, and avoid suspicious links and downloads.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>5. Can a VPN Make Me Completely Anonymous?</h3>
+          <p>No. A VPN can improve privacy, but websites may still recognize you through accounts, cookies, browser fingerprinting, and information you voluntarily provide. Your VPN provider also becomes an important part of your privacy model.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>6. Does a VPN Slow Down My Internet?</h3>
+          <p>It can. Routing traffic through an additional server, server congestion, distance, and encryption overhead may reduce speeds or increase latency. The actual effect depends on your connection and the VPN service you use.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>7. Is a Free VPN Safe?</h3>
+          <p>Some free VPNs can be suitable, but others may have weak security, intrusive data collection, or unclear privacy policies. Evaluate each provider individually and avoid assuming that a service is trustworthy simply because it is free—or that it is secure because it is paid.</p>
+        </section>
+
+        <section class="faq-item">
+          <h3>8. Should I Leave My VPN On All the Time?</h3>
+          <p>You can leave a reputable VPN enabled continuously if you value the additional privacy and it does not interfere with your activities. Keeping it on may help ensure that supported traffic remains protected. However, some services may require a local connection, may block VPN traffic, or may work differently depending on your settings. Decide when to use it based on your needs and the service's requirements.</p>
+        </section>
 
         <h2>Conclusion</h2>
         <p>A VPN is a useful technology that creates an encrypted connection between your device and a VPN server. It can help protect traffic on public networks, improve privacy from your internet provider, support secure remote work, and change the public IP address that websites see.</p>
         <p>However, a VPN is not a guarantee of anonymity or complete protection from cyber threats. Your provider's privacy practices matter, your connection may become slower, and tracking methods such as cookies and account-based identification can still reveal information about you.</p>
         <p>The best approach is to understand what a VPN protects, recognize its limitations, and combine it with other security practices such as using HTTPS, maintaining updated devices, choosing strong passwords, and enabling multifactor authentication.</p>
-        <div class="takeaway"><h3>The main takeaway</h3><p>A VPN can be a valuable part of your online security toolkit, but the right choice depends on your privacy goals, your browsing habits, and the trustworthiness of the service you select.</p></div>
+
+        <div class="takeaway">
+          <h3>The main takeaway</h3>
+          <p>A VPN can be a valuable part of your online security toolkit, but the right choice depends on your privacy goals, your browsing habits, and the trustworthiness of the service you select.</p>
+        </div>
 
         <section class="references" id="sources" aria-labelledby="sources-heading">
           <h2 id="sources-heading">Sources &amp; Further Reading</h2>
           <p class="references-intro">These references provide additional technical context for readers who want to explore VPNs, privacy, and online security in more detail. Source links are also included alongside relevant claims throughout this guide.</p>
+
           <ol class="reference-list">
-            <li><a href="https://csrc.nist.gov/glossary/term/virtual_private_network" target="_blank" rel="noopener noreferrer">NIST — Virtual Private Network (VPN) glossary</a><p>A technical definition of VPNs and their role in secure communications.</p></li>
-            <li><a href="https://www.nccoe.nist.gov/publication/1800-22/VolB/index.html" target="_blank" rel="noopener noreferrer">NIST NCCoE — Mobile Device Security: Bring Your Own Device (BYOD)</a><p>Guidance and reference architecture related to mobile devices and organizational security.</p></li>
-            <li><a href="https://www.ftc.gov/business-guidance/blog/2018/02/market-vpn-app" target="_blank" rel="noopener noreferrer">Federal Trade Commission — In the Market for a VPN App?</a><p>Privacy considerations, application permissions, encryption, and provider practices.</p></li>
-            <li><a href="https://www.cloudflare.com/learning/security/what-is-a-vpn/" target="_blank" rel="noopener noreferrer">Cloudflare — What Is a VPN?</a><p>An accessible overview of VPN connections, use cases, and limitations.</p></li>
-            <li><a href="https://www.cloudflare.com/learning/security/vpn-speed/" target="_blank" rel="noopener noreferrer">Cloudflare — How VPNs Affect Internet Speed</a><p>Performance considerations such as latency, server distance, and congestion.</p></li>
-            <li><a href="https://www.mozilla.org/en-US/products/vpn/resource-center/the-difference-between-a-vpn-and-a-web-proxy/" target="_blank" rel="noopener noreferrer">Mozilla — The Difference Between a VPN and a Web Proxy</a><p>A practical comparison of traffic routing, encryption, and coverage.</p></li>
-            <li><a href="https://consumer.ftc.gov/articles/online-shopping" target="_blank" rel="noopener noreferrer">Federal Trade Commission — Online Shopping</a><p>Explains what HTTPS signals about an encrypted connection and what it does not guarantee.</p></li>
-            <li><a href="https://www.cisa.gov/secure-our-world" target="_blank" rel="noopener noreferrer">CISA — Secure Our World</a><p>General security habits such as recognizing phishing, using strong passwords, enabling multifactor authentication, and updating software. Some material on this program may be archived.</p></li>
-            <li><a href="https://www.internetsociety.org/resources/policybriefs/2026/vpn-restrictions/" target="_blank" rel="noopener noreferrer">Internet Society — VPN Restrictions</a><p>Discusses the variation in VPN-related laws and restrictions between jurisdictions.</p></li>
+            <li>
+              <a href="https://csrc.nist.gov/glossary/term/virtual_private_network" target="_blank" rel="noopener noreferrer">NIST — Virtual Private Network (VPN) glossary</a>
+              <p>A technical definition of VPNs and their role in secure communications.</p>
+            </li>
+            <li>
+              <a href="https://www.nccoe.nist.gov/publication/1800-22/VolB/index.html" target="_blank" rel="noopener noreferrer">NIST NCCoE — Mobile Device Security: Bring Your Own Device (BYOD)</a>
+              <p>Guidance and reference architecture related to mobile devices and organizational security.</p>
+            </li>
+            <li>
+              <a href="https://www.ftc.gov/business-guidance/blog/2018/02/market-vpn-app" target="_blank" rel="noopener noreferrer">Federal Trade Commission — In the Market for a VPN App?</a>
+              <p>Privacy considerations, application permissions, encryption, and provider practices.</p>
+            </li>
+            <li>
+              <a href="https://www.cloudflare.com/learning/security/what-is-a-vpn/" target="_blank" rel="noopener noreferrer">Cloudflare — What Is a VPN?</a>
+              <p>An accessible overview of VPN connections, use cases, and limitations.</p>
+            </li>
+            <li>
+              <a href="https://www.cloudflare.com/learning/security/vpn-speed/" target="_blank" rel="noopener noreferrer">Cloudflare — How VPNs Affect Internet Speed</a>
+              <p>Performance considerations such as latency, server distance, and congestion.</p>
+            </li>
+            <li>
+              <a href="https://www.mozilla.org/en-US/products/vpn/resource-center/the-difference-between-a-vpn-and-a-web-proxy/" target="_blank" rel="noopener noreferrer">Mozilla — The Difference Between a VPN and a Web Proxy</a>
+              <p>A practical comparison of traffic routing, encryption, and coverage.</p>
+            </li>
+            <li>
+              <a href="https://consumer.ftc.gov/articles/online-shopping" target="_blank" rel="noopener noreferrer">Federal Trade Commission — Online Shopping</a>
+              <p>Explains what HTTPS signals about an encrypted connection and what it does not guarantee.</p>
+            </li>
+            <li>
+              <a href="https://www.cisa.gov/secure-our-world" target="_blank" rel="noopener noreferrer">CISA — Secure Our World</a>
+              <p>General security habits such as recognizing phishing, using strong passwords, enabling multifactor authentication, and updating software. Some material on this program may be archived.</p>
+            </li>
+            <li>
+              <a href="https://www.internetsociety.org/resources/policybriefs/2026/vpn-restrictions/" target="_blank" rel="noopener noreferrer">Internet Society — VPN Restrictions</a>
+              <p>Discusses the variation in VPN-related laws and restrictions between jurisdictions.</p>
+            </li>
           </ol>
+
           <a class="back-to-top" href="#top">↑ Back to the top</a>
         </section>
       </article>
@@ -539,7 +1644,10 @@
 
     <section class="related-strip">
       <div class="container related-inner">
-        <div><h2>Keep exploring digital privacy.</h2><p>Browse more straightforward guides to VPNs, online privacy, and digital security from Synth Visual.</p></div>
+        <div>
+          <h2>Keep exploring digital privacy.</h2>
+          <p>Browse more straightforward guides to VPNs, online privacy, and digital security from Synth Visual.</p>
+        </div>
         <a class="related-link" href="/#latest-guides">Explore all guides →</a>
       </div>
     </section>
@@ -551,6 +1659,7 @@
         <a class="footer-brand" href="/">Synth Visual</a>
         <p class="copyright">© <span id="current-year">2026</span> Synth Visual. All rights reserved.</p>
       </div>
+
       <nav class="footer-links" aria-label="Footer navigation">
         <a href="https://synthvisuals.space/about.html">About</a>
         <a href="https://synthvisuals.space/privacy-policy.html">Privacy Policy</a>
@@ -558,22 +1667,85 @@
       </nav>
     </div>
   </footer>
+
   <script>
     document.getElementById("current-year").textContent = new Date().getFullYear();
+
     (function () {
       const bar = document.getElementById("reading-progress");
       let ticking = false;
+
       function updateProgress() {
         const doc = document.documentElement;
         const max = doc.scrollHeight - window.innerHeight;
         const amount = max > 0 ? (window.scrollY / max) * 100 : 0;
+
         bar.style.width = Math.max(0, Math.min(100, amount)) + "%";
         ticking = false;
       }
+
       window.addEventListener("scroll", function () {
-        if (!ticking) { window.requestAnimationFrame(updateProgress); ticking = true; }
+        if (!ticking) {
+          window.requestAnimationFrame(updateProgress);
+          ticking = true;
+        }
       }, { passive: true });
+
       updateProgress();
+    })();
+
+    /* Tools dropdown behavior */
+    (function () {
+      const dropdown = document.querySelector(".tools-dropdown");
+      const trigger = document.querySelector(".tools-trigger");
+      const menu = document.getElementById("tools-menu");
+
+      if (!dropdown || !trigger || !menu) return;
+
+      function openMenu() {
+        menu.hidden = false;
+        trigger.setAttribute("aria-expanded", "true");
+      }
+
+      function closeMenu(returnFocus) {
+        menu.hidden = true;
+        trigger.setAttribute("aria-expanded", "false");
+
+        if (returnFocus) {
+          trigger.focus();
+        }
+      }
+
+      trigger.addEventListener("click", function () {
+        const isExpanded = trigger.getAttribute("aria-expanded") === "true";
+
+        if (isExpanded) {
+          closeMenu(false);
+        } else {
+          openMenu();
+        }
+      });
+
+      document.addEventListener("click", function (event) {
+        if (!dropdown.contains(event.target)) {
+          closeMenu(false);
+        }
+      });
+
+      document.addEventListener("keydown", function (event) {
+        if (
+          event.key === "Escape" &&
+          trigger.getAttribute("aria-expanded") === "true"
+        ) {
+          closeMenu(true);
+        }
+      });
+
+      menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          closeMenu(false);
+        });
+      });
     })();
   </script>
 </body>
