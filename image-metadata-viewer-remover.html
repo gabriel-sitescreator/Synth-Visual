@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -71,6 +72,8 @@
     /* Header */
 
     .sv-image-metadata-header {
+      position: relative;
+      z-index: 20;
       border-bottom: 1px solid var(--sv-image-metadata-line);
       background: rgba(247, 247, 244, 0.94);
     }
@@ -129,7 +132,10 @@
       transition: color 160ms ease;
     }
 
-    .sv-image-metadata-nav a:hover {
+    .sv-image-metadata-nav a:hover,
+    .sv-image-metadata-nav a[aria-current="page"],
+    .sv-image-metadata-tools-trigger:hover,
+    .sv-image-metadata-tools-trigger[aria-expanded="true"] {
       color: var(--sv-image-metadata-accent);
     }
 
@@ -137,6 +143,104 @@
       padding: 10px 15px;
       border: 1px solid #cbd6ce;
       border-radius: 999px;
+      color: var(--sv-image-metadata-accent);
+    }
+
+    .sv-image-metadata-nav .sv-image-metadata-nav-cta:hover {
+      background: var(--sv-image-metadata-soft);
+    }
+
+    /* Tools dropdown — shared with the Affiliate Disclosure page */
+
+    .sv-image-metadata-tools-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .sv-image-metadata-tools-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 0;
+      border: 0;
+      background: transparent;
+      color: #424840;
+      font: inherit;
+      cursor: pointer;
+      transition: color 160ms ease;
+    }
+
+    .sv-image-metadata-tools-chevron {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 160ms ease;
+    }
+
+    .sv-image-metadata-tools-trigger[aria-expanded="true"] .sv-image-metadata-tools-chevron {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .sv-image-metadata-tools-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: -18px;
+      z-index: 50;
+      width: 322px;
+      padding: 10px;
+      border: 1px solid var(--sv-image-metadata-line);
+      border-radius: 14px;
+      background: var(--sv-image-metadata-card);
+      box-shadow: 0 16px 42px rgba(27, 39, 30, 0.13);
+    }
+
+    .sv-image-metadata-tools-menu[hidden] {
+      display: none;
+    }
+
+    .sv-image-metadata-tools-menu-section {
+      padding: 8px 7px 9px;
+    }
+
+    .sv-image-metadata-tools-menu-heading {
+      margin: 0 0 7px;
+      color: var(--sv-image-metadata-muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 1.25px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .sv-image-metadata-nav .sv-image-metadata-tools-menu a {
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      color: var(--sv-image-metadata-ink);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .sv-image-metadata-nav .sv-image-metadata-tools-menu a:hover,
+    .sv-image-metadata-nav .sv-image-metadata-tools-menu a:focus-visible {
+      background: var(--sv-image-metadata-soft);
+      color: var(--sv-image-metadata-accent);
+    }
+
+    .sv-image-metadata-tools-menu-divider {
+      height: 1px;
+      margin: 3px 7px;
+      background: var(--sv-image-metadata-line);
+    }
+
+    .sv-image-metadata-nav .sv-image-metadata-tools-menu .sv-image-metadata-tools-commercial-link {
       color: var(--sv-image-metadata-accent);
     }
 
@@ -296,6 +400,7 @@
     .sv-image-metadata-button:focus-visible,
     .sv-image-metadata-secondary:focus-visible,
     .sv-image-metadata-nav a:focus-visible,
+    .sv-image-metadata-tools-trigger:focus-visible,
     .sv-image-metadata-brand:focus-visible {
       outline: 3px solid #75ad91;
       outline-offset: 3px;
@@ -686,6 +791,20 @@
         font-size: inherit;
       }
 
+      .sv-image-metadata-tools-trigger {
+        padding: 7px 0;
+      }
+
+      .sv-image-metadata-tools-menu {
+        top: calc(100% + 8px);
+        right: -8px;
+        width: min(322px, calc(100vw - 32px));
+      }
+
+      .sv-image-metadata-nav .sv-image-metadata-tools-menu a {
+        font-size: 13px;
+      }
+
       .sv-image-metadata-nav .sv-image-metadata-nav-cta {
         padding: 7px 10px;
       }
@@ -793,17 +912,80 @@
         class="sv-image-metadata-nav"
         aria-label="Main navigation"
       >
-        <a href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160">
-          NordVPN Plans
-        </a>
+        <div
+          class="sv-image-metadata-tools-dropdown"
+          id="sv-image-metadata-tools-dropdown"
+        >
+          <button
+            class="sv-image-metadata-tools-trigger"
+            id="sv-image-metadata-tools-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="sv-image-metadata-tools-menu"
+          >
+            Tools
+            <span
+              class="sv-image-metadata-tools-chevron"
+              aria-hidden="true"
+            ></span>
+          </button>
 
-        <a href="https://synthvisuals.space/about.html">
-          About
-        </a>
+          <div
+            class="sv-image-metadata-tools-menu"
+            id="sv-image-metadata-tools-menu"
+            hidden
+          >
+            <div
+              class="sv-image-metadata-tools-menu-section"
+              aria-labelledby="sv-image-metadata-privacy-tools-heading"
+            >
+              <p
+                class="sv-image-metadata-tools-menu-heading"
+                id="sv-image-metadata-privacy-tools-heading"
+              >
+                Privacy &amp; Network Tools
+              </p>
+
+              <a href="/dns-webrtc-leak-test.html">
+                DNS/WebRTC Leak Test
+              </a>
+
+              <a href="/what-is-my-ip.html">
+                What Is My IP?
+              </a>
+            </div>
+
+            <div
+              class="sv-image-metadata-tools-menu-divider"
+              aria-hidden="true"
+            ></div>
+
+            <div
+              class="sv-image-metadata-tools-menu-section"
+              aria-labelledby="sv-image-metadata-security-software-heading"
+            >
+              <p
+                class="sv-image-metadata-tools-menu-heading"
+                id="sv-image-metadata-security-software-heading"
+              >
+                VPNs &amp; Security Software
+              </p>
+
+              <a
+                class="sv-image-metadata-tools-commercial-link"
+                href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordVPN Plans ↗</a>
+            </div>
+          </div>
+        </div>
+
+        <a href="/about.html">About</a>
 
         <a
           class="sv-image-metadata-nav-cta"
-          href="https://synthvisuals.space/#latest-guides"
+          href="/#latest-guides"
         >
           Explore Articles
         </a>
@@ -3349,6 +3531,52 @@
   window.addEventListener('pagehide', () => {
     revoke(state.sourceUrl);
     revoke(state.outputUrl);
+  });
+})();
+
+/* Tools dropdown menu */
+(() => {
+  const dropdown = document.getElementById('sv-image-metadata-tools-dropdown');
+  const trigger = document.getElementById('sv-image-metadata-tools-trigger');
+  const menu = document.getElementById('sv-image-metadata-tools-menu');
+
+  if (!dropdown || !trigger || !menu) return;
+
+  function setMenuOpen(shouldOpen) {
+    trigger.setAttribute('aria-expanded', String(shouldOpen));
+    menu.hidden = !shouldOpen;
+  }
+
+  /* Open or close the menu using the Tools button */
+  trigger.addEventListener('click', event => {
+    event.stopPropagation();
+
+    const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+    setMenuOpen(!isOpen);
+  });
+
+  /* Close the menu when clicking outside it */
+  document.addEventListener('click', event => {
+    if (!dropdown.contains(event.target)) {
+      setMenuOpen(false);
+    }
+  });
+
+  /* Close the menu with Escape and restore focus to the trigger */
+  document.addEventListener('keydown', event => {
+    const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+    if (event.key === 'Escape' && isOpen) {
+      setMenuOpen(false);
+      trigger.focus();
+    }
+  });
+
+  /* Close the menu after selecting an item */
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      setMenuOpen(false);
+    });
   });
 })();
 </script>
