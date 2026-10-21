@@ -5,8 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" href="/favicon.ico">
   <meta name="theme-color" content="#f7f7f4">
-  <meta name="description" content="View image metadata and remove supported privacy-sensitive information, including GPS and camera details, before sharing your photos online.">
+  <meta name="description" content="Inspect common embedded metadata in JPEG, PNG, and static WebP images. Remove supported metadata locally and check the processed copy before sharing.">
   <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://synthvisuals.space/image-metadata-viewer-remover.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Image Metadata Viewer &amp; Remover | Synth Visual Space">
+  <meta property="og:description" content="Inspect common embedded metadata in JPEG, PNG, and static WebP images. Remove supported metadata locally and check the processed copy before sharing.">
+  <meta property="og:url" content="https://synthvisuals.space/image-metadata-viewer-remover.html">
+  <meta name="twitter:card" content="summary">
   <title>Image Metadata Viewer &amp; Remover | Synth Visual Space</title>
   <style>
     :root {
@@ -632,6 +638,57 @@
       font-size: .92rem;
     }
 
+    .sv-image-metadata-verification {
+      margin-top: 14px;
+    }
+
+    .sv-image-metadata-verification h3 {
+      margin: 18px 0 8px;
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .sv-image-metadata-category-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: .9rem;
+    }
+
+    .sv-image-metadata-category-table th,
+    .sv-image-metadata-category-table td {
+      padding: 9px 8px;
+      border-bottom: 1px solid #e5ebe7;
+      text-align: left;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+    }
+
+    .sv-image-metadata-category-table th {
+      color: var(--sv-image-metadata-muted);
+      font-size: .8rem;
+      font-weight: 700;
+    }
+
+    .sv-image-metadata-category-table th:nth-child(2),
+    .sv-image-metadata-category-table th:nth-child(3),
+    .sv-image-metadata-category-table td:nth-child(2),
+    .sv-image-metadata-category-table td:nth-child(3) {
+      text-align: center;
+      width: 76px;
+    }
+
+    .sv-image-metadata-verification-list {
+      margin: 7px 0 0;
+      padding-left: 22px;
+      color: var(--sv-image-metadata-muted);
+      font-size: .9rem;
+    }
+
+    .sv-image-metadata-verification-list li + li {
+      margin-top: 4px;
+    }
+
     .sv-image-metadata-action-row {
       display: flex;
       gap: 10px;
@@ -955,7 +1012,8 @@
               </a>
 
               <a href="/secure-password-generator.html">Password Generator</a>
-              
+
+              <a href="/image-metadata-viewer-remover.html" aria-current="page">Image Metadata Viewer &amp; Remover</a>
             </div>
 
             <div
@@ -1021,7 +1079,7 @@
         </svg>
         <div>
           <strong>Your image stays on your device.</strong><br>
-          The image file and extracted metadata are processed locally in this browser. This page contains no upload endpoint, external image API, analytics, or third-party parser request.
+          Your image and extracted metadata are processed locally in this browser. The tool does not intentionally upload your image or send its extracted metadata to an external processing service.
         </div>
       </div>
     </section>
@@ -1075,8 +1133,8 @@
         aria-live="polite"
       ></div>
 
-      <div id="sv-image-metadata-progress" class="sv-image-metadata-progress" hidden aria-label="Processing image">
-        <span></span>
+      <div id="sv-image-metadata-progress" class="sv-image-metadata-progress" hidden role="progressbar" aria-label="Processing image" aria-valuemin="0" aria-valuemax="100" aria-valuetext="Processing">
+        <span aria-hidden="true"></span>
       </div>
     </section>
 
@@ -1135,7 +1193,7 @@
 
       <div class="sv-image-metadata-action-row">
         <button id="sv-image-metadata-process" type="button" class="sv-image-metadata-button">
-          Remove Metadata &amp; Download
+          Remove Supported Metadata &amp; Download
         </button>
 
         <button id="sv-image-metadata-reset" type="button" class="sv-image-metadata-secondary">
@@ -1144,7 +1202,7 @@
       </div>
 
       <p class="sv-image-metadata-small" style="margin-top:13px">
-        The tool strips supported metadata blocks without recompressing image pixels in the normal case. If an orientation tag must be normalized, the browser re-encodes the image and may slightly change image quality.
+        The tool removes the metadata containers described below and then checks the processed copy with its supported parser. It does not guarantee removal of every proprietary or unrecognized metadata structure. If a non-default orientation must be normalized, the browser re-encodes the image, which may change image quality or encoding characteristics.
       </p>
     </section>
 
@@ -1165,10 +1223,10 @@
         <div>
           <div class="sv-image-metadata-file-facts" id="sv-image-metadata-output-facts"></div>
 
-          <div id="sv-image-metadata-output-verification"></div>
+          <div id="sv-image-metadata-output-verification" class="sv-image-metadata-verification"></div>
 
           <div class="sv-image-metadata-action-row">
-            <a id="sv-image-metadata-download" class="sv-image-metadata-button" href="#" download>
+            <a id="sv-image-metadata-download" class="sv-image-metadata-button" download>
               Download Clean Image
             </a>
 
@@ -1219,7 +1277,7 @@
 
       <div class="sv-image-metadata-edu-item">
         <h3>Supported Formats and Important Limitations</h3>
-        <p>JPEG, PNG, and static WebP are accepted. The parser checks common EXIF/TIFF fields, common GPS tags, standard XMP locations, selected IPTC IIM datasets in JPEG APP13 resources, PNG text chunks, and JPEG comments. It does not interpret every manufacturer-specific MakerNote, every vendor-specific metadata block, all extended XMP packets, or all possible proprietary fields. The removal operation strips supported containers rather than claiming that every possible metadata byte has been removed. Animated WebP, GIF, HEIC/HEIF, TIFF, RAW, and other formats are not supported.</p>
+        <p>JPEG, PNG, and static WebP are accepted. The parser checks common EXIF/TIFF fields, common GPS tags, selected XMP properties, selected IPTC IIM datasets in JPEG APP13 resources, PNG text chunks, and JPEG comments. Removal strips the format-specific containers implemented by this tool: JPEG APP1, APP13, and comment segments; PNG eXIf, text, and tIME chunks; and WebP EXIF and XMP chunks. These operations can remove more than the viewer interprets, but they do not cover every possible metadata location or proprietary structure. Extended XMP packets are not reassembled for display. Animated WebP, GIF, HEIC/HEIF, TIFF, RAW, and other formats are not supported.</p>
       </div>
 
       <div class="sv-image-metadata-edu-item">
@@ -1297,7 +1355,8 @@
     outputAnalysis: null,
     outputUrl: null,
     outputName: null,
-    busy: false
+    busy: false,
+    operationId: 0
   };
 
   $('year').textContent = String(new Date().getFullYear());
@@ -1316,16 +1375,24 @@
   function setBusy(busy, message) {
     state.busy = busy;
     els.progress.hidden = !busy;
-    els.process.disabled = busy;
+    els.process.disabled = busy || !state.file || !state.analysis;
     els.choose.disabled = busy;
+    els.input.disabled = busy;
     els.reset.disabled = busy;
     els.resetTop.disabled = busy;
+    els.another.disabled = busy;
+    els.viewOutput.disabled = busy;
 
     if (message) showStatus(message, 'info');
   }
 
   function revoke(url) {
-    if (url) URL.revokeObjectURL(url);
+    if (!url) return;
+    try {
+      URL.revokeObjectURL(url);
+    } catch {
+      // Revocation is best-effort during teardown; never mask the primary result.
+    }
   }
 
   function cleanupOutput() {
@@ -1336,8 +1403,9 @@
     state.outputName = null;
   }
 
-  function resetAll() {
-    if (state.busy) return;
+  function resetAll(force = false, invalidateOperation = true) {
+    if (state.busy && !force) return;
+    if (invalidateOperation) state.operationId += 1;
 
     revoke(state.sourceUrl);
     state.sourceUrl = null;
@@ -2069,7 +2137,13 @@
             value = orientationNames[Number(e.value)] || value;
 
             if (group.kind === 'ifd0') {
-              result.orientation = Number(e.value) || 1;
+              const orientation = Number(e.value);
+              result.orientation = Number.isInteger(orientation) && orientation >= 1 && orientation <= 8
+                ? orientation
+                : 1;
+              if (orientation !== result.orientation) {
+                result.notices.push('An invalid EXIF orientation value was found; orientation correction was not attempted.');
+              }
             }
           }
 
@@ -2542,6 +2616,7 @@
     let height = null;
     const chunks = [];
     let hasIend = false;
+    let hasIhdr = false;
 
     while (p + 12 <= bytes.length) {
       const start = p;
@@ -2577,11 +2652,16 @@
 
       chunks.push(chunk);
 
+      if (!hasIhdr && type !== 'IHDR') {
+        throw new Error('The PNG header chunk is missing or is not the first chunk.');
+      }
+
       if (type === 'IHDR') {
-        if (len < 13) {
-          throw new Error('The PNG header is incomplete.');
+        if (hasIhdr || chunks.length !== 1 || len !== 13) {
+          throw new Error('The PNG header is duplicated or has an invalid length.');
         }
 
+        hasIhdr = true;
         width = readU32BE(bytes, dataStart);
         height = readU32BE(bytes, dataStart + 4);
       }
@@ -2589,6 +2669,9 @@
       p = end;
 
       if (type === 'IEND') {
+        if (len !== 0) {
+          throw new Error('The PNG end chunk has an invalid length.');
+        }
         hasIend = true;
         break;
       }
@@ -2598,8 +2681,12 @@
       }
     }
 
-    if (!hasIend || width === null || height === null || !width || !height) {
+    if (!hasIhdr || !hasIend || width === null || height === null || !width || !height) {
       throw new Error('The PNG image is incomplete or its dimensions could not be read.');
+    }
+
+    if (chunks[0]?.type !== 'IHDR' || chunks[chunks.length - 1]?.type !== 'IEND') {
+      throw new Error('The PNG chunk sequence is malformed.');
     }
 
     return {
@@ -3068,6 +3155,32 @@
     target.append(note);
   }
 
+  async function validateImageDecodes(url, message) {
+    const image = new Image();
+    image.decoding = 'async';
+
+    try {
+      if (typeof image.decode === 'function') {
+        image.src = url;
+        await image.decode();
+      } else {
+        await new Promise((resolve, reject) => {
+          image.onload = resolve;
+          image.onerror = () => reject(new Error(message));
+          image.src = url;
+        });
+      }
+    } catch {
+      throw new Error(message);
+    }
+
+    if (!image.naturalWidth || !image.naturalHeight) {
+      throw new Error(message);
+    }
+
+    return { width: image.naturalWidth, height: image.naturalHeight };
+  }
+
   function validateLocalFile(file) {
     if (!file) {
       throw new Error('Choose an image file to continue.');
@@ -3086,7 +3199,7 @@
     if (state.busy) return;
 
     resetAll();
-    hideStatus();
+    const operationId = ++state.operationId;
 
     try {
       validateLocalFile(file);
@@ -3097,16 +3210,24 @@
       );
 
       const buffer = await file.arrayBuffer();
+      if (operationId !== state.operationId) return;
+
       const bytes = new Uint8Array(buffer);
       const analysis = await analyzeBytes(bytes);
-
       safeImageDimensions(analysis);
+      if (operationId !== state.operationId) return;
 
+      const sourceUrl = URL.createObjectURL(file);
       state.file = file;
       state.analysis = analysis;
-      state.sourceUrl = URL.createObjectURL(file);
+      state.sourceUrl = sourceUrl;
+      els.originalPreview.src = sourceUrl;
 
-      els.originalPreview.src = state.sourceUrl;
+      await validateImageDecodes(
+        sourceUrl,
+        'The browser could not decode this image for preview. Choose a valid JPEG, PNG, or static WebP image.'
+      );
+      if (operationId !== state.operationId) return;
 
       els.originalPanel.classList.remove(PREFIX + 'hidden');
       els.reportPanel.classList.remove(PREFIX + 'hidden');
@@ -3133,20 +3254,21 @@
       renderReport(els.reportContent, els.summary, analysis);
 
       showStatus(
-        'Image analyzed locally. Review the report before creating a clean copy.',
+        'Image analyzed locally. Review the supported metadata report before creating a clean copy.',
         'success'
       );
     } catch (err) {
-      resetAll();
-
-      showStatus(
-        err instanceof Error
-          ? err.message
-          : 'The image could not be processed. Please try a different file.',
-        'error'
-      );
+      if (operationId === state.operationId) {
+        resetAll(true, false);
+        showStatus(
+          err instanceof Error
+            ? err.message
+            : 'The image could not be processed. Please try a different file.',
+          'error'
+        );
+      }
     } finally {
-      setBusy(false);
+      if (operationId === state.operationId) setBusy(false);
     }
   }
 
@@ -3154,7 +3276,7 @@
     const fields = [];
 
     if (a.format === 'JPEG') {
-      fields.push('EXIF/XMP APP1 segments, Photoshop APP13 resources (including parsed IPTC), and JPEG comment segments');
+      fields.push('all JPEG APP1 segments (including common EXIF/XMP locations), APP13 Photoshop resources (including supported IPTC datasets), and JPEG comment segments');
     }
 
     if (a.format === 'PNG') {
@@ -3242,17 +3364,17 @@
     try {
       const img = new Image();
       img.decoding = 'async';
-      img.src = url;
 
       if (typeof img.decode === 'function') {
+        img.src = url;
         await img.decode();
       } else {
         await new Promise((resolve, reject) => {
           img.onload = resolve;
-
           img.onerror = () => reject(
             new Error('The browser could not decode this image to correct its orientation.')
           );
+          img.src = url;
         });
       }
 
@@ -3321,15 +3443,153 @@
     return `${base}-metadata-removed.${ext}`;
   }
 
+  const METADATA_CATEGORIES = ['camera', 'capture', 'gps', 'author', 'other', 'advanced'];
+
+  function metadataEntryKey(item) {
+    return `${item.category}\u0000${item.rawKey || ''}\u0000${item.label}`;
+  }
+
+  function uniqueMetadataEntries(analysis) {
+    const entries = new Map();
+    for (const category of METADATA_CATEGORIES) {
+      for (const item of analysis.meta[category] || []) {
+        const key = metadataEntryKey(item);
+        if (!entries.has(key)) entries.set(key, item);
+      }
+    }
+    return [...entries.values()];
+  }
+
+  function metadataCount(analysis) {
+    return METADATA_CATEGORIES.reduce(
+      (total, category) => total + (analysis.meta[category] || []).length,
+      0
+    );
+  }
+
+  function renderVerification(target, originalAnalysis, outputAnalysis, usedReencode) {
+    target.replaceChildren();
+    target.classList.add(PREFIX + 'verification');
+
+    const before = uniqueMetadataEntries(originalAnalysis);
+    const after = uniqueMetadataEntries(outputAnalysis);
+    const afterKeys = new Set(after.map(metadataEntryKey));
+    const noLongerDetected = before.filter(item => !afterKeys.has(metadataEntryKey(item)));
+    const remainingCount = metadataCount(outputAnalysis);
+
+    const summary = document.createElement('div');
+    summary.className = PREFIX + 'empty';
+    if (remainingCount === 0) {
+      summary.textContent = `The processed copy decoded successfully. The parser detected no supported metadata fields after processing (original fields detected: ${metadataCount(originalAnalysis)}). This is not proof that every possible or proprietary metadata structure is absent.`;
+    } else {
+      summary.textContent = `The processed copy decoded successfully, but ${remainingCount} supported metadata field(s) remain detectable. Review the categories below and the processed metadata report before sharing.`;
+    }
+    target.append(summary);
+
+    if (usedReencode) {
+      const note = document.createElement('p');
+      note.className = PREFIX + 'small';
+      note.textContent = 'Orientation was normalized with browser Canvas re-encoding. Re-encoding can change image quality, compression, color characteristics, or encoding details.';
+      target.append(note);
+    }
+
+    const rows = METADATA_CATEGORIES
+      .map(key => ({
+        key,
+        before: (originalAnalysis.meta[key] || []).length,
+        after: (outputAnalysis.meta[key] || []).length
+      }))
+      .filter(row => row.before > 0 || row.after > 0);
+
+    const heading = document.createElement('h3');
+    heading.textContent = 'Metadata categories before and after processing';
+    target.append(heading);
+
+    if (!rows.length) {
+      const empty = document.createElement('p');
+      empty.className = PREFIX + 'small';
+      empty.textContent = 'No supported metadata categories were detected in either report.';
+      target.append(empty);
+    } else {
+      const table = document.createElement('table');
+      table.className = PREFIX + 'category-table';
+      const thead = document.createElement('thead');
+      const headerRow = document.createElement('tr');
+      for (const label of ['Category', 'Original', 'Processed', 'Result']) {
+        const th = document.createElement('th');
+        th.scope = 'col';
+        th.textContent = label;
+        headerRow.append(th);
+      }
+      thead.append(headerRow);
+      const tbody = document.createElement('tbody');
+
+      for (const row of rows) {
+        const tr = document.createElement('tr');
+        const categoryCell = document.createElement('td');
+        categoryCell.textContent = categoryTitle(row.key);
+        const beforeCell = document.createElement('td');
+        beforeCell.textContent = String(row.before);
+        const afterCell = document.createElement('td');
+        afterCell.textContent = String(row.after);
+        const resultCell = document.createElement('td');
+        resultCell.textContent = row.after > 0
+          ? 'Still detected'
+          : 'No longer detected';
+        tr.append(categoryCell, beforeCell, afterCell, resultCell);
+        tbody.append(tr);
+      }
+
+      table.append(thead, tbody);
+      target.append(table);
+    }
+
+    const fieldHeading = document.createElement('h3');
+    fieldHeading.textContent = 'Original fields no longer detected';
+    target.append(fieldHeading);
+
+    if (noLongerDetected.length) {
+      const list = document.createElement('ul');
+      list.className = PREFIX + 'verification-list';
+      for (const item of noLongerDetected) {
+        const li = document.createElement('li');
+        li.textContent = `${categoryTitle(item.category)} — ${item.label}`;
+        list.append(li);
+      }
+      target.append(list);
+    } else {
+      const p = document.createElement('p');
+      p.className = PREFIX + 'small';
+      p.textContent = before.length
+        ? 'No original field could be individually identified as no longer detected; review any fields still listed in the processed report.'
+        : 'The original report contained no supported metadata fields, so there were no detected fields to compare.';
+      target.append(p);
+    }
+
+    if (after.length) {
+      const remainingHeading = document.createElement('h3');
+      remainingHeading.textContent = 'Detected fields remaining in the processed copy';
+      target.append(remainingHeading);
+      const list = document.createElement('ul');
+      list.className = PREFIX + 'verification-list';
+      for (const item of after) {
+        const li = document.createElement('li');
+        li.textContent = `${categoryTitle(item.category)} — ${item.label}`;
+        list.append(li);
+      }
+      target.append(list);
+    }
+  }
+
   async function processCurrent() {
     if (state.busy || !state.file || !state.analysis) return;
 
     const file = state.file;
     const analysis = state.analysis;
+    const operationId = ++state.operationId;
+    let pendingOutputUrl = null;
 
     try {
-      cleanupOutput();
-
       setBusy(
         true,
         'Removing supported metadata locally and verifying the processed copy…'
@@ -3358,24 +3618,44 @@
         }
       }
 
+      if (operationId !== state.operationId || state.file !== file || state.analysis !== analysis) return;
+      if (!(outputBytes instanceof Uint8Array) || outputBytes.length === 0) {
+        throw new Error('The processed image is empty or invalid. No download was created.');
+      }
+      if (outputBytes.length > MAX_FILE_SIZE) {
+        throw new Error('The processed copy exceeds the 20 MB output safety limit. No download was created; try an image that does not require re-encoding or a smaller source image.');
+      }
+
       const blob = new Blob([outputBytes], { type: analysis.mime });
+      if (!blob.size) {
+        throw new Error('The browser created an empty output file. No download was created.');
+      }
 
-      const outputAnalysis = await analyzeBytes(
-        new Uint8Array(await blob.arrayBuffer())
-      );
-
+      // Parse the existing byte buffer directly to avoid an unnecessary Blob.arrayBuffer() copy.
+      const outputAnalysis = await analyzeBytes(outputBytes);
       safeImageDimensions(outputAnalysis);
 
-      state.outputBlob = blob;
-      state.outputAnalysis = outputAnalysis;
-      state.outputName = outputFilename(file.name, analysis.format);
-      state.outputUrl = URL.createObjectURL(blob);
+      if (outputAnalysis.format !== analysis.format || outputAnalysis.mime !== analysis.mime) {
+        throw new Error('The processed file does not match the original image format. No download was created.');
+      }
+      if (operationId !== state.operationId || state.file !== file || state.analysis !== analysis) return;
 
-      els.outputPreview.src = state.outputUrl;
-      els.outputPanel.classList.remove(PREFIX + 'hidden');
+      pendingOutputUrl = URL.createObjectURL(blob);
+      await validateImageDecodes(
+        pendingOutputUrl,
+        'The processed file could not be decoded by this browser. The previous valid result, if any, has been kept.'
+      );
+      if (operationId !== state.operationId || state.file !== file || state.analysis !== analysis) {
+        revoke(pendingOutputUrl);
+        pendingOutputUrl = null;
+        return;
+      }
 
-      putFacts(els.outputFacts, [
-        ['Output file', state.outputName],
+      const outputName = outputFilename(file.name, analysis.format);
+      const facts = document.createElement('div');
+      facts.className = els.outputFacts.className;
+      putFacts(facts, [
+        ['Output file', outputName],
         ['Detected type', `${outputAnalysis.format} (${outputAnalysis.mime})`],
         ['Output size', fmtBytes(blob.size)],
         [
@@ -3384,56 +3664,42 @@
         ],
         [
           'Remaining supported metadata',
-          outputAnalysis.hasMetadata
-            ? 'Still detected'
+          metadataCount(outputAnalysis) > 0
+            ? `${metadataCount(outputAnalysis)} field(s) still detected`
             : 'None detected by this parser'
         ]
       ]);
 
-      const box = document.createElement('div');
-      box.className = PREFIX + 'empty';
+      const verification = document.createElement('div');
+      renderVerification(verification, analysis, outputAnalysis, usedReencode);
 
-      const remaining = Object.values(outputAnalysis.meta)
-        .reduce((sum, list) => sum + list.length, 0);
+      const report = document.createElement('div');
+      renderReport(report, document.createElement('div'), outputAnalysis);
 
-      if (remaining === 0) {
-        box.textContent = 'Your processed image is ready to download. The tool checked supported metadata fields after processing. No supported embedded metadata fields were detected in the processed copy.';
-      } else {
-        box.textContent = `The output was created and checked, but ${remaining} supported metadata field(s) are still detectable. Review the verification report before sharing.`;
-      }
+      // Commit the new result only after structural parsing and browser image decoding both pass.
+      const previousUrl = state.outputUrl;
+      els.outputPreview.src = pendingOutputUrl;
+      els.outputFacts.replaceChildren(...facts.childNodes);
+      els.outputVerification.replaceChildren(...verification.childNodes);
+      els.outputReportContent.replaceChildren(...report.childNodes);
+      els.outputReport.classList.add(PREFIX + 'hidden');
+      els.viewOutput.textContent = 'View Processed Metadata';
+      els.download.href = pendingOutputUrl;
+      els.download.download = outputName;
+      els.outputPanel.classList.remove(PREFIX + 'hidden');
 
-      els.outputVerification.replaceChildren(box);
+      state.outputBlob = blob;
+      state.outputAnalysis = outputAnalysis;
+      state.outputName = outputName;
+      state.outputUrl = pendingOutputUrl;
+      pendingOutputUrl = null;
+      revoke(previousUrl);
 
-      if (usedReencode) {
-        const p = document.createElement('p');
-        p.className = PREFIX + 'small';
-
-        p.textContent = 'Orientation was normalized with browser Canvas re-encoding. This may slightly alter image quality; transparency is preserved by Canvas for PNG and supported WebP outputs.';
-
-        els.outputVerification.append(p);
-      }
-
-      const detail = document.createElement('p');
-      detail.className = PREFIX + 'small';
-      detail.style.marginTop = '10px';
-
-      detail.textContent = `Removal operation: ${usedReencode ? 'decode and re-encode to normalize orientation; browser-generated image data should omit embedded metadata' : getRemovalExplanation(analysis)}. Color profile chunks/segments are retained where supported to reduce color changes. Not every proprietary metadata format is inspected.`;
-
-      els.outputVerification.append(detail);
-
-      renderReport(
-        els.outputReportContent,
-        document.createElement('div'),
-        outputAnalysis
-      );
-
-      els.download.href = state.outputUrl;
-      els.download.download = state.outputName;
-
+      const remaining = metadataCount(outputAnalysis);
       showStatus(
         remaining === 0
-          ? 'The processed copy was created and checked. Review its limitations, then download it.'
-          : 'The processed copy was created, but some supported metadata remains. Check the report before downloading.',
+          ? 'The processed copy was decoded and checked. No supported metadata fields were detected by this parser; that is not a guarantee that every possible metadata structure is absent.'
+          : `The processed copy was decoded and checked, but ${remaining} supported metadata field(s) remain detectable. Review the verification report before downloading.`,
         remaining === 0 ? 'success' : 'warning'
       );
 
@@ -3444,14 +3710,21 @@
         block: 'start'
       });
     } catch (err) {
-      showStatus(
-        err instanceof Error
+      if (pendingOutputUrl) revoke(pendingOutputUrl);
+      if (operationId === state.operationId) {
+        const previousResultExists = Boolean(state.outputUrl && state.outputBlob && state.outputAnalysis);
+        const baseMessage = err instanceof Error
           ? err.message
-          : 'Metadata removal or verification failed. The original image has not been changed.',
-        'error'
-      );
+          : 'Metadata removal or verification failed. The original image has not been changed.';
+        showStatus(
+          previousResultExists
+            ? `${baseMessage} The previous verified result and its download are still available.`
+            : baseMessage,
+          'error'
+        );
+      }
     } finally {
-      setBusy(false);
+      if (operationId === state.operationId) setBusy(false);
     }
   }
 
@@ -3532,8 +3805,14 @@
   });
 
   window.addEventListener('pagehide', () => {
+    state.operationId += 1;
     revoke(state.sourceUrl);
     revoke(state.outputUrl);
+    state.sourceUrl = null;
+    state.outputUrl = null;
+    state.outputBlob = null;
+    state.outputAnalysis = null;
+    state.outputName = null;
   });
 })();
 
