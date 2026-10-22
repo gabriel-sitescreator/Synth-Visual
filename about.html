@@ -142,9 +142,7 @@
       cursor: pointer;
     }
 
-    .tools-trigger[aria-expanded="true"] {
-      color: var(--accent);
-    }
+    .tools-trigger[aria-expanded="true"] { color: var(--accent); }
 
     .tools-chevron {
       display: inline-block;
@@ -211,9 +209,7 @@
       background: var(--line);
     }
 
-    .tools-menu .tools-commercial-link {
-      color: var(--accent);
-    }
+    .tools-menu .tools-commercial-link { color: var(--accent); }
 
     /* Page introduction */
     .hero {
@@ -275,9 +271,7 @@
     }
 
     /* Main content */
-    .about-content {
-      padding: 12px 0 88px;
-    }
+    .about-content { padding: 12px 0 88px; }
 
     .content-layout {
       display: grid;
@@ -541,7 +535,6 @@
       }
 
       .nav-cta { padding: 7px 10px; }
-
       .tools-trigger { padding: 7px 0; }
 
       .tools-menu {
@@ -615,6 +608,18 @@
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
               >NordVPN Plans ↗</a>
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordpass.io/aff_c?offer_id=488&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordPass ↗</a>
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordlocker.net/aff_c?offer_id=489&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordLocker ↗</a>
             </div>
           </div>
         </div>
@@ -784,6 +789,7 @@
         }
       });
 
+      /* Close the menu after selecting an item */
       menu.querySelectorAll("a").forEach(function (link) {
         link.addEventListener("click", function () {
           setMenuOpen(false);
