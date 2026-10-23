@@ -29,6 +29,7 @@
       --soft: #eaf0eb;
       --soft-2: #f0f2ed;
       --max: 1120px;
+      --menu-max-width: 1080px;
       --radius: 16px;
       --shadow: 0 8px 30px rgba(27, 39, 30, .045);
     }
@@ -42,6 +43,7 @@
     button { cursor: pointer; }
     [hidden] { display: none !important; }
     .container { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
+    .site-header .container { width: min(var(--menu-max-width), calc(100% - 48px)); }
 
     /* Shared Synth Visual header and Tools dropdown */
     .site-header {
@@ -57,7 +59,14 @@
       justify-content: space-between;
       gap: 28px;
     }
-    .brand { flex-shrink: 0; }
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1.05;
+      flex-shrink: 0;
+      color: var(--text);
+      text-decoration: none;
+    }
     .main-nav {
       display: flex;
       align-items: center;
@@ -74,7 +83,8 @@
       padding: 10px 15px;
       border: 1px solid #cbd6ce;
       border-radius: 999px;
-      color: var(--accent) !important;
+      color: var(--accent);
+      white-space: nowrap;
     }
     .tools-dropdown {
       position: relative;
@@ -109,7 +119,7 @@
       position: absolute;
       top: calc(100% + 12px);
       right: -18px;
-      z-index: 99999;
+      z-index: 50;
       width: 322px;
       max-height: min(80vh, 620px);
       overflow-y: auto;
@@ -293,16 +303,13 @@
       }
       .nav-cta { padding: 7px 10px; }
       .tools-trigger { padding: 7px 0; }
+      .site-header .container { width: min(calc(100% - 32px), var(--menu-max-width)); }
       .tools-menu {
-        top: auto;
-        left: 50%;
+        top: calc(100% + 8px);
+        left: 0;
         right: auto;
-        bottom: auto;
-        transform: translateX(-50%);
-        width: min(360px, calc(100vw - 24px));
-        max-width: calc(100vw - 24px);
-        max-height: calc(100vh - 100px);
-        overflow-y: auto;
+        width: min(322px, calc(100vw - 32px));
+        max-height: calc(100vh - 105px);
       }
       .hero { padding: 32px 0 23px; }
       .hero h1 { font-size: clamp(35px, 10vw, 47px); letter-spacing: -1.5px; }
@@ -1093,111 +1100,51 @@
         renderAll();
       }
 
-      /* Shared Synth Visual Tools dropdown. On small screens, keep the menu centered in the viewport. */
-      const toolsDropdown = $('tools-dropdown');
-      const toolsTrigger = $('tools-trigger');
-      const toolsMenu = $('tools-menu');
-
-      if (toolsDropdown && toolsTrigger && toolsMenu) {
-        const mobileMenuQuery = window.matchMedia('(max-width: 560px)');
-
-        function clearMobileMenuPosition() {
-          [
-            'position', 'top', 'right', 'bottom', 'left', 'width', 'max-width',
-            'max-height', 'transform', 'z-index', 'overflow-y', 'margin'
-          ].forEach((property) => toolsMenu.style.removeProperty(property));
-        }
-
-        function positionToolsMenu() {
-          if (!mobileMenuQuery.matches) {
-            clearMobileMenuPosition();
-            return;
-          }
-
-          const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
-          const viewportHeight = window.visualViewport
-            ? Math.round(window.visualViewport.height)
-            : window.innerHeight;
-          const sideGap = 12;
-          const menuWidth = Math.max(180, Math.min(360, viewportWidth - sideGap * 2));
-          const triggerRect = toolsTrigger.getBoundingClientRect();
-          const requestedTop = Math.round(triggerRect.bottom + 8);
-          const menuTop = Math.max(8, Math.min(requestedTop, viewportHeight - 100));
-          const availableHeight = Math.max(80, viewportHeight - menuTop - 12);
-          const maxHeight = Math.max(80, Math.min(availableHeight, Math.round(viewportHeight * 0.8), 620));
-
-          toolsMenu.style.position = 'fixed';
-          toolsMenu.style.top = menuTop + 'px';
-          toolsMenu.style.left = Math.max(sideGap, Math.round((viewportWidth - menuWidth) / 2)) + 'px';
-          toolsMenu.style.right = 'auto';
-          toolsMenu.style.bottom = 'auto';
-          toolsMenu.style.transform = 'none';
-          toolsMenu.style.width = menuWidth + 'px';
-          toolsMenu.style.maxWidth = (viewportWidth - sideGap * 2) + 'px';
-          toolsMenu.style.maxHeight = maxHeight + 'px';
-          toolsMenu.style.overflowY = 'auto';
-          toolsMenu.style.zIndex = '99999';
-          toolsMenu.style.margin = '0';
-        }
-
-        function setMenuOpen(shouldOpen) {
-          toolsTrigger.setAttribute('aria-expanded', String(shouldOpen));
-          if (shouldOpen) {
-            toolsMenu.hidden = false;
-            positionToolsMenu();
-          } else {
-            toolsMenu.hidden = true;
-            clearMobileMenuPosition();
-          }
-        }
-
-        toolsTrigger.addEventListener('click', function (event) {
-          event.stopPropagation();
-          const isOpen = toolsTrigger.getAttribute('aria-expanded') === 'true';
-          setMenuOpen(!isOpen);
-        });
-
-        document.addEventListener('click', function (event) {
-          if (!toolsDropdown.contains(event.target) && !toolsMenu.contains(event.target)) {
-            setMenuOpen(false);
-          }
-        });
-
-        document.addEventListener('keydown', function (event) {
-          if (event.key === 'Escape' && toolsTrigger.getAttribute('aria-expanded') === 'true') {
-            setMenuOpen(false);
-            toolsTrigger.focus();
-          }
-        });
-
-        toolsMenu.querySelectorAll('a').forEach(function (link) {
-          link.addEventListener('click', function () {
-            setMenuOpen(false);
-          });
-        });
-
-        window.addEventListener('resize', function () {
-          if (toolsTrigger.getAttribute('aria-expanded') === 'true') positionToolsMenu();
-        }, { passive: true });
-
-        window.addEventListener('scroll', function () {
-          if (toolsTrigger.getAttribute('aria-expanded') === 'true' && mobileMenuQuery.matches) positionToolsMenu();
-        }, { passive: true });
-
-        if (window.visualViewport) {
-          window.visualViewport.addEventListener('resize', function () {
-            if (toolsTrigger.getAttribute('aria-expanded') === 'true') positionToolsMenu();
-          }, { passive: true });
-          window.visualViewport.addEventListener('scroll', function () {
-            if (toolsTrigger.getAttribute('aria-expanded') === 'true') positionToolsMenu();
-          }, { passive: true });
-        }
-      }
-
       dom.start.addEventListener('click', startTest);
       dom.reset.addEventListener('click', resetResults);
       dom.affiliate.href = CONFIG.AFFILIATE_URL;
       renderAll();
+    })();
+  </script>
+
+  <script>
+    (function () {
+      'use strict';
+
+      const dropdown = document.getElementById('tools-dropdown');
+      const trigger = document.getElementById('tools-trigger');
+      const menu = document.getElementById('tools-menu');
+
+      if (!dropdown || !trigger || !menu) return;
+
+      function setMenuOpen(shouldOpen) {
+        trigger.setAttribute('aria-expanded', String(shouldOpen));
+        menu.hidden = !shouldOpen;
+      }
+
+      trigger.addEventListener('click', function (event) {
+        event.stopPropagation();
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        setMenuOpen(!isOpen);
+      });
+
+      document.addEventListener('click', function (event) {
+        if (!dropdown.contains(event.target)) setMenuOpen(false);
+      });
+
+      document.addEventListener('keydown', function (event) {
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        if (event.key === 'Escape' && isOpen) {
+          setMenuOpen(false);
+          trigger.focus();
+        }
+      });
+
+      menu.querySelectorAll('a').forEach(function (link) {
+        link.addEventListener('click', function () {
+          setMenuOpen(false);
+        });
+      });
     })();
   </script>
 </body>
