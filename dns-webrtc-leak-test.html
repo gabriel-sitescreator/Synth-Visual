@@ -208,10 +208,13 @@
         top: auto;
         left: 50%;
         right: auto;
+        bottom: auto;
         transform: translateX(-50%);
-        width: min(360px, calc(100vw - 32px));
-        max-width: none;
-        max-height: calc(100vh - 140px);
+        width: min(360px, calc(100vw - 24px));
+        max-width: calc(100vw - 24px);
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        z-index: 99999;
       }
       body.sv-dns-test-page .footer-inner { align-items: flex-start; flex-direction: column; }
       .sv-dns-test-breadcrumbs { padding-top: 18px; }
@@ -1217,29 +1220,69 @@
       const toolsMenu = $('tools-menu');
 
       if (toolsDropdown && toolsTrigger && toolsMenu) {
+        /* Keep a placeholder so the menu can be restored to its original DOM location. */
+        const toolsMenuHome = toolsMenu.parentNode;
+        const toolsMenuPlaceholder = document.createComment('tools-menu-original-position');
+        toolsMenuHome.insertBefore(toolsMenuPlaceholder, toolsMenu);
+        toolsMenu.remove();
+
+        function restoreToolsMenuHome() {
+          if (toolsMenu.parentNode !== toolsMenuHome) {
+            toolsMenuHome.insertBefore(toolsMenu, toolsMenuPlaceholder.nextSibling);
+          }
+        }
+
+        function clearToolsMenuInlinePosition() {
+          [
+            'position', 'top', 'right', 'bottom', 'left', 'width', 'max-width',
+            'max-height', 'transform', 'z-index', 'overflow-y', 'margin'
+          ].forEach((property) => toolsMenu.style.removeProperty(property));
+        }
+
         function positionToolsMenu() {
           const isPhoneLayout = window.matchMedia('(max-width: 560px)').matches;
 
           if (!isPhoneLayout) {
-            toolsMenu.style.removeProperty('position');
-            toolsMenu.style.removeProperty('top');
-            toolsMenu.style.removeProperty('left');
-            toolsMenu.style.removeProperty('right');
-            toolsMenu.style.removeProperty('width');
-            toolsMenu.style.removeProperty('max-width');
-            toolsMenu.style.removeProperty('max-height');
-            toolsMenu.style.removeProperty('transform');
+            restoreToolsMenuHome();
+            clearToolsMenuInlinePosition();
             return;
           }
 
-          const triggerRect = toolsTrigger.getBoundingClientRect();
-          const menuTop = Math.round(triggerRect.bottom + 8);
-          const availableHeight = Math.max(120, window.innerHeight - menuTop - 16);
-          const maxHeight = Math.min(availableHeight, Math.round(window.innerHeight * 0.8), 620);
+          /*
+           * On phones, move the menu directly under <body>. This prevents any
+           * parent/header positioning or clipping from pulling it to the left.
+           * The inline pixel position below is calculated from the viewport.
+           */
+          if (toolsMenu.parentNode !== document.body) {
+            document.body.appendChild(toolsMenu);
+          }
 
-          // CSS centers the menu; JavaScript places it just below Tools and keeps it scrollable.
+          const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+          const viewportHeight = window.visualViewport
+            ? Math.round(window.visualViewport.height)
+            : window.innerHeight;
+          const sideGap = 12;
+          const menuWidth = Math.max(180, Math.min(360, viewportWidth - sideGap * 2));
+          const left = Math.max(sideGap, Math.round((viewportWidth - menuWidth) / 2));
+          const triggerRect = toolsTrigger.getBoundingClientRect();
+          const requestedTop = Math.round(triggerRect.bottom + 8);
+          const menuTop = Math.max(8, Math.min(requestedTop, viewportHeight - 100));
+          const availableHeight = Math.max(80, viewportHeight - menuTop - 12);
+          const maxHeight = Math.max(80, Math.min(availableHeight, Math.round(viewportHeight * 0.8), 620));
+
+          /* Inline styles deliberately override the stylesheet and keep the panel centered. */
+          toolsMenu.style.position = 'fixed';
           toolsMenu.style.top = menuTop + 'px';
+          toolsMenu.style.left = left + 'px';
+          toolsMenu.style.right = 'auto';
+          toolsMenu.style.bottom = 'auto';
+          toolsMenu.style.transform = 'none';
+          toolsMenu.style.width = menuWidth + 'px';
+          toolsMenu.style.maxWidth = (viewportWidth - sideGap * 2) + 'px';
           toolsMenu.style.maxHeight = maxHeight + 'px';
+          toolsMenu.style.overflowY = 'auto';
+          toolsMenu.style.zIndex = '99999';
+          toolsMenu.style.margin = '0';
         }
 
         function setToolsMenuOpen(shouldOpen) {
@@ -1249,8 +1292,8 @@
             toolsMenu.hidden = false;
           } else {
             toolsMenu.hidden = true;
-            toolsMenu.style.removeProperty('top');
-            toolsMenu.style.removeProperty('max-height');
+            restoreToolsMenuHome();
+            clearToolsMenuInlinePosition();
           }
         }
 
@@ -1261,7 +1304,9 @@
         });
 
         document.addEventListener('click', function (event) {
-          if (!toolsDropdown.contains(event.target)) setToolsMenuOpen(false);
+          if (!toolsDropdown.contains(event.target) && !toolsMenu.contains(event.target)) {
+            setToolsMenuOpen(false);
+          }
         });
 
         document.addEventListener('keydown', function (event) {
@@ -1280,6 +1325,15 @@
             positionToolsMenu();
           }
         }, { passive: true });
+
+        if (window.visualViewport) {
+          window.visualViewport.addEventListener('resize', function () {
+            if (toolsTrigger.getAttribute('aria-expanded') === 'true') positionToolsMenu();
+          }, { passive: true });
+          window.visualViewport.addEventListener('scroll', function () {
+            if (toolsTrigger.getAttribute('aria-expanded') === 'true') positionToolsMenu();
+          }, { passive: true });
+        }
 
         toolsMenu.querySelectorAll('a').forEach(function (link) {
           link.addEventListener('click', function () {
