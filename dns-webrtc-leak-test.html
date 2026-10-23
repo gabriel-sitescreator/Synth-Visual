@@ -202,7 +202,17 @@
       body.sv-dns-test-page .main-nav { width: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 10px 15px; font-size: 11px; }
       body.sv-dns-test-page .nav-cta { padding: 8px 10px; }
       body.sv-dns-test-page .tools-trigger { padding: 7px 0; }
-      body.sv-dns-test-page .tools-menu { top: calc(100% + 8px); left: 0; right: auto; width: min(322px, calc(100vw - 32px)); max-width: calc(100vw - 32px); }
+      /* On phones, center the dropdown in the viewport instead of anchoring it to the left-side Tools button. */
+      body.sv-dns-test-page .tools-menu {
+        position: fixed;
+        top: auto;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        width: min(360px, calc(100vw - 32px));
+        max-width: none;
+        max-height: calc(100vh - 140px);
+      }
       body.sv-dns-test-page .footer-inner { align-items: flex-start; flex-direction: column; }
       .sv-dns-test-breadcrumbs { padding-top: 18px; }
       .sv-dns-test-hero { padding: 32px 0 23px; }
@@ -1207,9 +1217,41 @@
       const toolsMenu = $('tools-menu');
 
       if (toolsDropdown && toolsTrigger && toolsMenu) {
+        function positionToolsMenu() {
+          const isPhoneLayout = window.matchMedia('(max-width: 560px)').matches;
+
+          if (!isPhoneLayout) {
+            toolsMenu.style.removeProperty('position');
+            toolsMenu.style.removeProperty('top');
+            toolsMenu.style.removeProperty('left');
+            toolsMenu.style.removeProperty('right');
+            toolsMenu.style.removeProperty('width');
+            toolsMenu.style.removeProperty('max-width');
+            toolsMenu.style.removeProperty('max-height');
+            toolsMenu.style.removeProperty('transform');
+            return;
+          }
+
+          const triggerRect = toolsTrigger.getBoundingClientRect();
+          const menuTop = Math.round(triggerRect.bottom + 8);
+          const availableHeight = Math.max(120, window.innerHeight - menuTop - 16);
+          const maxHeight = Math.min(availableHeight, Math.round(window.innerHeight * 0.8), 620);
+
+          // CSS centers the menu; JavaScript places it just below Tools and keeps it scrollable.
+          toolsMenu.style.top = menuTop + 'px';
+          toolsMenu.style.maxHeight = maxHeight + 'px';
+        }
+
         function setToolsMenuOpen(shouldOpen) {
           toolsTrigger.setAttribute('aria-expanded', String(shouldOpen));
-          toolsMenu.hidden = !shouldOpen;
+          if (shouldOpen) {
+            positionToolsMenu();
+            toolsMenu.hidden = false;
+          } else {
+            toolsMenu.hidden = true;
+            toolsMenu.style.removeProperty('top');
+            toolsMenu.style.removeProperty('max-height');
+          }
         }
 
         toolsTrigger.addEventListener('click', function (event) {
@@ -1228,6 +1270,16 @@
             toolsTrigger.focus();
           }
         });
+
+        window.addEventListener('resize', function () {
+          if (toolsTrigger.getAttribute('aria-expanded') === 'true') positionToolsMenu();
+        }, { passive: true });
+
+        window.addEventListener('scroll', function () {
+          if (toolsTrigger.getAttribute('aria-expanded') === 'true' && window.matchMedia('(max-width: 560px)').matches) {
+            positionToolsMenu();
+          }
+        }, { passive: true });
 
         toolsMenu.querySelectorAll('a').forEach(function (link) {
           link.addEventListener('click', function () {
