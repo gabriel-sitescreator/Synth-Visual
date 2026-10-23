@@ -48,16 +48,14 @@
     body.sv-dns-test-page .brand { display: inline-flex; flex-direction: column; line-height: 1.05; flex-shrink: 0; color: var(--sv-dns-text); text-decoration: none; }
     body.sv-dns-test-page .brand-name { font-family: Georgia, "Times New Roman", serif; font-size: 27px; font-weight: 700; letter-spacing: -1.2px; }
     body.sv-dns-test-page .brand-tagline { margin-top: 6px; color: var(--sv-dns-muted); font-size: 10px; letter-spacing: 1.6px; text-transform: uppercase; }
-    body.sv-dns-test-page .main-nav { display: flex; align-items: center; gap: 22px; color: #424840; font-size: 13px; font-weight: 600; }
-    body.sv-dns-test-page .main-nav a { color: inherit; text-decoration: none; transition: color 160ms ease; }
-    body.sv-dns-test-page .main-nav a:hover, body.sv-dns-test-page .main-nav a[aria-current="page"] { color: var(--sv-dns-accent); }
+    body.sv-dns-test-page .main-nav { display: flex; align-items: center; gap: 27px; color: #424840; font-size: 13px; font-weight: 600; }
+    body.sv-dns-test-page .main-nav a, body.sv-dns-test-page .tools-trigger { color: inherit; text-decoration: none; transition: color 160ms ease; }
+    body.sv-dns-test-page .main-nav a:hover, body.sv-dns-test-page .tools-trigger:hover, body.sv-dns-test-page .main-nav a[aria-current="page"] { color: var(--sv-dns-accent); }
     body.sv-dns-test-page .nav-cta { padding: 10px 15px; border: 1px solid #cbd6ce; border-radius: 999px; color: var(--sv-dns-accent) !important; }
 
-    /* Tools dropdown — follows the navigation pattern used on the About page. */
+    /* Tools dropdown — shared Synth Visual navigation pattern. */
     body.sv-dns-test-page .tools-dropdown { position: relative; display: inline-flex; align-items: center; }
-    body.sv-dns-test-page .tools-trigger { display: inline-flex; align-items: center; gap: 6px; padding: 9px 0; border: 0; background: transparent; color: #424840; font: inherit; cursor: pointer; transition: color 160ms ease; }
-    body.sv-dns-test-page .tools-trigger:hover,
-    body.sv-dns-test-page .tools-trigger[aria-expanded="true"] { color: var(--sv-dns-accent); }
+    body.sv-dns-test-page .tools-trigger { display: inline-flex; align-items: center; gap: 6px; padding: 9px 0; border: 0; background: transparent; color: #424840; font: inherit; cursor: pointer; }
     body.sv-dns-test-page .tools-chevron { display: inline-block; width: 7px; height: 7px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: translateY(-2px) rotate(45deg); transition: transform 160ms ease; }
     body.sv-dns-test-page .tools-trigger[aria-expanded="true"] .tools-chevron { transform: translateY(2px) rotate(225deg); }
     body.sv-dns-test-page .tools-menu { position: absolute; top: calc(100% + 12px); right: -18px; z-index: 50; width: 322px; max-height: min(80vh, 620px); overflow-y: auto; overscroll-behavior: contain; padding: 10px; border: 1px solid var(--sv-dns-line); border-radius: 14px; background: var(--sv-dns-surface); box-shadow: 0 16px 42px rgba(27, 39, 30, .13); }
@@ -74,7 +72,7 @@
     body.sv-dns-test-page .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
     body.sv-dns-test-page .footer-brand { color: var(--sv-dns-text); font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; letter-spacing: -.5px; text-decoration: none; }
     body.sv-dns-test-page .copyright { margin: 5px 0 0; color: var(--sv-dns-muted); font-size: 11px; }
-    body.sv-dns-test-page .footer-links { display: flex; flex-wrap: wrap; gap: 12px 19px; color: var(--sv-dns-muted); font-size: 11px; }
+    body.sv-dns-test-page .footer-links { display: flex; flex-wrap: wrap; gap: 19px; color: var(--sv-dns-muted); font-size: 11px; }
     body.sv-dns-test-page .footer-links a { color: inherit; text-decoration: none; }
     body.sv-dns-test-page .footer-links a:hover { color: var(--sv-dns-accent); }
 
@@ -202,12 +200,19 @@
       body.sv-dns-test-page .main-nav { width: 100%; flex-wrap: wrap; justify-content: flex-start; gap: 10px 15px; font-size: 11px; }
       body.sv-dns-test-page .nav-cta { padding: 8px 10px; }
       body.sv-dns-test-page .tools-trigger { padding: 7px 0; }
-      /* Match the mobile dropdown positioning on the About page. */
+      /* On phones, center the dropdown in the viewport instead of anchoring it to the left-side Tools button. */
       body.sv-dns-test-page .tools-menu {
-        top: calc(100% + 8px);
-        left: 0;
+        position: fixed;
+        top: auto;
+        left: 50%;
         right: auto;
-        width: min(322px, calc(100vw - 32px));
+        bottom: auto;
+        transform: translateX(-50%);
+        width: min(360px, calc(100vw - 24px));
+        max-width: calc(100vw - 24px);
+        max-height: calc(100vh - 100px);
+        overflow-y: auto;
+        z-index: 99999;
       }
       body.sv-dns-test-page .footer-inner { align-items: flex-start; flex-direction: column; }
       .sv-dns-test-breadcrumbs { padding-top: 18px; }
@@ -227,7 +232,7 @@
       .sv-dns-test-education { padding: 40px 0; }
       .sv-dns-test-education-card { padding: 18px; }
       .sv-dns-test-affiliate { padding: 18px; }
-      body.sv-dns-test-page .footer-links { gap: 12px 15px; }
+      body.sv-dns-test-page .footer-links { gap: 14px; }
     }
     @media (prefers-reduced-motion: reduce) {
       body.sv-dns-test-page *, body.sv-dns-test-page *::before, body.sv-dns-test-page *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
@@ -241,11 +246,20 @@
         <span class="brand-name">Synth Visual</span>
         <span class="brand-tagline">Technology, made clearer</span>
       </a>
+      
+      <!-- MENU ATUALIZADO PARA MATCH COM about.html -->
       <nav class="main-nav" aria-label="Main navigation">
         <div class="tools-dropdown" id="tools-dropdown">
-          <button class="tools-trigger" id="tools-trigger" type="button" aria-expanded="false" aria-controls="tools-menu">
+          <button
+            class="tools-trigger"
+            id="tools-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="tools-menu"
+          >
             Tools <span class="tools-chevron" aria-hidden="true"></span>
           </button>
+
           <div class="tools-menu" id="tools-menu" hidden>
             <div class="tools-menu-section" aria-labelledby="privacy-tools-heading">
               <p class="tools-menu-heading" id="privacy-tools-heading">Privacy &amp; Network Tools</p>
@@ -253,31 +267,75 @@
               <a href="/what-is-my-ip.html">What Is My IP?</a>
               <a href="/secure-password-generator.html">Password Generator</a>
             </div>
+
             <div class="tools-menu-divider" aria-hidden="true"></div>
+
             <div class="tools-menu-section" aria-labelledby="vpn-privacy-heading">
               <p class="tools-menu-heading" id="vpn-privacy-heading">VPNs &amp; Online Privacy</p>
-              <a class="tools-commercial-link" href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160" target="_blank" rel="sponsored nofollow noopener noreferrer">NordVPN Plans ↗</a>
-              <a class="tools-commercial-link" href="https://adguard-vpn.com?aid=138500" target="_blank" rel="sponsored nofollow noopener noreferrer">AdGuard VPN ↗</a>
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordVPN Plans ↗</a>
+              <a
+                class="tools-commercial-link"
+                href="https://adguard-vpn.com?aid=138500"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >AdGuard VPN ↗</a>
             </div>
+
             <div class="tools-menu-divider" aria-hidden="true"></div>
+
             <div class="tools-menu-section" aria-labelledby="ad-blocking-dns-heading">
               <p class="tools-menu-heading" id="ad-blocking-dns-heading">Ad Blocking &amp; DNS</p>
-              <a class="tools-commercial-link" href="https://adguard.com?aid=138500" target="_blank" rel="sponsored nofollow noopener noreferrer">AdGuard Ad Blocker ↗</a>
-              <a class="tools-commercial-link" href="https://adguard-dns.io?aid=138500" target="_blank" rel="sponsored nofollow noopener noreferrer">AdGuard DNS ↗</a>
+              <a
+                class="tools-commercial-link"
+                href="https://adguard.com?aid=138500"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >AdGuard Ad Blocker ↗</a>
+              <a
+                class="tools-commercial-link"
+                href="https://adguard-dns.io?aid=138500"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >AdGuard DNS ↗</a>
             </div>
+
             <div class="tools-menu-divider" aria-hidden="true"></div>
+
             <div class="tools-menu-section" aria-labelledby="password-file-security-heading">
               <p class="tools-menu-heading" id="password-file-security-heading">Password &amp; File Security</p>
-              <a class="tools-commercial-link" href="https://go.nordpass.io/aff_c?offer_id=488&amp;aff_id=138160" target="_blank" rel="sponsored nofollow noopener noreferrer">NordPass ↗</a>
-              <a class="tools-commercial-link" href="https://go.nordlocker.net/aff_c?offer_id=489&amp;aff_id=138160" target="_blank" rel="sponsored nofollow noopener noreferrer">NordLocker ↗</a>
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordpass.io/aff_c?offer_id=488&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordPass ↗</a>
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordlocker.net/aff_c?offer_id=489&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordLocker ↗</a>
             </div>
+
             <div class="tools-menu-divider" aria-hidden="true"></div>
+
             <div class="tools-menu-section" aria-labelledby="creative-software-heading">
               <p class="tools-menu-heading" id="creative-software-heading">Creative &amp; Design Software</p>
-              <a class="tools-commercial-link" href="https://www.coreldraw.com/br/product/coreldraw/?utm_medium=affiliate&amp;utm_source=cj&amp;utm_campaign=PL-other-all-defaultaffiliatelink&amp;x-vehicle=cj" target="_blank" rel="sponsored nofollow noopener noreferrer">CorelDRAW ↗</a>
+              <a
+                class="tools-commercial-link"
+                href="https://www.coreldraw.com/br/product/coreldraw/?utm_medium=affiliate&amp;utm_source=cj&amp;utm_campaign=PL-other-all-defaultaffiliatelink&amp;x-vehicle=cj"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >CorelDRAW ↗</a>
             </div>
           </div>
         </div>
+
         <a href="https://synthvisuals.space/about.html">About</a>
         <a class="nav-cta" href="/#latest-guides">Explore Articles</a>
       </nav>
@@ -334,7 +392,9 @@
             <span class="sv-dns-test-local-badge">No account required</span>
           </div>
           <div class="sv-dns-test-actions">
-            <button class="sv-dns-test-button sv-dns-test-button-primary" id="sv-dns-test-start" type="button"><span aria-hidden="true">◉</span><span>Start Leak Test</span></button>
+            <button class="sv-dns-test-button sv-dns-test-button-primary" id="sv-dns-test-start" type="button">
+              <span aria-hidden="true">◉</span><span>Start Leak Test</span>
+            </button>
             <button class="sv-dns-test-button sv-dns-test-button-secondary" id="sv-dns-test-reset" type="button" hidden>Reset results</button>
           </div>
           <p class="sv-dns-test-progress" id="sv-dns-test-live" role="status" aria-live="polite" aria-atomic="true">Ready. No checks have run yet.</p>
@@ -349,7 +409,10 @@
           <div class="sv-dns-test-result-grid">
             <article class="sv-dns-test-result-card" aria-labelledby="sv-dns-test-ip-heading">
               <div class="sv-dns-test-card-top">
-                <div class="sv-dns-test-card-heading"><span class="sv-dns-test-card-icon" aria-hidden="true">↗</span><h3 id="sv-dns-test-ip-heading">Public IP Address</h3></div>
+                <div class="sv-dns-test-card-heading">
+                  <span class="sv-dns-test-card-icon" aria-hidden="true">↗</span>
+                  <h3 id="sv-dns-test-ip-heading">Public IP Address</h3>
+                </div>
                 <span id="sv-dns-test-ip-status" class="sv-dns-test-status">Not Tested</span>
               </div>
               <div class="sv-dns-test-ip-group">
@@ -367,7 +430,10 @@
 
             <article class="sv-dns-test-result-card" aria-labelledby="sv-dns-test-webrtc-heading">
               <div class="sv-dns-test-card-top">
-                <div class="sv-dns-test-card-heading"><span class="sv-dns-test-card-icon" aria-hidden="true">⌁</span><h3 id="sv-dns-test-webrtc-heading">WebRTC</h3></div>
+                <div class="sv-dns-test-card-heading">
+                  <span class="sv-dns-test-card-icon" aria-hidden="true">⌁</span>
+                  <h3 id="sv-dns-test-webrtc-heading">WebRTC</h3>
+                </div>
                 <span id="sv-dns-test-webrtc-status" class="sv-dns-test-status">Not Tested</span>
               </div>
               <p class="sv-dns-test-result-detail" id="sv-dns-test-webrtc-summary">WebRTC candidate inspection has not run yet.</p>
@@ -377,7 +443,10 @@
 
             <article class="sv-dns-test-result-card" aria-labelledby="sv-dns-test-dns-heading">
               <div class="sv-dns-test-card-top">
-                <div class="sv-dns-test-card-heading"><span class="sv-dns-test-card-icon" aria-hidden="true">⇄</span><h3 id="sv-dns-test-dns-heading">DNS Leak Test</h3></div>
+                <div class="sv-dns-test-card-heading">
+                  <span class="sv-dns-test-card-icon" aria-hidden="true">⇄</span>
+                  <h3 id="sv-dns-test-dns-heading">DNS Leak Test</h3>
+                </div>
                 <span id="sv-dns-test-dns-status" class="sv-dns-test-status sv-dns-test-status--warning">Not Configured</span>
               </div>
               <p class="sv-dns-test-result-detail" id="sv-dns-test-dns-summary">DNS leak detection requires a configured test service that can observe authoritative DNS queries. This part of the test is not available yet.</p>
@@ -466,10 +535,11 @@
         <a class="footer-brand" href="/">Synth Visual</a>
         <p class="copyright">© 2026 Synth Visual. All rights reserved.</p>
       </div>
+      <!-- LINKS DO RODAPÉ PADRONIZADOS COM about.html -->
       <nav class="footer-links" aria-label="Footer navigation">
-        <a href="/about.html">About</a>
-        <a href="/privacy-policy.html">Privacy Policy</a>
-        <a href="/affiliate-disclosure.html">Affiliate Disclosure</a>
+        <a href="https://synthvisuals.space/about.html">About</a>
+        <a href="https://synthvisuals.space/privacy-policy.html">Privacy Policy</a>
+        <a href="https://synthvisuals.space/affiliate-disclosure.html">Affiliate Disclosure</a>
       </nav>
     </div>
   </footer>
@@ -478,7 +548,11 @@
     (() => {
       'use strict';
 
-      /* Synth Visual Space DNS/WebRTC Leak Test configuration. */
+      /*
+       * Synth Visual Space DNS/WebRTC Leak Test configuration.
+       * IP and WebRTC checks use a single configured provider/server each.
+       * DNS stays disabled until all three DNS settings below are configured.
+       */
       const SV_DNS_TEST_CONFIG = Object.freeze({
         IPV4_LOOKUP_URL: 'https://api4.ipify.org?format=json',
         IPV6_LOOKUP_URL: 'https://api6.ipify.org?format=json',
@@ -673,6 +747,7 @@
       function isPublicIP(ipInfo) {
         if (!ipInfo) return false;
         if (ipInfo.family === 4) return !isSpecialIPv4(ipInfo.value);
+        // Count global-unicast IPv6 (2000::/3), excluding the documentation prefix.
         const first = parseInt(ipInfo.value.slice(0, 4), 16);
         return first >= 0x2000 && first <= 0x3fff && !ipInfo.value.startsWith('2001:0db8:');
       }
@@ -834,6 +909,16 @@
           status, summary, findings: details.join(' '), privateAddresses: local.map((item) => item.value),
           publicAddresses: publicCandidates.map((item) => ({ family: item.family, value: item.value, candidateType: item.candidateType })), mdnsCount: raw.mdnsCount || 0
         };
+      }
+
+      function setIpPending() {
+        setStatus(dom.ipStatus, 'Testing', 'info');
+        setStatus(dom.ipv4Status, 'Testing', 'info');
+        setStatus(dom.ipv6Status, 'Testing', 'info');
+        dom.ipv4Value.textContent = 'Checking…';
+        dom.ipv6Value.textContent = 'Checking…';
+        dom.ipv4Detail.textContent = 'Requesting the configured IPv4 lookup endpoint.';
+        dom.ipv6Detail.textContent = 'Requesting the configured IPv6 lookup endpoint.';
       }
 
       function renderIP() {
@@ -1012,7 +1097,8 @@
           const probeUrl = validateProbeUrl(session && session.probeUrl);
           if (token !== runToken) return;
 
-          // The opaque response is never treated as DNS evidence; only authoritative backend observations count.
+          // This no-cors request triggers resolution on the controlled probe hostname.
+          // Its opaque/unreadable HTTP result is never treated as DNS evidence; only the backend's authoritative observations count.
           probeController = new AbortController();
           activeProbeController = probeController;
           probeSettled = false;
@@ -1062,6 +1148,7 @@
           if (token === runToken) renderDNS();
         }
       }
+
 
       async function startTest() {
         runToken += 1;
@@ -1129,15 +1216,87 @@
         renderAll();
       }
 
-      /* Accessible Tools dropdown — same behavior as the About page. */
+      /* Accessible Tools dropdown shared across Synth Visual pages. */
       const toolsDropdown = $('tools-dropdown');
       const toolsTrigger = $('tools-trigger');
       const toolsMenu = $('tools-menu');
 
       if (toolsDropdown && toolsTrigger && toolsMenu) {
+        /* Keep a placeholder so the menu can be restored to its original DOM location. */
+        const toolsMenuHome = toolsMenu.parentNode;
+        const toolsMenuPlaceholder = document.createComment('tools-menu-original-position');
+        toolsMenuHome.insertBefore(toolsMenuPlaceholder, toolsMenu);
+        toolsMenu.remove();
+
+        function restoreToolsMenuHome() {
+          if (toolsMenu.parentNode !== toolsMenuHome) {
+            toolsMenuHome.insertBefore(toolsMenu, toolsMenuPlaceholder.nextSibling);
+          }
+        }
+
+        function clearToolsMenuInlinePosition() {
+          [
+            'position', 'top', 'right', 'bottom', 'left', 'width', 'max-width',
+            'max-height', 'transform', 'z-index', 'overflow-y', 'margin'
+          ].forEach((property) => toolsMenu.style.removeProperty(property));
+        }
+
+        function positionToolsMenu() {
+          const isPhoneLayout = window.matchMedia('(max-width: 560px)').matches;
+
+          if (!isPhoneLayout) {
+            restoreToolsMenuHome();
+            clearToolsMenuInlinePosition();
+            return;
+          }
+
+          /*
+           * On phones, move the menu directly under <body>. This prevents any
+           * parent/header positioning or clipping from pulling it to the left.
+           * The inline pixel position below is calculated from the viewport.
+           */
+          if (toolsMenu.parentNode !== document.body) {
+            document.body.appendChild(toolsMenu);
+          }
+
+          const viewportWidth = document.documentElement.clientWidth || window.innerWidth;
+          const viewportHeight = window.visualViewport
+            ? Math.round(window.visualViewport.height)
+            : window.innerHeight;
+          const sideGap = 12;
+          const menuWidth = Math.max(180, Math.min(360, viewportWidth - sideGap * 2));
+          const left = Math.max(sideGap, Math.round((viewportWidth - menuWidth) / 2));
+          const triggerRect = toolsTrigger.getBoundingClientRect();
+          const requestedTop = Math.round(triggerRect.bottom + 8);
+          const menuTop = Math.max(8, Math.min(requestedTop, viewportHeight - 100));
+          const availableHeight = Math.max(80, viewportHeight - menuTop - 12);
+          const maxHeight = Math.max(80, Math.min(availableHeight, Math.round(viewportHeight * 0.8), 620));
+
+          /* Inline styles deliberately override the stylesheet and keep the panel centered. */
+          toolsMenu.style.position = 'fixed';
+          toolsMenu.style.top = menuTop + 'px';
+          toolsMenu.style.left = left + 'px';
+          toolsMenu.style.right = 'auto';
+          toolsMenu.style.bottom = 'auto';
+          toolsMenu.style.transform = 'none';
+          toolsMenu.style.width = menuWidth + 'px';
+          toolsMenu.style.maxWidth = (viewportWidth - sideGap * 2) + 'px';
+          toolsMenu.style.maxHeight = maxHeight + 'px';
+          toolsMenu.style.overflowY = 'auto';
+          toolsMenu.style.zIndex = '99999';
+          toolsMenu.style.margin = '0';
+        }
+
         function setToolsMenuOpen(shouldOpen) {
           toolsTrigger.setAttribute('aria-expanded', String(shouldOpen));
-          toolsMenu.hidden = !shouldOpen;
+          if (shouldOpen) {
+            positionToolsMenu();
+            toolsMenu.hidden = false;
+          } else {
+            toolsMenu.hidden = true;
+            restoreToolsMenuHome();
+            clearToolsMenuInlinePosition();
+          }
         }
 
         toolsTrigger.addEventListener('click', function (event) {
@@ -1147,16 +1306,36 @@
         });
 
         document.addEventListener('click', function (event) {
-          if (!toolsDropdown.contains(event.target)) setToolsMenuOpen(false);
+          if (!toolsDropdown.contains(event.target) && !toolsMenu.contains(event.target)) {
+            setToolsMenuOpen(false);
+          }
         });
 
         document.addEventListener('keydown', function (event) {
-          const isOpen = toolsTrigger.getAttribute('aria-expanded') === 'true';
-          if (event.key === 'Escape' && isOpen) {
+          if (event.key === 'Escape' && toolsTrigger.getAttribute('aria-expanded') === 'true') {
             setToolsMenuOpen(false);
             toolsTrigger.focus();
           }
         });
+
+        window.addEventListener('resize', function () {
+          if (toolsTrigger.getAttribute('aria-expanded') === 'true') positionToolsMenu();
+        }, { passive: true });
+
+        window.addEventListener('scroll', function () {
+          if (toolsTrigger.getAttribute('aria-expanded') === 'true' && window.matchMedia('(max-width: 560px)').matches) {
+            positionToolsMenu();
+          }
+        }, { passive: true });
+
+        if (window.visualViewport) {
+          window.visualViewport.addEventListener('resize', function () {
+            if (toolsTrigger.getAttribute('aria-expanded') === 'true') positionToolsMenu();
+          }, { passive: true });
+          window.visualViewport.addEventListener('scroll', function () {
+            if (toolsTrigger.getAttribute('aria-expanded') === 'true') positionToolsMenu();
+          }, { passive: true });
+        }
 
         toolsMenu.querySelectorAll('a').forEach(function (link) {
           link.addEventListener('click', function () {
