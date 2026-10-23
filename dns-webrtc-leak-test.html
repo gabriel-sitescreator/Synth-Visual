@@ -30,6 +30,7 @@
       --soft-2: #f0f2ed;
       --max: 1120px;
       --menu-max-width: 1080px;
+      --max-width: 1080px;
       --radius: 16px;
       --shadow: 0 8px 30px rgba(27, 39, 30, 0.045);
     }
@@ -47,23 +48,30 @@
     body, button { font: inherit; }
     a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
     a:hover { color: var(--accent-hover); }
-    a:focus-visible, button:focus-visible, summary:focus-visible {
+    a:focus-visible,
+    button:focus-visible {
       outline: 3px solid #7cae98;
-      outline-offset: 3px;
-      border-radius: 5px;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+    summary:focus-visible {
+      outline: 3px solid #7cae98;
+      outline-offset: 4px;
+      border-radius: 4px;
     }
     button { cursor: pointer; }
     [hidden] { display: none !important; }
     .container { width: min(var(--max), calc(100% - 48px)); margin-inline: auto; }
     .site-header .container { width: min(var(--menu-max-width), calc(100% - 48px)); }
 
-    /* Synth Visual header and Tools menu */
+    /* Header — consistent with the Synth Visual homepage */
     .site-header {
       position: relative;
       z-index: 20;
       border-bottom: 1px solid var(--line);
       background: rgba(247, 247, 244, 0.94);
     }
+
     .header-inner {
       min-height: 82px;
       display: flex;
@@ -71,20 +79,23 @@
       justify-content: space-between;
       gap: 28px;
     }
+
     .brand {
       display: inline-flex;
       flex-direction: column;
       line-height: 1.05;
       flex-shrink: 0;
-      color: var(--text);
+      color: inherit;
       text-decoration: none;
     }
+
     .brand-name {
       font-family: Georgia, "Times New Roman", serif;
       font-size: 27px;
       font-weight: 700;
       letter-spacing: -1.2px;
     }
+
     .brand-tagline {
       margin-top: 6px;
       color: var(--muted);
@@ -92,6 +103,7 @@
       letter-spacing: 1.6px;
       text-transform: uppercase;
     }
+
     .main-nav {
       display: flex;
       align-items: center;
@@ -100,10 +112,20 @@
       font-size: 13px;
       font-weight: 600;
     }
-    .main-nav a, .tools-trigger { transition: color 160ms ease; }
-    .main-nav a { color: inherit; text-decoration: none; }
-    .main-nav a:hover, .tools-trigger:hover { color: var(--accent); }
+
+    .main-nav a,
+    .tools-trigger { transition: color 160ms ease; }
+
+    .main-nav a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .main-nav a:hover,
+    .tools-trigger:hover { color: var(--accent); }
+
     .main-nav a[aria-current="page"] { color: var(--accent); }
+
     .nav-cta {
       padding: 10px 15px;
       border: 1px solid #cbd6ce;
@@ -111,11 +133,14 @@
       color: var(--accent);
       white-space: nowrap;
     }
+
+    /* Tools dropdown */
     .tools-dropdown {
       position: relative;
       display: inline-flex;
       align-items: center;
     }
+
     .tools-trigger {
       display: inline-flex;
       align-items: center;
@@ -127,7 +152,9 @@
       font: inherit;
       cursor: pointer;
     }
+
     .tools-trigger[aria-expanded="true"] { color: var(--accent); }
+
     .tools-chevron {
       display: inline-block;
       width: 7px;
@@ -137,9 +164,11 @@
       transform: translateY(-2px) rotate(45deg);
       transition: transform 160ms ease;
     }
+
     .tools-trigger[aria-expanded="true"] .tools-chevron {
       transform: translateY(2px) rotate(225deg);
     }
+
     .tools-menu {
       position: absolute;
       top: calc(100% + 12px);
@@ -155,8 +184,11 @@
       background: var(--surface);
       box-shadow: 0 16px 42px rgba(27, 39, 30, 0.13);
     }
-    .tools-menu[hidden] { display: none !important; }
+
+    .tools-menu[hidden] { display: none; }
+
     .tools-menu-section { padding: 8px 7px 9px; }
+
     .tools-menu-heading {
       margin: 0 0 7px;
       color: var(--muted);
@@ -166,6 +198,7 @@
       line-height: 1.5;
       text-transform: uppercase;
     }
+
     .tools-menu a {
       display: flex;
       align-items: center;
@@ -178,11 +211,19 @@
       line-height: 1.4;
       text-decoration: none;
     }
-    .tools-menu a:hover, .tools-menu a:focus-visible {
+
+    .tools-menu a:hover,
+    .tools-menu a:focus-visible {
       background: var(--soft);
       color: var(--accent);
     }
-    .tools-menu-divider { height: 1px; margin: 3px 7px; background: var(--line); }
+
+    .tools-menu-divider {
+      height: 1px;
+      margin: 3px 7px;
+      background: var(--line);
+    }
+
     .tools-menu .tools-commercial-link { color: var(--accent); }
 
     .hero { padding: 48px 0 31px; text-align: center; }
@@ -347,7 +388,6 @@
         left: 0;
         right: auto;
         width: min(322px, calc(100vw - 32px));
-        max-height: calc(100vh - 105px);
       }
       .hero { padding: 32px 0 23px; }
       .hero h1 { font-size: clamp(35px, 10vw, 47px); letter-spacing: -1.5px; }
@@ -380,13 +420,16 @@
 <body>
   <header class="site-header">
     <div class="container header-inner">
+
       <a class="brand" href="/" aria-label="Synth Visual home">
         <span class="brand-name">Synth Visual</span>
         <span class="brand-tagline">Technology, made clearer</span>
       </a>
 
       <nav class="main-nav" aria-label="Main navigation">
+
         <div class="tools-dropdown" id="tools-dropdown">
+
           <button
             class="tools-trigger"
             id="tools-trigger"
@@ -394,87 +437,152 @@
             aria-expanded="false"
             aria-controls="tools-menu"
           >
-            Tools <span class="tools-chevron" aria-hidden="true"></span>
+            Tools
+            <span class="tools-chevron" aria-hidden="true"></span>
           </button>
 
           <div class="tools-menu" id="tools-menu" hidden>
-            <div class="tools-menu-section" aria-labelledby="privacy-tools-heading">
-              <p class="tools-menu-heading" id="privacy-tools-heading">Privacy &amp; Network Tools</p>
-              <a href="/dns-webrtc-leak-test.html" aria-current="page">DNS/WebRTC Leak Test</a>
-              <a href="/what-is-my-ip.html">What Is My IP?</a>
-              <a href="/secure-password-generator.html">Password Generator</a>
+
+            <div class="tools-menu-section"
+                 aria-labelledby="privacy-tools-heading">
+
+              <p class="tools-menu-heading" id="privacy-tools-heading">
+                Privacy &amp; Network Tools
+              </p>
+
+              <a href="/dns-webrtc-leak-test.html" aria-current="page">
+                DNS/WebRTC Leak Test
+              </a>
+
+              <a href="/what-is-my-ip.html">
+                What Is My IP?
+              </a>
+
+              <a href="/secure-password-generator.html">
+                Password Generator
+              </a>
+
             </div>
 
             <div class="tools-menu-divider" aria-hidden="true"></div>
 
-            <div class="tools-menu-section" aria-labelledby="vpn-privacy-heading">
-              <p class="tools-menu-heading" id="vpn-privacy-heading">VPNs &amp; Online Privacy</p>
+            <div class="tools-menu-section"
+                 aria-labelledby="vpn-privacy-heading">
+
+              <p class="tools-menu-heading" id="vpn-privacy-heading">
+                VPNs &amp; Online Privacy
+              </p>
+
               <a
                 class="tools-commercial-link"
                 href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160"
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-              >NordVPN Plans ↗</a>
+              >
+                NordVPN Plans ↗
+              </a>
+
               <a
                 class="tools-commercial-link"
                 href="https://adguard-vpn.com?aid=138500"
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-              >AdGuard VPN ↗</a>
+              >
+                AdGuard VPN ↗
+              </a>
+
             </div>
 
             <div class="tools-menu-divider" aria-hidden="true"></div>
 
-            <div class="tools-menu-section" aria-labelledby="ad-blocking-dns-heading">
-              <p class="tools-menu-heading" id="ad-blocking-dns-heading">Ad Blocking &amp; DNS</p>
+            <div class="tools-menu-section"
+                 aria-labelledby="ad-blocking-dns-heading">
+
+              <p class="tools-menu-heading" id="ad-blocking-dns-heading">
+                Ad Blocking &amp; DNS
+              </p>
+
               <a
                 class="tools-commercial-link"
                 href="https://adguard.com?aid=138500"
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-              >AdGuard Ad Blocker ↗</a>
+              >
+                AdGuard Ad Blocker ↗
+              </a>
+
               <a
                 class="tools-commercial-link"
                 href="https://adguard-dns.io?aid=138500"
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-              >AdGuard DNS ↗</a>
+              >
+                AdGuard DNS ↗
+              </a>
+
             </div>
 
             <div class="tools-menu-divider" aria-hidden="true"></div>
 
-            <div class="tools-menu-section" aria-labelledby="password-file-security-heading">
-              <p class="tools-menu-heading" id="password-file-security-heading">Password &amp; File Security</p>
+            <div class="tools-menu-section"
+                 aria-labelledby="password-file-security-heading">
+
+              <p class="tools-menu-heading"
+                 id="password-file-security-heading">
+                Password &amp; File Security
+              </p>
+
               <a
                 class="tools-commercial-link"
                 href="https://go.nordpass.io/aff_c?offer_id=488&amp;aff_id=138160"
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-              >NordPass ↗</a>
+              >
+                NordPass ↗
+              </a>
+
               <a
                 class="tools-commercial-link"
                 href="https://go.nordlocker.net/aff_c?offer_id=489&amp;aff_id=138160"
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-              >NordLocker ↗</a>
+              >
+                NordLocker ↗
+              </a>
+
             </div>
 
             <div class="tools-menu-divider" aria-hidden="true"></div>
 
-            <div class="tools-menu-section" aria-labelledby="creative-software-heading">
-              <p class="tools-menu-heading" id="creative-software-heading">Creative &amp; Design Software</p>
+            <div class="tools-menu-section"
+                 aria-labelledby="creative-software-heading">
+
+              <p class="tools-menu-heading" id="creative-software-heading">
+                Creative &amp; Design Software
+              </p>
+
               <a
                 class="tools-commercial-link"
                 href="https://www.coreldraw.com/br/product/coreldraw/?utm_medium=affiliate&amp;utm_source=cj&amp;utm_campaign=PL-other-all-defaultaffiliatelink&amp;x-vehicle=cj"
                 target="_blank"
                 rel="sponsored nofollow noopener noreferrer"
-              >CorelDRAW ↗</a>
+              >
+                CorelDRAW ↗
+              </a>
+
             </div>
+
           </div>
         </div>
 
-        <a href="https://synthvisuals.space/about.html">About</a>
-        <a class="nav-cta" href="/#latest-guides">Explore Articles</a>
+        <a href="https://synthvisuals.space/about.html">
+          About
+        </a>
+
+        <a class="nav-cta" href="/#latest-guides">
+          Explore Articles
+        </a>
+
       </nav>
     </div>
   </header>
@@ -1152,39 +1260,44 @@
 
   <script>
     (function () {
-      'use strict';
-
-      const dropdown = document.getElementById('tools-dropdown');
-      const trigger = document.getElementById('tools-trigger');
-      const menu = document.getElementById('tools-menu');
+      const dropdown = document.getElementById("tools-dropdown");
+      const trigger = document.getElementById("tools-trigger");
+      const menu = document.getElementById("tools-menu");
 
       if (!dropdown || !trigger || !menu) return;
 
       function setMenuOpen(shouldOpen) {
-        trigger.setAttribute('aria-expanded', String(shouldOpen));
+        trigger.setAttribute("aria-expanded", String(shouldOpen));
         menu.hidden = !shouldOpen;
       }
 
-      trigger.addEventListener('click', function (event) {
+      trigger.addEventListener("click", function (event) {
         event.stopPropagation();
-        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+        const isOpen =
+          trigger.getAttribute("aria-expanded") === "true";
+
         setMenuOpen(!isOpen);
       });
 
-      document.addEventListener('click', function (event) {
-        if (!dropdown.contains(event.target)) setMenuOpen(false);
+      document.addEventListener("click", function (event) {
+        if (!dropdown.contains(event.target)) {
+          setMenuOpen(false);
+        }
       });
 
-      document.addEventListener('keydown', function (event) {
-        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
-        if (event.key === 'Escape' && isOpen) {
+      document.addEventListener("keydown", function (event) {
+        const isOpen =
+          trigger.getAttribute("aria-expanded") === "true";
+
+        if (event.key === "Escape" && isOpen) {
           setMenuOpen(false);
           trigger.focus();
         }
       });
 
-      menu.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', function () {
+      menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
           setMenuOpen(false);
         });
       });
