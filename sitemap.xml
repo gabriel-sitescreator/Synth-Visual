@@ -1,53 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
   <url>
     <loc>https://synthvisuals.space/</loc>
   </url>
-  
   <url>
     <loc>https://synthvisuals.space/about.html</loc>
   </url>
-  
   <url>
     <loc>https://synthvisuals.space/privacy-policy.html</loc>
   </url>
-  
   <url>
     <loc>https://synthvisuals.space/affiliate-disclosure.html</loc>
   </url>
-  
   <url>
     <loc>https://synthvisuals.space/what-is-a-vpn.html</loc>
   </url>
-  
   <url>
     <loc>https://synthvisuals.space/what-is-an-ip-address.html</loc>
   </url>
-  
   <url>
     <loc>https://synthvisuals.space/what-is-dns.html</loc>
   </url>
-
   <url>
     <loc>https://synthvisuals.space/nordvpn-review.html</loc>
   </url>
-
-   <url>
+  <url>
     <loc>https://synthvisuals.space/how-to-find-your-ip-address.html</loc>
   </url>
-  
   <url>
     <loc>https://synthvisuals.space/ipv4-vs-ipv6.html</loc>
   </url>
-  
   <url>
     <loc>https://synthvisuals.space/what-is-nat.html</loc>
   </url>
-
   <url>
     <loc>https://synthvisuals.space/vpn-hide-your-ip-address.html</loc>
   </url>
-  
-  
+  <url>
+    <loc>https://synthvisuals.space/public-privateip.html</loc>
+  </url>
+  <url>
+    <loc>https://synthvisuals.space/vpn-anonymous.html</loc>
+  </url>
+  <url>
+    <loc>https://synthvisuals.space/public-wifi-without-vpn.html</loc>
+  </url>
+  <url>
+    <loc>https://synthvisuals.space/vpn-isp-visibility.html</loc>
+  </url>
+  <url>
+    <loc>https://synthvisuals.space/vpn-protect-hackers.html</loc>
+  </url>
+  <url>
+    <loc>https://synthvisuals.space/free-vpn-safe.html</loc>
+  </url>
+  <url>
+    <loc>https://synthvisuals.space/vpn-cookies-tracking.html</loc>
+  </url>
+  <url>
+    <loc>https://synthvisuals.space/vpn-on-all-the-time.html</loc>
+  </url>
+  <url>
+    <loc>https://synthvisuals.space/vpn-private-browsing.html</loc>
+  </url>
+  <url>
+    <loc>https://synthvisuals.space/dns-webrtc-leak-test.html</loc>
+  </url>
+  <url>
+    <loc>https://synthvisuals.space/what-is-my-ip.html</loc>
+  </url>
+  <url>
+    <loc>https://synthvisuals.space/secure-password-generator.html</loc>
+  </url>
 </urlset>
