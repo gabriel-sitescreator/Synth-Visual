@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-B2R2YLSL7R"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-B2R2YLSL7R');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="description" content="Compare VPNs and private browsing to learn what each protects, what your internet provider may see, and how to reduce tracking online.">
+  <meta name="theme-color" content="#f7f7f4">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://synthvisuals.space/vpn-vs-private-browsing.html">
+  <title>VPN vs. Private Browsing: What's the Difference? | Synth Visual</title>
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="VPN vs. Private Browsing: What's the Difference? | Synth Visual">
+  <meta property="og:description" content="Compare VPNs and private browsing to learn what each protects, what your internet provider may see, and how to reduce tracking online.">
+  <meta property="og:url" content="https://synthvisuals.space/vpn-vs-private-browsing.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="VPN vs. Private Browsing: What's the Difference? | Synth Visual">
+  <meta name="twitter:description" content="Compare VPNs and private browsing to learn what each protects, what your internet provider may see, and how to reduce tracking online.">
+
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "VPN vs. Private Browsing: What's the Difference?",
+  "description": "Compare VPNs and private browsing to learn what each protects, what your internet provider may see, and how to reduce tracking online.",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://synthvisuals.space/vpn-vs-private-browsing.html"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Synth Visual"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Synth Visual",
+    "url": "https://synthvisuals.space/"
+  },
+  "inLanguage": "en",
+  "articleSection": "VPNs / Online Privacy / Browser Security",
+  "keywords": [
+    "VPN vs private browsing",
+    "VPN vs incognito mode",
+    "private browsing privacy",
+    "VPN encryption",
+    "browser tracking",
+    "online privacy"
+  ]
+}
+  </script>
+
+  <style>
+    :root {
+      --page: #f7f7f4;
+      --surface: #ffffff;
+      --text: #20231f;
+      --muted: #686d66;
+      --line: #e2e5de;
+      --accent: #245b49;
+      --accent-hover: #194637;
+      --soft: #eaf0eb;
+      --soft-2: #f0f2ed;
+      --max-width: 1120px;
+      --reading-width: 760px;
+      --radius: 16px;
+      --shadow: 0 8px 30px rgba(27, 39, 30, 0.045);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--text);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: var(--accent-hover);
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid #7cae98;
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    /* Header */
+
+    .site-header {
+      position: relative;
+      z-index: 20;
+      border-bottom: 1px solid var(--line);
+      background: rgba(247, 247, 244, .96);
+    }
+
+    .header-inner {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .brand {
+      display: inline-flex;
+      flex-direction: column;
+      line-height: 1.05;
+      flex-shrink: 0;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .brand-name {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 27px;
+      font-weight: 700;
+      letter-spacing: -1.2px;
+    }
+
+    .brand-tagline {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+    }
+
+    .main-nav {
+      display: flex;
+      align-items: center;
+      gap: 27px;
+      color: #424840;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .main-nav a,
+    .tools-trigger {
+      transition: color 160ms ease;
+    }
+
+    .main-nav a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .main-nav a:hover,
+    .main-nav a[aria-current="page"],
+    .tools-trigger:hover,
+    .tools-trigger[aria-expanded="true"] {
+      color: var(--accent);
+    }
+
+    .nav-cta {
+      padding: 10px 15px;
+      border: 1px solid #cbd6ce;
+      border-radius: 999px;
+      color: var(--accent) !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--soft);
+    }
+
+    /* Tools dropdown — shared with the Affiliate Disclosure page */
+
+    .tools-dropdown {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .tools-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 9px 0;
+      border: 0;
+      background: transparent;
+      color: #424840;
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .tools-chevron {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-right: 1.5px solid currentColor;
+      border-bottom: 1.5px solid currentColor;
+      transform: translateY(-2px) rotate(45deg);
+      transition: transform 160ms ease;
+    }
+
+    .tools-trigger[aria-expanded="true"] .tools-chevron {
+      transform: translateY(2px) rotate(225deg);
+    }
+
+    .tools-menu {
+      position: absolute;
+      top: calc(100% + 12px);
+      right: -18px;
+      z-index: 50;
+      width: 322px;
+      padding: 10px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--surface);
+      box-shadow: 0 16px 42px rgba(27, 39, 30, 0.13);
+    }
+
+    .tools-menu[hidden] {
+      display: none;
+    }
+
+    .tools-menu-section {
+      padding: 8px 7px 9px;
+    }
+
+    .tools-menu-heading {
+      margin: 0 0 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: 1.25px;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .tools-menu a {
+      display: flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .tools-menu a:hover,
+    .tools-menu a:focus-visible {
+      background: var(--soft);
+      color: var(--accent);
+    }
+
+    .tools-menu-divider {
+      height: 1px;
+      margin: 3px 7px;
+      background: var(--line);
+    }
+
+    .tools-menu .tools-commercial-link {
+      color: var(--accent);
+    }
+
+    /* Reading progress */
+
+    .progress-track {
+      height: 3px;
+      background: transparent;
+    }
+
+    .progress-bar {
+      width: 0;
+      height: 100%;
+      background: var(--accent);
+      transition: width 80ms linear;
+    }
+
+    /* Breadcrumbs */
+
+    .breadcrumbs {
+      padding: 25px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .breadcrumbs ol {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .breadcrumbs li + li::before {
+      content: "/";
+      margin-right: 8px;
+      color: #a0a59d;
+    }
+
+    .breadcrumbs a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+      color: var(--accent);
+    }
+
+    /* Article hero */
+
+    .article-hero {
+      padding: 34px 0 35px;
+    }
+
+    .article-hero-inner {
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 18px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.9px;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 1px;
+      background: currentColor;
+    }
+
+    h1, h2, h3 {
+      text-wrap: pretty;
+    }
+
+    .article-hero h1 {
+      max-width: 850px;
+      margin: 0 auto;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 6vw, 66px);
+      font-weight: 500;
+      letter-spacing: -2.3px;
+      line-height: 1.08;
+    }
+
+    .article-hero h1 em {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .dek {
+      max-width: 710px;
+      margin: 22px auto 0;
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.8;
+    }
+
+    .article-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px 18px;
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .meta-dot {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .meta-dot::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background: #99a69b;
+      border-radius: 50%;
+    }
+
+    .topic-pill {
+      padding: 6px 10px;
+      background: var(--soft);
+      border: 1px solid #dce6dc;
+      border-radius: 999px;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    /* Feature visual */
+
+    .feature-visual {
+      overflow: hidden;
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: clamp(22px, 4vw, 42px);
+      border: 1px solid #dfe6dd;
+      border-radius: 22px;
+      background: linear-gradient(135deg, #eff3ee 0%, #f9fbf8 48%, #e7eee8 100%);
+      box-shadow: var(--shadow);
+    }
+
+    .visual-caption {
+      margin: 17px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .connection-flow {
+      display: grid;
+      grid-template-columns: 1fr minmax(100px, 1.2fr) 1fr minmax(100px, 1.2fr) 1fr;
+      align-items: center;
+      gap: 12px;
+      max-width: 830px;
+      margin: 0 auto;
+    }
+
+    .device-card {
+      min-height: 142px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      padding: 18px 10px;
+      border: 1px solid rgba(36, 91, 73, .18);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, .82);
+      text-align: center;
+    }
+
+    .device-card svg {
+      width: 43px;
+      height: 43px;
+      color: var(--accent);
+    }
+
+    .device-card strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    .device-card small {
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.4;
+    }
+
+    .tunnel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      text-align: center;
+    }
+
+    .tunnel-line {
+      position: relative;
+      width: 100%;
+      height: 3px;
+      border-radius: 999px;
+      background: #9ab9a5;
+    }
+
+    .tunnel-line::after {
+      content: "";
+      position: absolute;
+      right: -1px;
+      top: -4px;
+      width: 0;
+      height: 0;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      border-left: 7px solid #5e9476;
+    }
+
+    .tunnel-label {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+    }
+
+    .tunnel-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 26px;
+      height: 26px;
+      border: 1px solid #c8d9cb;
+      border-radius: 50%;
+      background: #fafffa;
+    }
+
+    .tunnel-icon svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    /* Article layout */
+
+    .article-layout {
+      display: grid;
+      grid-template-columns: 220px minmax(0, 760px);
+      align-items: start;
+      justify-content: center;
+      gap: clamp(28px, 5vw, 64px);
+      padding: 40px 0 86px;
+    }
+
+    .toc-wrap {
+      position: sticky;
+      top: 24px;
+    }
+
+    .toc-card {
+      padding: 23px 19px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .toc-title {
+      margin: 0 0 14px;
+      color: var(--text);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .toc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .toc-list a {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      text-decoration: none;
+    }
+
+    .toc-list a:hover,
+    .toc-list a:focus {
+      color: var(--accent);
+    }
+
+    .toc-note {
+      margin: 20px 0 0;
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.7;
+    }
+
+    .mobile-toc {
+      display: none;
+      margin-bottom: 28px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .mobile-toc summary {
+      padding: 14px 16px;
+      cursor: pointer;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 750;
+    }
+
+    .mobile-toc .toc-list {
+      padding: 0 16px 17px;
+    }
+
+    .article-content {
+      min-width: 0;
+      max-width: var(--reading-width);
+      font-size: 16px;
+      line-height: 1.85;
+    }
+
+    .article-content p {
+      margin: 0 0 21px;
+    }
+
+    .article-content h2 {
+      margin: 54px 0 17px;
+      padding-top: 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(29px, 3.5vw, 36px);
+      font-weight: 500;
+      letter-spacing: -.8px;
+      line-height: 1.18;
+      scroll-margin-top: 24px;
+    }
+
+    .article-content h3 {
+      margin: 32px 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 23px;
+      font-weight: 500;
+      letter-spacing: -.35px;
+      line-height: 1.3;
+      scroll-margin-top: 24px;
+    }
+
+    .article-content h4 {
+      margin: 26px 0 10px;
+      font-size: 16px;
+      font-weight: 750;
+      line-height: 1.4;
+    }
+
+    .article-content strong {
+      color: #242923;
+    }
+
+    .article-content ul,
+    .article-content ol {
+      margin: 0 0 24px;
+      padding-left: 25px;
+    }
+
+    .article-content li {
+      margin: 7px 0;
+      padding-left: 3px;
+    }
+
+    .article-content li::marker {
+      color: var(--accent);
+    }
+
+    .article-content blockquote {
+      margin: 26px 0;
+      padding: 18px 22px;
+      border-left: 3px solid var(--accent);
+      border-radius: 0 12px 12px 0;
+      background: var(--soft-2);
+      color: #434940;
+    }
+
+    .article-content blockquote p:last-child {
+      margin-bottom: 0;
+    }
+
+    .article-content a {
+      text-decoration-thickness: 1px;
+    }
+
+    .quick-answer {
+      margin: 6px 0 36px;
+      padding: 23px 25px 3px;
+      border: 1px solid #d8e3d9;
+      border-radius: 15px;
+      background: #f0f5ef;
+    }
+
+    .quick-answer-label {
+      margin: 0 0 8px !important;
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .quick-answer p {
+      font-size: 15px;
+    }
+
+    .scroll-table {
+      margin: 26px 0 30px;
+      overflow-x: auto;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--surface);
+    }
+
+    .article-content table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .article-content th,
+    .article-content td {
+      min-width: 150px;
+      padding: 14px 15px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .article-content th {
+      background: #f0f2ed;
+      color: #323930;
+      font-size: 11px;
+      letter-spacing: .2px;
+    }
+
+    .article-content tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .article-content td:first-child {
+      min-width: 165px;
+      font-weight: 700;
+    }
+
+    .step-list {
+      display: grid;
+      gap: 12px;
+      margin: 22px 0 28px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 38px 1fr;
+      gap: 13px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      background: #fff;
+    }
+
+    .step-number {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin: 2px 0 5px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .step p {
+      margin: 0;
+      color: #51584f;
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .takeaway {
+      margin: 35px 0;
+      padding: 24px;
+      border: 1px solid #d8e3d9;
+      border-radius: 15px;
+      background: #eef4ee;
+    }
+
+    .takeaway h3 {
+      margin-top: 0;
+    }
+
+    .takeaway p:last-child {
+      margin-bottom: 0;
+    }
+
+    .faq-item {
+      padding: 19px 0 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .faq-item h3 {
+      margin-top: 0;
+      font-family: inherit;
+      font-size: 16px;
+      font-weight: 750;
+      letter-spacing: 0;
+    }
+
+    .faq-item p {
+      margin-bottom: 20px;
+    }
+
+    .references {
+      margin-top: 56px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+
+    .references h2 {
+      margin-top: 0;
+      font-size: 29px;
+    }
+
+    .references-intro {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .reference-list {
+      display: grid;
+      gap: 0;
+      list-style: none !important;
+      margin: 21px 0 0 !important;
+      padding: 0 !important;
+    }
+
+    .reference-list li {
+      margin: 0;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .reference-list a {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 750;
+    }
+
+    .reference-list p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.65;
+    }
+
+    .back-to-top {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    /* Related articles */
+
+    .related-strip {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      background: var(--soft-2);
+    }
+
+    .related-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .related-inner h2 {
+      margin: 0 0 5px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 25px;
+      font-weight: 500;
+    }
+
+    .related-inner p {
+      max-width: 660px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .related-link {
+      flex-shrink: 0;
+      display: inline-block;
+      padding: 11px 16px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: white;
+      font-size: 12px;
+      font-weight: 750;
+      text-decoration: none;
+    }
+
+    .related-link:hover {
+      background: var(--accent-hover);
+      color: white;
+    }
+
+    /* Footer */
+
+    .site-footer {
+      padding: 27px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .footer-brand {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .copyright {
+      margin: 5px 0 0;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 19px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .footer-links a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--accent);
+    }
+
+    /* Responsive layout */
+
+    @media (max-width: 900px) {
+      .article-layout {
+        grid-template-columns: minmax(0, 760px);
+      }
+
+      .toc-wrap {
+        display: none;
+      }
+
+      .mobile-toc {
+        display: block;
+      }
+
+      .article-content {
+        margin-inline: auto;
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        width: min(100% - 32px, var(--max-width));
+      }
+
+      .header-inner {
+        min-height: 74px;
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 13px;
+        padding: 15px 0;
+      }
+
+      .brand-name {
+        font-size: 24px;
+      }
+
+      .brand-tagline {
+        font-size: 9px;
+      }
+
+      .main-nav {
+        width: 100%;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 11px;
+      }
+
+      .nav-cta {
+        padding: 7px 10px;
+      }
+
+      .tools-trigger {
+        padding: 7px 0;
+      }
+
+      .tools-menu {
+        top: calc(100% + 8px);
+        left: 0;
+        right: auto;
+        right: -8px;
+        width: min(322px, calc(100vw - 32px));
+      }
+
+      .breadcrumbs {
+        padding-top: 18px;
+      }
+
+      .article-hero {
+        padding: 28px 0 25px;
+      }
+
+      .article-hero h1 {
+        font-size: clamp(37px, 10vw, 52px);
+        letter-spacing: -1.7px;
+      }
+
+      .dek {
+        font-size: 15px;
+      }
+
+      .feature-visual {
+        padding: 17px 14px;
+        border-radius: 17px;
+      }
+
+      .connection-flow {
+        grid-template-columns: 1fr;
+        gap: 9px;
+        max-width: 330px;
+      }
+
+      .device-card {
+        min-height: auto;
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        justify-content: start;
+        text-align: left;
+        padding: 12px 14px;
+      }
+
+      .device-card svg {
+        width: 34px;
+        height: 34px;
+        grid-row: span 2;
+      }
+
+      .device-card strong {
+        align-self: end;
+        font-size: 15px;
+      }
+
+      .device-card small {
+        align-self: start;
+      }
+
+      .tunnel {
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        gap: 7px 10px;
+        justify-items: start;
+        text-align: left;
+        padding-left: 24px;
+      }
+
+      .tunnel-line {
+        width: 3px;
+        height: 19px;
+        margin-left: 11px;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+      }
+
+      .tunnel-line::after {
+        top: auto;
+        bottom: -1px;
+        right: -4px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 7px solid #5e9476;
+        border-bottom: 0;
+      }
+
+      .tunnel-icon {
+        grid-column: 2;
+        grid-row: 1;
+        width: 23px;
+        height: 23px;
+      }
+
+      .tunnel-label {
+        grid-column: 2;
+        grid-row: 2;
+      }
+
+      .article-layout {
+        padding: 28px 0 58px;
+      }
+
+      .article-content {
+        font-size: 15px;
+        line-height: 1.82;
+      }
+
+      .article-content h2 {
+        margin-top: 43px;
+        font-size: 30px;
+      }
+
+      .article-content h3 {
+        font-size: 21px;
+      }
+
+      .step {
+        padding: 14px;
+      }
+
+      .related-inner,
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: .01ms !important;
+      }
+    }
+
+    @media print {
+      .site-header,
+      .progress-track,
+      .toc-wrap,
+      .mobile-toc,
+      .related-strip,
+      .site-footer,
+      .back-to-top {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+      }
+
+      .container {
+        width: 100%;
+      }
+
+      .article-layout {
+        display: block;
+        padding: 0;
+      }
+
+      .article-content {
+        max-width: none;
+        font-size: 11pt;
+      }
+
+      .article-content h2 {
+        break-after: avoid;
+      }
+
+      a {
+        color: inherit;
+      }
+    }
+
+    /* IPv4 vs IPv6 comparison visual */
+
+    .ip-comparison {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: stretch;
+      gap: 18px;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .ip-type-card {
+      min-width: 0;
+      padding: 25px 22px;
+      border: 1px solid rgba(36, 91, 73, .18);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, .86);
+      text-align: left;
+    }
+
+    .ip-type-card.private {
+      background: rgba(234, 240, 235, .78);
+    }
+
+    .ip-card-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--accent);
+    }
+
+    .ip-card-heading svg {
+      flex: 0 0 auto;
+      width: 36px;
+      height: 36px;
+    }
+
+    .ip-card-heading strong {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 23px;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .ip-type-card p {
+      margin: 17px 0 14px;
+      color: #4b554b;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+
+    .ip-type-card .ip-example-label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .ip-address-examples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .ip-type-card code {
+      display: inline-block;
+      padding: 6px 9px;
+      border: 1px solid #dce6dc;
+      border-radius: 7px;
+      background: white;
+      color: #285b48;
+      font-size: 11px;
+    }
+
+    .comparison-divider {
+      align-self: center;
+      color: #6a786b;
+      font-size: 10px;
+      font-weight: 850;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+    }
+
+    .inline-network-diagram {
+      margin: 25px 0 30px;
+      padding: 24px 18px 17px;
+      border: 1px solid #dfe6dd;
+      border-radius: 17px;
+      background: linear-gradient(135deg, #eff3ee 0%, #f9fbf8 48%, #e7eee8 100%);
+    }
+
+    .inline-network-diagram .connection-flow {
+      grid-template-columns: 1fr minmax(74px, .75fr) 1fr minmax(74px, .75fr) 1fr;
+      gap: 9px;
+    }
+
+    .inline-network-diagram .device-card {
+      min-height: 155px;
+      padding: 13px 8px;
+    }
+
+    .inline-network-diagram .device-card svg {
+      width: 35px;
+      height: 35px;
+    }
+
+    .inline-network-diagram .device-card strong {
+      font-size: 15px;
+    }
+
+    .inline-network-diagram .device-card small {
+      font-size: 10px;
+      overflow-wrap: anywhere;
+    }
+
+    .inline-network-diagram .tunnel-label {
+      font-size: 8px;
+      letter-spacing: .5px;
+    }
+
+    .article-content code {
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 700px) {
+      .ip-comparison {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .ip-type-card {
+        padding: 19px 17px;
+      }
+
+      .ip-card-heading strong {
+        font-size: 21px;
+      }
+
+      .comparison-divider {
+        justify-self: center;
+        padding: 1px 0;
+      }
+
+      .inline-network-diagram {
+        padding: 14px 12px;
+      }
+
+      .inline-network-diagram .connection-flow {
+        grid-template-columns: 1fr;
+        gap: 9px;
+        max-width: 330px;
+      }
+
+      .inline-network-diagram .device-card {
+        min-height: auto;
+        display: grid;
+        grid-template-columns: 42px 1fr;
+        justify-content: start;
+        text-align: left;
+        padding: 12px 14px;
+      }
+
+      .inline-network-diagram .device-card svg {
+        width: 34px;
+        height: 34px;
+        grid-row: span 2;
+      }
+
+      .inline-network-diagram .device-card strong {
+        align-self: end;
+        font-size: 15px;
+      }
+
+      .inline-network-diagram .device-card small {
+        align-self: start;
+      }
+
+      .inline-network-diagram .tunnel {
+        display: grid;
+        grid-template-columns: 24px 1fr;
+        gap: 7px 10px;
+        justify-items: start;
+        text-align: left;
+        padding-left: 24px;
+      }
+
+      .inline-network-diagram .tunnel-line {
+        width: 3px;
+        height: 19px;
+        margin-left: 11px;
+        grid-column: 1;
+        grid-row: 1 / span 2;
+      }
+
+      .inline-network-diagram .tunnel-line::after {
+        top: auto;
+        bottom: -1px;
+        right: -4px;
+        border-left: 5px solid transparent;
+        border-right: 5px solid transparent;
+        border-top: 7px solid #5e9476;
+        border-bottom: 0;
+      }
+
+      .inline-network-diagram .tunnel-icon {
+        grid-column: 2;
+        grid-row: 1;
+        width: 23px;
+        height: 23px;
+      }
+
+      .inline-network-diagram .tunnel-label {
+        grid-column: 2;
+        grid-row: 2;
+        font-size: 9px;
+      }
+    }
+  </style>
+</head>
+
+<body id="top">
+
+  <header class="site-header">
+    <div class="container header-inner">
+
+      <a class="brand" href="/" aria-label="Synth Visual home">
+        <span class="brand-name">Synth Visual</span>
+        <span class="brand-tagline">Technology, made clearer</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Main navigation">
+
+        <div class="tools-dropdown" id="tools-dropdown">
+          <button
+            class="tools-trigger"
+            id="tools-trigger"
+            type="button"
+            aria-expanded="false"
+            aria-controls="tools-menu"
+          >
+            Tools
+            <span class="tools-chevron" aria-hidden="true"></span>
+          </button>
+
+          <div class="tools-menu" id="tools-menu" hidden>
+
+            <div
+              class="tools-menu-section"
+              aria-labelledby="privacy-tools-heading"
+            >
+              <p class="tools-menu-heading" id="privacy-tools-heading">
+                Privacy &amp; Network Tools
+              </p>
+
+              <a href="/dns-webrtc-leak-test.html">
+                DNS/WebRTC Leak Test
+              </a>
+
+              <a href="/what-is-my-ip.html">
+                What Is My IP?
+              </a>
+
+              <a href="/secure-password-generator.html">Password Generator</a>
+            </div>
+
+            <div class="tools-menu-divider" aria-hidden="true"></div>
+
+            <div
+              class="tools-menu-section"
+              aria-labelledby="security-software-heading"
+            >
+              <p class="tools-menu-heading" id="security-software-heading">
+                VPNs &amp; Security Software
+              </p>
+
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordvpn.net/aff_c?offer_id=15&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordVPN Plans ↗</a>
+
+              <a
+                class="tools-commercial-link"
+                href="https://adguard-vpn.com?aid=138500"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >AdGuard VPN ↗</a>
+            </div>
+
+            <div class="tools-menu-divider" aria-hidden="true"></div>
+
+            <div class="tools-menu-section" aria-labelledby="ad-blocking-dns-heading">
+              <p class="tools-menu-heading" id="ad-blocking-dns-heading">Ad Blocking &amp; DNS</p>
+              <a
+                class="tools-commercial-link"
+                href="https://adguard.com?aid=138500"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >AdGuard Ad Blocker ↗</a>
+              <a
+                class="tools-commercial-link"
+                href="https://adguard-dns.io?aid=138500"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >AdGuard DNS ↗</a>
+            </div>
+
+            <div class="tools-menu-divider" aria-hidden="true"></div>
+
+            <div class="tools-menu-section" aria-labelledby="password-file-security-heading">
+              <p class="tools-menu-heading" id="password-file-security-heading">Password &amp; File Security</p>
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordpass.io/aff_c?offer_id=488&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordPass ↗</a>
+              <a
+                class="tools-commercial-link"
+                href="https://go.nordlocker.net/aff_c?offer_id=489&amp;aff_id=138160"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >NordLocker ↗</a>
+            </div>
+
+            <div class="tools-menu-divider" aria-hidden="true"></div>
+
+            <div class="tools-menu-section" aria-labelledby="creative-software-heading">
+              <p class="tools-menu-heading" id="creative-software-heading">Creative &amp; Design Software</p>
+              <a
+                class="tools-commercial-link"
+                href="https://www.coreldraw.com/br/product/coreldraw/?utm_medium=affiliate&amp;utm_source=cj&amp;utm_campaign=PL-other-all-defaultaffiliatelink&amp;x-vehicle=cj"
+                target="_blank"
+                rel="sponsored nofollow noopener noreferrer"
+              >CorelDRAW ↗</a>
+
+          </div>
+        </div>
+    </div>
+
+        <a href="/about.html">About</a>
+
+        <a class="nav-cta" href="/#latest-guides">
+          Explore Articles
+        </a>
+
+      </nav>
+    </div>
+
+    <div class="progress-track" aria-hidden="true">
+      <div class="progress-bar" id="reading-progress"></div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol>
+          <li><a href="/">Home</a></li>
+          <li><a href="/#latest-guides">VPNs &amp; Online Privacy</a></li>
+          <li aria-current="page">VPN vs. Private Browsing: What's the Difference?</li>
+        </ol>
+      </nav>
+
+      <section class="quick-answer" id="quick-answer" aria-labelledby="quick-answer-heading">
+  <p class="quick-answer-label" id="quick-answer-heading">Quick Answer</p>
+  <p><strong>What's the difference between a VPN and private browsing?</strong></p>
+  <p>Private browsing mainly limits the browsing information your browser saves on your device after a private session ends, while a VPN encrypts eligible traffic between your device and a VPN server and changes the public IP address visible to many destination websites. Neither tool guarantees complete anonymity or prevents every form of online tracking.</p>
+</section>
+
+      <header class="article-hero">
+        <div class="article-hero-inner">
+          <p class="eyebrow">VPNs · Online Privacy · Browser Security</p>
+          <h1>VPN vs. Private Browsing: What's the Difference?</h1>
+          <p class="dek">Understand the difference between local browsing privacy and network-level protection, what websites and internet providers may still see, and when to use a VPN, private browsing, or both.</p>
+          <div class="article-meta" aria-label="Article information">
+            <span class="topic-pill">VPNs &amp; Privacy</span>
+            <span class="meta-dot">Beginner friendly</span>
+            <span class="meta-dot">About 13 min read</span>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <div class="container article-layout">
+      <aside class="toc-wrap" aria-label="Article navigation">
+        <nav class="toc-card">
+          <p class="toc-title">On this page</p>
+          <ol class="toc-list"><li><a href="#vpn-vs-private-browsing-what-s-the-difference">VPN vs. Private Browsing: What's the Difference?</a></li>
+<li><a href="#what-is-private-or-incognito-browsing">What Is Private or Incognito Browsing?</a></li>
+<li><a href="#what-is-a-vpn-and-how-does-it-work">What Is a VPN and How Does It Work?</a></li>
+<li><a href="#vpn-vs-private-browsing-side-by-side-comparison">VPN vs. Private Browsing: Side-by-Side Comparison</a></li>
+<li><a href="#can-websites-still-track-you-when-you-use-a-vpn-or-incognito-mode">Can Websites Still Track You When You Use a VPN or Incognito Mode?</a></li>
+<li><a href="#what-can-your-internet-provider-see">What Can Your Internet Provider See?</a></li>
+<li><a href="#can-you-use-a-vpn-and-private-browsing-together">Can You Use a VPN and Private Browsing Together?</a></li>
+<li><a href="#which-option-should-you-use">Which Option Should You Use?</a></li>
+<li><a href="#practical-tips-for-improving-online-privacy">Practical Tips for Improving Online Privacy</a></li>
+<li><a href="#final-verdict-vpn-or-private-browsing">Final Verdict — VPN or Private Browsing?</a></li>
+<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+<li><a href="#sources-and-further-reading">Sources and Further Reading</a></li></ol>
+          <p class="toc-note">Private browsing limits certain local records; a VPN protects eligible network traffic. Neither tool prevents every form of tracking.</p>
+        </nav>
+      </aside>
+
+      <article class="article-content">
+        <div class="mobile-toc">
+          <details>
+            <summary>On this page · Article contents</summary>
+            <ol class="toc-list"><li><a href="#vpn-vs-private-browsing-what-s-the-difference">VPN vs. Private Browsing: What's the Difference?</a></li>
+<li><a href="#what-is-private-or-incognito-browsing">What Is Private or Incognito Browsing?</a></li>
+<li><a href="#what-is-a-vpn-and-how-does-it-work">What Is a VPN and How Does It Work?</a></li>
+<li><a href="#vpn-vs-private-browsing-side-by-side-comparison">VPN vs. Private Browsing: Side-by-Side Comparison</a></li>
+<li><a href="#can-websites-still-track-you-when-you-use-a-vpn-or-incognito-mode">Can Websites Still Track You When You Use a VPN or Incognito Mode?</a></li>
+<li><a href="#what-can-your-internet-provider-see">What Can Your Internet Provider See?</a></li>
+<li><a href="#can-you-use-a-vpn-and-private-browsing-together">Can You Use a VPN and Private Browsing Together?</a></li>
+<li><a href="#which-option-should-you-use">Which Option Should You Use?</a></li>
+<li><a href="#practical-tips-for-improving-online-privacy">Practical Tips for Improving Online Privacy</a></li>
+<li><a href="#final-verdict-vpn-or-private-browsing">Final Verdict — VPN or Private Browsing?</a></li>
+<li><a href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+<li><a href="#sources-and-further-reading">Sources and Further Reading</a></li></ol>
+          </details>
+        </div>
+        <p>You open an incognito window because you do not want your browsing history saved on a shared computer. Later, you consider installing a VPN because you want your internet provider or the websites you visit to know less about your activity.</p>
+<p>Both actions relate to privacy, but they solve different problems.</p>
+<p>Private browsing primarily limits certain information the browser retains locally during and after a private session. A virtual private network (VPN), by contrast, routes eligible internet traffic through a VPN server and encrypts traffic between your device and that server.</p>
+<p>Neither tool makes you completely anonymous. Websites may still recognize accounts, tracking technologies can operate during a private session, and a VPN does not automatically erase your local browsing history.</p>
+<p>Understanding what each tool actually protects will help you choose the right privacy measures without paying for tools you do not need.</p>
+<h2 id="vpn-vs-private-browsing-what-s-the-difference">VPN vs. Private Browsing: What's the Difference?</h2>
+<p>The main difference is that <strong>private browsing focuses on local browsing records, while a VPN focuses on network traffic and the public IP address visible to destination websites</strong>.</p>
+<p>When you use private browsing, your browser generally keeps a separate session and removes certain browsing data when that session ends. This can be useful on a shared computer or when you want to separate temporary browsing from your ordinary browser history. The exact behavior depends on the browser. <a href="https://support.google.com/chrome/answer/95464?hl=en">Google Chrome's Incognito documentation</a> explains the scope and limitations of that mode.</p>
+<p>When you use a properly configured VPN, eligible traffic travels through an encrypted tunnel to a VPN server. Websites generally see the VPN server's public IP address rather than your original public IP address for connections routed through that server. The VPN provider becomes another party you must trust with the traffic it handles. <a href="https://ssd.eff.org/module/choosing-vpn-thats-right-you">The Electronic Frontier Foundation's VPN guide</a> explains the privacy trade-offs.</p>
+<p>Here is the practical distinction:</p>
+<ul>
+<li><strong>Private browsing:</strong> Helps limit the browsing history, cookies, and other session information retained locally by the browser.</li>
+<li><strong>VPN:</strong> Helps protect eligible traffic between your device and the VPN server and masks your original public IP address from many destination websites.</li>
+<li><strong>Both together:</strong> Can provide complementary privacy benefits, but neither tool guarantees anonymity or prevents every form of tracking.</li>
+</ul>
+<p>The distinction matters because an internet provider may still observe some connection information when you use private browsing alone, while a VPN does not automatically stop a browser from storing history or websites from recognizing your account.</p>
+<h2 id="what-is-private-or-incognito-browsing">What Is Private or Incognito Browsing?</h2>
+<p>Private browsing is a browser mode designed to separate a temporary browsing session from your ordinary browsing activity.</p>
+<p>Google Chrome calls this feature <em>Incognito mode</em>. Firefox and Safari use the term <em>Private Browsing</em>. Other browsers provide similar features, although their exact protections and settings differ.</p>
+<p>A private session is especially useful when you share a computer, want to keep a temporary search out of the browser's regular history, or need to sign into an account without changing the cookies used in your normal browsing session.</p>
+<h3 id="what-private-browsing-usually-does">What Private Browsing Usually Does</h3>
+<p>Private browsing generally limits what your browser retains locally after the private session ends.</p>
+<p>Depending on the browser, this may include browsing history, cookies, temporary website data, search history, form entries, and cached content. Chrome, for example, removes its private-session site data and browsing record when all Incognito windows are closed. Firefox keeps private-window cookies separate from regular-window cookies and discards them when the private session ends. See <a href="https://support.google.com/chrome/answer/95464?hl=en">Chrome's documentation</a> and <a href="https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history">Firefox's Private Browsing guide</a>.</p>
+<p>Safari also limits the browsing details it saves and keeps private browsing activity separate from the normal browsing experience. Its implementation includes additional protections in supported versions, such as advanced tracking and fingerprinting protection in private windows. <a href="https://support.apple.com/en-gb/guide/safari/ibrw1069/mac">Apple's Safari Private Browsing guide</a> describes its behavior and controls.</p>
+<p>This makes private browsing useful in everyday situations. For example, if you search for a gift on a shared family computer, a private window can reduce the chance that the search appears in the browser's ordinary history.</p>
+<p>However, private browsing does not necessarily remove every trace of an activity from the device. Files you download remain on the device, bookmarks you save may persist, and information stored by other applications or outside the browser may remain. Chrome and Apple document these limitations in their respective private-browsing guides.</p>
+<h3 id="what-private-browsing-does-not-do">What Private Browsing Does Not Do</h3>
+<p>Private browsing does not automatically conceal your activity from every person or service involved in your internet connection.</p>
+<p><strong>Websites you visit</strong> can still receive requests and collect information while the session is active. They may see your connection's public IP address and use their own tracking technologies.</p>
+<p><strong>Internet service providers (ISPs)</strong> may still observe connection information. Private browsing does not automatically encrypt all internet traffic or change the network route your device uses.</p>
+<p><strong>Employers, schools, and network administrators</strong> may be able to observe some activity when you use a managed device or network. What they can see depends on network monitoring, installed software, encryption, and the policies and technical controls in place.</p>
+<p><strong>Services where you sign in</strong> can still associate your activity with your account. Opening a private window does not make a signed-in Google, social media, email, or shopping account anonymous to the service.</p>
+<p><strong>Tracking technologies</strong> may operate during the private session. Cookies, scripts, and fingerprinting techniques can still recognize or distinguish a browser, depending on the browser's protections and the technologies involved.</p>
+<p>Google explicitly notes that Incognito does not make users invisible to websites, employers, schools, or internet providers. Firefox similarly warns that Private Browsing does not provide anonymity. (<a href="https://support.google.com/chrome/answer/95464?hl=en">Chrome Help</a>, <a href="https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history">Firefox Support</a>)</p>
+<p>Private browsing is therefore best understood as a way to limit certain local records, not as a method for hiding your entire internet connection.</p>
+<h3 id="what-happens-to-cookies-and-site-data">What Happens to Cookies and Site Data?</h3>
+<p>Cookies are small pieces of data that websites ask browsers to store and send back under specified conditions. They can maintain login sessions, remember preferences, preserve shopping carts, and support other website features. Some cookies can also be used for tracking. <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies">MDN's guide to HTTP cookies</a> explains their behavior.</p>
+<p>During a private session, browsers may still use cookies and website storage so pages function correctly. What commonly changes is how that data is isolated from regular browsing and what happens when the private session ends.</p>
+<p>For example, Chrome temporarily retains cookies and site data during Incognito mode, then removes them when all Incognito windows are closed. Firefox separates private-window cookies from ordinary browsing cookies and discards the private-session cookies at the end of the session. (<a href="https://support.google.com/chrome/answer/95464?hl=en">Chrome Help</a>, <a href="https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history">Firefox Support</a>)</p>
+<p>This does not mean private browsing prevents a website from using cookies while you are visiting it. A site may still recognize your browser during the session.</p>
+<p>Browser behavior also differs. Some browsers add tracking protections to private mode, while others focus more narrowly on local data retention. Check the documentation for the browser and version you use rather than assuming all private windows work identically.</p>
+<h2 id="what-is-a-vpn-and-how-does-it-work">What Is a VPN and How Does It Work?</h2>
+<p>A virtual private network creates a connection between your device and a VPN server. Traffic routed through this connection passes through an encrypted tunnel between those two endpoints.</p>
+<p>A VPN changes the network path your traffic takes. It does not automatically make every website trustworthy, erase local browser data, or remove identifiers that websites already have.</p>
+<h3 id="how-a-vpn-encrypts-network-traffic">How a VPN Encrypts Network Traffic</h3>
+<p>When a VPN is active, its application establishes an encrypted tunnel to the VPN server. Eligible traffic passing through that tunnel is protected while traveling between your device and the server.</p>
+<p>This can make it harder for someone monitoring the local Wi-Fi network or your ISP to inspect the contents of that tunneled traffic.</p>
+<p>However, the VPN tunnel and HTTPS protect different parts of the connection. HTTPS uses Transport Layer Security (TLS) to encrypt communication between your browser and a destination website. A VPN encrypts traffic between your device and the VPN server. These protections can work together rather than replace one another. <a href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security">MDN's TLS documentation</a> explains how TLS protects web communications.</p>
+<p>For instance, if you visit an HTTPS website through a VPN, the VPN tunnel protects the device-to-server segment, while HTTPS protects the browser-to-website communication. The VPN provider may handle network traffic and connection metadata, but properly encrypted HTTPS content ordinarily remains protected from being read in transit by the VPN provider.</p>
+<p>The specific protection depends on the VPN's configuration and which traffic is routed through it.</p>
+<h3 id="how-a-vpn-changes-the-ip-address-websites-see">How a VPN Changes the IP Address Websites See</h3>
+<p>Your public IP address identifies the internet connection from which requests reach a destination. It can also provide a rough indication of the connection's geographic location.</p>
+<p>When traffic is routed through a functioning VPN, destination websites generally see the VPN server's public IP address instead of your original public IP address.</p>
+<p>This can reduce direct exposure of your usual network address and make some IP-based location estimates less precise. However, an IP address is not a definitive personal identity, and changing it does not remove every other way a website can recognize you.</p>
+<p>A website may still identify you through a login, cookies, browser characteristics, or information you provide. The Electronic Frontier Foundation explains that VPNs change how traffic is routed but do not provide complete anonymity. (<a href="https://ssd.eff.org/module/choosing-vpn-thats-right-you">EFF VPN guide</a>)</p>
+<h3 id="what-a-vpn-does-not-automatically-hide">What a VPN Does Not Automatically Hide</h3>
+<p>A VPN does not normally delete your local browsing history or stop your browser from saving records. Private browsing or manual browser-data controls are needed for those purposes.</p>
+<p>A VPN also does not automatically block all cookies, prevent browser fingerprinting, or make accounts anonymous. A website you sign into can still associate your activity with that account.</p>
+<p>Some VPN products offer additional features, including advertising or tracker blocking. These features are separate from the basic VPN tunnel, and their effectiveness depends on how they work and which tracking methods they address.</p>
+<p>The EFF cautions against VPN marketing claims that suggest a VPN alone can stop all malware, cybercrime, surveillance, and online tracking. Its <a href="https://ssd.eff.org/module/choosing-vpn-thats-right-you">VPN selection guide</a> recommends examining a provider's limitations, business model, privacy practices, and technical transparency.</p>
+<h2 id="vpn-vs-private-browsing-side-by-side-comparison">VPN vs. Private Browsing: Side-by-Side Comparison</h2>
+<p>The following table summarizes the main differences. VPN protections assume that the service is functioning correctly and that the relevant traffic is routed through the tunnel.</p>
+<div class="scroll-table"><table>
+<thead>
+<tr>
+<th>Privacy or security feature</th>
+<th>Private browsing</th>
+<th>VPN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Changes the original public IP address visible to many destination websites</td>
+<td>No, not by itself</td>
+<td>Generally, for traffic routed through the VPN</td>
+</tr>
+<tr>
+<td>Encrypts eligible traffic between the device and a VPN server</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Limits locally retained browsing history after a session</td>
+<td>Generally, according to browser implementation</td>
+<td>No, not by itself</td>
+</tr>
+<tr>
+<td>Automatically blocks cookies</td>
+<td>No, although browser-specific restrictions may apply</td>
+<td>No, unless a separate feature provides relevant blocking</td>
+</tr>
+<tr>
+<td>Prevents all website tracking</td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Hides activity from an internet provider</td>
+<td>No, not by itself</td>
+<td>Reduces the ISP's visibility into properly tunneled traffic, but the VPN connection and some metadata remain visible</td>
+</tr>
+<tr>
+<td>Protects against phishing and malware</td>
+<td>No, not by itself</td>
+<td>No, not by itself</td>
+</tr>
+<tr>
+<td>Separates a temporary browsing session from ordinary browser data</td>
+<td>Yes, within the browser's design</td>
+<td>No, not by itself</td>
+</tr>
+<tr>
+<td>Can be used together with the other technology</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table></div>
+<p>Neither option is universally better. Private browsing is useful for limiting local browser records, while a VPN is useful when its network-level privacy benefits match your needs. (<a href="https://support.google.com/chrome/answer/95464?hl=en">Chrome Help</a>)</p>
+<h2 id="can-websites-still-track-you-when-you-use-a-vpn-or-incognito-mode">Can Websites Still Track You When You Use a VPN or Incognito Mode?</h2>
+<p>Yes. Tracking can continue through several mechanisms that are not eliminated simply by opening a private window or changing your IP address.</p>
+<h3 id="cookies-and-website-storage">Cookies and Website Storage</h3>
+<p>Websites use cookies and other storage mechanisms to maintain sessions, remember preferences, and associate activity with a browser.</p>
+<p>Private browsing generally isolates some of that data and removes it after the session ends, but websites can still use cookies during the session. A VPN does not ordinarily delete or block those cookies.</p>
+<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies">MDN guide to HTTP cookies</a> explains how cookies are stored and sent with requests. The FTC also describes how cookies can help websites and third-party services recognize activity across visits. (<a href="https://consumer.ftc.gov/articles/how-websites-and-apps-collect-and-use-your-information">FTC guide to online tracking</a>)</p>
+<h3 id="browser-fingerprinting">Browser Fingerprinting</h3>
+<p>Browser fingerprinting uses a combination of browser, device, and configuration characteristics to help distinguish browsers from one another.</p>
+<p>These characteristics may include browser settings, language, screen dimensions, operating system information, and other technical details. Their combination can help a website associate activity even when conventional cookies are unavailable.</p>
+<p>The EFF's <a href="https://coveryourtracks.eff.org/about">Cover Your Tracks project</a> explains that blocking cookies may provide only partial protection when tracking can continue through IP addresses or other signals. Fingerprinting does not guarantee that every visitor can be uniquely identified, but it is a reason that cookie deletion or IP masking alone may not be enough.</p>
+<p>Private browsing and VPNs can still provide their intended benefits, but neither guarantees that fingerprint-based recognition will be prevented.</p>
+<h3 id="logged-in-accounts">Logged-In Accounts</h3>
+<p>Signing in gives a website a direct way to link activity to an account.</p>
+<p>If you open a private window and sign in to your email, social media, or shopping account, the service can still associate your activity with that profile. Similarly, a VPN can change the IP address the service sees without removing the account relationship.</p>
+<p>Avoiding unnecessary account logins can reduce some direct associations, but it is not a guarantee of anonymity.</p>
+<h3 id="other-tracking-methods">Other Tracking Methods</h3>
+<p>Websites and apps can use tracking pixels, embedded third-party resources, URL parameters, and application-specific identifiers. These methods vary in how they work and what information they reveal.</p>
+<p>For example, an embedded resource may send a request when a page loads, while a URL may contain a campaign identifier that helps associate a visit with a referral. Mobile apps may use identifiers or account information beyond the browser's cookie system.</p>
+<p>The FTC explains that cookies, pixels, fingerprinting, and app identifiers can all contribute to online tracking. It also notes that browser privacy features and ad blockers offer controls, but do not necessarily prevent all tracking. (<a href="https://consumer.ftc.gov/articles/how-websites-and-apps-collect-and-use-your-information">FTC guide</a>)</p>
+<h2 id="what-can-your-internet-provider-see">What Can Your Internet Provider See?</h2>
+<p>The difference between private browsing and a VPN is particularly important when considering your internet service provider (ISP).</p>
+<p><strong>With private browsing alone</strong>, your browser may avoid retaining a normal local browsing record, but your internet connection still follows its usual network path. Private browsing does not automatically encrypt all traffic or conceal the existence of network connections.</p>
+<p>Without a VPN, an ISP may be able to observe connection metadata such as destination IP addresses, timing, and data volume. Depending on DNS settings, encryption, and the protocols in use, it may also be able to infer or identify some destination domain information. HTTPS generally protects the contents of properly encrypted web traffic, including page contents and submitted information, from ordinary network inspection. (<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security">MDN TLS documentation</a>)</p>
+<p><strong>With a properly functioning VPN</strong>, the ISP can generally see that your device is connecting to a VPN server, along with related connection metadata. It ordinarily cannot directly inspect the contents of traffic carried through the encrypted VPN tunnel.</p>
+<p>This does not mean that a VPN makes your connection completely invisible. The ISP may still observe connection timing, data volume, the VPN server's IP address, and other information that depends on the network and configuration.</p>
+<p>The VPN provider becomes another important party in the connection. It may be able to see some destination and connection metadata, depending on its technical architecture and policies. A VPN therefore changes the trust relationship rather than removing the need to consider trust.</p>
+<p>Firefox explicitly notes that Private Browsing does not hide activity from the internet provider. The EFF likewise explains that a VPN may protect some metadata from a local network observer, while the VPN provider itself becomes able to observe relevant information. (<a href="https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history">Firefox Support</a>, <a href="https://ssd.eff.org/module/choosing-vpn-thats-right-you">EFF VPN guide</a>)</p>
+<h2 id="can-you-use-a-vpn-and-private-browsing-together">Can You Use a VPN and Private Browsing Together?</h2>
+<p>Yes. Using a VPN and private browsing together can be useful because they address different privacy concerns.</p>
+<p>Imagine you are using a shared laptop at home or while traveling. You open a private browser window to limit the browsing history and session data retained by that browser. Then you activate a VPN to encrypt eligible traffic between the laptop and the VPN server and mask the original public IP address visible to many destination websites.</p>
+<p>The two tools complement each other:</p>
+<ul>
+<li>Private browsing helps limit certain local browser records after the session ends.</li>
+<li>A VPN helps protect network traffic routed through its encrypted tunnel and changes the public IP address visible to many destination websites.</li>
+<li>Browser tracking protection can restrict selected tracking technologies.</li>
+<li>Account and privacy settings can reduce some information associated with logged-in services.</li>
+</ul>
+<p>The combination does not guarantee anonymity. Websites can still recognize accounts, tracking technologies may operate during the session, and the VPN provider remains part of the connection. The extent of the benefits depends on your browser, VPN configuration, and the services you use.</p>
+<h2 id="which-option-should-you-use">Which Option Should You Use?</h2>
+<p>The right choice depends on what you want to protect.</p>
+<p><strong>If you share a computer and want to keep searches out of the ordinary browser history:</strong> Private browsing is often the most directly relevant tool. Remember that downloads, bookmarks, and information outside the browser may remain on the device.</p>
+<p><strong>If you want to reduce what your internet provider can learn about your traffic:</strong> A VPN can reduce the ISP's ability to inspect traffic routed through the encrypted tunnel. It does not make all connection metadata invisible, and the VPN provider becomes another party to consider.</p>
+<p><strong>If you want to mask your original public IP address from websites:</strong> A VPN can generally substitute its server's public IP address for your own on connections routed through it. It does not remove account identifiers or other tracking signals.</p>
+<p><strong>If you want to reduce cookie-based advertising and tracking:</strong> Review cookie settings and enable the tracking protection available in your browser. A reputable content blocker may help restrict selected advertising and tracking requests. A VPN alone is not designed to eliminate all cookies.</p>
+<p><strong>If you use public Wi-Fi and want additional network-level privacy:</strong> A VPN can protect traffic routed through its tunnel, while HTTPS provides a separate layer of protection for web communication. You should still verify the network, keep devices updated, and avoid suspicious login pages.</p>
+<p><strong>If you need stronger anonymity:</strong> Neither a VPN nor private browsing alone provides a guarantee. Your requirements may call for more specialized tools and a clearer understanding of your threat model—what you need to protect, from whom, and under what circumstances. Account logins, personal information, and device configuration can undermine anonymity regardless of which ordinary privacy mode you use.</p>
+<p>The goal is not to use every available tool. It is to choose measures that address the specific information and risks that matter to you.</p>
+<h2 id="practical-tips-for-improving-online-privacy">Practical Tips for Improving Online Privacy</h2>
+<p>These practical measures can improve privacy without making routine browsing unnecessarily complicated.</p>
+<ol>
+<li><strong>Understand local versus network privacy.</strong> Private browsing mainly affects locally retained browser information; a VPN affects the network path and the IP address visible to many destination websites.</li>
+<li><strong>Use private browsing when it is useful.</strong> It can help on shared devices or for temporary sessions, but check what your browser retains and what remains outside the browser.</li>
+<li><strong>Use HTTPS and secure applications.</strong> HTTPS helps protect the contents of web communications in transit. It does not prove that a site is trustworthy or prevent every form of tracking. (<a href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security">MDN TLS documentation</a>)</li>
+<li><strong>Consider a reputable VPN when the benefits fit your needs.</strong> Review the provider's privacy policy, technical documentation, logging practices, and business model. Avoid services that promise complete anonymity.</li>
+<li><strong>Review cookie and site-storage settings.</strong> Restrict unnecessary cookies where practical, while recognizing that some website functions may depend on them.</li>
+<li><strong>Enable browser tracking protection.</strong> Browser protections vary. Some include restrictions on cross-site cookies or known trackers, while private mode may provide additional browser-specific features.</li>
+<li><strong>Avoid unnecessary or untrusted extensions.</strong> Extensions can have access to browsing data depending on their permissions. Install only those you trust and need.</li>
+<li><strong>Understand the effect of signing in.</strong> A service can associate activity with your account even when you are in a private window or using a VPN.</li>
+<li><strong>Keep your browser and operating system updated.</strong> Updates can address security issues and improve privacy functionality, although they cannot eliminate every tracking method.</li>
+<li><strong>Review what a VPN actually protects.</strong> Confirm which traffic it routes, how it handles disconnections, and whether optional features such as tracker blocking are included and enabled.</li>
+<li><strong>Do not assume that using both tools eliminates tracking.</strong> A private window and a VPN provide different benefits, but cookies during the session, fingerprinting, account activity, and other identifiers may still matter.</li>
+</ol>
+<p>A few well-chosen measures can provide practical improvements. The aim is to reduce avoidable exposure while understanding the limits of the tools you rely on.</p>
+<h2 id="final-verdict-vpn-or-private-browsing">Final Verdict — VPN or Private Browsing?</h2>
+<p>Private browsing and VPNs are not interchangeable. <strong>Private browsing primarily limits certain browsing information saved locally, while a VPN protects eligible traffic between your device and the VPN server and changes the public IP address visible to many destination websites.</strong></p>
+<p>Private browsing can be useful when sharing a device or separating a temporary session from regular browser activity. A VPN can be useful when you want additional network-level privacy or less direct exposure of your original public IP address.</p>
+<p>Neither tool automatically prevents all tracking, guarantees anonymity, or replaces other security measures. Websites can still recognize accounts, browser fingerprinting may continue, and the privacy benefits of a VPN depend on its configuration and provider.</p>
+<p>For many people, the best approach is to choose tools according to the actual privacy problem: private browsing for local records, a VPN for network-level privacy, and browser tracking protections for selected tracking technologies. You can use them together when their distinct benefits are useful without assuming that any combination makes you completely invisible online.</p>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
+<h3 id="is-a-vpn-better-than-incognito-mode">Is a VPN better than incognito mode?</h3>
+<p>Neither is universally better because they serve different purposes. Incognito mode primarily limits what the browser retains locally after a private session, while a VPN encrypts eligible traffic to a VPN server and changes the public IP address visible to many destination websites.</p>
+<h3 id="does-incognito-mode-hide-browsing-history-from-my-internet-provider">Does incognito mode hide browsing history from my internet provider?</h3>
+<p>No. Incognito mode does not automatically hide activity from your internet provider. It mainly limits the browsing information stored locally by the browser; your ISP may still observe connection metadata depending on encryption, DNS settings, and network configuration.</p>
+<h3 id="can-a-vpn-hide-my-browsing-history">Can a VPN hide my browsing history?</h3>
+<p>A VPN does not automatically erase browsing history stored on your device. It can reduce what your ISP can directly observe about traffic routed through the VPN tunnel, but local browser history, account activity, and information available to websites are separate issues.</p>
+<h3 id="can-websites-track-me-when-i-use-private-browsing">Can websites track me when I use private browsing?</h3>
+<p>Yes. Websites may still use cookies during the session, recognize logged-in accounts, or employ other tracking techniques. Browser-specific protections can reduce some tracking, but private browsing is not a guarantee of anonymity.</p>
+<h3 id="should-i-use-a-vpn-and-incognito-mode-together">Should I use a VPN and incognito mode together?</h3>
+<p>You can use both together if you want their different benefits. Private browsing helps limit certain local browser records, while a VPN protects eligible traffic between your device and the VPN server. Neither tool prevents every tracking method or guarantees anonymity.</p>
+<h3 id="does-private-browsing-make-me-anonymous-online">Does private browsing make me anonymous online?</h3>
+<p>No. Private browsing mainly limits locally retained browser information. Websites, internet providers, network administrators, and services where you sign in may still be able to observe or associate some activity, depending on the circumstances.</p>
+<h2 id="sources-and-further-reading">Sources and Further Reading</h2>
+<p>The following official documentation and privacy guidance support the technical explanations in this article:</p>
+<ul>
+<li><a href="https://support.google.com/chrome/answer/95464?hl=en">Google Chrome Help — Browse in Incognito Mode</a>: explains local browsing-data retention and the limits of Incognito mode.</li>
+<li><a href="https://support.mozilla.org/en-US/kb/private-browsing-use-firefox-without-history">Mozilla Support — Private Browsing</a>: describes Firefox's private-session behavior and limitations.</li>
+<li><a href="https://support.apple.com/en-gb/guide/safari/ibrw1069/mac">Apple Support — Browse Privately in Safari on Mac</a>: explains Safari Private Browsing and browser-specific protections.</li>
+<li><a href="https://ssd.eff.org/module/choosing-vpn-thats-right-you">Electronic Frontier Foundation — Choosing the VPN That's Right for You</a>: discusses VPN functionality, provider trust, and limitations.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Cookies">MDN Web Docs — Using HTTP Cookies</a>: explains cookie behavior and browser storage.</li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/Security/Defenses/Transport_Layer_Security">MDN Web Docs — Transport Layer Security</a>: describes HTTPS/TLS protections.</li>
+<li><a href="https://consumer.ftc.gov/articles/how-websites-and-apps-collect-and-use-your-information">Federal Trade Commission — How Websites and Apps Collect and Use Your Information</a>: discusses cookies, tracking pixels, fingerprinting, and application identifiers.</li>
+<li><a href="https://coveryourtracks.eff.org/about">Electronic Frontier Foundation — Cover Your Tracks</a>: provides context on browser fingerprinting and tracking.</li>
+</ul>
+<p>Editorial note: Browser behavior and VPN coverage depend on software versions and configurations. Verify internal links and review browser documentation again before publication.</p>
+
+        <a class="back-to-top" href="#top">↑ Back to the top</a>
+      </article>
+    </div>
+
+    <section class="related-strip">
+      <div class="container related-inner">
+        <div>
+          <h2>Keep exploring online privacy.</h2>
+          <p>Explore more practical guides to VPN technology, IP address privacy, online anonymity, public Wi-Fi, and browser security.</p>
+        </div>
+        <a class="related-link" href="/#latest-guides">Explore all guides →</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <a class="footer-brand" href="/">Synth Visual</a>
+        <p class="copyright">
+          © <span id="current-year">2026</span> Synth Visual. All rights reserved.
+        </p>
+      </div>
+
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://synthvisuals.space/about.html">About</a>
+        <a href="https://synthvisuals.space/privacy-policy.html">Privacy Policy</a>
+        <a href="https://synthvisuals.space/affiliate-disclosure.html">Affiliate Disclosure</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    /* Update the copyright year */
+    document.getElementById("current-year").textContent =
+      new Date().getFullYear();
+
+    /* Reading progress bar */
+    (function () {
+      const bar = document.getElementById("reading-progress");
+
+      if (!bar) return;
+
+      let ticking = false;
+
+      function updateProgress() {
+        const doc = document.documentElement;
+        const max = doc.scrollHeight - window.innerHeight;
+        const amount = max > 0 ? (window.scrollY / max) * 100 : 0;
+
+        bar.style.width =
+          Math.max(0, Math.min(100, amount)) + "%";
+
+        ticking = false;
+      }
+
+      window.addEventListener("scroll", function () {
+        if (!ticking) {
+          window.requestAnimationFrame(updateProgress);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      updateProgress();
+    })();
+
+    /* Tools dropdown menu */
+    (function () {
+      const dropdown = document.getElementById("tools-dropdown");
+      const trigger = document.getElementById("tools-trigger");
+      const menu = document.getElementById("tools-menu");
+
+      if (!dropdown || !trigger || !menu) return;
+
+      function setMenuOpen(shouldOpen) {
+        trigger.setAttribute("aria-expanded", String(shouldOpen));
+        menu.hidden = !shouldOpen;
+      }
+
+      /* Toggle the menu when Tools is clicked */
+      trigger.addEventListener("click", function (event) {
+        event.stopPropagation();
+
+        const isOpen =
+          trigger.getAttribute("aria-expanded") === "true";
+
+        setMenuOpen(!isOpen);
+      });
+
+      /* Close the menu when clicking outside it */
+      document.addEventListener("click", function (event) {
+        if (!dropdown.contains(event.target)) {
+          setMenuOpen(false);
+        }
+      });
+
+      /* Close the menu with Escape and restore focus */
+      document.addEventListener("keydown", function (event) {
+        const isOpen =
+          trigger.getAttribute("aria-expanded") === "true";
+
+        if (event.key === "Escape" && isOpen) {
+          setMenuOpen(false);
+          trigger.focus();
+        }
+      });
+
+      /* Close the menu after selecting an item */
+      menu.querySelectorAll("a").forEach(function (link) {
+        link.addEventListener("click", function () {
+          setMenuOpen(false);
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
